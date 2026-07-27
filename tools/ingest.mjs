@@ -10,7 +10,10 @@
  *   node tools/ingest.mjs <프로젝트폴더>            # source/ 안의 html 전부
  *
  * 하는 일: slides/<id>.kgslide 를 쓰고 deck.json 목차에 순서대로 등록한다.
- * 이미 같은 origin 으로 넣은 장표가 있으면 새로 만들지 않고 그 자리를 갱신한다.
+ * 이미 같은 origin 으로 넣은 장표가 있으면 id·순서·미리보기 경로를 그대로 물려받는다.
+ *
+ * 주의: .kgslide 는 통째로 다시 쓴다. 사람이 쌓아 둔 편집분(patches·묘비·테마)은 사라진다.
+ * 아직 손대지 않은 장표에만 쓴다. 편집한 장표를 고칠 때는 tools/apply.mjs 커맨드 경로를 쓴다.
  */
 import { chromium } from 'playwright';
 import { existsSync } from 'node:fs';
@@ -74,7 +77,8 @@ try {
     const html = await readFile(file, 'utf8');
     const origin = basename(file);
 
-    // 기존 항목이 있으면 id 를 유지한다. 그래야 편집분과 미리보기가 그대로 이어진다.
+    // 기존 항목이 있으면 id 를 유지한다. 덱의 자리와 미리보기 파일 이름이 이어진다.
+    // 편집분까지 이어지지는 않는다 — 아래에서 문서를 통째로 덮어쓴다.
     const existing = deck.slides.find((s) => s.origin === origin);
     const id = existing?.id ?? crypto.randomUUID();
 

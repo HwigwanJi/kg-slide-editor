@@ -47,6 +47,46 @@ const log = (mark, msg) => console.log(`${mark} ${msg}`);
 /* ---------- 1. 스킬 ---------- */
 
 await mkdir(join(HOME, 'skills'), { recursive: true });
+
+/**
+ * 설치본이 저장소본과 다른 파일 목록.
+ *
+ * ~/.claude/skills 는 저장소에서 만들어 내는 파생물이지만, 사람이 거기를 직접 고치는 일이 실제로 생긴다.
+ * 그대로 덮으면 그 수정이 소리 없이 사라진다 — 이 도구가 막으려는 바로 그 종류의 사고다.
+ */
+async function drifted(src, dst, base = '') {
+  const out = [];
+  for (const e of await readdir(src, { withFileTypes: true })) {
+    const rel = base ? `${base}/${e.name}` : e.name;
+    const [a, b] = [join(src, e.name), join(dst, e.name)];
+    if (e.isDirectory()) {
+      if (existsSync(b)) out.push(...await drifted(a, b, rel));
+      continue;
+    }
+    if (!existsSync(b)) continue;
+    const [x, y] = await Promise.all([readFile(a), readFile(b)]);
+    if (!x.equals(y)) out.push(rel);
+  }
+  return out;
+}
+
+const force = process.argv.includes('--force');
+const changed = [];
+for (const name of await readdir(join(ROOT, 'skills'))) {
+  const dst = join(HOME, 'skills', name);
+  if (existsSync(dst)) changed.push(...(await drifted(join(ROOT, 'skills', name), dst)).map((f) => `${name}/${f}`));
+}
+
+if (changed.length > 0 && !force) {
+  console.error('✕ 설치본이 저장소본과 다릅니다. 덮어쓰면 그 수정이 사라집니다.\n');
+  for (const f of changed) console.error(`    ~/.claude/skills/${f}`);
+  console.error(`
+고칠 곳은 저장소의 skills/ 입니다. ~/.claude/skills 는 거기서 만들어 냅니다.
+  · 저 수정을 살리려면  → 저장소 skills/ 로 옮긴 뒤 다시 실행
+  · 버려도 되면          → npm run setup -- --force`);
+  process.exit(1);
+}
+
 for (const name of await readdir(join(ROOT, 'skills'))) {
   const dst = join(HOME, 'skills', name);
   // 통째로 갈아 끼운다. 남은 옛 파일이 새 규칙과 섞이면 무엇이 적용됐는지 알 수 없게 된다.
