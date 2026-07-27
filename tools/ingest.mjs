@@ -114,7 +114,6 @@ try {
     }
     console.log(`${existing ? '갱신' : '추가'} — ${doc.title}  (slides/${id}.kgslide)`);
     if (prev) console.log(`         ${note}`);
-    if (prev) console.log(`         ${note}`);
   }
 
   await rm(tmp, { force: true });
