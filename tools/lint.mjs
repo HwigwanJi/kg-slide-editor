@@ -51,7 +51,10 @@ try {
       process.exitCode = 2;
       continue;
     }
-    if (info.isDirectory()) reports.push(...await lintProject(page, input));
+    if (info.isDirectory()) {
+      reports.push(...await lintLibrary(input));
+      reports.push(...await lintProject(page, input));
+    }
     else reports.push(await lintFile(page, input, await settingsNear(input)));
   }
 } finally {
@@ -83,6 +86,55 @@ async function settingsNear(file) {
     }
   }
   return {};
+}
+
+/**
+ * 라이브러리 도형 검사.
+ * 브라우저를 띄울 것 없이 파일만 봐도 알 수 있는 것들이다 —
+ * 크기 기준(viewBox), 브랜드 이탈(하드코딩 색), 슬롯 정의 일치.
+ */
+async function lintLibrary(dir) {
+  const libDir = join(dir, 'library');
+  if (!existsSync(libDir)) return [];
+
+  let index = { shapes: [] };
+  const indexPath = join(libDir, 'index.json');
+  if (existsSync(indexPath)) {
+    try { index = JSON.parse(await readFile(indexPath, 'utf8')); } catch { /* 아래에서 잡힌다 */ }
+  }
+
+  const out = [];
+  for (const file of (await readdir(libDir)).filter((f) => f.endsWith('.svg'))) {
+    const svg = await readFile(join(libDir, file), 'utf8');
+    const wording = [];
+
+    if (!/viewBox=/.test(svg)) {
+      wording.push({ rule: '도형', hit: 'viewBox 없음', preview: file,
+        detail: 'viewBox 가 없으면 장표 안에서 크기가 정해지지 않는다.' });
+    }
+    const hard = [...new Set(svg.match(/(?:fill|stroke)="#[0-9a-fA-F]{3,6}"/g) ?? [])];
+    for (const h of hard) {
+      wording.push({ rule: '도형', hit: h, preview: file,
+        detail: '색을 직접 적었다. var(--토큰) 으로 바꿔 브랜드 안에 두어야 한다.' });
+    }
+
+    const slots = [...new Set([...svg.matchAll(/data-slot="([^"]+)"/g)].map((m) => m[1]))];
+    const declared = index.shapes?.find((s) => s.file === file)?.slots;
+    if (declared) {
+      const missing = slots.filter((s) => !declared.includes(s));
+      const extra = declared.filter((s) => !slots.includes(s));
+      for (const s of [...missing, ...extra]) {
+        wording.push({ rule: '도형', hit: s, preview: file,
+          detail: 'index.json 의 슬롯 목록과 도형 안의 표시가 어긋난다.' });
+      }
+    } else if (slots.length > 0) {
+      wording.push({ rule: '도형', hit: file, preview: file,
+        detail: `슬롯 ${slots.length}개가 index.json 에 등록되어 있지 않다.` });
+    }
+
+    out.push({ file: join(libDir, file), title: `라이브러리 · ${file}`, issues: [], missingRole: [], wording });
+  }
+  return out;
 }
 
 async function lintProject(page, dir) {

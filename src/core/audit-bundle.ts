@@ -6,7 +6,7 @@
  * 그래서 규칙은 코어 하나만 두고, 도구는 그것을 실행만 한다.
  */
 import { parseSettings, type ProjectSettings } from '@contract/index';
-import { ID_ATTR, ROLE_ATTR_PUBLIC, TEXT_ATTR, stampIds } from './ids';
+import { ID_ATTR, ROLE_ATTR_PUBLIC, SLOT_ATTR, TEXT_ATTR, stampIds } from './ids';
 import { auditOverflow, type OverflowIssue } from './overflow';
 import { auditWording, type WordingIssue } from './wording';
 import { importKgHtml } from '@adapters/import.kghtml';
@@ -34,7 +34,8 @@ export function auditPage(rawSettings: unknown): SlideReport {
     issues: auditOverflow(root, undefined, settings as ProjectSettings),
     wording: auditWording(root),
     missingRole: runs
-      .filter((el) => !el.getAttribute(ROLE_ATTR_PUBLIC))
+      // 도형 슬롯은 KG 위계 CSS 의 사정권 밖이라 위계를 붙이지 않는다(docs/SVG.md).
+      .filter((el) => !el.hasAttribute(SLOT_ATTR) && !el.getAttribute(ROLE_ATTR_PUBLIC))
       .map((el) => el.getAttribute(ID_ATTR) ?? '?'),
     textRuns: runs.length,
     nodes: root.querySelectorAll(`[${ID_ATTR}]`).length,

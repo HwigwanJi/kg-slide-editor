@@ -13,13 +13,15 @@ const TEXT_ALIGNS: [TextAlign, string][] = [
 const WEIGHTS = [300, 400, 500, 600, 700, 800, 900] as const;
 
 export function FormatTab({
-  api, doc, selection, tokens, minFontSize,
+  api, doc, selection, tokens, minFontSize, shapeVars,
 }: {
   api: EditorApi;
   doc: SlideDoc;
   selection: NodeId[];
   tokens: KgToken[];
   minFontSize: number;
+  /** 선택한 도형이 쓰는 CSS 변수 */
+  shapeVars: string[];
 }) {
   const id = selection[0];
   if (!id) return <p className="ed-empty">요소를 고르면 서식을 만질 수 있습니다.</p>;
@@ -137,6 +139,35 @@ export function FormatTab({
         onPick={(background) => api.styleSelected({ background })} onReset={() => reset('background')} />
       <ColorField label="테두리" tokens={tokens} value={style?.borderColor}
         onPick={(borderColor) => api.styleSelected({ borderColor })} onReset={() => reset('borderColor')} />
+
+      {shapeVars.length > 0 && (
+        <section className="ed-section">
+          <h2 className="ed-section__title">도형 색</h2>
+          <p className="ed-note">
+            이 도형이 쓰는 변수입니다. 하나를 바꾸면 그것을 쓰는 모든 획과 면이 함께 바뀝니다.
+          </p>
+          {shapeVars.map((name) => (
+            <div className="ed-field" key={name}>
+              <span className="ed-field__label" title={name}>{name.replace('--', '')}</span>
+              <span className="ed-field__control">
+                <select
+                  className="ed-select"
+                  value={style?.vars?.[name] ?? ''}
+                  onChange={(e) => api.styleSelected({
+                    vars: { ...style?.vars, [name]: (e.target.value || undefined) as ColorRef },
+                  })}
+                >
+                  <option value="">원래 색</option>
+                  {tokens.map((t) => <option key={t.name} value={t.ref}>{t.name}</option>)}
+                </select>
+                {style?.vars?.[name] && (
+                  <button className="ed-revert" onClick={() => reset('vars')}>되돌리기</button>
+                )}
+              </span>
+            </div>
+          ))}
+        </section>
+      )}
 
       <section className="ed-section">
         <h2 className="ed-section__title">서식 복사</h2>

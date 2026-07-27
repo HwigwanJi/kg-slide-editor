@@ -115,6 +115,9 @@ function applyAppearance(root: HTMLElement, doc: SlideDoc): void {
 }
 
 function applyStyle(el: HTMLElement, s: StylePatch): void {
+  if (s.vars) {
+    for (const [name, ref] of Object.entries(s.vars)) el.style.setProperty(name, toCssColor(ref));
+  }
   if (s.color) el.style.color = toCssColor(s.color);
   if (s.gradient) {
     const g = s.gradient;

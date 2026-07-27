@@ -21,6 +21,7 @@ export const zAddedKind = z.enum([
   'text',  // 빈 텍스트 상자
   'box',   // KG 박스(연한 영역)
   'copy',  // 기존 노드 복제 — 복제 시점의 모습을 그대로 굳힌다
+  'shape', // 라이브러리에서 가져온 도형(SVG)
 ]);
 
 export const zAddedNode = z.object({
@@ -29,6 +30,8 @@ export const zAddedNode = z.object({
   html: z.string(),
   /** 복제 출처 (추적용). 렌더에는 쓰지 않는다. */
   from: zNodeId.optional(),
+  /** 라이브러리 도형이면 그 파일 이름. 어디서 왔는지 추적한다. */
+  library: z.string().optional(),
 }).strict();
 
 /**

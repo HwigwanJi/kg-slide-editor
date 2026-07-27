@@ -45,6 +45,7 @@ export default function App() {
   const roleCounts = useMemo(() => api.roleCounts(), [api, revision]);
   const roleMetrics = useMemo(() => api.roleMetrics(), [api, revision]);
   const neighbors = useMemo(() => api.neighbors(), [api, revision, selection]);
+  const shapeVars = useMemo(() => api.shapeVars(), [api, revision, selection]);
   const settings = useMemo(() => api.settings(), [api, revision]);
 
   useEffect(() => installShortcuts(() => ctx), [ctx]);
@@ -77,7 +78,7 @@ export default function App() {
         neighbors={neighbors} roleOfNode={api.roleOfNode}
         roleCounts={roleCounts} roleMetrics={roleMetrics}
         issues={issues} scanning={scanning} scope={scope}
-        minFontSize={settings.minFontSize}
+        minFontSize={settings.minFontSize} shapeVars={shapeVars}
         tab={tab} onTab={setTab}
         onRescan={rescan} onScope={setScope}
       />

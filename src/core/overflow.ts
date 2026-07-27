@@ -13,7 +13,7 @@
  */
 import type { NodeId, ProjectSettings, StylePatch } from '@contract/index';
 import { DEFAULT_SETTINGS, floorFor } from '@contract/index';
-import { ID_ATTR, SLOT_CLASS, TEXT_ATTR, roleOf } from './ids';
+import { ID_ATTR, SLOT_ATTR, SLOT_CLASS, TEXT_ATTR, roleOf } from './ids';
 
 export type IssueKind = 'clipped' | 'outside' | 'sparse' | 'tooSmall';
 
@@ -137,8 +137,8 @@ export function auditOverflow(
       }
     }
 
-    // 2) 글자가 프로젝트 하한보다 작음
-    if (el.hasAttribute(TEXT_ATTR)) {
+    // 2) 글자가 프로젝트 하한보다 작음. 도형 슬롯은 도형 좌표계라 px 기준이 다르다.
+    if (el.hasAttribute(TEXT_ATTR) && !el.hasAttribute(SLOT_ATTR)) {
       const size = parseFloat(getComputedStyle(el).fontSize);
       const floor = floorFor(settings, roleOf(el));
       if (size + 0.01 < floor) {

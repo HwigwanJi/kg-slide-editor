@@ -32,6 +32,7 @@ export function Panel(props: {
   scanning: boolean;
   scope: 'slide' | 'deck';
   minFontSize: number;
+  shapeVars: string[];
   tab: TabId;
   onTab(t: TabId): void;
   onRescan(): void;
@@ -80,7 +81,7 @@ export function Panel(props: {
         {tab === 'format' && (
           <FormatTab
             api={api} doc={doc} selection={selection}
-            tokens={props.tokens} minFontSize={props.minFontSize}
+            tokens={props.tokens} minFontSize={props.minFontSize} shapeVars={props.shapeVars}
           />
         )}
         {tab === 'hierarchy' && (

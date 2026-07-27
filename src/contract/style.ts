@@ -80,6 +80,12 @@ export const zStylePatch = z.object({
   padding: zBox4.optional(),
   opacity: z.number().min(0).max(1).optional(),
   /**
+   * CSS 변수 재지정. 도형(SVG) 배색을 바꾸는 통로다.
+   * 도형마다 칠하는 자리가 달라 fill·stroke 항목을 따로 두면 일반화되지 않는다.
+   * 변수 하나를 바꾸면 그것을 쓰는 모든 획과 면이 함께 바뀐다(docs/SVG.md).
+   */
+  vars: z.record(z.string().regex(/^--[a-z0-9-]+$/), zColorRef).optional(),
+  /**
    * 이 요소만의 말머리표. 위계 전역값을 덮는다.
    * 빈 문자열이면 "이 요소는 말머리표 없음"이라는 뜻이며, 전역값이 켜져 있어도 끈다.
    */

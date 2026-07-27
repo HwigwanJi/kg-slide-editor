@@ -137,6 +137,8 @@ export interface EditorApi {
 
   /** 지금 선택 옆에 있는 것들 — 캔버스에서 집기 어려운 요소를 목록으로 잡는다 */
   neighbors(): Neighbor[];
+  /** 선택한 도형이 쓰는 CSS 변수 목록. 색을 갈아 끼울 자리를 보여 주기 위한 것. */
+  shapeVars(): string[];
   /** 고정점을 붙박은 채 확대·축소 */
   scaleSelected(factor: number, anchor: Anchor): void;
   /** 빈 곳을 끌어 여러 개를 고를 때의 판정 방식 */
@@ -759,6 +761,16 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
         };
       }
       return out;
+    },
+
+    shapeVars() {
+      const id = api.selection()[0];
+      const el = id ? elementOf(id) : null;
+      if (!el) return [];
+      const svg = el.matches('svg') ? el : el.querySelector('svg');
+      if (!svg) return [];
+      const found = svg.outerHTML.match(/var\(\s*(--[a-z0-9-]+)/g) ?? [];
+      return [...new Set(found.map((m) => m.replace(/var\(\s*/, '')))].sort();
     },
 
     neighbors() {

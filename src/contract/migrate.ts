@@ -31,6 +31,9 @@ const MIGRATIONS: Record<number, (doc: RawDoc) => RawDoc> = {
    * 기존 label 은 강조 태그로 남는다. 보조 태그·번호는 다시 판정된다.
    */
   3: (d) => ({ ...d, v: 4 }),
+
+  /** v4 → v5 : 도형 슬롯과 CSS 변수 도입. 기존 문서는 둘 다 없다. */
+  4: (d) => ({ ...d, v: 5 }),
 };
 
 export class ContractVersionError extends Error {

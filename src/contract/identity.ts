@@ -12,8 +12,8 @@
 import { z } from 'zod';
 
 export const zNodeId = z.string().regex(
-  /^(n|a[0-9a-z]{8})(\.\d+)*$/,
-  'NodeId 는 n[.index]* 또는 a<8자>[.index]* 형식이다',
+  /^(n|a[0-9a-z]{8})(\.\d+)*(\.s\d+)?$/,
+  'NodeId 는 n[.index]* 또는 a<8자>[.index]* 형식이며, 도형 슬롯은 끝에 .s<번호>가 붙는다',
 );
 export const zGroupId = z.string().regex(/^g[0-9a-z]{8}$/, 'GroupId 는 g<8자> 형식이다');
 

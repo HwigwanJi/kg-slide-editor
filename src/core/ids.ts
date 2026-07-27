@@ -27,6 +27,12 @@ export const SLOT_CLASS = 'kg-slot';
  * 사람이 손으로 고칠 값이 아니므로 글자 편집 단위로 열지 않는다.
  */
 export const AUTO_ATTR = 'data-kg-auto';
+/**
+ * 도형 안에서 글자를 갈아 끼울 수 있는 자리.
+ * SVG 는 통째로 불투명하게 다루되, 이 표시가 붙은 요소만 편집 단위로 연다.
+ * 전부 열면 좌표·경로까지 편집 단위가 되어 위계와 검사가 무너진다(docs/SVG.md).
+ */
+export const SLOT_ATTR = 'data-slot';
 
 /** 이 태그들만 텍스트 내부 서식으로 인정한다. tiptap 인라인 스키마와 같은 집합이어야 한다. */
 export const FORMAT_TAGS = new Set(['B', 'STRONG', 'I', 'EM', 'U', 'S', 'STRIKE', 'BR']);
@@ -225,7 +231,10 @@ export function stampIds(root: HTMLElement, base = 'n'): void {
     const explicit = el.getAttribute(ROLE_ATTR) as Role | null;
     const matched = explicit ?? matchRole(el);
 
-    if (isOpaque(el)) return;
+    if (isOpaque(el)) {
+      stampSlots(el, path);
+      return;
+    }
 
     if (isTextRun(el)) {
       el.setAttribute(TEXT_ATTR, '');
@@ -257,6 +266,19 @@ export function stampIds(root: HTMLElement, base = 'n'): void {
 
   walk(root, base, { area: 'body', listDepth: 0, runIndex: 0, runCount: 0, bodyLevel: 1 });
   assignRoles(unassigned);
+
+  /**
+   * 도형 안의 슬롯에 id 를 준다.
+   * 문서 순서로 번호를 매기므로 같은 도형이면 언제 그려도 같은 id 가 나온다.
+   * 위계(role)는 붙이지 않는다 — SVG 글자는 KG 위계 CSS 의 사정권 밖이다.
+   */
+  function stampSlots(host: Element, path: string): void {
+    let i = 0;
+    for (const slot of host.querySelectorAll(`[${SLOT_ATTR}]`)) {
+      slot.setAttribute(ID_ATTR, `${path}.s${i++}`);
+      slot.setAttribute(TEXT_ATTR, '');
+    }
+  }
 }
 
 /** ID로 요소 찾기. 없으면 null. */
