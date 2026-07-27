@@ -46,10 +46,11 @@ gh repo clone HwigwanJi/kg-slide-editor
 
 ## 3. 최신으로 맞추기
 
-저장소가 갱신되면 두 명령을 다시 돌린다. 스킬·자산·번들이 함께 따라온다.
+저장소가 갱신되면 **[SYNC.md](SYNC.md) 의 지시문을 클로드 코드에 붙여 넣는다.**
+코드만이 아니라 스킬과 작업 규칙까지 바뀌므로 `git pull` 만으로는 절반만 갱신된다.
 
 ```
-git pull
+git pull --rebase
 npm install
 npm run setup
 ```
