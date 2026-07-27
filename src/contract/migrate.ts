@@ -34,6 +34,15 @@ const MIGRATIONS: Record<number, (doc: RawDoc) => RawDoc> = {
 
   /** v4 → v5 : 도형 슬롯과 CSS 변수 도입. 기존 문서는 둘 다 없다. */
   4: (d) => ({ ...d, v: 5 }),
+
+  /**
+   * v5 → v6 : 서식에 크기·여백·테두리 세부·그림자를 더한다.
+   *
+   * 전부 새로 더한 항목이고 없으면 KG 원본이 그대로 보이므로, 기존 문서에 채울 값이 없다.
+   * (막대 높이처럼 값이 곧 크기인 자리를 표현할 방법이 그동안 없었다 — 원본 HTML 에
+   *  인라인으로 박혀 있어 재작도 없이는 못 고쳤다.)
+   */
+  5: (d) => ({ ...d, v: 6 }),
 };
 
 export class ContractVersionError extends Error {

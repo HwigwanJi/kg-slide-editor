@@ -23,6 +23,7 @@ import { existsSync } from 'node:fs';
 import { basename, dirname, extname, join, resolve } from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { linkAssets, projectRootOf } from './assets.mjs';
+import { ensureBundle } from './bundle.mjs';
 
 // fileURLToPath 를 쓴다. URL 의 pathname 은 한글과 공백이 퍼센트로 인코딩된 채라
 // 손으로 자르면 경로가 어긋난다 — 폴더 이름이 ASCII 일 때만 우연히 맞는다.
@@ -91,7 +92,7 @@ async function shootProject(page, dir) {
     }
     const out = join(outDir, `${entry.id}.png`);
     const at = (deck.slides ?? []).indexOf(entry) + 1;
-    await shoot(page, await htmlOf(slidePath), out, {
+    await shoot(page, await htmlOf(slidePath, page), out, {
       page: at, total: (deck.slides ?? []).length, 'page/total': `${at} / ${(deck.slides ?? []).length}`,
     });
     entry.preview = `preview/${entry.id}.png`;
@@ -104,7 +105,7 @@ async function shootProject(page, dir) {
 async function shootFile(page, file, out) {
   const target = decideOut(file, out);
   await mkdir(dirname(target), { recursive: true });
-  await shoot(page, await htmlOf(file), target);
+  await shoot(page, await htmlOf(file, page), target);
 }
 
 function decideOut(file, out) {
@@ -120,7 +121,7 @@ function decideOut(file, out) {
  * 그 안의 상대 경로(../colors_and_type.css)가 작업 폴더 기준으로 어긋나 스타일이 통째로 빠진다.
  * 그래서 장표 조각과 장표 전용 CSS 만 꺼내 오고, 공통 CSS·자산 경로는 여기서 붙인다.
  */
-async function htmlOf(file) {
+async function htmlOf(file, page) {
   const text = await readFile(file, 'utf8');
   const isHtml = extname(file).toLowerCase() === '.html';
 
@@ -133,14 +134,28 @@ async function htmlOf(file) {
 
   const doc = JSON.parse(text);
   if (doc?.source?.kind !== 'kg-html') throw new Error(`KG 장표 문서가 아님: ${file}`);
-  return standalone(doc.source.html, doc.source.css ?? '', projectRootOf(file));
+
+  /*
+   * 원본이 아니라 지금 모습을 굽는다.
+   *
+   * `doc.source.html` 은 작도한 그대로다. 사람이 편집기에서 고친 것은 덧씌움으로 따로 쌓이므로
+   * 원본만 찍으면 미리보기가 화면과 다른 것을 보여 준다. 검사·내보내기·렌더가 모두
+   * KGAudit.currentHtml 을 지나므로 여기도 같은 통로를 쓴다.
+   */
+  await page.goto('about:blank');
+  await page.setContent('<!DOCTYPE html><html><body></body></html>');
+  await page.addScriptTag({ content: await readFile(ensureBundle('audit'), 'utf8') });
+  const baked = await page.evaluate((d) => window.KGAudit.currentHtml(d), doc);
+  const body = /<body[^>]*>([\s\S]*)<\/body>/i.exec(baked)?.[1] ?? baked;
+  const css = [...baked.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map((m) => m[1]).join('\n');
+  return standalone(body, css, projectRootOf(file));
 }
 
 /**
  * 장표 한 장을 그리기 위한 최소 HTML.
  *
- * 편집분(patches)까지 반영하려면 편집기에서 HTML 로 내보낸 뒤 이 도구로 찍는다.
- * 여기서 패치 적용을 다시 구현하면 화면과 미리보기가 갈라지므로 하지 않는다.
+ * 편집분(patches)은 htmlOf 가 이미 얹어 넘긴다. 여기서 다시 적용하지 않는다 —
+ * 두 곳에서 적용하면 화면과 미리보기가 갈라진다.
  */
 function standalone(slideHtml, slideCss, assetRoot = null) {
   // CSS 경로는 KG 폴더 기준 상대경로다. 아래 shoot() 이 그 폴더 안에 임시 파일을 만들어 연다.

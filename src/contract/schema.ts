@@ -25,7 +25,7 @@ import { DEFAULT_THEME, zTheme } from './typography';
  *  v4 — 태그 위계를 label / label2 / num 으로 분할
  *  v5 — 도형(SVG) 지원: 슬롯 노드와 CSS 변수 재지정
  */
-export const CONTRACT_VERSION = 5;
+export const CONTRACT_VERSION = 6;
 
 /** KG 장표 캔버스 규격 (A4 가로). kg-slide.css 의 .kg-slide 와 일치해야 한다. */
 export const KG_CANVAS = { w: 1280, h: 905 } as const;

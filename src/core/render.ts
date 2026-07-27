@@ -9,7 +9,7 @@
  *  2. 미세 이동은 transform 으로만 한다 → 리플로가 일어나지 않는다.
  *  3. 선택 표시는 DOM 바깥 오버레이가 그린다 → 장표 안 박스 크기에 영향이 없다.
  */
-import type { LayoutPatch, SlideDoc, StylePatch } from '@contract/index';
+import type { LayoutPatch, Length, SlideDoc, StylePatch } from '@contract/index';
 import { ROLE_ATTR, isAdded, toCssColor } from '@contract/index';
 import { AUTO_ATTR, ID_ATTR, MARKER_ATTR, MARKER_OFF_ATTR, SLOT_CLASS, byId, stampIds } from './ids';
 import { sanitizeInline } from './sanitize';
@@ -125,23 +125,58 @@ function applyStyle(el: HTMLElement, s: StylePatch): void {
   } else if (s.background) {
     el.style.background = toCssColor(s.background);
   }
-  if (s.borderColor) {
-    el.style.borderColor = toCssColor(s.borderColor);
-    if (!el.style.borderStyle) el.style.borderStyle = 'solid';
+  /*
+   * 테두리는 세 항목이 함께 움직인다.
+   *
+   * 변을 골랐으면 나머지 변은 꺼야 한다. 안 그러면 "아래만 선" 을 지정해도 네 변이 다 그려져
+   * 상자가 된다. 그래서 변을 고른 경우에는 네 변을 각각 세운다.
+   */
+  const sides = s.borderSides;
+  const bStyle = s.borderStyle ?? (s.borderColor || s.borderWidth !== undefined ? 'solid' : undefined);
+  if (sides) {
+    for (const side of ['Top', 'Right', 'Bottom', 'Left'] as const) {
+      const on = sides.includes(side.toLowerCase() as NonNullable<typeof sides>[number]);
+      el.style.setProperty(`border-${side.toLowerCase()}-style`, on ? (bStyle ?? 'solid') : 'none');
+      if (on && s.borderWidth !== undefined) el.style.setProperty(`border-${side.toLowerCase()}-width`, `${s.borderWidth}px`);
+      if (on && s.borderColor) el.style.setProperty(`border-${side.toLowerCase()}-color`, toCssColor(s.borderColor));
+    }
+  } else {
+    if (s.borderColor) el.style.borderColor = toCssColor(s.borderColor);
+    if (s.borderWidth !== undefined) el.style.borderWidth = `${s.borderWidth}px`;
+    if (bStyle) el.style.borderStyle = bStyle;
   }
-  if (s.borderWidth !== undefined) {
-    el.style.borderWidth = `${s.borderWidth}px`;
-    if (!el.style.borderStyle) el.style.borderStyle = 'solid';
-  }
+
   if (s.radius !== undefined) el.style.borderRadius = `${s.radius}px`;
   if (s.fontSize !== undefined) el.style.fontSize = `${s.fontSize}px`;
   if (s.fontWeight !== undefined) el.style.fontWeight = String(s.fontWeight);
   if (s.lineHeight !== undefined) el.style.lineHeight = String(s.lineHeight);
   if (s.letterSpacing !== undefined) el.style.letterSpacing = `${s.letterSpacing}em`;
   if (s.textAlign) el.style.textAlign = s.textAlign;
+  if (s.textDecoration) el.style.textDecoration = s.textDecoration;
   if (s.padding) el.style.padding = s.padding.map((v) => `${v}px`).join(' ');
+  if (s.margin) el.style.margin = s.margin.map((v) => `${v}px`).join(' ');
+  if (s.gap !== undefined) el.style.gap = `${s.gap}px`;
   if (s.opacity !== undefined) el.style.opacity = String(s.opacity);
+  if (s.height !== undefined) el.style.height = cssLength(s.height);
+  if (s.width !== undefined) el.style.width = cssLength(s.width);
+  if (s.minHeight !== undefined) el.style.minHeight = cssLength(s.minHeight);
+  if (s.elevation) el.style.boxShadow = SHADOW[s.elevation];
 }
+
+/** 숫자는 px, 문자열은 이미 단위가 붙어 있다(계약 zLength). */
+const cssLength = (v: Length): string => (typeof v === 'number' ? `${v}px` : v);
+
+/**
+ * 그림자 세기.
+ * 값을 계약에 담지 않고 여기 두는 이유는, 이것이 "얼마나 떠 있는가" 라는 뜻이지
+ * 특정 px 값이 아니기 때문이다. 브랜드가 바뀌면 여기만 고친다.
+ */
+const SHADOW: Record<NonNullable<StylePatch['elevation']>, string> = {
+  none: 'none',
+  sm: '0 1px 2px rgba(15, 32, 56, 0.08)',
+  md: '0 2px 8px rgba(15, 32, 56, 0.12)',
+  lg: '0 6px 20px rgba(15, 32, 56, 0.16)',
+};
 
 /**
  * 노드 말머리표.

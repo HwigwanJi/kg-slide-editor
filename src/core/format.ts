@@ -65,8 +65,15 @@ export function readFormat(el: HTMLElement, tokens: KgToken[]): StylePatch {
 /** 서식 붙여넣기에서 제외할 항목을 걸러 낸다. 글자 전용/도형 전용을 나눠 붙일 때 쓴다. */
 export type FormatScope = 'all' | 'text' | 'shape';
 
-const TEXT_KEYS: (keyof StylePatch)[] = ['color', 'fontSize', 'fontWeight', 'lineHeight', 'letterSpacing', 'textAlign'];
-const SHAPE_KEYS: (keyof StylePatch)[] = ['background', 'gradient', 'borderColor', 'borderWidth', 'radius', 'padding', 'opacity'];
+const TEXT_KEYS: (keyof StylePatch)[] = [
+  'color', 'fontSize', 'fontWeight', 'lineHeight', 'letterSpacing', 'textAlign', 'textDecoration',
+];
+// 크기(height·width)는 도형 서식에 넣지 않는다. 서식 복사는 "이 모양처럼" 이지
+// "이 크기처럼" 이 아니다 — 막대 하나의 높이가 다른 막대로 옮겨 가면 그래프가 거짓말을 한다.
+const SHAPE_KEYS: (keyof StylePatch)[] = [
+  'background', 'gradient', 'borderColor', 'borderWidth', 'borderStyle', 'borderSides',
+  'radius', 'padding', 'margin', 'gap', 'opacity', 'elevation',
+];
 
 export function scopeFormat(style: StylePatch, scope: FormatScope): StylePatch {
   if (scope === 'all') return style;

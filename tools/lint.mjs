@@ -173,7 +173,7 @@ async function lintProject(page, dir) {
 }
 
 async function lintFile(page, file, settings, title) {
-  const html = await assemble(file);
+  const html = await assemble(file, page);
   const tmp = join(KG_DIR, `.lint-${process.pid}.tmp.html`);
   await writeFile(tmp, html, 'utf8');
   try {
@@ -189,8 +189,17 @@ async function lintFile(page, file, settings, title) {
   }
 }
 
-/** 미리보기 도구와 같은 방식으로 조립한다. 두 도구가 다른 화면을 보면 안 된다. */
-async function assemble(file) {
+/**
+ * 지금 모습을 조립한다 — 원본이 아니라 **덧씌움까지 얹은 것**.
+ *
+ * 예전에는 `doc.source.html` 을 그대로 봤다. 그것은 작도한 그대로라, 사람이 편집기에서
+ * 크기·서식을 고쳐 놓아도 검사에는 보이지 않았다. 그래서 화면과 내보내기는 넘치는데
+ * 검사만 "이상 없음" 이라고 답하는 일이 실제로 났다.
+ *
+ * 굽는 통로를 내보내기·렌더와 같은 것(KGAudit.currentHtml)으로 맞춘다.
+ * 네 도구가 서로 다른 것을 보면 어느 말을 믿어야 할지 알 수 없다.
+ */
+async function assemble(file, page) {
   const text = await readFile(file, 'utf8');
   let slideHtml;
   let slideCss;
@@ -201,9 +210,13 @@ async function assemble(file) {
     slideHtml = found[0];
     slideCss = [...text.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map((m) => m[1]).join('\n');
   } else {
-    const doc = JSON.parse(text);
-    slideHtml = doc.source.html;
-    slideCss = doc.source.css ?? '';
+    // 번들을 올린 빈 문서에서 굽는다. 검사할 문서를 열기 전이라 여기서만 쓰고 버린다.
+    await page.goto('about:blank');
+    await page.setContent('<!DOCTYPE html><html><body></body></html>');
+    await page.addScriptTag({ content: bundle });
+    const baked = await page.evaluate((d) => window.KGAudit.currentHtml(d), JSON.parse(text));
+    slideHtml = /<body[^>]*>([\s\S]*)<\/body>/i.exec(baked)?.[1] ?? baked;
+    slideCss = [...baked.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map((m) => m[1]).join('\n');
   }
 
   return `<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">

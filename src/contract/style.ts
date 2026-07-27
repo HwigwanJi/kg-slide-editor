@@ -64,6 +64,36 @@ export type FontWeight = z.infer<typeof zFontWeight>;
 /** [상, 우, 하, 좌] px */
 export const zBox4 = z.tuple([z.number(), z.number(), z.number(), z.number()]);
 
+/**
+ * 길이 — 숫자면 px, 문자열이면 단위를 붙인다.
+ *
+ * 단위를 받는 이유가 있다. 막대 그래프의 높이는 값에 비례해야 하는데, 그 비례는 담는 칸을
+ * 기준으로 잡으므로 `%` 여야 한다. px 로만 받으면 칸 높이가 바뀔 때 그래프가 거짓말을 한다.
+ * 임의 CSS 를 받지는 않는다 — `calc()` 같은 것이 들어오면 검사 도구가 값을 읽지 못한다.
+ */
+export const zLength = z.union([
+  z.number().min(0).max(4000),
+  z.string().regex(/^\d+(?:\.\d+)?(?:px|%|em|rem)$/, '숫자와 단위(px·%·em·rem)'),
+]);
+export type Length = z.infer<typeof zLength>;
+
+export const zBorderStyle = z.enum(['solid', 'dashed', 'dotted', 'none']);
+export type BorderStyle = z.infer<typeof zBorderStyle>;
+
+/** 테두리를 어느 변에만 둘지. 제목띠 아래 선처럼 한 변만 쓰는 자리가 많다. */
+export const zSide = z.enum(['top', 'right', 'bottom', 'left']);
+export type Side = z.infer<typeof zSide>;
+
+export const zTextDecoration = z.enum(['none', 'underline', 'line-through']);
+export type TextDecoration = z.infer<typeof zTextDecoration>;
+
+/**
+ * 그림자. 임의 CSS 문자열 대신 세기만 받는다.
+ * 장표에서 그림자는 "떠 있는 정도"를 나타내는 위계 장치이지 자유 표현이 아니다.
+ */
+export const zElevation = z.enum(['none', 'sm', 'md', 'lg']);
+export type Elevation = z.infer<typeof zElevation>;
+
 export const zStylePatch = z.object({
   color: zColorRef.optional(),
   background: zColorRef.optional(),
@@ -77,8 +107,37 @@ export const zStylePatch = z.object({
   lineHeight: z.number().min(0.8).max(3).optional(),
   letterSpacing: z.number().min(-0.1).max(0.5).optional(),
   textAlign: zTextAlign.optional(),
+  /** 요소 전체에 거는 밑줄·취소선. 문장 일부 강조는 text 패치의 `<u>` 로 한다. */
+  textDecoration: zTextDecoration.optional(),
   padding: zBox4.optional(),
+  /** 바깥 여백 [상, 우, 하, 좌] px. 칸 사이를 벌려 덩어리를 갈라 놓는 자리에 쓴다. */
+  margin: zBox4.optional(),
+  /** flex·grid 칸 사이. 자식 하나하나에 margin 을 주는 것보다 정확하고 되돌리기 쉽다. */
+  gap: z.number().min(0).max(200).optional(),
   opacity: z.number().min(0).max(1).optional(),
+
+  /* ---- 크기 ---- */
+
+  /**
+   * 높이·너비. 막대 그래프처럼 값이 곧 크기인 자리에 쓴다.
+   * 흐름(flow) 상태에서도 걸린다 — 떼어내지 않고 크기만 바꿔야 하는 경우가 대부분이다.
+   */
+  height: zLength.optional(),
+  width: zLength.optional(),
+  /** 하한. 내용이 짧아도 칸이 찌그러지지 않게 한다(빈 박스 검사와 짝을 이룬다). */
+  minHeight: zLength.optional(),
+
+  /* ---- 테두리 세부 ---- */
+
+  borderStyle: zBorderStyle.optional(),
+  /**
+   * 테두리를 두를 변. 비우면 네 변 모두.
+   * 제목띠 아래 선처럼 한 변만 쓰는 자리가 많은데, 그때 나머지 변까지 그려지면 상자가 된다.
+   */
+  borderSides: z.array(zSide).min(1).max(4).optional(),
+
+  /** 그림자 세기. 떠 있는 정도로 위계를 만든다. */
+  elevation: zElevation.optional(),
   /**
    * CSS 변수 재지정. 도형(SVG) 배색을 바꾸는 통로다.
    * 도형마다 칠하는 자리가 달라 fill·stroke 항목을 따로 두면 일반화되지 않는다.
