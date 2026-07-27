@@ -244,9 +244,22 @@
 .ed-neighbor__rel {
   grid-area: rel;
   align-self: center;
+  justify-self: start;
+  min-width: 1.5rem;
+  text-align: center;
+  padding: 1px var(--ed-sp-1);
+  border-radius: var(--ed-r-xs);
+  background: var(--ed-surface-sunken);
+  border: var(--ed-bw) solid var(--ed-border);
   font-size: var(--ed-fs-xs);
   color: var(--ed-fg-muted);
 }
+/* 도형은 눈에 띄게 — 캔버스에서 집기 어려운 것이 대개 도형이다 */
+.ed-neighbor__rel[data-kind='shape'] {
+  color: var(--ed-accent);
+  border-color: var(--ed-accent);
+}
+.ed-neighbor__rel[data-kind='text'] { color: var(--ed-fg); }
 .ed-neighbor__label {
   grid-area: label;
   font-size: var(--ed-fs-sm);

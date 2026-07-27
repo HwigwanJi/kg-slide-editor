@@ -12,6 +12,7 @@ import {
   DEFAULT_SETTINGS, KG_CANVAS, ROLE_ATTR, SETTINGS_FILE, createSlideDoc, loadKgTokens,
   newGroupId, newNodeId,
   type AddedNode, type Anchor, type DeckDoc, type DeckEntry, type Distribute, type KgToken,
+  floorFor,
   type NodeId, type ObjectAlign, type ProjectSettings, type Role, type RoleStyle,
   type SlideDoc, type StylePatch,
 } from '@contract/index';
@@ -36,6 +37,15 @@ const PASTE_OFFSET = 16;
 
 export type Zoom = number | 'fit';
 export type Status = { message: string; error?: boolean };
+
+/**
+ * 오래 걸리는 일이 진행 중임을 알린다.
+ * 저장·프로젝트 전환처럼 도중에 문서를 만지면 어긋나는 작업은 화면을 막아야 한다.
+ */
+export interface Busy { active: boolean; message: string }
+
+/** 아래 가운데에 잠깐 떴다 사라지는 알림. 결과를 놓치지 않게 한다. */
+export interface Toast { id: number; kind: 'ok' | 'error' | 'info'; message: string }
 
 export interface EditorApi {
   readonly slides: SlideStore;
@@ -128,6 +138,14 @@ export interface EditorApi {
   neighbors(): Neighbor[];
   /** 고정점을 붙박은 채 확대·축소 */
   scaleSelected(factor: number, anchor: Anchor): void;
+  /**
+   * 선택 요소 '안에 있는 글자 전체'의 크기를 배율로 조정한다.
+   *
+   * 박스에 font-size 를 걸어도 자식이 자기 크기를 명시하고 있으면 상속되지 않는다.
+   * 그래서 안쪽 글자를 하나하나 훑어 각각에 값을 넣는다.
+   * growBox 를 켜면 박스도 함께 키운다(자동 배치면 먼저 떼어낸다).
+   */
+  scaleTextInside(factor: number, growBox: boolean): void;
 
   /* 검사 */
   audit(): OverflowIssue[];
@@ -146,6 +164,10 @@ export interface EditorApi {
 
   tokens(): KgToken[];
   onStatus(fn: (s: Status) => void): () => void;
+  /** 진행 중 표시. 켜져 있는 동안 화면을 막는다. */
+  onBusy(fn: (b: Busy) => void): () => void;
+  /** 결과 알림 */
+  onToast(fn: (t: Toast) => void): () => void;
 }
 
 const BLANK_HTML = '<section class="kg-slide kg-root"><div class="kg-body-area"></div></section>';
@@ -181,8 +203,37 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
 
   const selectionListeners = new Set<(ids: NodeId[]) => void>();
   const statusListeners = new Set<(s: Status) => void>();
+  const busyListeners = new Set<(b: Busy) => void>();
+  const toastListeners = new Set<(t: Toast) => void>();
+  let toastSeq = 0;
+
   const status = (message: string, error = false) =>
     statusListeners.forEach((f) => f({ message, error }));
+  const toast = (kind: Toast['kind'], message: string) =>
+    toastListeners.forEach((f) => f({ id: ++toastSeq, kind, message }));
+
+  /**
+   * 오래 걸리는 작업을 감싼다.
+   * 진행 중에는 화면을 막고, 끝나면 결과를 알린다.
+   * 중첩 호출은 바깥 것만 표시가 유지되도록 깊이를 센다.
+   */
+  let busyDepth = 0;
+  async function withBusy<T>(message: string, done: string, run: () => Promise<T>): Promise<T | undefined> {
+    busyDepth++;
+    busyListeners.forEach((f) => f({ active: true, message }));
+    try {
+      const result = await run();
+      if (done) toast('ok', done);
+      return result;
+    } catch (e) {
+      status(msg(e), true);
+      toast('error', msg(e));
+      return undefined;
+    } finally {
+      busyDepth--;
+      if (busyDepth === 0) busyListeners.forEach((f) => f({ active: false, message: '' }));
+    }
+  }
 
   void loadKgTokens(`${KG_BASE}colors_and_type.css`).then((t) => { tokenCache = t; }).catch(() => undefined);
 
@@ -344,14 +395,15 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
     projectName: () => deck.get().name || project.location,
 
     async openFolder() {
-      try {
-        const picked = await pickProjectFolder();
-        if (!picked) return;
+      const picked = await pickProjectFolder().catch((e) => { status(msg(e), true); return null; });
+      if (!picked) return;
+      await withBusy('프로젝트를 여는 중', '', async () => {
         await persistCurrent();
         project = picked;
         await api.reloadProject();
         status(`프로젝트 열기 — ${project.location}`);
-      } catch (e) { status(msg(e), true); }
+        toast('ok', `프로젝트 열기 — ${project.location}`);
+      });
     },
 
     async reloadProject() {
@@ -384,10 +436,10 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
 
     async openSlide(id) {
       if (id === slides.get().id) return;
-      try {
+      await withBusy('장표를 여는 중', '', async () => {
         await persistCurrent();
         showSlide(await project.loadSlide(id));
-      } catch (e) { status(msg(e), true); }
+      });
     },
 
     async newSlide() {
@@ -405,13 +457,13 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
     },
 
     async importFile(file) {
-      try {
+      await withBusy(`${file.name} 불러오는 중`, `${file.name} 추가함`, async () => {
         const doc = file.name.endsWith('.json') || file.name.endsWith('.kgslide')
           ? await readDocFile(file)
           : importKgHtml(await file.text(), { origin: file.name, assetBase: `${KG_BASE}assets/` });
         await adoptSlide(doc);
         status(`${file.name} 추가함`);
-      } catch (e) { status(msg(e), true); }
+      });
     },
 
     async duplicateSlide(id) {
@@ -433,7 +485,7 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
 
     async deleteSlides(ids) {
       if (ids.length === 0) return;
-      try {
+      await withBusy('장표를 지우는 중', `장표 ${ids.length}장 삭제함`, async () => {
         const before = deck.get().slides;
         deck.dispatch({ type: 'removeSlides', ids });
         await project.saveDeck(deck.get());
@@ -447,7 +499,7 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
           else showSlide(blankDoc());
         }
         status(`장표 ${ids.length}장 삭제함`);
-      } catch (e) { status(msg(e), true); }
+      });
     },
 
     reorderSlides(ids) {
@@ -462,7 +514,7 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
 
     /* 저장·내보내기 */
     async save() {
-      try {
+      await withBusy('저장하는 중', `저장 완료 — ${project.location}`, async () => {
         const doc = slides.get();
         if (!deck.get().slides.some((s) => s.id === doc.id)) {
           await adoptSlide(doc);
@@ -472,7 +524,7 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
           await project.saveDeck(deck.get());
         }
         status(`저장함 — ${project.location}`);
-      } catch (e) { status(msg(e), true); }
+      });
     },
 
     exportHtml() {
@@ -706,6 +758,52 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       return root && el ? neighborsOf(root, el, scale()) : [];
     },
 
+    scaleTextInside(factor, growBox) {
+      if (!root) return;
+      const doc = slides.get();
+      const cmds: Command[] = [];
+      let clamped = 0;
+
+      for (const id of targets()) {
+        const host = elementOf(id);
+        if (!host) continue;
+
+        const runs = host.matches('[data-kg-text]')
+          ? [host]
+          : [...host.querySelectorAll<HTMLElement>('[data-kg-text]')];
+
+        for (const run of runs) {
+          const runId = run.getAttribute('data-kg-id');
+          if (!runId) continue;
+          const now = parseFloat(getComputedStyle(run).fontSize);
+          if (Number.isNaN(now)) continue;
+          const floor = floorFor(settings, roleOf(run));
+          const next = Math.round(now * factor * 10) / 10;
+          if (next < floor) clamped++;
+          cmds.push({
+            type: 'setStyle', ids: [runId], style: { fontSize: Math.max(floor, next) },
+          });
+        }
+
+        if (growBox) {
+          const rect = canvasRect(root, host, scale());
+          if (doc.patches[id]?.layout?.mode !== 'detached') {
+            cmds.push({ type: 'detach', id, rect });
+          }
+          cmds.push({
+            type: 'setRect', id,
+            rect: { w: Math.round(rect.w * factor), h: Math.round(rect.h * factor) },
+          });
+        }
+      }
+
+      if (cmds.length === 0) return;
+      slides.batch(cmds);
+      status(clamped
+        ? `안쪽 글자 조정 — ${clamped}개는 프로젝트 하한(${settings.minFontSize}px)에서 멈췄습니다`
+        : '안쪽 글자 조정함');
+    },
+
     scaleSelected(factor, anchor) {
       const ids = targets().filter((id) => slides.get().patches[id]?.layout?.mode === 'detached');
       if (ids.length) slides.dispatch({ type: 'scaleObject', ids, factor, anchor });
@@ -800,6 +898,16 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
     onStatus(fn) {
       statusListeners.add(fn);
       return () => statusListeners.delete(fn);
+    },
+
+    onBusy(fn) {
+      busyListeners.add(fn);
+      return () => busyListeners.delete(fn);
+    },
+
+    onToast(fn) {
+      toastListeners.add(fn);
+      return () => toastListeners.delete(fn);
     },
   };
 

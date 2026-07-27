@@ -1,0 +1,78 @@
+/* ----------------------------------------------------------------------------
+   진행 표시와 알림 — 아래 가운데.
+
+   진행 중에는 화면 전체를 덮어 조작을 막는다. 저장 도중 문서를 고치면
+   파일에 들어간 내용과 화면이 갈라지기 때문이다.
+   ---------------------------------------------------------------------------- */
+.ed-blocker {
+  position: fixed;
+  inset: 0;
+  z-index: var(--ed-z-modal);
+  background: var(--ed-scrim);
+  display: grid;
+  place-items: center;
+  cursor: progress;
+}
+
+.ed-blocker__box {
+  display: flex;
+  align-items: center;
+  gap: var(--ed-sp-3);
+  padding: var(--ed-sp-3) var(--ed-sp-5);
+  background: var(--ed-surface-raised);
+  border: var(--ed-bw) solid var(--ed-border);
+  border-radius: var(--ed-r-md);
+  box-shadow: var(--ed-shadow-md);
+  color: var(--ed-fg-strong);
+  font-size: var(--ed-fs-md);
+}
+
+.ed-spinner {
+  width: var(--ed-sp-4);
+  height: var(--ed-sp-4);
+  border-radius: 50%;
+  border: 2px solid var(--ed-border-strong);
+  border-top-color: var(--ed-accent);
+  animation: ed-spin 620ms linear infinite;
+}
+@keyframes ed-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .ed-spinner { animation-duration: 2s; }
+}
+
+/* 알림 — 아래 가운데에 쌓인다 */
+.ed-toasts {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--ed-statusbar-h) + var(--ed-sp-4));
+  transform: translateX(-50%);
+  z-index: var(--ed-z-toast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ed-sp-1);
+  pointer-events: none;
+}
+
+.ed-toast {
+  max-width: min(34rem, 90vw);
+  padding: var(--ed-sp-2) var(--ed-sp-4);
+  border-radius: var(--ed-r-pill);
+  background: var(--ed-surface-raised);
+  border: var(--ed-bw) solid var(--ed-border);
+  border-left: var(--ed-bw-strong) solid var(--ed-ok);
+  box-shadow: var(--ed-shadow-md);
+  color: var(--ed-fg);
+  font-size: var(--ed-fs-sm);
+  animation: ed-toast-in var(--ed-dur-base) var(--ed-ease);
+}
+.ed-toast[data-kind='error'] { border-left-color: var(--ed-danger); color: var(--ed-danger); }
+.ed-toast[data-kind='info'] { border-left-color: var(--ed-accent); }
+
+@keyframes ed-toast-in {
+  from { opacity: 0; transform: translateY(var(--ed-sp-2)); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ed-toast { animation: none; }
+}

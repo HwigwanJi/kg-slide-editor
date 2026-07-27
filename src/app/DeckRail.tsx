@@ -42,7 +42,7 @@ export function DeckRail({ api, deck, currentId }: { api: EditorApi; deck: DeckD
       <span className="ed-label">슬라이드 {deck.slides.length}</span>
       <ol className="ed-slidelist">
         {deck.slides.map((s, i) => (
-          <li key={s.id}>
+          <li key={s.id} className="ed-slidelist__row">
             <button
               className="ed-slide"
               draggable
@@ -61,6 +61,16 @@ export function DeckRail({ api, deck, currentId }: { api: EditorApi; deck: DeckD
                 <span className="ed-rail__meta">{s.updatedAt.slice(0, 16).replace('T', ' ')}</span>
               </span>
             </button>
+            <button
+              className="ed-slide__del"
+              title="이 장표를 프로젝트에서 지웁니다. 파일까지 지우므로 되돌릴 수 없습니다"
+              aria-label={`${i + 1}번 장표 삭제`}
+              onClick={() => {
+                if (window.confirm(`${i + 1}. ${s.title || '제목 없음'}\n\n이 장표를 지웁니다. 되돌릴 수 없습니다.`)) {
+                  void api.deleteSlides([s.id]);
+                }
+              }}
+            >×</button>
           </li>
         ))}
       </ol>

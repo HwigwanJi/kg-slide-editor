@@ -133,6 +133,30 @@
   gap: var(--ed-sp-1);
 }
 
+/* 장표 한 줄 — 본문과 삭제 버튼 */
+.ed-slidelist__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--ed-sp-1);
+}
+.ed-slide__del {
+  width: var(--ed-control-h-sm);
+  height: var(--ed-control-h-sm);
+  padding: 0;
+  border: var(--ed-bw) solid transparent;
+  border-radius: var(--ed-r-sm);
+  background: transparent;
+  color: var(--ed-fg-muted);
+  font-size: var(--ed-fs-md);
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+}
+.ed-slidelist__row:hover .ed-slide__del,
+.ed-slide__del:focus-visible { opacity: 1; }
+.ed-slide__del:hover { color: var(--ed-danger); border-color: var(--ed-danger); }
+
 .ed-slide {
   width: 100%;
   display: flex;

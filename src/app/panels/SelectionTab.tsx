@@ -8,9 +8,18 @@ import {
   MARKER_PRESETS, ROLES, ROLE_TOKENS,
   type Anchor, type NodeId, type Role, type SlideDoc,
 } from '@contract/index';
-import { isLocked, markerOf, type Neighbor } from '@core/index';
+import { isLocked, markerOf, type Neighbor, type NeighborKind } from '@core/index';
 import type { EditorApi } from '../editor';
 import { ObjectThumb } from './ObjectThumb';
+
+type KindFilter = NeighborKind | 'all';
+
+const KIND_FILTERS: [KindFilter, string][] = [
+  ['all', '전체'], ['text', '글자'], ['shape', '도형'], ['group', '묶음'],
+];
+/** 목록에서 종류를 한눈에 구분하기 위한 표시 */
+const KIND_MARK: Record<NeighborKind, string> = { text: '가', shape: '◇', group: '▣' };
+const KIND_NAME: Record<NeighborKind, string> = { text: '글자', shape: '도형', group: '묶음' };
 
 export function SelectionTab({
   api, doc, selection, neighbors, roleOfNode,
@@ -22,7 +31,15 @@ export function SelectionTab({
   roleOfNode(id: NodeId): Role | null;
 }) {
   const [anchor, setAnchor] = useState<Anchor>('c');
+  const [filter, setFilter] = useState<KindFilter>('all');
   const id = selection[0];
+
+  const counts: Record<NeighborKind, number> = {
+    text: neighbors.filter((n) => n.kind === 'text').length,
+    shape: neighbors.filter((n) => n.kind === 'shape').length,
+    group: neighbors.filter((n) => n.kind === 'group').length,
+  };
+  const shown = filter === 'all' ? neighbors : neighbors.filter((n) => n.kind === filter);
 
   if (!id) {
     return (
@@ -85,12 +102,25 @@ export function SelectionTab({
         </div>
 
         <div className="ed-field">
-          <span className="ed-field__label">배치</span>
+          <span className="ed-field__label">배치 방식</span>
           <span className="ed-field__control">
-            <button className="ed-btn" aria-pressed={!detached} onClick={() => api.reflowSelected()}>흐름</button>
-            <button className="ed-btn" aria-pressed={detached} onClick={() => api.detachSelected()}>떼어냄</button>
+            <button
+              className="ed-btn" aria-pressed={!detached}
+              title="KG 레이아웃이 위치와 크기를 정합니다. 옆 요소가 바뀌면 따라 움직입니다"
+              onClick={() => api.reflowSelected()}
+            >자동 배치</button>
+            <button
+              className="ed-btn" aria-pressed={detached}
+              title="원하는 자리에 고정합니다. 끌어서 옮기고 크기를 조절할 수 있습니다"
+              onClick={() => api.detachSelected()}
+            >자유 배치</button>
           </span>
         </div>
+        <p className="ed-note">
+          {detached
+            ? '자유 배치 — 좌표로 고정되어 있습니다. 끌어서 옮기고 크기를 조절할 수 있습니다. 원래 자리는 비워 둔 채입니다.'
+            : '자동 배치 — KG 레이아웃이 위치와 크기를 정합니다. 자유롭게 옮기려면 자유 배치로 바꾸세요.'}
+        </p>
 
         {detached && (
           <div className="ed-field">
@@ -113,10 +143,22 @@ export function SelectionTab({
       </section>
 
       <section className="ed-section">
-        <h2 className="ed-section__title">주변 오브젝트 ({neighbors.length})</h2>
-        <p className="ed-note">클릭하면 그것으로 바꾸고, Ctrl+클릭하면 선택에 더합니다.</p>
+        <h2 className="ed-section__title">주변 오브젝트 ({shown.length})</h2>
+        <p className="ed-note">
+          클릭하면 그것으로 바꾸고, Ctrl+클릭하면 선택에 더합니다.
+          연결선·도형처럼 캔버스에서 집기 어려운 것도 여기서 잡습니다.
+        </p>
+        <div className="ed-field__control">
+          {KIND_FILTERS.map(([value, label]) => (
+            <button
+              key={label} className="ed-btn"
+              aria-pressed={filter === value}
+              onClick={() => setFilter(value)}
+            >{label}{value !== 'all' && ` ${counts[value]}`}</button>
+          ))}
+        </div>
         <ul className="ed-neighbors">
-          {neighbors.map((n) => (
+          {shown.map((n) => (
             <li key={n.id}>
               <button
                 className="ed-neighbor"
@@ -125,16 +167,16 @@ export function SelectionTab({
                   e.ctrlKey || e.metaKey ? [...new Set([...selection, n.id])] : [n.id],
                 )}
               >
-                <span className="ed-neighbor__rel">{n.relation}</span>
+                <span className="ed-neighbor__rel" data-kind={n.kind}>{KIND_MARK[n.kind]}</span>
                 <span className="ed-neighbor__label">{n.label}</span>
                 <span className="ed-neighbor__meta">
-                  {n.role ? ROLE_TOKENS[n.role].label : '—'} · {n.rect.w}×{n.rect.h}
+                  {n.relation} · {n.role ? ROLE_TOKENS[n.role].label : KIND_NAME[n.kind]} · {n.rect.w}×{n.rect.h}
                 </span>
               </button>
             </li>
           ))}
         </ul>
-        {neighbors.length === 0 && <p className="ed-note">주변에 잡을 요소가 없습니다.</p>}
+        {shown.length === 0 && <p className="ed-note">해당하는 요소가 없습니다.</p>}
       </section>
     </>
   );

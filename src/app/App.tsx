@@ -10,6 +10,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { DeckRail } from './DeckRail';
 import { SlideCanvas } from './SlideCanvas';
 import { StatusBar } from './StatusBar';
+import { Toasts } from './Toast';
 import { Toolbar } from './Toolbar';
 import { Panel, type TabId } from './panels/Panel';
 import { BubbleToolbar, CommandPalette, ContextMenu, type MenuPoint } from './menus';
@@ -79,6 +80,7 @@ export default function App() {
       <ContextMenu at={menuAt} ctx={ctx} onClose={useCallback(() => setMenuAt(null), [])} />
       <BubbleToolbar anchor={anchor} ctx={ctx} />
       <CommandPalette open={paletteOpen} ctx={ctx} onClose={useCallback(() => setPaletteOpen(false), [])} />
+      <Toasts api={api} />
     </div>
   );
 }
