@@ -12,7 +12,7 @@ import type {
   AddedNode, Anchor, Distribute, GroupId, NodeId, ObjectAlign, Role, RoleStyle,
   SlideDoc, StylePatch,
 } from '@contract/index';
-import { ANCHOR_ORIGIN, isAdded } from '@contract/index';
+import { ANCHOR_ORIGIN, isAdded, isDescendant } from '@contract/index';
 import { normalize } from './tree';
 import { createStore, type Store } from './store';
 
@@ -109,7 +109,16 @@ function reduce(doc: SlideDoc, cmd: Command): SlideDoc {
     }
 
     case 'nudge':
-      return patchMany(doc, cmd.ids, (p) => {
+      /*
+       * 부모를 옮기면 자식은 따라간다.
+       *
+       * 흐름 상태의 미세 이동은 transform 으로 하는데, transform 은 하위로 상속된다.
+       * 부모와 자식을 함께 골라 놓고 방향키를 누르면 자식은 부모를 따라 한 번,
+       * 자기 몫으로 또 한 번 — 두 배로 움직인다. 떼어낸 것도 부모 상자 안에 있으면 같다.
+       *
+       * 그래서 고른 것 중 다른 고른 것의 하위인 id 는 뺀다. 위쪽 하나만 움직이면 된다.
+       */
+      return patchMany(doc, topmost(cmd.ids), (p) => {
         const l = p.layout;
         if (l?.mode === 'detached') {
           return { ...p, layout: { ...l, x: (l.x ?? 0) + cmd.dx, y: (l.y ?? 0) + cmd.dy } };
@@ -220,6 +229,16 @@ function patch(doc: SlideDoc, id: NodeId, fn: (p: SlideDoc['patches'][string]) =
 
 function patchMany(doc: SlideDoc, ids: NodeId[], fn: (p: SlideDoc['patches'][string]) => SlideDoc['patches'][string]): SlideDoc {
   return ids.reduce((d, id) => patch(d, id, fn), doc);
+}
+
+/**
+ * 고른 것 중 다른 고른 것의 하위인 id 를 뺀다.
+ *
+ * 옮기기처럼 "부모가 움직이면 자식도 따라오는" 조작에 쓴다. 둘 다에 값을 걸면 두 배가 된다.
+ * 서식처럼 각자에게 따로 걸려야 하는 것에는 쓰지 않는다.
+ */
+function topmost(ids: NodeId[]): NodeId[] {
+  return ids.filter((id) => !ids.some((other) => other !== id && isDescendant(id, other)));
 }
 
 function omit<T extends object, K extends keyof T>(obj: T, key: K): Omit<T, K> {
