@@ -85,6 +85,11 @@ export const ACTIONS: ActionDef[] = [
     } },
 
   /* ---------------- 슬라이드 (프로젝트 단위) ---------------- */
+  // 새로고침하면 폴더 권한이 풀린다. 폴더를 다시 찾아 들어가지 않고 허용만 받는 길.
+  { id: 'deck.resumeFolder', label: '폴더 다시 열기', group: '슬라이드', surfaces: ['toolbar', 'palette'],
+    hint: '새로고침 전에 열어 두었던 폴더를 그대로 잇습니다',
+    enabled: ({ api }) => api.hasPendingFolder(),
+    run: ({ api }) => void api.resumeFolder() },
   { id: 'deck.openFolder', label: '프로젝트 폴더 열기', group: '슬라이드', surfaces: ['toolbar', 'palette'],
     hint: 'Claude Code 가 만든 장표 폴더를 그대로 엽니다',
     run: ({ api }) => void api.openFolder() },

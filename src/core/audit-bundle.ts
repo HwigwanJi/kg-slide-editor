@@ -7,7 +7,7 @@
  */
 import { parseSettings, type ProjectSettings } from '@contract/index';
 import { ID_ATTR, ROLE_ATTR_PUBLIC, SLOT_ATTR, TEXT_ATTR, stampIds } from './ids';
-import { placeByOrigin } from './deck';
+import { placeByOrigin, reconcileSlides } from './deck';
 import { kindOf } from './neighbors';
 import { auditOverflow, type OverflowIssue } from './overflow';
 import { auditWording, type WordingIssue } from './wording';
@@ -71,4 +71,4 @@ export function ingestHtml(html: string, origin: string, id: string, now: string
 }
 
 /** 적재 순서 규칙. 도구가 다시 구현하면 편집기와 갈라진다. */
-export { placeByOrigin };
+export { placeByOrigin, reconcileSlides };

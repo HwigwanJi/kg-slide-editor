@@ -111,3 +111,23 @@ export function placeByOrigin(slides: DeckEntry[], origin: string): number | und
   const at = slides.findIndex((s) => s.origin && s.origin.localeCompare(origin, 'ko') > 0);
   return at < 0 ? undefined : at;
 }
+
+/**
+ * 목차와 폴더를 맞춘다 (docs/DECISIONS.md D6).
+ *
+ * 무엇이 있는가는 파일이 정하고, 어떤 순서인가는 목차가 정한다.
+ *   둘 다 있다   목차 순서를 지킨다
+ *   파일만 있다  만든 시각 순으로 뒤에 붙인다
+ *   목차만 있다  뺀다
+ *
+ * 제목은 언제나 파일 쪽을 쓴다. 목차의 제목은 장표를 고친 뒤 낡아 있을 수 있다.
+ */
+export function reconcileSlides(listed: DeckEntry[], onDisk: DeckEntry[]): DeckEntry[] {
+  const files = new Map(onDisk.map((s) => [s.id, s]));
+  const kept = listed.filter((s) => files.has(s.id)).map((s) => ({ ...s, ...files.get(s.id)! }));
+  const known = new Set(kept.map((s) => s.id));
+  const extra = onDisk
+    .filter((s) => !known.has(s.id))
+    .sort((a, b) => a.updatedAt.localeCompare(b.updatedAt));
+  return [...kept, ...extra];
+}

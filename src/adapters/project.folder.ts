@@ -11,6 +11,8 @@ import {
   createDeck, parseDeck, parseSettings, parseSlideDoc, previewFileName, slideFileName,
   type DeckEntry,
 } from '@contract/index';
+import { rememberFolder, recallFolder } from './handle.store';
+import { reconcileSlides } from '@core/deck';
 import { projectNameFrom, type ProjectAdapter } from './project';
 
 /** lib.dom 에 아직 없는 부분만 좁게 선언한다. */
@@ -56,6 +58,8 @@ export async function pickProjectFolder(): Promise<ProjectAdapter | null> {
   try {
     const root = await picker({ mode: 'readwrite' });
     await ensureWritable(root);
+    // 새로고침하면 핸들이 사라진다. 담아 두어야 다음에 폴더를 다시 찾아 들어가지 않는다.
+    await rememberFolder(root);
     return folderProject(root);
   } catch (e) {
     if (e instanceof DOMException && e.name === 'AbortError') return null;
@@ -68,6 +72,33 @@ export async function pickProjectFolder(): Promise<ProjectAdapter | null> {
     }
     throw e;
   }
+}
+
+/**
+ * 지난번에 열었던 폴더를 되살린다.
+ *
+ * 새로고침하면 핸들이 사라져 브라우저 저장소로 되돌아간다. 폴더를 열어 두고 일하던 사람에게는
+ * 프로젝트가 통째로 사라진 것처럼 보인다. 담아 둔 핸들이 있으면 그것으로 잇는다.
+ *
+ * 권한이 아직 살아 있으면 말없이 연다. "물어봄" 으로 돌아가 있으면 여기서 요청하지 않는다 —
+ * 시작하자마자 뜨는 권한 창은 무엇에 대한 것인지 알 수 없다. 부르는 쪽이 사람의 클릭에 맞춰 받아 낸다.
+ */
+export async function recallProjectFolder(): Promise<
+  { project: ProjectAdapter; needsPermission: boolean } | null
+> {
+  const root = await recallFolder();
+  if (!root) return null;
+  const h = root as unknown as PermissionedHandle;
+  const state = await h.queryPermission?.({ mode: 'readwrite' }).catch(() => 'prompt' as PermissionState);
+  return { project: folderProject(root), needsPermission: state !== 'granted' };
+}
+
+/** 되살린 폴더의 권한을 받아 낸다. 사람이 누른 직후에만 통한다. */
+export async function grantRecalledFolder(): Promise<ProjectAdapter | null> {
+  const root = await recallFolder();
+  if (!root) return null;
+  await ensureWritable(root);
+  return folderProject(root);
 }
 
 /* ------------------------------------------------------------------ *
@@ -276,18 +307,7 @@ export function folderProject(root: FileSystemDirectoryHandle): ProjectAdapter {
         }
       }
 
-      const listed = base.slides.filter((s) => onDisk.has(s.id));
-      const known = new Set(listed.map((s) => s.id));
-      // 목차에 없던 파일. 만든 순서대로 붙여야 넣은 사람의 의도와 맞는다.
-      const extra = [...onDisk.values()]
-        .filter((s) => !known.has(s.id))
-        .sort((a, b) => a.updatedAt.localeCompare(b.updatedAt));
-
-      return {
-        ...base,
-        // 목차의 제목은 낡을 수 있다. 파일이 방금 읽은 값으로 맞춘다.
-        slides: [...listed.map((s) => ({ ...s, ...onDisk.get(s.id)! })), ...extra],
-      };
+      return { ...base, slides: reconcileSlides(base.slides, [...onDisk.values()]) };
     },
 
     async saveDeck(deck) {

@@ -26,8 +26,8 @@ import {
 } from '@core/index';
 import {
   SNIPPETS, clipboard, cloneNodeSnapshot, createTransform, downloadDoc, downloadText,
-  DEFAULT_PROJECT_NAME, editText, formatProbe, importKgHtml, importKgHtmlFrom, localProject, pickProjectFolder,
-  probeFolderAccess, readDocFile,
+  DEFAULT_PROJECT_NAME, editText, formatProbe, grantRecalledFolder, importKgHtml, importKgHtmlFrom,
+  localProject, pickProjectFolder, probeFolderAccess, readDocFile, recallProjectFolder,
   snippetNode,
   type MarqueeMode, type ProjectAdapter, type TextSession, type TransformController,
 } from '@adapters/index';
@@ -63,6 +63,10 @@ export interface EditorApi {
    * 기본 프로젝트(브라우저 저장소)는 명령줄에서 볼 수 없다. 이 통로로 파일이 된다.
    */
   saveToFolder(): Promise<void>;
+  /** 지난번 폴더가 남아 있는가. 권한만 받으면 바로 이을 수 있다. */
+  hasPendingFolder(): boolean;
+  /** 그 폴더의 권한을 받아 잇는다. 사람이 누른 직후에만 통한다. */
+  resumeFolder(): Promise<void>;
   /**
    * 폴더에 쓸 수 있는지 실제 저장과 같은 순서로 밟아 본다.
    * 결과를 클립보드에 담는다 — 그대로 붙여 넣으면 어디서 막혔는지 알 수 있다.
@@ -235,6 +239,9 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
   let zoom: Zoom = 'fit';
   let tokenCache: KgToken[] = [];
   let settings: ProjectSettings = DEFAULT_SETTINGS;
+
+  /** 지난번 폴더가 남아 있는데 권한만 못 받은 상태. 단추 하나로 이을 수 있다. */
+  let pendingFolder = false;
 
   /** 마지막으로 읽은 디스크 덱의 시각. 창으로 돌아왔을 때 그 사이 바뀌었는지 가린다. */
   let diskStamp = '';
@@ -454,7 +461,21 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
 
       draw();
       applyScale();
-      void api.reloadProject();
+      // 새로고침 직후에는 아직 브라우저 저장소를 보고 있다. 지난번 폴더가 있으면 그것으로 잇는다.
+      void (async () => {
+        const back = await recallProjectFolder().catch(() => null);
+        if (back && !back.needsPermission) {
+          project = back.project;
+          await api.reloadProject();
+          status(`프로젝트 — ${project.location}`);
+          return;
+        }
+        await api.reloadProject();
+        if (back) {
+          pendingFolder = true;
+          toast('info', '지난 폴더가 있습니다 — "폴더 다시 열기"를 누르세요');
+        }
+      })();
 
       return () => {
         unsub();
@@ -506,6 +527,23 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
      * 폴더로 옮기면 그때부터 양쪽이 같은 파일을 본다. "폴더 열기" 는 폴더를 갈아 끼울 뿐
      * 갖고 있던 장표를 데려가지 않으므로, 옮기는 통로가 따로 있어야 한다.
      */
+    hasPendingFolder: () => pendingFolder,
+
+    /**
+     * 지난번 폴더의 권한만 다시 받는다. 폴더를 찾아 들어가지 않아도 된다.
+     * 사람이 누른 직후에만 통하므로 반드시 단추에서 부른다.
+     */
+    async resumeFolder() {
+      const back = await grantRecalledFolder().catch((e) => { status(msg(e), true); return null; });
+      if (!back) return;
+      await withBusy('프로젝트를 여는 중', '', async () => {
+        project = back;
+        pendingFolder = false;
+        await api.reloadProject();
+        toast('ok', `프로젝트 — ${project.location}`);
+      });
+    },
+
     async saveToFolder() {
       const picked = await pickProjectFolder().catch((e) => { status(msg(e), true); return null; });
       if (!picked) return;
