@@ -9,15 +9,18 @@
  * 화면 조각은 이 파일이 노출한 동작만 부른다. 새 식별자·좌표·마크업은 여기서 만들어 커맨드에 넣는다.
  */
 import {
-  KG_CANVAS, ROLE_ATTR, createSlideDoc, loadKgTokens, newGroupId, newNodeId,
-  type AddedNode, type DeckDoc, type DeckEntry, type Distribute, type KgToken, type NodeId,
-  type ObjectAlign, type Role, type RoleStyle, type SlideDoc, type StylePatch,
+  DEFAULT_SETTINGS, KG_CANVAS, ROLE_ATTR, SETTINGS_FILE, createSlideDoc, loadKgTokens,
+  newGroupId, newNodeId,
+  type AddedNode, type Anchor, type DeckDoc, type DeckEntry, type Distribute, type KgToken,
+  type NodeId, type ObjectAlign, type ProjectSettings, type Role, type RoleStyle,
+  type SlideDoc, type StylePatch,
 } from '@contract/index';
 import {
   auditOverflow, byId, canvasRect, createDeckStore, createSlideStore, editable, expandSelection,
-  fitFontSize, groupOf, listNodes, isRemoved, readFormat, render, roleOf, scopeFormat,
-  slideNumber, themeCss, toStandaloneHtml,
-  type Command, type DeckStore, type FormatScope, type OverflowIssue, type SlideStore,
+  fitFontSize, fixOptions, groupOf, listNodes, isRemoved, neighborsOf, readFormat, render, roleOf,
+  scopeFormat, slideNumber, themeCss, toStandaloneHtml,
+  type Command, type DeckStore, type FixOption, type FormatScope, type Neighbor,
+  type OverflowIssue, type SlideStore,
 } from '@core/index';
 import {
   SNIPPETS, clipboard, cloneNodeSnapshot, createTransform, downloadDoc, downloadText,
@@ -44,6 +47,9 @@ export interface EditorApi {
   openFolder(): Promise<void>;
   reloadProject(): Promise<void>;
   setProjectName(name: string): void;
+  /** kg.config.json 에서 읽은 값. 최소 글자 크기 같은 판단 기준이 여기서 온다. */
+  settings(): ProjectSettings;
+  updateSettings(patch: Partial<ProjectSettings>): Promise<void>;
 
   /* 덱 */
   currentSlideId(): string;
@@ -115,9 +121,23 @@ export interface EditorApi {
   roleOfNode(id: NodeId): Role | null;
   /** 위계별 요소 수 — 조정이 어디에 닿는지 보여 준다 */
   roleCounts(): Record<string, number>;
+  /** 위계별로 화면에 실제 걸린 값. 설정 칸이 비어 있어도 지금 값을 보여 주기 위한 것. */
+  roleMetrics(): Record<string, { fontSize: number; fontWeight: number; color: string }>;
+
+  /** 지금 선택 옆에 있는 것들 — 캔버스에서 집기 어려운 요소를 목록으로 잡는다 */
+  neighbors(): Neighbor[];
+  /** 고정점을 붙박은 채 확대·축소 */
+  scaleSelected(factor: number, anchor: Anchor): void;
 
   /* 검사 */
   audit(): OverflowIssue[];
+  /** 덱 전체 검사. 열려 있지 않은 장표는 화면 밖에서 그려 잰다. */
+  auditDeck(): Promise<OverflowIssue[]>;
+  /** 그 항목이 있는 장표로 이동해 선택한다. 맞춤법 검사의 '다음'과 같은 동작. */
+  focusIssue(issue: OverflowIssue): Promise<void>;
+  /** 이 요소의 넘침을 푸는 방법들 */
+  fixOptions(id: NodeId): FixOption[];
+  applyFix(id: NodeId, option: FixOption): void;
   fixOverflow(ids?: NodeId[]): void;
 
   /* 보기 */
@@ -157,6 +177,7 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
   let themeStyle: HTMLStyleElement | null = null;
   let zoom: Zoom = 'fit';
   let tokenCache: KgToken[] = [];
+  let settings: ProjectSettings = DEFAULT_SETTINGS;
 
   const selectionListeners = new Set<(ids: NodeId[]) => void>();
   const statusListeners = new Set<(s: Status) => void>();
@@ -335,6 +356,7 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
 
     async reloadProject() {
       try {
+        settings = await project.loadSettings();
         const loaded = await project.loadDeck();
         deck.replace(loaded);
         const first = loaded.slides[0];
@@ -344,6 +366,17 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
     },
 
     setProjectName: (name) => deck.dispatch({ type: 'setName', name }, { coalesce: 'deckName' }),
+
+    settings: () => settings,
+
+    async updateSettings(patch) {
+      settings = { ...settings, ...patch };
+      try {
+        await project.saveSettings(settings);
+        status(`설정 저장함 — ${project.isFolder ? SETTINGS_FILE : '브라우저 저장소'}`);
+      } catch (e) { status(msg(e), true); }
+      draw();
+    },
 
     /* 덱 */
     currentSlideId: () => slides.get().id,
@@ -650,17 +683,102 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       return counts;
     },
 
+    /** 위계마다 대표 요소 하나를 재서 현재 값을 알려 준다. 설정 칸의 빈 값을 메우는 용도. */
+    roleMetrics() {
+      const out: Record<string, { fontSize: number; fontWeight: number; color: string }> = {};
+      if (!root) return out;
+      for (const el of root.querySelectorAll<HTMLElement>(`[${ROLE_ATTR}]`)) {
+        const r = el.getAttribute(ROLE_ATTR)!;
+        if (out[r] || el.closest('.kg-slot')) continue;
+        const cs = getComputedStyle(el);
+        out[r] = {
+          fontSize: Math.round(parseFloat(cs.fontSize) * 10) / 10,
+          fontWeight: Number(cs.fontWeight) || 400,
+          color: cs.color,
+        };
+      }
+      return out;
+    },
+
+    neighbors() {
+      const id = api.selection()[0];
+      const el = id ? elementOf(id) : null;
+      return root && el ? neighborsOf(root, el, scale()) : [];
+    },
+
+    scaleSelected(factor, anchor) {
+      const ids = targets().filter((id) => slides.get().patches[id]?.layout?.mode === 'detached');
+      if (ids.length) slides.dispatch({ type: 'scaleObject', ids, factor, anchor });
+      else status('먼저 떼어내야 크기를 조절할 수 있습니다', true);
+    },
+
     /* 검사 */
-    audit: () => (root ? auditOverflow(root) : []),
+    audit: () => (root ? auditOverflow(root, slides.get().id, settings) : []),
+
+    /**
+     * 덱 전체 검사.
+     * 열려 있는 장표는 화면 그대로 재고, 나머지는 화면 밖에 잠깐 그려 잰다.
+     * 잰 뒤에는 반드시 걷어낸다.
+     */
+    async auditDeck() {
+      const current = slides.get();
+      const found = root ? auditOverflow(root, current.id, settings) : [];
+
+      const scratch = document.createElement('div');
+      scratch.style.cssText = 'position:fixed;left:-99999px;top:0;width:1280px;';
+      document.body.appendChild(scratch);
+      try {
+        for (const entry of deck.get().slides) {
+          if (entry.id === current.id) continue;
+          try {
+            const other = await project.loadSlide(entry.id);
+            const { root: otherRoot } = render(scratch, other);
+            found.push(...auditOverflow(otherRoot, entry.id, settings));
+          } catch {
+            // 못 읽는 장표는 건너뛴다. 검사가 통째로 멈추면 안 된다.
+          }
+        }
+      } finally {
+        scratch.remove();
+      }
+      return found;
+    },
+
+    async focusIssue(issue) {
+      if (issue.slideId && issue.slideId !== slides.get().id) await api.openSlide(issue.slideId);
+      transform?.select([issue.id]);
+      elementOf(issue.id)?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    },
+
+    fixOptions(id) {
+      const el = elementOf(id);
+      return el ? fixOptions(el, settings) : [];
+    },
+
+    applyFix(id, option) {
+      const cmds: Command[] = [];
+      if (option.style) cmds.push({ type: 'setStyle', ids: [id], style: option.style });
+      if (option.rect) {
+        // 박스 크기로 푸는 경우, 흐름 안에 있으면 먼저 떼어내야 좌표가 생긴다.
+        if (root && slides.get().patches[id]?.layout?.mode !== 'detached') {
+          const el = elementOf(id);
+          if (el) cmds.push({ type: 'detach', id, rect: canvasRect(root, el, scale()) });
+        }
+        cmds.push({ type: 'setRect', id, rect: option.rect });
+      }
+      if (cmds.length) slides.batch(cmds);
+      status(`${option.label} — ${option.change}`);
+    },
+
     fixOverflow(ids) {
       if (!root) return;
-      const issues = auditOverflow(root).filter((i) => i.kind === 'clipped' && (!ids || ids.includes(i.id)));
+      const issues = auditOverflow(root, undefined, settings).filter((i) => i.kind === 'clipped' && (!ids || ids.includes(i.id)));
       const cmds: Command[] = [];
       const unresolved: string[] = [];
       for (const issue of issues) {
         const el = elementOf(issue.id);
         if (!el) continue;
-        const size = fitFontSize(el);
+        const size = fitFontSize(el, settings);
         if (size) cmds.push({ type: 'setStyle', ids: [issue.id], style: { fontSize: size } });
         else unresolved.push(issue.id);
       }

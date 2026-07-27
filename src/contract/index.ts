@@ -5,6 +5,7 @@ export * from './tree';
 export * from './typography';
 export * from './schema';
 export * from './deck';
+export * from './settings';
 export * from './validate';
 export * from './migrate';
 export * from './tokens';

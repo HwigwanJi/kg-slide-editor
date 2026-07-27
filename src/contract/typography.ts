@@ -30,13 +30,17 @@ export const zRole = z.enum([
   'body3',     // 본문 3단 — 하위의 하위
   'body4',     // 본문 4단 — 최말단 부연
   'caption',   // 각주·출처·단위
-  'label',     // 태그·칩·번호 라벨
+  'label',     // 태그·칩 (강조)
+  'label2',    // 보조 태그·단위 (비활성 칩, 축약 표기)
+  'num',       // 번호 라벨 (원문자, 코너 번호, 단계 번호)
 ]);
 export type Role = z.infer<typeof zRole>;
 
 export const ROLES = zRole.options;
 /** 본문 계열만. 단계 조정 UI가 이 순서를 쓴다. */
 export const BODY_ROLES: Role[] = ['body1', 'body2', 'body3', 'body4'];
+/** 태그 계열. 강조·보조·번호로 나눠 쓴다. */
+export const LABEL_ROLES: Role[] = ['label', 'label2', 'num'];
 
 /**
  * 말머리표.
@@ -78,7 +82,7 @@ export const DEFAULT_THEME: Theme = { scale: 1, roles: {} };
 export const DEFAULT_MARKERS: Record<Role, string> = {
   title: '', subtitle: '', message: '', h1: '', h2: '', h3: '',
   body1: '', body2: '', body3: '', body4: '',
-  caption: '', label: '',
+  caption: '', label: '', label2: '', num: '',
 };
 
 /** 말머리표 고르기 UI 가 제시하는 후보. 공공기관 보고서에서 쓰는 기호로 한정한다. */
@@ -109,7 +113,9 @@ export const ROLE_TOKENS: Record<Role, { size: string; color: string; label: str
   body3:    { size: '--fs-caption',       color: '--ink-700',  label: '본문 3단' },
   body4:    { size: '--fs-caption',       color: '--ink-500',  label: '본문 4단' },
   caption:  { size: '--fs-caption',       color: '--ink-500',  label: '각주·출처' },
-  label:    { size: '--fs-tag',           color: '--ink-navy', label: '태그·라벨' },
+  label:    { size: '--fs-tag',           color: '--ink-navy', label: '태그 (강조)' },
+  label2:   { size: '--fs-caption',       color: '--ink-500',  label: '태그 (보조)' },
+  num:      { size: '--fs-tag',           color: '--paper',    label: '번호 라벨' },
 };
 
 /**
@@ -119,7 +125,8 @@ export const ROLE_TOKENS: Record<Role, { size: string; color: string; label: str
 export const ROLE_SELECTORS: [string, Role][] = [
   ['.kg-section-title', 'title'],
   ['.kg-section-sub', 'subtitle'],
-  ['.kg-section-num', 'label'],
+  // 좌상단 섹션 번호는 제목과 한 덩어리다. 크기를 함께 움직여야 헤더가 어긋나지 않는다.
+  ['.kg-section-num', 'title'],
   ['.kg-message', 'message'],
   ['.kg-area-title .kg-body-title', 'h1'],
   ['.kg-subtopic', 'h1'],
@@ -137,11 +144,14 @@ export const ROLE_SELECTORS: [string, Role][] = [
   ['.kg-footer__src', 'caption'],
   ['.kg-footer__page', 'caption'],
   ['.kg-chapter-tag', 'label'],
-  ['.kg-chapter-tab__roman', 'label'],
-  ['.kg-num-label', 'label'],
-  ['.kg-numdot', 'label'],
-  ['.kg-cornern', 'label'],
+  ['.kg-chapter-tab__roman', 'num'],
+  ['.kg-num-label', 'num'],
+  ['.kg-numdot', 'num'],
+  ['.kg-cornern', 'num'],
 ];
+
+/** 번호로 보이는 짧은 표기. 원문자·로마숫자·아라비아 숫자만. */
+export const NUMERIC_LABEL = /^[\s.·)\]]*(?:[0-9]{1,2}|[①-⑳]|[ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ]+|[IVXivx]{1,4}|[A-Za-z])[\s.·)\]]*$/;
 
 export const ROLE_ATTR = 'data-kg-role';
 

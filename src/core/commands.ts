@@ -9,10 +9,10 @@
  * (등록하지 않으면 UI에 노출되지 않는 기능이 생긴다. 세션 훅이 이를 점검한다)
  */
 import type {
-  AddedNode, Distribute, GroupId, NodeId, ObjectAlign, Role, RoleStyle,
+  AddedNode, Anchor, Distribute, GroupId, NodeId, ObjectAlign, Role, RoleStyle,
   SlideDoc, StylePatch,
 } from '@contract/index';
-import { isAdded } from '@contract/index';
+import { ANCHOR_ORIGIN, isAdded } from '@contract/index';
 import { normalize } from './tree';
 import { createStore, type Store } from './store';
 
@@ -43,6 +43,8 @@ export type Command =
   | { type: 'reflow'; ids: NodeId[] }
   | { type: 'nudge'; ids: NodeId[]; dx: number; dy: number }
   | { type: 'setRect'; id: NodeId; rect: Partial<Rect> }
+  /** 고정점을 붙박아 둔 채 확대·축소 */
+  | { type: 'scaleObject'; ids: NodeId[]; factor: number; anchor: Anchor }
   | { type: 'alignObjects'; ids: NodeId[]; edge: ObjectAlign }
   | { type: 'distribute'; ids: NodeId[]; axis: Distribute }
   | { type: 'order'; ids: NodeId[]; op: 'front' | 'back' | 'forward' | 'backward' }
@@ -123,6 +125,18 @@ function reduce(doc: SlideDoc, cmd: Command): SlideDoc {
         if (p.layout?.mode !== 'detached') return p;
         return { ...p, layout: { ...p.layout, ...cmd.rect } };
       });
+
+    case 'scaleObject': {
+      const boxes = boxesOf(doc, cmd.ids);
+      if (boxes.length === 0) return doc;
+      const [ox, oy] = ANCHOR_ORIGIN[cmd.anchor];
+      return writeBoxes(doc, boxes.map((b) => {
+        const w = Math.max(8, Math.round(b.w * cmd.factor));
+        const h = Math.max(8, Math.round(b.h * cmd.factor));
+        // 고정점의 절대 좌표가 변하지 않도록 좌상단을 되민다.
+        return { ...b, w, h, x: Math.round(b.x + (b.w - w) * ox), y: Math.round(b.y + (b.h - h) * oy) };
+      }));
+    }
 
     case 'alignObjects':
       return alignObjects(doc, cmd.ids, cmd.edge);

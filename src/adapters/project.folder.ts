@@ -7,8 +7,8 @@
  * Chromium 계열에서만 동작한다. 지원하지 않는 브라우저에서는 브라우저 저장소로 물러난다.
  */
 import {
-  DECK_FILE, PREVIEW_DIR, SLIDES_DIR, assertSlideDoc, createDeck, parseDeck, parseSlideDoc,
-  previewFileName, slideFileName,
+  DECK_FILE, DEFAULT_SETTINGS, PREVIEW_DIR, SETTINGS_FILE, SLIDES_DIR, assertSlideDoc, createDeck,
+  parseDeck, parseSettings, parseSlideDoc, previewFileName, slideFileName,
 } from '@contract/index';
 import { projectNameFrom, type ProjectAdapter } from './project';
 
@@ -97,6 +97,18 @@ export function folderProject(root: FileSystemDirectoryHandle): ProjectAdapter {
       await writeFile(previews, previewFileName(id), png);
       revoke(id);
       return `${PREVIEW_DIR}/${previewFileName(id)}`;
+    },
+
+    async loadSettings() {
+      const raw = await readText(root, SETTINGS_FILE);
+      if (!raw) return DEFAULT_SETTINGS;
+      const { settings, issues } = parseSettings(JSON.parse(raw));
+      if (issues.length) console.warn(`${SETTINGS_FILE} 일부를 읽지 못해 기본값을 씁니다:`, issues);
+      return settings;
+    },
+
+    async saveSettings(settings) {
+      await writeFile(root, SETTINGS_FILE, `${JSON.stringify(settings, null, 2)}\n`);
     },
 
     async previewUrl(id) {

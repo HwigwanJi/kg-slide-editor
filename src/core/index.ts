@@ -8,5 +8,6 @@ export * from './deck';
 export * from './store';
 export * from './render';
 export * from './overflow';
+export * from './neighbors';
 export * from './format';
 export * from './serialize';

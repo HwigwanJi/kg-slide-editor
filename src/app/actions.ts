@@ -179,6 +179,13 @@ export const ACTIONS: ActionDef[] = [
   { id: 'layout.ungroup', label: '그룹 해제', group: '배치', shortcut: 'Ctrl+Shift+G',
     surfaces: ['toolbar', 'context', 'palette'], enabled: (c) => c.inGroup, covers: ['ungroup'],
     run: ({ api }) => api.ungroupSelected() },
+  { id: 'layout.grow', label: '10% 키우기', group: '배치', shortcut: 'Ctrl+Alt+.',
+    hint: '선택 탭에서 고정점을 고를 수 있습니다', surfaces: ['palette'],
+    enabled: (c) => c.hasDetached, covers: ['scaleObject'],
+    run: ({ api }) => api.scaleSelected(1.1, 'c') },
+  { id: 'layout.shrink', label: '10% 줄이기', group: '배치', shortcut: 'Ctrl+Alt+,',
+    surfaces: ['palette'], enabled: (c) => c.hasDetached,
+    run: ({ api }) => api.scaleSelected(0.9, 'c') },
   { id: 'layout.center', label: '캔버스 가운데로', group: '배치', surfaces: ['context', 'palette'],
     hint: '떼어낸 요소를 장표 한가운데에 놓습니다', enabled: (c) => c.hasDetached, covers: ['setRect'],
     run: ({ api }) => {
@@ -252,13 +259,20 @@ export const ACTIONS: ActionDef[] = [
     run: ({ api }) => api.setZoom(clampZoom(currentZoom(api) / 1.15)) },
 
   /* ---------------- 검사 ---------------- */
-  { id: 'audit.run', label: '넘침 검사', group: '검사', shortcut: 'Ctrl+Shift+A',
-    hint: '박스 밖으로 밀려난 글자를 찾습니다', surfaces: ['toolbar', 'palette'],
-    run: () => { /* 결과는 검사 패널이 구독해 보여 준다 */ } },
   { id: 'audit.fixAll', label: '넘침 일괄 보정', group: '검사', surfaces: ['toolbar', 'palette'],
-    hint: '글자 크기를 줄여 박스 안에 맞춥니다', run: ({ api }) => api.fixOverflow() },
+    hint: '글자 크기를 줄여 박스 안에 맞춥니다. 프로젝트 하한 아래로는 줄이지 않습니다',
+    run: ({ api }) => api.fixOverflow() },
   { id: 'audit.fixSelected', label: '선택 요소 넘침 보정', group: '검사', surfaces: ['context', 'palette'],
     enabled: hasSelection, run: ({ api }) => api.fixOverflow(api.selection()) },
+  { id: 'audit.raiseMin', label: '작은 글자를 프로젝트 하한까지 키우기', group: '검사',
+    hint: 'kg.config.json 의 minFontSize 기준', surfaces: ['palette'],
+    run: ({ api }) => {
+      const floor = api.settings().minFontSize;
+      const small = api.audit().filter((i) => i.kind === 'tooSmall');
+      if (small.length) api.runAll(small.map((i) => ({
+        type: 'setStyle', ids: [i.id], style: { fontSize: floor },
+      })));
+    } },
 
   /* ---------------- 위계 ---------------- */
   { id: 'theme.reset', label: '위계 전역값 초기화', group: '위계', surfaces: ['palette'],

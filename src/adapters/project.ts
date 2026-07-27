@@ -10,8 +10,9 @@
  *   deck.json / slides/*.kgslide / preview/*.png / library/*.svg
  */
 import {
-  DECK_FILE, assertSlideDoc, createDeck, parseDeck, parseSlideDoc,
-  type DeckDoc, type SlideDoc,
+  DECK_FILE, DEFAULT_SETTINGS, SETTINGS_FILE, assertSlideDoc, createDeck, parseDeck,
+  parseSettings, parseSlideDoc,
+  type DeckDoc, type ProjectSettings, type SlideDoc,
 } from '@contract/index';
 
 export interface ProjectAdapter {
@@ -26,6 +27,10 @@ export interface ProjectAdapter {
   loadSlide(id: string): Promise<SlideDoc>;
   saveSlide(doc: SlideDoc): Promise<void>;
   deleteSlide(id: string): Promise<void>;
+
+  /** 프로젝트 설정(kg.config.json). 없으면 기본값을 돌려준다. */
+  loadSettings(): Promise<ProjectSettings>;
+  saveSettings(settings: ProjectSettings): Promise<void>;
 
   /** 미리보기 PNG. 지원하지 않는 저장소는 생략한다. */
   savePreview?(id: string, png: Blob): Promise<string>;
@@ -67,7 +72,19 @@ export const localProject: ProjectAdapter = {
   async deleteSlide(id) {
     localStorage.removeItem(SLIDE_PREFIX + id);
   },
+
+  async loadSettings() {
+    const raw = localStorage.getItem(SETTINGS_KEY);
+    if (!raw) return DEFAULT_SETTINGS;
+    return parseSettings(JSON.parse(raw)).settings;
+  },
+
+  async saveSettings(settings) {
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+  },
 };
+
+const SETTINGS_KEY = `kg-slide-editor/${SETTINGS_FILE}`;
 
 /* ------------------------------------------------------------------ */
 

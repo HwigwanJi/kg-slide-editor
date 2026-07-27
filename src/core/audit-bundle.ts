@@ -1,0 +1,37 @@
+/**
+ * 검사 도구용 번들 진입점.
+ *
+ * tools/lint.mjs 가 브라우저 안에 이 번들을 넣고 부른다.
+ * 검사 규칙을 도구 쪽에 다시 구현하면 편집기 화면과 검사 결과가 곧 갈라진다.
+ * 그래서 규칙은 코어 하나만 두고, 도구는 그것을 실행만 한다.
+ */
+import { parseSettings, type ProjectSettings } from '@contract/index';
+import { ID_ATTR, ROLE_ATTR_PUBLIC, TEXT_ATTR, stampIds } from './ids';
+import { auditOverflow, type OverflowIssue } from './overflow';
+
+export interface SlideReport {
+  issues: OverflowIssue[];
+  /** 글자가 있는데 위계가 붙지 않은 요소 — 있으면 안 된다 */
+  missingRole: string[];
+  textRuns: number;
+  nodes: number;
+}
+
+/** 지금 열려 있는 장표를 검사한다. 설정은 kg.config.json 내용을 그대로 넘긴다. */
+export function auditPage(rawSettings: unknown): SlideReport {
+  const { settings } = parseSettings(rawSettings);
+  const root = document.querySelector<HTMLElement>('.kg-slide');
+  if (!root) throw new Error('.kg-slide 를 찾지 못했습니다');
+
+  stampIds(root);
+
+  const runs = [...root.querySelectorAll<HTMLElement>(`[${TEXT_ATTR}]`)];
+  return {
+    issues: auditOverflow(root, undefined, settings as ProjectSettings),
+    missingRole: runs
+      .filter((el) => !el.getAttribute(ROLE_ATTR_PUBLIC))
+      .map((el) => el.getAttribute(ID_ATTR) ?? '?'),
+    textRuns: runs.length,
+    nodes: root.querySelectorAll(`[${ID_ATTR}]`).length,
+  };
+}

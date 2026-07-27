@@ -8,9 +8,11 @@
  * 붙는 순서는 (1) 장표가 직접 붙인 값 → (2) KG 클래스 매칭 → (3) 구조 추론 → (4) 본문 1단.
  * 추론은 완벽하지 않다. 그래서 속성 패널에서 사람이 바꿀 수 있고, 그 값이 이긴다.
  */
-import { ROLE_ATTR, ROLE_SELECTORS, bodyRole, type Role } from '@contract/index';
+import { NUMERIC_LABEL, ROLE_ATTR, ROLE_SELECTORS, bodyRole, type Role } from '@contract/index';
 
 export const ID_ATTR = 'data-kg-id';
+/** 계약이 정한 위계 속성 이름. 코어 밖(검사 도구 등)에서도 같은 이름을 봐야 한다. */
+export const ROLE_ATTR_PUBLIC = ROLE_ATTR;
 /** 원본 style 속성 백업. 재렌더를 원본 기준에서 다시 시작하기 위한 것. */
 export const STYLE0_ATTR = 'data-kg-style0';
 /** 텍스트 편집 가능 표시 */
@@ -123,14 +125,24 @@ function assignRoles(runs: { el: Element; ctx: WalkCtx }[]): void {
 }
 
 function roleFor(m: Measured, baseline: number, ladder: number[]): Role {
-  if (m.ctx.area === 'header') return 'label';
+  const text = (m.el.textContent ?? '').trim();
+
+  // 번호처럼 보이는 짧은 표기는 어디에 있든 번호 라벨이다.
+  if (NUMERIC_LABEL.test(text)) return 'num';
+
+  if (m.ctx.area === 'header') return m.size >= baseline ? 'label' : 'label2';
   if (m.ctx.area === 'message') return 'message';
   if (m.ctx.area === 'footer') return 'caption';
 
   // 목록 항목은 중첩 깊이가 곧 단계다.
   if (m.ctx.listDepth > 0) return bodyRole(m.ctx.listDepth + 1);
 
-  if (m.weight >= 600) return m.size >= baseline ? 'h3' : 'label';
+  // 굵은 글자 — 본문 이상이면 소제목, 그보다 작으면 태그다.
+  // 태그도 크기로 강조·보조를 가른다. 셰브론의 활성/비활성이 여기서 갈린다.
+  if (m.weight >= 600) {
+    if (m.size >= baseline) return 'h3';
+    return m.size >= baseline * 0.85 ? 'label' : 'label2';
+  }
 
   const level = ladder.indexOf(m.size);
   return bodyRole(level < 0 ? 1 : level + 1);

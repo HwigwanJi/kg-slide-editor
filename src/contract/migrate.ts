@@ -25,6 +25,12 @@ const MIGRATIONS: Record<number, (doc: RawDoc) => RawDoc> = {
     if ('small' in roles) { roles['body2'] = roles['small']; delete roles['small']; }
     return { ...d, v: 3, theme: { scale: theme.scale ?? 1, roles } };
   },
+
+  /**
+   * v3 → v4 : 태그 위계 분할.
+   * 기존 label 은 강조 태그로 남는다. 보조 태그·번호는 다시 판정된다.
+   */
+  3: (d) => ({ ...d, v: 4 }),
 };
 
 export class ContractVersionError extends Error {

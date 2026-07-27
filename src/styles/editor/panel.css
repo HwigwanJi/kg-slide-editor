@@ -1,16 +1,85 @@
 /* ----------------------------------------------------------------------------
-   속성 패널 — 색상·타이포·배치.
-   실제 컨트롤 구성은 나중에 프론트에서 채운다. 여기서는 자리와 리듬만 고정한다.
+   속성 패널 — 탭 · 선택 · 서식 · 위계 · 검사.
+
+   폭에 따라 모양이 달라진다. 좁으면 한 줄에 하나씩, 넉넉하면 라벨과 값을 나란히.
+   미디어 쿼리가 아니라 컨테이너 쿼리를 쓴다 — 판단 기준이 화면이 아니라 패널 폭이라서,
+   나중에 패널을 접거나 옮겨도 규칙이 그대로 맞는다.
    ---------------------------------------------------------------------------- */
 .ed-panel {
   background: var(--ed-surface);
   border-left: var(--ed-bw) solid var(--ed-border);
-  overflow-y: auto;
+  overflow: hidden;
   z-index: var(--ed-z-panel);
   display: flex;
   flex-direction: column;
+  container-type: inline-size;
+  container-name: panel;
 }
 
+.ed-panel__body {
+  overflow-y: auto;
+  flex: 1 1 auto;
+}
+
+/* 지금 무엇을 고르고 있는지 — 탭을 옮겨도 잃지 않게 머리에 고정 */
+.ed-panel__crumb {
+  display: flex;
+  align-items: baseline;
+  gap: var(--ed-sp-2);
+  padding: var(--ed-sp-2) var(--ed-sp-3);
+  border-bottom: var(--ed-bw) solid var(--ed-border);
+  background: var(--ed-surface-sunken);
+  font-size: var(--ed-fs-xs);
+}
+.ed-panel__role { font-weight: var(--ed-fw-semibold); color: var(--ed-fg-strong); }
+.ed-panel__id {
+  color: var(--ed-fg-muted);
+  font-family: var(--ed-font-mono);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------------- 탭 ---------------- */
+.ed-tabs {
+  display: flex;
+  border-bottom: var(--ed-bw) solid var(--ed-border);
+  flex: 0 0 auto;
+}
+.ed-tab {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ed-sp-1);
+  height: var(--ed-control-h);
+  padding-inline: var(--ed-sp-1);
+  background: transparent;
+  border: 0;
+  border-bottom: var(--ed-bw-strong) solid transparent;
+  color: var(--ed-fg-muted);
+  font-size: var(--ed-fs-sm);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.ed-tab:hover { background: var(--ed-hover); }
+.ed-tab[aria-selected='true'] {
+  color: var(--ed-fg-strong);
+  border-bottom-color: var(--ed-accent);
+  font-weight: var(--ed-fw-semibold);
+}
+.ed-tab__badge {
+  min-width: 1.15rem;
+  padding-inline: 0.3em;
+  border-radius: var(--ed-r-pill);
+  background: var(--ed-danger);
+  color: var(--ed-fg-on-accent);
+  font-size: var(--ed-fs-xs);
+  font-variant-numeric: tabular-nums;
+}
+.ed-tab__badge--quiet { background: var(--ed-border-strong); color: var(--ed-fg); }
+
+/* ---------------- 구역 ---------------- */
 .ed-section {
   padding: var(--ed-sp-3);
   border-bottom: var(--ed-bw) solid var(--ed-border);
@@ -19,6 +88,10 @@
   gap: var(--ed-sp-2);
 }
 .ed-section__title {
+  display: flex;
+  align-items: center;
+  gap: var(--ed-sp-2);
+  margin: 0;
   font-size: var(--ed-fs-xs);
   font-weight: var(--ed-fw-bold);
   letter-spacing: var(--ed-tracking-label);
@@ -26,19 +99,35 @@
   text-transform: uppercase;
 }
 
+.ed-badge {
+  padding: 0 var(--ed-sp-1);
+  border-radius: var(--ed-r-xs);
+  background: var(--ed-accent-weak);
+  color: var(--ed-fg);
+  font-size: var(--ed-fs-xs);
+  font-weight: var(--ed-fw-medium);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* 라벨과 값 — 좁으면 위아래로 쌓는다 */
 .ed-field {
   display: grid;
   grid-template-columns: 5.5rem minmax(0, 1fr);
   align-items: center;
   gap: var(--ed-sp-2);
 }
-.ed-field__label {
-  font-size: var(--ed-fs-sm);
-  color: var(--ed-fg-muted);
+@container panel (max-width: 250px) {
+  .ed-field { grid-template-columns: 1fr; gap: var(--ed-sp-1); }
 }
+.ed-field__label { font-size: var(--ed-fs-sm); color: var(--ed-fg-muted); }
 .ed-field__control { display: flex; align-items: center; gap: var(--ed-sp-1); min-width: 0; }
+.ed-field__control--wrap { flex-wrap: wrap; }
 
-/* 브랜드 토큰 스와치 — 목록은 contract/tokens.ts 가 KG CSS에서 읽어 온다 */
+.ed-num { display: inline-flex; align-items: center; gap: var(--ed-sp-1); }
+.ed-num > span { font-size: var(--ed-fs-xs); color: var(--ed-fg-muted); }
+
+/* 브랜드 토큰 스와치 */
 .ed-swatches {
   display: grid;
   grid-template-columns: repeat(auto-fill, var(--ed-swatch));
@@ -71,38 +160,210 @@
   font-size: var(--ed-fs-xs);
   line-height: var(--ed-lh-body);
 }
+.ed-note--warn {
+  color: var(--ed-warn);
+  display: flex;
+  align-items: center;
+  gap: var(--ed-sp-2);
+  flex-wrap: wrap;
+}
 
 .ed-range { flex: 1 1 auto; min-width: 0; accent-color: var(--ed-accent); }
 
-/* 위계 표 — 위계마다 크기·굵기·말머리표를 한 줄에서 다룬다 */
-.ed-roles {
+/* ---------------- 선택 미리보기 ---------------- */
+.ed-thumb {
+  position: relative;
   width: 100%;
-  border-collapse: collapse;
-  font-size: var(--ed-fs-xs);
+  aspect-ratio: 232 / 132;
+  overflow: hidden;
+  background: var(--ed-paper);
+  border: var(--ed-bw) solid var(--ed-border);
+  border-radius: var(--ed-r-sm);
 }
-.ed-roles th,
-.ed-roles td {
-  padding: var(--ed-sp-1) var(--ed-sp-1);
+.ed-thumb__stage {
+  position: absolute;
+  inset: 0;
+  transform-origin: top left;
+  pointer-events: none;
+}
+.ed-thumb__mark {
+  position: absolute;
+  outline: var(--ed-select-detached) solid;
+  outline-offset: 1px;
+  background: var(--ed-accent-weak);
+}
+
+/* 확대 고정점 — 3×3 */
+.ed-anchors {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  width: calc(var(--ed-sp-5) * 3);
+}
+.ed-anchor {
+  aspect-ratio: 1;
+  padding: 0;
+  border: var(--ed-bw) solid var(--ed-border-strong);
+  border-radius: 2px;
+  background: var(--ed-surface-sunken);
+  cursor: pointer;
+}
+.ed-anchor:hover { background: var(--ed-hover); }
+.ed-anchor[aria-pressed='true'] { background: var(--ed-accent); border-color: var(--ed-accent); }
+
+/* ---------------- 주변 오브젝트 ---------------- */
+.ed-neighbors {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 15rem;
+  overflow-y: auto;
+}
+.ed-neighbor {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0, 1fr);
+  grid-template-areas: 'rel label' 'rel meta';
+  gap: 0 var(--ed-sp-2);
+  padding: var(--ed-sp-1) var(--ed-sp-2);
   text-align: left;
-  vertical-align: middle;
-}
-.ed-roles thead th {
-  color: var(--ed-fg-muted);
-  font-weight: var(--ed-fw-medium);
-  border-bottom: var(--ed-bw) solid var(--ed-border);
-}
-.ed-roles tbody th {
-  font-weight: var(--ed-fw-medium);
+  background: transparent;
+  border: var(--ed-bw) solid transparent;
+  border-radius: var(--ed-r-sm);
   color: var(--ed-fg);
+  cursor: pointer;
+}
+.ed-neighbor:hover { background: var(--ed-hover); }
+.ed-neighbor[aria-pressed='true'] {
+  background: var(--ed-accent-weak);
+  border-color: var(--ed-accent);
+}
+.ed-neighbor__rel {
+  grid-area: rel;
+  align-self: center;
+  font-size: var(--ed-fs-xs);
+  color: var(--ed-fg-muted);
+}
+.ed-neighbor__label {
+  grid-area: label;
+  font-size: var(--ed-fs-sm);
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
-/* 이 장표에 없는 위계는 눈에 덜 띄게 — 다만 숨기지는 않는다 */
-.ed-roles tr[data-empty] { opacity: 0.45; }
-.ed-roles__count {
+.ed-neighbor__meta {
+  grid-area: meta;
+  font-size: var(--ed-fs-xs);
   color: var(--ed-fg-muted);
   font-variant-numeric: tabular-nums;
-  text-align: right;
 }
-.ed-roles .ed-input--num { width: 4.5ch; }
-.ed-roles .ed-select { max-width: 8ch; }
-.ed-roles .ed-btn { padding-inline: var(--ed-sp-1); }
+
+/* ---------------- 위계 목록 ---------------- */
+.ed-roles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ed-sp-1);
+}
+.ed-role {
+  padding: var(--ed-sp-2);
+  border: var(--ed-bw) solid transparent;
+  border-radius: var(--ed-r-sm);
+  background: var(--ed-surface-sunken);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ed-sp-1);
+}
+/* 지금 고른 요소의 위계 — 어느 줄을 만져야 하는지 바로 보이게 */
+.ed-role[data-active] {
+  border-color: var(--ed-accent);
+  background: var(--ed-accent-weak);
+}
+.ed-role[data-empty] { opacity: 0.5; }
+
+.ed-role__head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--ed-sp-2);
+}
+.ed-role__name { font-size: var(--ed-fs-sm); font-weight: var(--ed-fw-medium); }
+.ed-role__now {
+  margin-left: auto;
+  font-size: var(--ed-fs-xs);
+  color: var(--ed-fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+.ed-role__now[data-warn] { color: var(--ed-warn); font-weight: var(--ed-fw-semibold); }
+.ed-role__count {
+  min-width: 1.6rem;
+  text-align: right;
+  font-size: var(--ed-fs-xs);
+  color: var(--ed-fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+.ed-role__ctrls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ed-sp-1);
+}
+.ed-role__ctrls .ed-input--num { width: 4.5ch; }
+.ed-role__ctrls .ed-select { max-width: 9ch; }
+
+/* ---------------- 검사 ---------------- */
+.ed-stepper {
+  display: flex;
+  align-items: center;
+  gap: var(--ed-sp-2);
+}
+.ed-stepper__count {
+  flex: 1 1 auto;
+  text-align: center;
+  font-size: var(--ed-fs-sm);
+  color: var(--ed-fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.ed-issue {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--ed-sp-2);
+  border-radius: var(--ed-r-sm);
+  background: var(--ed-surface-sunken);
+  border-left: var(--ed-bw-strong) solid var(--ed-warn);
+}
+.ed-issue__kind { font-size: var(--ed-fs-xs); font-weight: var(--ed-fw-semibold); color: var(--ed-warn); }
+.ed-issue__kind[data-kind='outside'] { color: var(--ed-danger); }
+.ed-issue__kind[data-kind='sparse'] { color: var(--ed-accent); }
+.ed-issue__kind[data-kind='tooSmall'] { color: var(--ed-danger); }
+.ed-issue__text { font-size: var(--ed-fs-sm); }
+.ed-issue__meta { font-size: var(--ed-fs-xs); color: var(--ed-fg-muted); }
+
+.ed-fix {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--ed-sp-2);
+  padding: var(--ed-sp-2);
+  background: var(--ed-surface-sunken);
+  border: var(--ed-bw) solid var(--ed-border);
+  border-radius: var(--ed-r-sm);
+  color: var(--ed-fg);
+  cursor: pointer;
+  text-align: left;
+}
+.ed-fix:hover { border-color: var(--ed-accent); background: var(--ed-hover); }
+.ed-fix__label { font-size: var(--ed-fs-sm); }
+.ed-fix__change {
+  font-size: var(--ed-fs-xs);
+  color: var(--ed-fg-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}

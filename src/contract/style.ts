@@ -41,6 +41,20 @@ export type ObjectAlign = z.infer<typeof zObjectAlign>;
 export const zDistribute = z.enum(['horizontal', 'vertical']);
 export type Distribute = z.infer<typeof zDistribute>;
 
+/**
+ * 확대·축소의 고정점.
+ * 어느 모서리를 붙박아 둘지에 따라 결과가 완전히 달라진다. 기본은 가운데(c).
+ */
+export const zAnchor = z.enum(['nw', 'n', 'ne', 'w', 'c', 'e', 'sw', 's', 'se']);
+export type Anchor = z.infer<typeof zAnchor>;
+
+/** 앵커의 상대 위치(0~1). 좌표 계산이 이 표 하나만 보게 한다. */
+export const ANCHOR_ORIGIN: Record<Anchor, [number, number]> = {
+  nw: [0, 0], n: [0.5, 0], ne: [1, 0],
+  w: [0, 0.5], c: [0.5, 0.5], e: [1, 0.5],
+  sw: [0, 1], s: [0.5, 1], se: [1, 1],
+};
+
 export const zFontWeight = z.union([
   z.literal(300), z.literal(400), z.literal(500), z.literal(600),
   z.literal(700), z.literal(800), z.literal(900),

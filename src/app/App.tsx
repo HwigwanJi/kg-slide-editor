@@ -1,16 +1,17 @@
 /**
  * App — 배선만 한다.
  *
- * 여기에 들어가도 되는 것: 조각 배치와 값 전달, 그리고 화면 사이에 걸친 아주 얕은 상태(메뉴 열림 등).
+ * 여기에 들어가도 되는 것: 조각 배치와 값 전달, 그리고 화면 사이에 걸친 아주 얕은 상태
+ * (열린 탭, 메뉴 위치, 검사 범위).
  * 여기에 들어가면 안 되는 것: 편집 규칙, 좌표 계산, DOM 조작, 스타일 값, 액션 목록.
  *   → core/commands.ts, adapters/transform.pointer.ts, app/editor.ts, styles/tokens/, app/actions.ts.
  */
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { DeckRail } from './DeckRail';
-import { Inspector } from './Inspector';
 import { SlideCanvas } from './SlideCanvas';
 import { StatusBar } from './StatusBar';
 import { Toolbar } from './Toolbar';
+import { Panel, type TabId } from './panels/Panel';
 import { BubbleToolbar, CommandPalette, ContextMenu, type MenuPoint } from './menus';
 import { installShortcuts } from './shortcuts';
 import {
@@ -27,14 +28,21 @@ export default function App() {
 
   const revision = `${doc.id}|${doc.updatedAt}|${status.message}`;
   const tokens = useTokens(api, revision);
-  const issues = useAudit(api, revision);
-  const roleCounts = useMemo(() => api.roleCounts(), [api, revision]);
 
+  const [tab, setTab] = useState<TabId>('selection');
+  const [scope, setScope] = useState<'slide' | 'deck'>('slide');
   const [menuAt, setMenuAt] = useState<MenuPoint | null>(null);
   const [anchor, setAnchor] = useState<DOMRect | null>(null);
   const [paletteOpen, setPaletteOpen] = useState(false);
 
-  // 단축키는 액션 레지스트리에서만 나온다. 명령 목록 열기만 여기서 다룬다.
+  const { issues, scanning, rescan } = useAudit(api, revision, scope);
+
+  // 캔버스를 다시 그린 뒤라야 실제 값이 잡힌다. revision 이 바뀔 때마다 다시 읽는다.
+  const roleCounts = useMemo(() => api.roleCounts(), [api, revision]);
+  const roleMetrics = useMemo(() => api.roleMetrics(), [api, revision]);
+  const neighbors = useMemo(() => api.neighbors(), [api, revision, selection]);
+  const settings = useMemo(() => api.settings(), [api, revision]);
+
   useEffect(() => installShortcuts(() => ctx), [ctx]);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -57,9 +65,14 @@ export default function App() {
         onContextMenu={setMenuAt}
         onAnchor={useCallback((r: DOMRect | null) => setAnchor(r), [])}
       />
-      <Inspector
-        api={api} doc={doc} selection={selection} tokens={tokens} issues={issues}
-        roleOfNode={api.roleOfNode} roleCounts={roleCounts}
+      <Panel
+        api={api} doc={doc} selection={selection} tokens={tokens}
+        neighbors={neighbors} roleOfNode={api.roleOfNode}
+        roleCounts={roleCounts} roleMetrics={roleMetrics}
+        issues={issues} scanning={scanning} scope={scope}
+        minFontSize={settings.minFontSize}
+        tab={tab} onTab={setTab}
+        onRescan={rescan} onScope={setScope}
       />
       <StatusBar doc={doc} deck={deck} status={status} selected={selection.length} issues={issues.length} />
 

@@ -164,7 +164,7 @@ function placeDetached(root: HTMLElement, doc: SlideDoc, layerHint: HTMLElement 
 /** 같은 자리를 차지하는 투명한 사본. 클릭도 받지 않는다. */
 function makeSlot(el: HTMLElement): HTMLElement {
   const slot = el.cloneNode(true) as HTMLElement;
-  slot.className = `${el.className} ${SLOT_CLASS}`.trim();
+  slot.classList.add(SLOT_CLASS);
   slot.removeAttribute(ID_ATTR);
   for (const child of slot.querySelectorAll(`[${ID_ATTR}]`)) child.removeAttribute(ID_ATTR);
   slot.style.visibility = 'hidden';

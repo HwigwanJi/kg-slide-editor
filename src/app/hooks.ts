@@ -68,12 +68,33 @@ export function useActionCtx(
   }), [api, doc, deck, selection, clip.nodes, clip.format]);
 }
 
-/** 넘침 검사 결과. 문서가 바뀌면 다시 잰다(렌더가 끝난 뒤 한 프레임 미뤄서). */
-export function useAudit(api: EditorApi, revision: string): OverflowIssue[] {
+/**
+ * 검사 결과. 문서가 바뀌면 다시 잰다(렌더가 끝난 뒤 한 프레임 미뤄서).
+ * 덱 전체 검사는 다른 장표를 화면 밖에서 그려야 해 시간이 걸리므로 진행 상태를 함께 준다.
+ */
+export function useAudit(
+  api: EditorApi,
+  revision: string,
+  scope: 'slide' | 'deck',
+): { issues: OverflowIssue[]; scanning: boolean; rescan: () => void } {
   const [issues, setIssues] = useState<OverflowIssue[]>([]);
+  const [scanning, setScanning] = useState(false);
+  const [nonce, setNonce] = useState(0);
+
   useEffect(() => {
-    const t = window.setTimeout(() => setIssues(api.audit()), 60);
-    return () => window.clearTimeout(t);
-  }, [api, revision]);
-  return issues;
+    let alive = true;
+    const timer = window.setTimeout(() => {
+      if (scope === 'slide') {
+        setIssues(api.audit());
+        return;
+      }
+      setScanning(true);
+      void api.auditDeck()
+        .then((found) => { if (alive) setIssues(found); })
+        .finally(() => { if (alive) setScanning(false); });
+    }, 60);
+    return () => { alive = false; window.clearTimeout(timer); };
+  }, [api, revision, scope, nonce]);
+
+  return { issues, scanning, rescan: useCallback(() => setNonce((n) => n + 1), []) };
 }
