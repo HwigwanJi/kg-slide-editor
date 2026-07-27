@@ -54,6 +54,8 @@ await mkdir(join(HOME, 'skills'), { recursive: true });
  * ~/.claude/skills 는 저장소에서 만들어 내는 파생물이지만, 사람이 거기를 직접 고치는 일이 실제로 생긴다.
  * 그대로 덮으면 그 수정이 소리 없이 사라진다 — 이 도구가 막으려는 바로 그 종류의 사고다.
  */
+const norm = (buf) => buf.toString('utf8').replace(/\r\n/g, '\n');
+
 async function drifted(src, dst, base = '') {
   const out = [];
   for (const e of await readdir(src, { withFileTypes: true })) {
@@ -65,7 +67,10 @@ async function drifted(src, dst, base = '') {
     }
     if (!existsSync(b)) continue;
     const [x, y] = await Promise.all([readFile(a), readFile(b)]);
-    if (!x.equals(y)) out.push(rel);
+    if (x.equals(y)) continue;
+    // 줄 끝 차이는 수정이 아니다. 받은 컴퓨터가 CRLF 로 풀어 놓으면 내용이 같아도 바이트가 달라진다.
+    if (norm(x) === norm(y)) continue;
+    out.push(rel);
   }
   return out;
 }

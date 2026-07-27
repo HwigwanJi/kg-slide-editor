@@ -1,0 +1,13 @@
+# 줄 끝은 어느 컴퓨터에서 받아도 LF 다.
+#
+# 이 저장소의 파일은 ~/.claude/skills 로 복사돼 원본과 대조된다.
+# 받는 쪽마다 줄 끝이 달라지면 내용이 같아도 다른 파일로 보여 설치가 막힌다.
+* text=auto eol=lf
+
+# 글꼴·이미지는 손대지 않는다.
+*.ttf   binary
+*.woff  binary
+*.woff2 binary
+*.png   binary
+*.jpg   binary
+*.ico   binary
