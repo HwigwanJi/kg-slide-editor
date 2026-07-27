@@ -34,6 +34,12 @@ export default function App() {
 
   const [tab, setTab] = useState<TabId>('selection');
   const [ribbon, setRibbon] = useState<RibbonTab>('홈');
+
+  // 저장 상태와 "디스크가 더 새로움" — 사람이 무언가를 잃기 전에 알아야 하는 두 가지.
+  const [projectState, setProjectState] = useState({ dirty: false, stale: false });
+  useEffect(() => api.onProjectState(
+    () => setProjectState({ dirty: api.isDirty(), stale: api.needsReload() }),
+  ), [api]);
   const [scope, setScope] = useState<'slide' | 'deck'>('slide');
   const [menuAt, setMenuAt] = useState<MenuPoint | null>(null);
   const [anchor, setAnchor] = useState<DOMRect | null>(null);
@@ -82,7 +88,10 @@ export default function App() {
         tab={tab} onTab={setTab}
         onRescan={rescan} onScope={setScope}
       />
-      <StatusBar doc={doc} deck={deck} status={status} selected={selection.length} issues={issues.length} />
+      <StatusBar
+        doc={doc} deck={deck} status={status} selected={selection.length} issues={issues.length}
+        dirty={projectState.dirty} stale={projectState.stale}
+      />
 
       <ContextMenu at={menuAt} ctx={ctx} onClose={useCallback(() => { setMenuAt(null); setMenuSlide(undefined); }, [])} />
       <BubbleToolbar anchor={anchor} ctx={ctx} />

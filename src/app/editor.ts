@@ -63,6 +63,12 @@ export interface EditorApi {
    * 기본 프로젝트(브라우저 저장소)는 명령줄에서 볼 수 없다. 이 통로로 파일이 된다.
    */
   saveToFolder(): Promise<void>;
+  /** 저장하지 않은 편집이 있는가. */
+  isDirty(): boolean;
+  /** 디스크가 메모리보다 새로운가 — 다시 읽어야 하는 상태. */
+  needsReload(): boolean;
+  /** 위 두 값이 바뀌면 알린다. */
+  onProjectState(fn: () => void): () => void;
   /** 지난번 폴더가 남아 있는가. 권한만 받으면 바로 이을 수 있다. */
   hasPendingFolder(): boolean;
   /** 그 폴더의 권한을 받아 잇는다. 사람이 누른 직후에만 통한다. */
@@ -242,6 +248,18 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
 
   /** 지난번 폴더가 남아 있는데 권한만 못 받은 상태. 단추 하나로 이을 수 있다. */
   let pendingFolder = false;
+
+  /**
+   * 디스크가 메모리보다 새로운가. 다시 읽기를 눌러야 하는 상태다.
+   * 저절로 반영하지 않으므로 이 표시가 유일한 신호다.
+   */
+  let stale = false;
+  /** 마지막으로 확인한 디스크 파일 시각. 다시 읽으면 여기서 기준을 새로 잡는다. */
+  let seen: { deck: number; slide: number } | null = null;
+  /** 마지막으로 저장한 시점의 문서 시각. 이것과 지금이 다르면 저장하지 않은 편집이 있다. */
+  let savedAt = '';
+  const stateListeners = new Set<() => void>();
+  const notifyState = () => stateListeners.forEach((f) => f());
 
   const selectionListeners = new Set<(ids: NodeId[]) => void>();
   const statusListeners = new Set<(s: Status) => void>();
@@ -435,7 +453,18 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       el.addEventListener('dblclick', onDouble);
 
       // 캔버스는 스토어 변경에 동기로 반응한다. React 렌더 주기를 타지 않는다.
-      const unsub = slides.subscribe(() => { draw(); applyScale(); });
+      const unsub = slides.subscribe(() => { draw(); applyScale(); notifyState(); });
+
+      /**
+       * 저장하지 않은 편집이 있으면 창을 닫기 전에 묻는다.
+       * 편집분은 메모리에만 있다. 새로고침 한 번이면 그대로 사라진다.
+       */
+      const onLeave = (e: BeforeUnloadEvent) => {
+        if (!api.isDirty()) return;
+        e.preventDefault();
+        e.returnValue = '';
+      };
+      window.addEventListener('beforeunload', onLeave);
 
       // 꼬리말 쪽번호의 진실은 덱 순서다(deck.slides). 순서나 장수가 바뀌면
       // 캔버스도 따라 그려야 목록의 번호와 장표의 번호가 갈라지지 않는다.
@@ -464,24 +493,18 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
         if (!now) return;
         if (!seen) { seen = now; return; }
 
-        if (now.slide !== seen.slide) {
-          seen = { ...seen, slide: now.slide };
-          const disk = await project.loadSlide(slides.get().id).catch(() => null);
-          if (disk && disk.source.html !== slides.get().source.html) {
-            slides.replace({ ...slides.get(), source: disk.source, canvas: disk.canvas });
-            draw();
-            applyScale();
-            toast('info', '원본이 새로 그려져 화면을 맞췄습니다');
+        // 저절로 갈아 끼우지 않는다. 편집하던 중에 화면이 바뀌면 무엇이 사라졌는지 알 수 없다.
+        // 바뀌었다는 사실만 세워 두고, 반영은 사람이 "다시 읽기" 를 누를 때 한다.
+        if (now.slide !== seen.slide || now.deck !== seen.deck) {
+          seen = now;
+          if (!stale) {
+            stale = true;
+            notifyState();
+            toast('info', '디스크가 바뀌었습니다 — 다시 읽기를 누르세요');
           }
-        }
-
-        if (now.deck !== seen.deck) {
-          seen = { ...seen, deck: now.deck };
-          toast('info', '프로젝트가 바뀌었습니다 — 다시 읽기를 누르세요');
         }
       };
 
-      let seen: { deck: number; slide: number } | null = null;
       const onFocus = () => { void check(); };
       window.addEventListener('focus', onFocus);
       const timer = window.setInterval(() => { void check(); }, 2000);
@@ -508,6 +531,7 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
         unsub();
         unsubDeck();
         window.removeEventListener('focus', onFocus);
+        window.removeEventListener('beforeunload', onLeave);
         window.clearInterval(timer);
         ro.disconnect();
         el.removeEventListener('dblclick', onDouble);
@@ -555,6 +579,10 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
      * 폴더로 옮기면 그때부터 양쪽이 같은 파일을 본다. "폴더 열기" 는 폴더를 갈아 끼울 뿐
      * 갖고 있던 장표를 데려가지 않으므로, 옮기는 통로가 따로 있어야 한다.
      */
+    isDirty: () => savedAt !== '' && slides.get().updatedAt !== savedAt,
+    needsReload: () => stale,
+    onProjectState(fn) { stateListeners.add(fn); return () => stateListeners.delete(fn); },
+
     hasPendingFolder: () => pendingFolder,
 
     /**
@@ -620,6 +648,10 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
         const keep = loaded.slides.find((s) => s.id === before) ?? loaded.slides[0];
         if (keep) await api.openSlide(keep.id);
         else showSlide(blankDoc());
+        stale = false;
+        savedAt = slides.get().updatedAt;
+        seen = null;
+        notifyState();
         return { had, now: loaded.slides.length };
       };
 
@@ -778,6 +810,8 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
           deck.dispatch({ type: 'touchSlide', id: doc.id, title: doc.title, updatedAt: doc.updatedAt });
           await project.saveDeck(deck.get());
         }
+        savedAt = slides.get().updatedAt;
+        notifyState();
         status(`저장함 — ${project.location}`);
       });
     },
