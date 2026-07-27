@@ -1,0 +1,126 @@
+{
+  "v": 5,
+  "id": "9789823f-401f-4bdd-a471-cadded08f2d0",
+  "title": "경영환경 종합진단 — 국정·도정 연계",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"경영환경 종합진단\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"message\">01</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">단계별 세부 추진내용 및 일정</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">경영환경 종합진단 — 1-4</div>\n    </div>\n    <div class=\"kg-chapter-tab\"><span class=\"kg-chapter-tab__roman\" data-kg-role=\"label\">Ⅱ</span><span class=\"kg-chapter-tab__sep\"></span><span class=\"kg-chapter-tag\" data-kg-role=\"label\">경영환경 분석</span></div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">국정 · 도정 과제와 JDC 고유역할을 연계해 <b>비면세 성장 · AI 신사업 · 지역환원</b> 중심 중장기 방향 구체화</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"wrap\">\n\n      <div class=\"nav\">\n        <span class=\"k\" data-kg-role=\"h3\">과업 1 대내 · 외 경영환경 분석</span>\n        <span data-kg-role=\"label\">과업 2 사업분석 및 이해관계자 진단</span>\n        <span data-kg-role=\"label\">과업 3 가치체계 및 전략체계 수립</span>\n        <span data-kg-role=\"label\">과업 4 운용계획 수립 및 실행력 강화</span>\n      </div>\n\n      <div class=\"bands\">\n        <!-- ① 국정·도정 과제 연계 -->\n        <div class=\"lb\" data-kg-role=\"h2\">국정 · 도정<br>과제 연계</div>\n        <div class=\"full pol\">\n          <div class=\"pol__r\"><span class=\"pol__k\" data-kg-role=\"label\">국정</span>\n            <span class=\"pol__t\" data-kg-role=\"body2\">제주 3특 거점 · 제2공항 배후 · K-관광 3천만 · AI고속도로 · RE100 · 지역균형성장</span></div>\n          <div class=\"pol__r\"><span class=\"pol__k d\" data-kg-role=\"label\">민선9기</span>\n            <span class=\"pol__t\" data-kg-role=\"body2\">기후경제수도 · AI데이터센터 40MW · 1조 혁신펀드 · 개발이익 도민환원</span></div>\n        </div>\n\n        <!-- ② 정부·도정 추진과제 -->\n        <div class=\"lb\" data-kg-role=\"h2\">정부 · 도정<br>추진과제</div>\n        <div class=\"tk\"><span class=\"tk__k\" data-kg-role=\"label\">국정</span>\n          <span class=\"tk__t\" data-kg-role=\"h3\">제2공항 배후 개발 · K-관광 연계</span>\n          <span class=\"tk__d\" data-kg-role=\"body2\">관광 · 물류 배후단지 조성 및 체류형 관광수요 확대</span></div>\n        <div class=\"tk\"><span class=\"tk__k\" data-kg-role=\"label\">국정</span>\n          <span class=\"tk__t\" data-kg-role=\"h3\">AI고속도로 · 데이터센터 유치</span>\n          <span class=\"tk__d\" data-kg-role=\"body2\">제주 AX 데이터 허브 및 전력 · 냉각 인프라 선점</span></div>\n        <div class=\"tk\"><span class=\"tk__k c\" data-kg-role=\"label\">탄소</span>\n          <span class=\"tk__t\" data-kg-role=\"h3\">CFI2030 · RE100 · 그린수소</span>\n          <span class=\"tk__d\" data-kg-role=\"body2\">출력제어 잉여전력 1,069GWh 활용</span></div>\n        <div class=\"tk\"><span class=\"tk__k d\" data-kg-role=\"label\">도정</span>\n          <span class=\"tk__t\" data-kg-role=\"h3\">개발이익 도민환원 · 혁신펀드</span>\n          <span class=\"tk__d\" data-kg-role=\"body2\">1조 혁신펀드 · 정주생태계 거버넌스</span></div>\n\n        <!-- ③ JDC 고유 역할 매핑 -->\n        <div class=\"lb\" data-kg-role=\"h2\">JDC 고유<br>역할 매핑</div>\n        <div class=\"role\" data-kg-role=\"h3\">지정면세 독점권 기반 자기재원 순환투자 주체</div>\n        <div class=\"role\" data-kg-role=\"h3\">첨단 · AI 검증생태계(206사 · 8.7조) 조성자</div>\n        <div class=\"role\" data-kg-role=\"h3\">청정에너지 실증 · 출력제어 잉여전력 활용자</div>\n        <div class=\"role\" data-kg-role=\"h3\">개발이익 도민환원 · 정주생태계 거버넌스 주체</div>\n\n        <!-- ④ 정량진단 결과 -->\n        <div class=\"lb lb--2\" data-kg-role=\"h2\">정량진단<br>결과 (심화)</div>\n        <div class=\"sc\"><span class=\"sc__k\" data-kg-role=\"label\">내부역량</span>\n          <span class=\"sc__t\" data-kg-role=\"body2\">종합 <b>2.32점</b> ｜ 핵심역량 취약</span></div>\n        <div class=\"sc\"><span class=\"sc__k\" data-kg-role=\"label\">외부역량</span>\n          <span class=\"sc__t\" data-kg-role=\"body2\">종합 <b>2.12점</b> ｜ 위협요인 우세</span></div>\n        <div class=\"sc\"><span class=\"sc__k\" data-kg-role=\"label\">매트릭스</span>\n          <span class=\"sc__t\" data-kg-role=\"body2\">선별적 육성과 취약사업 재편</span></div>\n        <div class=\"sc\"><span class=\"sc__k r\" data-kg-role=\"label\">리스크</span>\n          <span class=\"sc__t\" data-kg-role=\"body2\">면세 · 재무 · 경영 리스크 집중</span></div>\n        <div class=\"checks\">\n          <span data-kg-role=\"body2\">정량 근거로 우선순위 명시</span>\n          <span data-kg-role=\"body2\">리스크 · 기회 포트폴리오 연계</span>\n          <span data-kg-role=\"body2\">미래역할 3안 시나리오 정합</span>\n        </div>\n\n        <!-- ⑤ 중장기 방향성 -->\n        <div class=\"lb\" data-kg-role=\"h2\">중장기<br>방향성</div>\n        <div class=\"dir\">\n          <span class=\"dir__t\" data-kg-role=\"h3\">비면세 수익사업 확대</span>\n          <span class=\"dir__d\" data-kg-role=\"body2\">면세 의존도 · 순이익 선행 KRI 상시관리</span>\n          <span class=\"dir__g\" data-kg-role=\"label\">전략목표 ① 신성장산업 · 핵심가치 균형</span></div>\n        <div class=\"dir\">\n          <span class=\"dir__t\" data-kg-role=\"h3\">AI · 데이터센터 · 첨단단지2 신성장 집중</span>\n          <span class=\"dir__d\" data-kg-role=\"body2\">검증생태계 임대 · 서비스 플랫폼화</span>\n          <span class=\"dir__g\" data-kg-role=\"label\">전략목표 ④ AI 혁신역량 · 핵심가치 전문성</span></div>\n        <div class=\"dir\">\n          <span class=\"dir__t\" data-kg-role=\"h3\">제2공항 배후 · 관광 네트워크 고도화</span>\n          <span class=\"dir__d\" data-kg-role=\"body2\">MICE · 관광 콘텐츠 다각화 · 글로벌 협력</span>\n          <span class=\"dir__g\" data-kg-role=\"label\">전략목표 ② 글로벌인프라 · 핵심가치 교류</span></div>\n        <div class=\"dir\">\n          <span class=\"dir__t\" data-kg-role=\"h3\">개발이익 환원 · 청정에너지 거버넌스 정렬</span>\n          <span class=\"dir__d\" data-kg-role=\"body2\">그린수소 · RE100 · 중대재해 제로</span>\n          <span class=\"dir__g\" data-kg-role=\"label\">전략목표 ③ 안전 · 신뢰경영 · 핵심가치 신뢰</span></div>\n\n        <!-- ⑥ 기대효과 및 전략적 포지셔닝 -->\n        <div class=\"lb\" data-kg-role=\"h2\">기대효과 및<br>전략적 포지셔닝</div>\n        <div class=\"out\">\n          <div class=\"out__h\"><span class=\"out__k\" data-kg-role=\"label\">단기 ’26~’27</span>\n            <span class=\"out__t\" data-kg-role=\"h3\">no-regret 우선 추진</span></div>\n          <p data-kg-role=\"body2\">수익 다변화 · 비용효율 · 표류사업 출구 · 환원 제도화를 우선 추진</p>\n          <p data-kg-role=\"body2\">분기 조기경보(면세매출 · 관광객 · 투자유치) 상시 모니터링 체계 가동</p>\n        </div>\n        <div class=\"out\">\n          <div class=\"out__h\"><span class=\"out__k\" data-kg-role=\"label\">중장기 ’28~’30</span>\n            <span class=\"out__t\" data-kg-role=\"h3\">미래역할 포지셔닝</span></div>\n          <p data-kg-role=\"body2\">미래산업 플랫폼형 + 개발이익 환원 거버넌스형 하이브리드 정립</p>\n          <p data-kg-role=\"body2\">시나리오 전환 동적 대응 → 전략 상시 재조정 및 4대 중점방향 고도화</p>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 국정과제 · 민선9기 도정 계획 · JDC 내부역량 정량진단(내부 2.32 · 외부 2.12) 종합</span>\n    <span class=\"kg-footer__page\" data-kg-role=\"caption\" data-kg-auto=\"page\">–</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".wrap{flex:1;min-height:0;display:grid;grid-template-rows:auto 1fr;gap:9px;}\n\n  .nav{display:grid;grid-template-columns:repeat(4,1fr);}\n  .nav span{font-size:14px;font-weight:700;color:#fff;background:var(--xg2,#AEB6C0);\n    text-align:center;padding:5px 6px;margin-left:-10px;\n    clip-path:polygon(0 0,calc(100% - 11px) 0,100% 50%,calc(100% - 11px) 100%,0 100%,11px 50%);}\n  .nav span:first-child{margin-left:0;clip-path:polygon(0 0,calc(100% - 11px) 0,100% 50%,calc(100% - 11px) 100%,0 100%);}\n  .nav span.k{background:linear-gradient(90deg,#2C5184,#1F497D);}\n\n  /* 한 격자가 모든 밴드의 4열을 같은 세로선에 세운다 */\n  .bands{display:grid;grid-template-columns:104px repeat(4,1fr);\n    align-content:space-between;gap:8px 10px;min-height:0;}\n\n  .lb{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;font-weight:800;line-height:1.25;padding:6px 5px;}\n  .lb--2{grid-row:span 2;}\n\n  .full{grid-column:2 / -1;}\n\n  /* 밴드 1 — 국정·도정 과제 */\n  .pol{display:grid;gap:4px;}\n  .pol__r{display:grid;grid-template-columns:74px 1fr;gap:8px;align-items:center;\n    background:var(--neutral-050);border:1px solid var(--neutral-300);border-radius:var(--r-xs);padding:4px 8px;}\n  .pol__k{background:var(--navy-800);color:#fff;font-size:12px;font-weight:800;text-align:center;\n    padding:2px 0;border-radius:var(--r-pill);}\n  .pol__k.d{background:var(--blue-500);}\n  .pol__t{font-size:14px;color:var(--ink-900);line-height:1.26;}\n\n  /* 밴드 2 — 추진과제 */\n  .tk{background:#fff;border:1px solid var(--blue-300);border-radius:var(--r-xs);\n    padding:6px 8px;display:grid;gap:3px;align-content:center;}\n  .tk__k{background:var(--blue-500);color:#fff;font-size:12px;font-weight:800;\n    padding:1px 8px;border-radius:var(--r-pill);justify-self:start;}\n  .tk__k.c{background:var(--green-600);}\n  .tk__k.d{background:var(--amber-500);}\n  .tk__t{font-size:14px;font-weight:800;color:var(--navy-800);line-height:1.25;}\n  .tk__d{font-size:14px;color:var(--ink-700);line-height:1.25;}\n\n  /* 밴드 3 — JDC 역할 */\n  .role{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border:1px solid var(--blue-400);\n    border-radius:var(--r-xs);padding:6px 8px;font-size:14px;font-weight:700;\n    color:var(--navy-800);line-height:1.26;display:flex;align-items:center;}\n\n  /* 밴드 4 — 정량진단 */\n  .sc{background:var(--neutral-050);border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    padding:5px 8px;display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center;}\n  .sc__k{background:var(--xg3,#7C8794);color:#fff;font-size:12px;font-weight:800;\n    padding:2px 8px;border-radius:var(--r-pill);white-space:nowrap;}\n  .sc__k.r{background:var(--red-500);}\n  .sc__t{font-size:14px;color:var(--ink-900);line-height:1.25;}\n  .sc__t b{color:var(--navy-800);font-weight:800;}\n  .checks{grid-column:2 / -1;background:var(--blue-050);border:1px solid var(--blue-300);\n    border-radius:var(--r-xs);padding:5px 10px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}\n  .checks span{font-size:14px;color:var(--ink-navy);font-weight:600;line-height:1.25;\n    padding-left:16px;position:relative;}\n  .checks span::before{content:\"✓\";position:absolute;left:0;color:var(--blue-500);font-weight:800;}\n\n  /* 밴드 5 — 중장기 방향성 */\n  .dir{background:#fff;border:1px solid var(--blue-300);border-radius:var(--r-xs);\n    padding:6px 8px;display:grid;gap:3px;align-content:center;}\n  .dir__t{font-size:14px;font-weight:800;color:var(--navy-800);line-height:1.25;}\n  .dir__d{font-size:14px;color:var(--ink-700);line-height:1.25;}\n  .dir__g{font-size:13px;font-weight:700;color:#fff;background:var(--blue-600);\n    border-radius:2px;padding:2px 7px;line-height:1.25;}\n\n  /* 밴드 6 — 기대효과 */\n  .out{grid-column:span 2;background:linear-gradient(180deg,#2C5184,#17375E);\n    border:1px solid #16365c;border-radius:var(--r-xs);color:#fff;padding:7px 10px;\n    display:grid;gap:4px;align-content:center;}\n  .out__h{display:grid;grid-template-columns:auto 1fr;gap:9px;align-items:baseline;}\n  .out__k{background:rgba(255,255,255,.2);font-size:12px;font-weight:800;\n    padding:2px 9px;border-radius:var(--r-pill);white-space:nowrap;}\n  .out__t{font-size:15px;font-weight:800;}\n  .out p{margin:0;font-size:14px;line-height:1.26;color:#EAF1FB;\n    padding-left:11px;position:relative;}\n  .out p::before{content:\"·\";position:absolute;left:2px;color:var(--blue-300);font-weight:800;}",
+    "origin": "03g_종합진단.html"
+  },
+  "patches": {
+    "n.2.0.1.19.2": {
+      "layout": {
+        "mode": "detached",
+        "x": 151,
+        "y": 720,
+        "w": 252,
+        "h": 22,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.1.21.1": {
+      "style": {
+        "letterSpacing": -0.005
+      }
+    },
+    "n.2.0.0.1": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.0.2": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.0.3": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "01"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "경영환경 진단"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "경영환경 분석 종합"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [
+      "n.2.0.0.0",
+      "n.2.0.0.1",
+      "n.2.0.0.2",
+      "n.2.0.0.3"
+    ],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h3": {
+        "fontSize": 18
+      },
+      "h2": {
+        "fontSize": 16
+      },
+      "body2": {
+        "fontSize": 16
+      },
+      "label": {
+        "fontSize": 14
+      }
+    }
+  },
+  "stack": [
+    "n.2.0.1.19.2"
+  ],
+  "createdAt": "2026-07-27T09:40:45.997Z",
+  "updatedAt": "2026-07-27T14:19:24.996Z"
+}

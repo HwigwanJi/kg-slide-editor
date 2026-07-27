@@ -1,0 +1,135 @@
+{
+  "v": 5,
+  "id": "05f0ff9a-537b-4ca9-b9f8-616ecf745470",
+  "title": "6대 선도 프로젝트 현황 분석",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"6대 선도 프로젝트\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"message\">01</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">단계별 세부 추진내용 및 일정</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">6대 선도 프로젝트 현황 분석 — 1-2</div>\n    </div>\n    <div class=\"kg-chapter-tab\"><span class=\"kg-chapter-tab__roman\" data-kg-role=\"label\">Ⅱ</span><span class=\"kg-chapter-tab__sep\"></span><span class=\"kg-chapter-tag\" data-kg-role=\"label\">경영환경 분석</span></div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">면세수익 재투자 선순환으로 첨단 · 신화 성과 확보 — <b>비면세 수익원 확대</b>가 핵심 과제</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"wrap\">\n\n      <div class=\"nav\">\n        <span class=\"k\" data-kg-role=\"h3\">과업 1 대내 · 외 경영환경 분석</span>\n        <span data-kg-role=\"label\">과업 2 사업분석 및 이해관계자 진단</span>\n        <span data-kg-role=\"label\">과업 3 가치체계 및 전략체계 수립</span>\n        <span data-kg-role=\"label\">과업 4 운용계획 수립 및 실행력 강화</span>\n      </div>\n\n      <div class=\"top\">\n        <div class=\"kg-subtopic\" data-kg-role=\"h1\">사업별 규모 · 성과 · 한계 · 고도화 방향</div>\n      </div>\n\n      <div class=\"grid\">\n        <!-- 누적 성과 요약 -->\n        <div class=\"sum\">\n          <div class=\"sum__c\" data-kg-role=\"label2\">누적 성과 (2002 ~ 2024)</div>\n          <div class=\"sum__v\" data-kg-role=\"h2\">누적매출 8.2조 · 6대 재투자 2.37조</div>\n          <div class=\"sum__d\" data-kg-role=\"body2\">면세수익을 종잣돈으로 6대 프로젝트에 재투자하는 자기재원 순환구조</div>\n          <div class=\"sum__l\">\n            <p data-kg-role=\"body2\"><b>성과 진전</b> — 첨단단지(매출 8.7조) · 신화(카지노 6,465억)</p>\n            <p data-kg-role=\"body2\"><b>재정비</b> — 헬스케어(영리병원 무산) · 항공우주박물관(적자)</p>\n            <p data-kg-role=\"body2\"><b>수익기반</b> — 면세점(자기재원) · 영어교육도시(정주)</p>\n          </div>\n        </div>\n\n        <!-- ① 제주첨단과학기술단지 -->\n        <div class=\"pj\">\n          <div class=\"pj__h\"><span class=\"pj__n\" data-kg-role=\"num\">1</span>\n            <span class=\"pj__t\" data-kg-role=\"h2\">제주첨단과학기술단지</span></div>\n          <div class=\"pj__b\">\n            <div class=\"spec\"><i data-kg-role=\"label\">제주시 아라동 109.9만㎡</i><i class=\"k\" data-kg-role=\"label\">사업비 9,070억</i></div>\n            <div class=\"win\">\n              <p data-kg-role=\"body2\">고용 3,700명 · 매출 <b>8조 7,411억</b> 창출</p>\n              <p data-kg-role=\"body2\">ET · CT · 모빌리티 중심 2단지 조성</p>\n            </div>\n            <div class=\"row row--lim\"><span class=\"lb\" data-kg-role=\"label\">한계</span>\n              <span class=\"tx\" data-kg-role=\"body2\">앵커 의존 · 자족기능 부족 · IT 편중</span></div>\n            <div class=\"row row--bm\"><span class=\"lb\" data-kg-role=\"label\">BM</span>\n              <span class=\"tx\" data-kg-role=\"body2\">판교 · 싱가포르 원노스 · 대덕특구</span></div>\n            <div class=\"row row--go\"><span class=\"lb\" data-kg-role=\"label\">고도화</span>\n              <span class=\"tx\" data-kg-role=\"body2\">직 · 주 · 락 혼합 + 딥테크 특구펀드 → 앵커 다변화</span></div>\n          </div>\n        </div>\n\n        <!-- ② 신화역사공원 -->\n        <div class=\"pj\">\n          <div class=\"pj__h\"><span class=\"pj__n\" data-kg-role=\"num\">2</span>\n            <span class=\"pj__t\" data-kg-role=\"h2\">신화역사공원</span></div>\n          <div class=\"pj__b\">\n            <div class=\"spec\"><i data-kg-role=\"label\">서귀포 대정읍 399만㎡</i><i class=\"k\" data-kg-role=\"label\">총투자 4.03조</i></div>\n            <div class=\"win\">\n              <p data-kg-role=\"body2\">카지노 <b>6,465억</b>(+40.8%)</p>\n              <p class=\"r\" data-kg-role=\"body2\">호텔매출 1,011 → 803억(△20.6%)</p>\n            </div>\n            <div class=\"row row--lim\"><span class=\"lb\" data-kg-role=\"label\">한계</span>\n              <span class=\"tx\" data-kg-role=\"body2\">카지노 의존 · J지구 20년 방치</span></div>\n            <div class=\"row row--bm\"><span class=\"lb\" data-kg-role=\"label\">BM</span>\n              <span class=\"tx\" data-kg-role=\"body2\">마리나베이샌즈 · 파라다이스시티</span></div>\n            <div class=\"row row--go\"><span class=\"lb\" data-kg-role=\"label\">고도화</span>\n              <span class=\"tx\" data-kg-role=\"body2\">J지구 비게이밍 특화 → MICE · 웰니스 · K콘텐츠</span></div>\n          </div>\n        </div>\n\n        <!-- ③ 제주헬스케어타운 -->\n        <div class=\"pj\">\n          <div class=\"pj__h\"><span class=\"pj__n\" data-kg-role=\"num\">3</span>\n            <span class=\"pj__t\" data-kg-role=\"h2\">제주헬스케어타운</span></div>\n          <div class=\"pj__b\">\n            <div class=\"spec\"><i data-kg-role=\"label\">서귀포 153.9만㎡</i><i class=\"k\" data-kg-role=\"label\">사업비 1.60조</i></div>\n            <div class=\"win\">\n              <p class=\"r\" data-kg-role=\"body2\">영리병원 무산 · 10년 방치(녹지그룹)</p>\n              <p data-kg-role=\"body2\">녹지자산 <b>1,540억</b> 매입(’26.6)</p>\n            </div>\n            <div class=\"row row--lim\"><span class=\"lb\" data-kg-role=\"label\">한계</span>\n              <span class=\"tx\" data-kg-role=\"body2\">영리병원 무산 · 콘텐츠 부재</span></div>\n            <div class=\"row row--bm\"><span class=\"lb\" data-kg-role=\"label\">BM</span>\n              <span class=\"tx\" data-kg-role=\"body2\">두바이 헬스케어시티 · 태국 범룽랏</span></div>\n            <div class=\"row row--go\"><span class=\"lb\" data-kg-role=\"label\">재편</span>\n              <span class=\"tx\" data-kg-role=\"body2\">비급여 · 웰니스 앵커 재구성 + 바이오 R&amp;D 연계</span></div>\n          </div>\n        </div>\n\n        <!-- ④ 영어교육도시 -->\n        <div class=\"pj\">\n          <div class=\"pj__h\"><span class=\"pj__n\" data-kg-role=\"num\">4</span>\n            <span class=\"pj__t\" data-kg-role=\"h2\">영어교육도시</span></div>\n          <div class=\"pj__b\">\n            <div class=\"spec\"><i data-kg-role=\"label\">대정읍 379만㎡</i><i class=\"k\" data-kg-role=\"label\">사업비 1.93조</i></div>\n            <div class=\"win\">\n              <p data-kg-role=\"body2\">국제학교 · 유학수지 절감 누적 <b>1.42조</b></p>\n              <p class=\"r\" data-kg-role=\"body2\">재학생 10.4% 감소 · ’28 5번째교</p>\n            </div>\n            <div class=\"row row--lim\"><span class=\"lb\" data-kg-role=\"label\">한계</span>\n              <span class=\"tx\" data-kg-role=\"body2\">정주여건 · 고등교육 부재</span></div>\n            <div class=\"row row--bm\"><span class=\"lb\" data-kg-role=\"label\">BM</span>\n              <span class=\"tx\" data-kg-role=\"body2\">두바이 DIAC · 인천글로벌캠퍼스</span></div>\n            <div class=\"row row--go\"><span class=\"lb\" data-kg-role=\"label\">고도화</span>\n              <span class=\"tx\" data-kg-role=\"body2\">해외학생 유치 + 고등교육 연계 · 정주개발</span></div>\n          </div>\n        </div>\n\n        <!-- ⑤ 제주항공우주박물관 -->\n        <div class=\"pj\">\n          <div class=\"pj__h\"><span class=\"pj__n\" data-kg-role=\"num\">5</span>\n            <span class=\"pj__t\" data-kg-role=\"h2\">제주항공우주박물관</span></div>\n          <div class=\"pj__b\">\n            <div class=\"spec\"><i data-kg-role=\"label\">안덕면 · JDC 직영</i><i class=\"k\" data-kg-role=\"label\">사업비 1,150억</i></div>\n            <div class=\"win\">\n              <p data-kg-role=\"body2\">수요 132만 대비 실제 20~30만 방문</p>\n              <p class=\"r\" data-kg-role=\"body2\">누적적자 <b>1,000억</b> · 매각 · 위탁 검토</p>\n            </div>\n            <div class=\"row row--lim\"><span class=\"lb\" data-kg-role=\"label\">한계</span>\n              <span class=\"tx\" data-kg-role=\"body2\">연적자 77~80억 · 공실</span></div>\n            <div class=\"row row--bm\"><span class=\"lb\" data-kg-role=\"label\">BM</span>\n              <span class=\"tx\" data-kg-role=\"body2\">케네디우주센터</span></div>\n            <div class=\"row row--go\"><span class=\"lb\" data-kg-role=\"label\">재편</span>\n              <span class=\"tx\" data-kg-role=\"body2\">전문 민간위탁 · 성과연동 → 체험 프리미엄화</span></div>\n          </div>\n        </div>\n\n        <!-- ⑥ 지정면세점 -->\n        <div class=\"pj\">\n          <div class=\"pj__h\"><span class=\"pj__n\" data-kg-role=\"num\">6</span>\n            <span class=\"pj__t\" data-kg-role=\"h2\">지정면세점</span></div>\n          <div class=\"pj__b\">\n            <div class=\"spec\"><i data-kg-role=\"label\">내국인 지정면세(’02)</i><i class=\"k\" data-kg-role=\"label\">누적 8.2조</i></div>\n            <div class=\"win\">\n              <p class=\"r\" data-kg-role=\"body2\">순이익 916 → <b>341억</b>(△63%)</p>\n              <p data-kg-role=\"body2\">6회 · 800$ · 15품목으로 이용 규제</p>\n            </div>\n            <div class=\"row row--lim\"><span class=\"lb\" data-kg-role=\"label\">한계</span>\n              <span class=\"tx\" data-kg-role=\"body2\">23년째 고정규제 · 면세 편중</span></div>\n            <div class=\"row row--bm\"><span class=\"lb\" data-kg-role=\"label\">BM</span>\n              <span class=\"tx\" data-kg-role=\"body2\">하이난 · 오키나와</span></div>\n            <div class=\"row row--go\"><span class=\"lb\" data-kg-role=\"label\">유지</span>\n              <span class=\"tx\" data-kg-role=\"body2\">규제 현실화(네거티브) + 채널 · 재원 다변화</span></div>\n          </div>\n        </div>\n\n        <!-- ⑦ 공공임대주택 -->\n        <div class=\"pj\">\n          <div class=\"pj__h\"><span class=\"pj__n\" data-kg-role=\"num\">7</span>\n            <span class=\"pj__t\" data-kg-role=\"h2\">공공임대주택</span></div>\n          <div class=\"pj__b\">\n            <div class=\"spec\"><i data-kg-role=\"label\">제주첨단 · 월평동 793세대</i><i class=\"k\" data-kg-role=\"label\">사업비 1,569억</i></div>\n            <div class=\"win\">\n              <p data-kg-role=\"body2\">행복 402채 + 공공임대 <b>391채</b></p>\n              <p data-kg-role=\"body2\">제2첨단 배후주거 확대</p>\n            </div>\n            <div class=\"row row--lim\"><span class=\"lb\" data-kg-role=\"label\">한계</span>\n              <span class=\"tx\" data-kg-role=\"body2\">단일단지 · 기업수요 연계 약함</span></div>\n            <div class=\"row row--bm\"><span class=\"lb\" data-kg-role=\"label\">BM</span>\n              <span class=\"tx\" data-kg-role=\"body2\">GH 판교 · LH 산단형 행복주택</span></div>\n            <div class=\"row row--go\"><span class=\"lb\" data-kg-role=\"label\">연계</span>\n              <span class=\"tx\" data-kg-role=\"body2\">조성주체와 임대공급주체 일치 → 산업연계 배후임대</span></div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: JDC 경영공시(ALIO) · 사업별 추진현황 · 국내외 유사사례 벤치마킹 종합</span>\n    <span class=\"kg-footer__page\" data-kg-role=\"caption\" data-kg-auto=\"page\">–</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".wrap{flex:1;min-height:0;display:grid;grid-template-rows:auto auto 1fr;gap:9px;}\n\n  .nav{display:grid;grid-template-columns:repeat(4,1fr);}\n  .nav span{font-size:14px;font-weight:700;color:#fff;background:var(--xg2,#AEB6C0);\n    text-align:center;padding:6px 6px;margin-left:-10px;\n    clip-path:polygon(0 0,calc(100% - 11px) 0,100% 50%,calc(100% - 11px) 100%,0 100%,11px 50%);}\n  .nav span:first-child{margin-left:0;clip-path:polygon(0 0,calc(100% - 11px) 0,100% 50%,calc(100% - 11px) 100%,0 100%);}\n  .nav span.k{background:linear-gradient(90deg,#2C5184,#1F497D);}\n  .top .kg-subtopic{margin:0;}\n\n  .grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:11px;min-height:0;}\n\n  /* ── 사업 카드 ─────────────────────────────────── */\n  .pj{background:#fff;border:1px solid var(--blue-300);border-radius:var(--r-xs);\n    display:grid;grid-template-rows:auto 1fr;overflow:hidden;min-height:0;}\n  .pj__h{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;padding:5px 10px;\n    display:grid;grid-template-columns:auto 1fr;align-items:center;gap:8px;}\n  .pj__n{width:19px;height:19px;border-radius:50%;background:rgba(255,255,255,.2);\n    font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}\n  .pj__t{font-size:14.5px;font-weight:800;letter-spacing:-.02em;}\n  .pj__b{padding:7px 8px;display:grid;gap:5px;align-content:space-between;min-height:0;}\n\n  .spec{display:grid;grid-template-columns:1fr auto;gap:4px;}\n  .spec i{background:var(--neutral-100);border:1px solid var(--neutral-200);border-radius:2px;\n    font-style:normal;font-size:13px;font-weight:700;color:var(--ink-700);text-align:center;padding:3px 5px;}\n  .spec i.k{background:var(--blue-050);border-color:var(--blue-300);color:var(--navy-800);}\n\n  .win{display:grid;gap:3px;}\n  .win p{margin:0;font-size:14px;color:var(--ink-900);line-height:1.26;\n    padding-left:14px;position:relative;}\n  .win p::before{content:\"✓\";position:absolute;left:0;color:var(--blue-500);font-weight:800;font-size:12px;}\n  .win p b{color:var(--navy-800);font-weight:700;}\n  .win p.r{color:var(--red-600);font-weight:600;}\n  .win p.r::before{color:var(--red-500);}\n\n  .row{display:grid;grid-template-columns:auto 1fr;gap:7px;align-items:start;\n    border-radius:var(--r-xs);padding:4px 7px;}\n  .row .lb{font-size:12px;font-weight:800;color:#fff;padding:1px 7px;\n    border-radius:var(--r-pill);white-space:nowrap;margin-top:1px;}\n  .row .tx{font-size:14px;line-height:1.26;}\n  .row--lim{background:var(--red-050);border:1px solid var(--red-500);}\n  .row--lim .lb{background:var(--red-600);}\n  .row--lim .tx{color:var(--red-600);font-weight:600;}\n  .row--bm{background:var(--neutral-050);border:1px solid var(--neutral-300);}\n  .row--bm .lb{background:var(--xg3,#7C8794);}\n  .row--bm .tx{color:var(--ink-700);}\n  .row--go{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border:1px solid var(--blue-400);}\n  .row--go .lb{background:var(--navy-800);}\n  .row--go .tx{color:var(--navy-800);font-weight:700;}\n\n  /* ── 누적 성과 요약 ────────────────────────────── */\n  .sum{background:linear-gradient(180deg,#2C5184,#17375E);border:1px solid #16365c;\n    border-radius:var(--r-xs);color:#fff;padding:10px 12px;\n    display:grid;gap:7px;align-content:space-between;min-height:0;}\n  .sum__c{font-size:13px;font-weight:800;color:var(--blue-300);letter-spacing:.03em;text-align:center;}\n  .sum__v{font-size:17px;font-weight:800;text-align:center;line-height:1.3;}\n  .sum__d{background:rgba(255,255,255,.12);border-radius:var(--r-xs);padding:6px 9px;\n    font-size:14px;line-height:1.3;text-align:center;}\n  .sum__l{display:grid;gap:5px;}\n  .sum__l p{margin:0;font-size:14px;line-height:1.26;padding-left:14px;position:relative;color:#EAF1FB;}\n  .sum__l p::before{content:\"✓\";position:absolute;left:0;color:var(--blue-300);font-weight:800;font-size:12px;}\n  .sum__l p b{color:#fff;font-weight:700;}",
+    "origin": "03d_선도프로젝트.html"
+  },
+  "patches": {
+    "n.2.0.0.1": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.0.2": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.0.3": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.2.3.0.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.2.2.0.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.2.1.0.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.2.5.0.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.2.4.0.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.2.6.0.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.2.7.0.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "01"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "경영환경 진단"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "주요 사업 현황 분석"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [
+      "n.2.0.0.0",
+      "n.2.0.0.1",
+      "n.2.0.0.2",
+      "n.2.0.0.3"
+    ],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h3": {
+        "fontSize": 18
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T09:14:43.992Z",
+  "updatedAt": "2026-07-27T14:19:24.413Z"
+}

@@ -1,0 +1,113 @@
+{
+  "v": 5,
+  "id": "dc1ae02d-fa27-499b-be1e-5883695d0bb3",
+  "title": "3. 보안 관리체계",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"보안 관리체계형\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\">03</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\">보안 관리체계</div>\n      <div class=\"kg-section-sub\">인적·물리적 이중 관리 · 접근통제와 분류관리</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">III</span>\n      <span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\">과업 품질 관리</span>\n    </div>\n  </header>\n  <div class=\"kg-msgband\"><span class=\"kg-msgband__mark\"></span>\n    <p class=\"kg-message\">인적·물리적 이중 보안체계로 자료의 생성·보관·공유 전 과정에 접근통제와 분류관리 적용</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"wrap\">\n\n      <!-- ===== 보안관리 원칙 ===== -->\n      <div class=\"sec sec--p\">\n        <div class=\"kg-subtopic\">보안관리 원칙</div>\n        <div class=\"prin\">\n\n          <div class=\"pc\">\n            <div class=\"pc__h\">\n              <span class=\"pc__i\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">\n                <path d=\"M6 2h8l4 4v16H6z\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\"></path>\n                <path d=\"M14 2v4h4\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\"></path>\n                <path d=\"M9 12h6M9 16h6\" stroke=\"#fff\" stroke-width=\"2\"></path>\n              </svg></span>\n              <span class=\"pc__t\" data-kg-role=\"h2\">문서자료 보안</span>\n              <span class=\"pc__n\" data-kg-role=\"num\">1</span>\n            </div>\n            <div class=\"pc__b\">\n              <span data-kg-role=\"body3\">수행 장소 및 지정된 장소 내에서만 문서 생성</span>\n              <span data-kg-role=\"body3\">모든 문서는 수급인의 소유 금지, 임의 복사·외부 유출 금지</span>\n            </div>\n          </div>\n\n          <div class=\"pc\">\n            <div class=\"pc__h\">\n              <span class=\"pc__i\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">\n                <path d=\"M3 6h6l2 3h10v11H3z\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\"></path>\n                <rect x=\"10\" y=\"12\" width=\"8\" height=\"6\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\"></rect>\n                <path d=\"M12 12v-2a2 2 0 0 1 4 0v2\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\"></path>\n              </svg></span>\n              <span class=\"pc__t\" data-kg-role=\"h2\">파일자료 보안</span>\n              <span class=\"pc__n\" data-kg-role=\"num\">2</span>\n            </div>\n            <div class=\"pc__b\">\n              <span data-kg-role=\"body3\">개인용 컴퓨터를 포함한 모든 사무기기에 정·부 책임자 지정</span>\n              <span data-kg-role=\"body3\">파일자료 보관 시 반드시 비밀번호 부여</span>\n            </div>\n          </div>\n\n          <div class=\"pc\">\n            <div class=\"pc__h\">\n              <span class=\"pc__i\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">\n                <circle cx=\"12\" cy=\"8\" r=\"4\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\"></circle>\n                <path d=\"M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\"></path>\n              </svg></span>\n              <span class=\"pc__t\" data-kg-role=\"h2\">인원 보안</span>\n              <span class=\"pc__n\" data-kg-role=\"num\">3</span>\n            </div>\n            <div class=\"pc__b\">\n              <span data-kg-role=\"body3\">수행 참여인원 전원에 대한 정보 보안각서 작성</span>\n              <span data-kg-role=\"body3\">방문자의 방문 시간은 정상 근무시간으로 한정</span>\n            </div>\n          </div>\n\n          <div class=\"pc\">\n            <div class=\"pc__h\">\n              <span class=\"pc__i\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">\n                <path d=\"M12 2l8 3v6c0 5-3.4 9.3-8 11-4.6-1.7-8-6-8-11V5z\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\"></path>\n                <path d=\"M8 12l3 3 5-6\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\"></path>\n              </svg></span>\n              <span class=\"pc__t\" data-kg-role=\"h2\">데이터 접근통제</span>\n              <span class=\"pc__n\" data-kg-role=\"num\">4</span>\n            </div>\n            <div class=\"pc__b\">\n              <span data-kg-role=\"body3\">인터넷 주소(IP)는 대외비로 분류하여 취급·관리</span>\n              <span data-kg-role=\"body3\">동일 단어와 이미 사용한 비밀번호 사용 금지</span>\n            </div>\n          </div>\n\n        </div>\n      </div>\n\n      <!-- ===== 내부보안관리 체계 ===== -->\n      <div class=\"sec sec--m\">\n        <div class=\"kg-subtopic\">내부보안관리 체계</div>\n        <div class=\"dual\">\n\n          <div class=\"side\">\n            <div class=\"side__h\">\n              <span class=\"side__n\" data-kg-role=\"num\">1</span>\n              <span class=\"side__t\" data-kg-role=\"h2\">인적 보안관리</span>\n            </div>\n            <div class=\"side__b\">\n              <div class=\"blk blk--4\">\n                <div class=\"blk__h\" data-kg-role=\"h3\">프로젝트 수행 시</div>\n                <div class=\"blk__b\">\n                  <span data-kg-role=\"body3\">수집한 정보·자료의 기밀 유지</span>\n                  <span data-kg-role=\"body3\">계약서에 명시된 보안 조항 준수</span>\n                  <span data-kg-role=\"body3\">용역 착수 전 보안서약 작성</span>\n                  <span data-kg-role=\"body3\">인력 교체 시 서약서 작성 후 투입</span>\n                </div>\n              </div>\n              <div class=\"blk blk--4\">\n                <div class=\"blk__h\" data-kg-role=\"h3\">프로젝트 완료 후</div>\n                <div class=\"blk__b\">\n                  <span data-kg-role=\"body3\">종료 후에도 수집 자료의 기밀 유지</span>\n                  <span data-kg-role=\"body3\">조사·분석자료의 외부 유출 방지</span>\n                  <span data-kg-role=\"body3\">관련 정보를 개인 컴퓨터에서 삭제</span>\n                  <span data-kg-role=\"body3\">보안 등급 부여 후 별도 파일 보관</span>\n                </div>\n              </div>\n            </div>\n          </div>\n\n          <!-- 가운데 : 두 관리가 겹쳐 체계가 된다 -->\n          <div class=\"venn\">\n            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 250 420\" preserveAspectRatio=\"xMidYMid meet\">\n              <defs>\n                <clipPath id=\"topcircle\"><circle cx=\"125\" cy=\"140\" r=\"112\"></circle></clipPath>\n              </defs>\n\n              <circle cx=\"125\" cy=\"140\" r=\"112\" fill=\"var(--blue-050)\" stroke=\"var(--blue-400)\" stroke-width=\"2\"></circle>\n              <circle cx=\"125\" cy=\"280\" r=\"112\" fill=\"var(--neutral-100)\" stroke=\"var(--gray-400)\" stroke-width=\"2\"></circle>\n              <g clip-path=\"url(#topcircle)\">\n                <circle cx=\"125\" cy=\"280\" r=\"112\" fill=\"var(--navy-800)\"></circle>\n              </g>\n              <circle cx=\"125\" cy=\"140\" r=\"112\" fill=\"none\" stroke=\"var(--blue-400)\" stroke-width=\"2\"></circle>\n\n              <text x=\"125\" y=\"72\" text-anchor=\"middle\" font-size=\"19\" font-weight=\"800\" fill=\"var(--navy-800)\" font-family=\"Pretendard, sans-serif\">인적관리</text>\n              <g font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink-700)\" text-anchor=\"middle\" font-family=\"Pretendard, sans-serif\">\n                <text x=\"125\" y=\"95\">보안서약 · 기밀유지</text>\n                <text x=\"125\" y=\"113\">투입인력 교체 관리</text>\n              </g>\n\n              <text x=\"125\" y=\"203\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"800\" fill=\"var(--paper)\" font-family=\"Pretendard, sans-serif\">내부보안관리</text>\n              <text x=\"125\" y=\"223\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"800\" fill=\"var(--paper)\" font-family=\"Pretendard, sans-serif\">체계</text>\n\n              <g font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink-700)\" text-anchor=\"middle\" font-family=\"Pretendard, sans-serif\">\n                <text x=\"125\" y=\"310\">접근통제 · 자료분류</text>\n                <text x=\"125\" y=\"328\">정보공유 범위 제한</text>\n              </g>\n              <text x=\"125\" y=\"360\" text-anchor=\"middle\" font-size=\"19\" font-weight=\"800\" fill=\"var(--ink-navy)\" font-family=\"Pretendard, sans-serif\">물리적관리</text>\n\n              <text x=\"125\" y=\"404\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink-500)\" font-family=\"Pretendard, sans-serif\">생성 · 보관 · 공유 전 과정 통제</text>\n            </svg>\n          </div>\n\n          <div class=\"side\">\n            <div class=\"side__h\">\n              <span class=\"side__n\" data-kg-role=\"num\">2</span>\n              <span class=\"side__t\" data-kg-role=\"h2\">물리적 보안관리</span>\n            </div>\n            <div class=\"side__b\">\n              <div class=\"blk blk--4\">\n                <div class=\"blk__h\" data-kg-role=\"h3\">접근통제</div>\n                <div class=\"blk__b\">\n                  <span data-kg-role=\"body3\">주요 파일에 대한 암호 설정</span>\n                  <span data-kg-role=\"body3\">주요 문서 보관 장소의 접근 통제</span>\n                  <span data-kg-role=\"body3\">외부 공개에 대한 승인 절차 운영</span>\n                  <span data-kg-role=\"body3\">읽기·쓰기 권한 구분 관리</span>\n                </div>\n              </div>\n              <div class=\"blk blk--4\">\n                <div class=\"blk__h\" data-kg-role=\"h3\">자료 분류</div>\n                <div class=\"blk__b\">\n                  <span data-kg-role=\"body3\">자료 관리 전담팀 지정과 분류 코드 부여</span>\n                  <span data-kg-role=\"body3\">각종 자료의 보안 단계별 분류</span>\n                  <span data-kg-role=\"body3\">내부 자료와 외부 자료의 구분 관리</span>\n                  <span data-kg-role=\"body3\">보안관리 정·부 책임자 지정</span>\n                </div>\n              </div>\n              <div class=\"blk\">\n                <div class=\"blk__h\" data-kg-role=\"h3\">정보 공유</div>\n                <div class=\"blk__b\">\n                  <span data-kg-role=\"body3\">파일 공유를 위한 내부 네트워크 운영</span>\n                  <span data-kg-role=\"body3\">법인 내 정보 공유 범위 제한</span>\n                </div>\n              </div>\n            </div>\n          </div>\n\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\">JDC 중장기 경영전략체계 진단 및 수립 — 보안 관리체계 및 자료 접근통제 방안</span>\n    <span class=\"kg-footer__page\">49</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".wrap{flex:1;display:flex;flex-direction:column;min-height:0;gap:11px;margin-top:10px;}\n  .sec{display:flex;flex-direction:column;min-height:0;}\n  .sec--p{flex:0 0 auto;}\n  .sec--m{flex:1;}\n\n  /* ---- 보안관리 원칙 4칸 ---- */\n  .prin{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;}\n  .pc{display:flex;flex-direction:column;border:1px solid var(--neutral-300);\n    border-radius:4px;background:#fff;overflow:hidden;}\n  .pc__h{display:flex;align-items:center;gap:8px;padding:5px 10px;\n    background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;}\n  .pc__i{flex:0 0 auto;display:flex;align-items:center;justify-content:center;\n    width:22px;height:22px;border-radius:3px;background:rgba(255,255,255,.18);}\n  .pc__i svg{width:14px;height:14px;display:block;}\n  .pc__t{flex:1;font-size:14px;font-weight:700;}\n  .pc__n{flex:0 0 auto;font-size:12px;font-weight:800;opacity:.85;}\n  .pc__b{flex:1;display:flex;flex-direction:column;gap:5px;padding:8px 9px;}\n  .pc__b span{display:flex;align-items:flex-start;gap:7px;\n    font-size:14px;line-height:1.26;color:var(--ink-900);}\n  .pc__b span::before{content:\"\";flex:0 0 auto;width:5px;height:5px;margin-top:6px;\n    background:var(--blue-500);border-radius:1px;}\n\n  /* ---- 이중 관리 + 가운데 교집합 도해 ---- */\n  .dual{flex:1;display:grid;grid-template-columns:1fr 0.66fr 1.18fr;gap:14px;min-height:0;}\n  .side{display:flex;flex-direction:column;min-height:0;\n    border:1px solid var(--neutral-300);border-radius:4px;background:#fff;overflow:hidden;}\n  .side__h{display:flex;align-items:center;gap:8px;padding:6px 11px;\n    background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;}\n  .side__n{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;\n    width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.22);\n    font-size:13px;font-weight:800;}\n  .side__t{font-size:15px;font-weight:800;}\n  .side__b{flex:1;display:flex;flex-direction:column;gap:8px;padding:9px 10px;min-height:0;}\n\n  .blk{flex:2;display:flex;flex-direction:column;min-height:0;\n    border:1px solid var(--blue-300);border-radius:3px;overflow:hidden;}\n  .blk--4{flex:3;}\n  .blk__h{font-size:14px;font-weight:800;color:var(--navy-800);background:var(--blue-050);\n    padding:4px 9px;border-bottom:1px solid var(--blue-300);}\n  .blk__b{flex:1;display:flex;flex-direction:column;gap:3px;padding:5px 9px;min-height:0;}\n  .blk__b span{flex:1;display:flex;align-items:center;gap:7px;\n    font-size:14px;line-height:1.24;color:var(--ink-900);}\n  .blk__b span::before{content:\"\";flex:0 0 auto;width:5px;height:5px;\n    background:var(--navy-800);border-radius:50%;}\n\n  .venn{display:flex;align-items:center;justify-content:center;min-height:0;}\n  .venn svg{width:100%;height:100%;display:block;}",
+    "origin": "49_Security.html"
+  },
+  "patches": {
+    "n.2.0.0.1.2.0.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.0.1.3.0.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.0.1.1.0.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.0.1.0.0.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.1.0": {
+      "style": {
+        "fontSize": 18
+      },
+      "layout": {
+        "mode": "flow",
+        "dx": 0,
+        "dy": 0
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "18"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "과업 관리 방안"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "보안 관리체계"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          41.1,
+          8,
+          41.1
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [
+      "n.2.0.1.1.2.1.0.1.3",
+      "n.2.0.1.1.2.1.1.1.3"
+    ],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "body3": {
+        "fontSize": 16
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T10:06:45.715Z",
+  "updatedAt": "2026-07-27T14:16:17.415Z"
+}

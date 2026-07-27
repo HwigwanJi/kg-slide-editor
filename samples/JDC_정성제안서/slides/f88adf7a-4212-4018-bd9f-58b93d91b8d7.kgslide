@@ -1,0 +1,286 @@
+{
+  "v": 5,
+  "id": "f88adf7a-4212-4018-bd9f-58b93d91b8d7",
+  "title": "자원 우선순위 및 중장기 추진 로드맵",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"자원 우선순위 및 중장기 추진 로드맵\">\n\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"num\">03</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">자원 우선순위 및 중장기 추진 로드맵</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">사업 포트폴리오 재편 · 3단계 실행 로드맵</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">Ⅰ</span><span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\" data-kg-role=\"label\">사업 수행 방안</span>\n    </div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">SBU 우선순위 재편과 3단계 실행로드맵을 통해 면세 의존 90%→70%대의 사업구조 재균형 추진</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"kg-content\">\n\n      <div class=\"slab\"><i>1</i><span data-kg-role=\"h3\">전략과제 자원배분 우선순위</span></div>\n\n      <div class=\"row1\">\n        <!-- 자원배분 우선순위 중점사항 -->\n        <div class=\"bx\">\n          <div class=\"bxh\" data-kg-role=\"h3\">자원배분 우선순위 중점사항</div>\n          <div class=\"bxb\">\n            <div class=\"kbox\" data-kg-role=\"body2\">① 중장기 중점사업 선정</div>\n            <div class=\"kbox\" data-kg-role=\"body2\">② 포지셔닝 차등 배분</div>\n            <div class=\"kbox\" data-kg-role=\"body2\">③ 기능조정·조직 연계</div>\n            <div class=\"prio\" data-kg-role=\"body2\"><b>투자 우선순위</b>\n              <em>산업단지·DC</em> &gt; 관광·헬스 &gt;<br>교육·정주 &gt; 신성장 &gt; 레거시</div>\n          </div>\n        </div>\n\n        <!-- 진단 결과 이슈 Pooling -->\n        <div class=\"bx\">\n          <div class=\"bxh\" data-kg-role=\"h3\">진단 결과 이슈 Pooling</div>\n          <div class=\"bxb\">\n            <div class=\"pool\">\n              <div class=\"pi\"><span class=\"pn r\" data-kg-role=\"label\">1</span><span data-kg-role=\"body2\">면세 의존 90%·매출 △30% 위기</span></div>\n              <div class=\"pi\"><span class=\"pn r\" data-kg-role=\"label\">2</span><span data-kg-role=\"body2\">경영평가 2년 연속 D</span></div>\n              <div class=\"pi\"><span class=\"pn\" data-kg-role=\"label\">3</span><span data-kg-role=\"body2\">첨단단지2·그린 데이터센터 육성</span></div>\n              <div class=\"pi\"><span class=\"pn\" data-kg-role=\"label\">4</span><span data-kg-role=\"body2\">헬스케어타운 정상화</span></div>\n              <div class=\"pi\"><span class=\"pn\" data-kg-role=\"label\">5</span><span data-kg-role=\"body2\">개발이익 도민환원 제도화</span></div>\n              <div class=\"pi\"><span class=\"pn\" data-kg-role=\"label\">6</span><span data-kg-role=\"body2\">예래 레거시 출구·정상화</span></div>\n              <div class=\"pi\"><span class=\"pn\" data-kg-role=\"label\">7</span><span data-kg-role=\"body2\">AI·바이오·그린 신성장 실증</span></div>\n              <div class=\"pi\"><span class=\"pn\" data-kg-role=\"label\">8</span><span data-kg-role=\"body2\">안전·ESG·거버넌스</span></div>\n            </div>\n          </div>\n        </div>\n\n        <!-- 검토이슈 우선순위화 (SVG 산점도) -->\n        <div class=\"bx\">\n          <div class=\"bxh\" data-kg-role=\"h3\">검토이슈 우선순위화</div>\n          <div class=\"bxb\" style=\"padding:6px;\">\n            <svg class=\"chart\" viewBox=\"0 0 230 152\" preserveAspectRatio=\"xMidYMid meet\" role=\"img\" aria-label=\"검토이슈 우선순위 산점도\">\n              <line x1=\"26\" y1=\"8\" x2=\"26\" y2=\"118\" stroke=\"var(--blue-600)\" stroke-width=\"1.8\" stroke-linecap=\"square\"></line>\n              <line x1=\"26\" y1=\"118\" x2=\"222\" y2=\"118\" stroke=\"var(--blue-600)\" stroke-width=\"1.8\" stroke-linecap=\"square\"></line>\n              <text x=\"16\" y=\"18\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ink-700)\">장기</text>\n              <text x=\"16\" y=\"112\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ink-700)\">단기</text>\n              <text x=\"10\" y=\"70\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ink-navy)\" transform=\"rotate(-90 10 70)\">실행 긴급도</text>\n              <text x=\"52\" y=\"130\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ink-700)\">기능적</text>\n              <text x=\"124\" y=\"130\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ink-700)\">예산 자율성</text>\n              <text x=\"196\" y=\"130\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ink-700)\">전략적</text>\n\n              <ellipse cx=\"98\" cy=\"76\" rx=\"56\" ry=\"30\" fill=\"rgba(192,0,0,.06)\" stroke=\"var(--red-500)\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\" transform=\"rotate(-8 98 76)\"></ellipse>\n              <ellipse cx=\"172\" cy=\"48\" rx=\"46\" ry=\"34\" fill=\"rgba(31,73,125,.06)\" stroke=\"var(--blue-500)\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\" transform=\"rotate(-12 172 48)\"></ellipse>\n\n              <g font-size=\"10\" font-weight=\"800\" fill=\"#fff\" text-anchor=\"middle\">\n                <circle cx=\"66\" cy=\"86\" r=\"9\" fill=\"var(--red-600)\"></circle><text x=\"66\" y=\"89\">2</text>\n                <circle cx=\"94\" cy=\"60\" r=\"9\" fill=\"var(--red-600)\"></circle><text x=\"94\" y=\"63\">4</text>\n                <circle cx=\"112\" cy=\"72\" r=\"9\" fill=\"var(--red-600)\"></circle><text x=\"112\" y=\"75\">1</text>\n                <circle cx=\"118\" cy=\"92\" r=\"9\" fill=\"var(--red-600)\"></circle><text x=\"118\" y=\"95\">6</text>\n                <circle cx=\"152\" cy=\"66\" r=\"9\" fill=\"var(--navy-800)\"></circle><text x=\"152\" y=\"69\">3</text>\n                <circle cx=\"166\" cy=\"42\" r=\"9\" fill=\"var(--navy-800)\"></circle><text x=\"166\" y=\"45\">5</text>\n                <circle cx=\"180\" cy=\"58\" r=\"9\" fill=\"var(--navy-800)\"></circle><text x=\"180\" y=\"61\">7</text>\n                <circle cx=\"188\" cy=\"28\" r=\"9\" fill=\"var(--navy-800)\"></circle><text x=\"188\" y=\"31\">8</text>\n              </g>\n\n              <g font-size=\"10\" font-weight=\"700\" fill=\"var(--ink-700)\">\n                <circle cx=\"34\" cy=\"146\" r=\"5\" fill=\"var(--red-600)\"></circle>\n                <text x=\"44\" y=\"149\">Ⅰ 단기·기능</text>\n                <circle cx=\"120\" cy=\"146\" r=\"5\" fill=\"var(--navy-800)\"></circle>\n                <text x=\"130\" y=\"149\">Ⅱ 중장기·전략</text>\n              </g>\n            </svg>\n          </div>\n        </div>\n\n        <!-- 사업 포트폴리오 (SVG 버블) -->\n        <div class=\"bx\">\n          <div class=\"bxh\" data-kg-role=\"h3\">사업 포트폴리오 · 기존+신규(미래)</div>\n          <div class=\"bxb\" style=\"padding:6px;\">\n            <svg class=\"chart\" viewBox=\"0 0 200 152\" preserveAspectRatio=\"xMidYMid meet\" role=\"img\" aria-label=\"사업 포트폴리오 버블차트\">\n              <line x1=\"24\" y1=\"8\" x2=\"24\" y2=\"116\" stroke=\"var(--blue-600)\" stroke-width=\"1.8\" stroke-linecap=\"square\"></line>\n              <line x1=\"24\" y1=\"116\" x2=\"192\" y2=\"116\" stroke=\"var(--blue-600)\" stroke-width=\"1.8\" stroke-linecap=\"square\"></line>\n              <text x=\"10\" y=\"62\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ink-navy)\" transform=\"rotate(-90 10 62)\">사업매력도</text>\n              <text x=\"36\" y=\"128\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ink-700)\">낮음</text>\n              <text x=\"108\" y=\"128\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ink-navy)\">사업 경쟁력</text>\n              <text x=\"180\" y=\"128\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"700\" fill=\"var(--ink-700)\">높음</text>\n\n              <g text-anchor=\"middle\" font-weight=\"800\">\n                <circle cx=\"72\" cy=\"34\" r=\"21\" fill=\"var(--green-600)\"></circle>\n                <text x=\"72\" y=\"31\" font-size=\"9.5\" fill=\"#fff\">미래</text>\n                <text x=\"72\" y=\"42\" font-size=\"9.5\" fill=\"#fff\">신성장</text>\n\n                <circle cx=\"150\" cy=\"34\" r=\"19\" fill=\"var(--blue-500)\"></circle>\n                <text x=\"150\" y=\"31\" font-size=\"9.5\" fill=\"#fff\">산업</text>\n                <text x=\"150\" y=\"42\" font-size=\"9.5\" fill=\"#fff\">단지</text>\n\n                <circle cx=\"78\" cy=\"80\" r=\"17\" fill=\"var(--blue-400)\"></circle>\n                <text x=\"78\" y=\"77\" font-size=\"9.5\" fill=\"var(--ink-navy)\">교육</text>\n                <text x=\"78\" y=\"88\" font-size=\"9.5\" fill=\"var(--ink-navy)\">정주</text>\n\n                <circle cx=\"132\" cy=\"72\" r=\"16\" fill=\"var(--blue-400)\"></circle>\n                <text x=\"132\" y=\"69\" font-size=\"9.5\" fill=\"var(--ink-navy)\">관광</text>\n                <text x=\"132\" y=\"80\" font-size=\"9.5\" fill=\"var(--ink-navy)\">레저</text>\n\n                <circle cx=\"40\" cy=\"98\" r=\"14\" fill=\"var(--neutral-300)\"></circle>\n                <text x=\"40\" y=\"101\" font-size=\"9.5\" fill=\"var(--ink-700)\">레거시</text>\n\n                <circle cx=\"168\" cy=\"92\" r=\"22\" fill=\"var(--amber-500)\"></circle>\n                <text x=\"168\" y=\"95\" font-size=\"10\" fill=\"#fff\">면세</text>\n              </g>\n\n              <g font-size=\"9.5\" font-weight=\"700\" fill=\"var(--ink-700)\">\n                <circle cx=\"30\" cy=\"140\" r=\"4.5\" fill=\"var(--green-600)\"></circle><text x=\"38\" y=\"143\">육성·유지</text>\n                <circle cx=\"88\" cy=\"140\" r=\"4.5\" fill=\"var(--blue-500)\"></circle><text x=\"96\" y=\"143\">강화</text>\n                <circle cx=\"130\" cy=\"140\" r=\"4.5\" fill=\"var(--amber-500)\"></circle><text x=\"138\" y=\"143\">효율·출구</text>\n              </g>\n            </svg>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"slab\"><i>2</i><span data-kg-role=\"h3\">중장기 비전달성 추진 로드맵</span></div>\n\n      <div class=\"row2\">\n        <div class=\"bx\">\n          <div class=\"rmh\" data-kg-role=\"h3\">단기 2027~28 · 정상화·기반</div>\n          <ul class=\"rml\">\n            <li data-kg-role=\"body2\">면세 규제완화(조특법)·비면세 수익원 착수</li>\n            <li data-kg-role=\"body2\">헬스케어·예래 등 표류사업 정상화·출구</li>\n            <li data-kg-role=\"body2\">경영평가 등급 개선(안전·재무·ESG)</li>\n            <li data-kg-role=\"body2\">KPI/KRI 성과체계·가치체계(JEJU) 선포</li>\n            <li data-kg-role=\"body2\">투자심의·ERM 등 거버넌스 정비</li>\n          </ul>\n        </div>\n        <div class=\"bx\">\n          <div class=\"rmh m\" data-kg-role=\"h3\">중기 2029~30 · 육성·확대</div>\n          <ul class=\"rml\">\n            <li data-kg-role=\"body2\">첨단단지2 준공·RE100 그린데이터센터 실증</li>\n            <li data-kg-role=\"body2\">신화·J지구·MICE·비게이밍 확대</li>\n            <li data-kg-role=\"body2\">개발이익 환원 제도화(산식·기금)</li>\n            <li data-kg-role=\"body2\">바이오·헬스케어 재편·정주 생태계 구축</li>\n            <li data-kg-role=\"body2\">외부 ESG A등급·경영평가 B 달성</li>\n          </ul>\n        </div>\n        <div class=\"bx\">\n          <div class=\"rmh l\" data-kg-role=\"h3\">장기 2031~ · 글로벌 선도</div>\n          <ul class=\"rml\">\n            <li data-kg-role=\"body2\">면세 의존도 70%대·신성장 매출 30% 재균형</li>\n            <li data-kg-role=\"body2\">AI·데이터·그린 미래산업 플랫폼 확립</li>\n            <li data-kg-role=\"body2\">개발이익 도민환원 정착·상생 거버넌스</li>\n            <li data-kg-role=\"body2\">제3차 종합계획 3단계 성과 결산</li>\n            <li data-kg-role=\"body2\">글로벌 투자·교류 허브(세계로 닿는 국제자유도시)</li>\n          </ul>\n        </div>\n      </div>\n\n      <div class=\"pfb\">\n        <div class=\"pfl\" data-kg-role=\"h3\">사업 포트폴리오 연계</div>\n        <div class=\"pft\" data-kg-role=\"body2\">핵심–전략–기반–출구의 사업순환 구조를 정립하고, 포트폴리오 무게중심을 고경쟁력·고전략 영역으로 전환</div>\n      </div>\n\n      <div class=\"row3\">\n        <div class=\"bx\">\n          <div class=\"cch\" data-kg-role=\"h3\">전략체계 연계</div>\n          <div class=\"ccb\" data-kg-role=\"body2\">비전–4대 전략방향–전략목표–BSC 전략맵을 연계해 실행체계 일원화</div>\n        </div>\n        <div class=\"bx\">\n          <div class=\"cch\" data-kg-role=\"h3\">자원배분</div>\n          <div class=\"ccb\" data-kg-role=\"body2\">성장·전략사업 중심으로 예산·인력·투자를 재배분하고 중기재정계획과 연동</div>\n        </div>\n        <div class=\"bx\">\n          <div class=\"cch\" data-kg-role=\"h3\">조직설계</div>\n          <div class=\"ccb\" data-kg-role=\"body2\">미래산업 전담기능을 강화하고, 중복기능 조정·성숙사업 인력 재배치 추진</div>\n        </div>\n        <div class=\"bx\">\n          <div class=\"cch r\" data-kg-role=\"h3\">시사점</div>\n          <div class=\"ccb\" data-kg-role=\"body2\">전략–자원–조직의 정합성을 높여 사업 포트폴리오의 중심을 성장영역으로 전환</div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 기관 경영공시 · 사업별 추진현황 · 제3차 종합계획 · 내부 진단자료</span>\n    <span class=\"kg-footer__page\" data-kg-auto=\"page\" data-kg-role=\"caption\">25</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n\n</section>",
+    "css": ".kg-content{display:flex;flex-direction:column;gap:8px;}\n  .slab{flex:0 0 auto;display:flex;align-items:center;gap:7px;}\n  .slab i{width:17px;height:17px;border-radius:50%;background:var(--navy-800);color:#fff;\n    font-size:12px;font-weight:800;font-style:normal;display:flex;align-items:center;justify-content:center;}\n  .slab span{font-size:14px;font-weight:800;color:var(--navy-800);}\n\n  .bx{display:flex;flex-direction:column;min-height:0;border:1px solid var(--neutral-300);\n    border-radius:var(--r-xs);overflow:hidden;background:#fff;}\n  .bxh{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;font-size:14px;font-weight:800;\n    text-align:center;padding:6px 8px;line-height:1.2;flex:0 0 auto;}\n  .bxb{flex:1;min-height:0;padding:8px;display:flex;flex-direction:column;gap:6px;justify-content:space-between;}\n\n  /* ---- 행1 ---- */\n  .row1{flex:0 0 auto;display:grid;grid-template-columns:1fr 1.02fr 1.18fr 1.02fr;gap:8px;height:236px;}\n  .kbox{background:var(--blue-100);border:1px solid var(--blue-300);border-radius:var(--r-xs);\n    padding:7px 9px;font-size:14px;font-weight:700;color:var(--ink-navy);line-height:1.25;}\n  .prio{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;border-radius:var(--r-xs);\n    padding:8px 9px;font-size:14px;line-height:1.4;}\n  .prio b{display:block;font-weight:800;margin-bottom:3px;}\n  .prio em{font-style:normal;color:#FFD9D4;font-weight:700;}\n\n  .pool{display:flex;flex-direction:column;gap:4px;}\n  .pi{display:flex;align-items:center;gap:6px;font-size:14px;line-height:1.25;color:var(--ink-900);}\n  .pn{flex:0 0 auto;width:18px;height:18px;border-radius:50%;background:var(--navy-800);color:#fff;\n    font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}\n  .pn.r{background:var(--red-600);}\n\n  .chart{width:100%;height:100%;display:block;}\n\n  /* ---- 행2: 로드맵 ---- */\n  .row2{flex:1;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}\n  .rmh{color:#fff;font-size:15px;font-weight:800;text-align:center;padding:7px 8px;flex:0 0 auto;\n    background:linear-gradient(180deg,#2C5184,#1F497D);}\n  .rmh.m{background:linear-gradient(180deg,#3D6A9E,#2E5D91);}\n  .rmh.l{background:linear-gradient(180deg,#5A86BE,#4F81BD);}\n  .rml{flex:1;min-height:0;list-style:none;margin:0;padding:9px 11px;display:flex;flex-direction:column;\n    gap:5px;justify-content:space-evenly;}\n  .rml li{position:relative;padding-left:12px;font-size:14px;line-height:1.35;color:var(--ink-900);}\n  .rml li::before{content:\"\";position:absolute;left:0;top:7px;width:4px;height:4px;border-radius:50%;background:var(--blue-500);}\n\n  /* ---- 포트폴리오 연계 띠 ---- */\n  .pfb{flex:0 0 auto;display:flex;align-items:stretch;border:1px solid var(--blue-400);\n    border-radius:var(--r-xs);overflow:hidden;}\n  .pfl{flex:0 0 auto;display:flex;align-items:center;background:var(--red-600);color:#fff;\n    font-size:14px;font-weight:800;padding:0 13px;white-space:nowrap;}\n  .pft{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;\n    background:var(--blue-050);padding:8px 12px;font-size:14px;line-height:1.35;color:var(--ink-navy);}\n\n  /* ---- 행3: 결론 4단 ---- */\n  .row3{flex:0 0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;height:92px;}\n  .cch{color:#fff;font-size:14px;font-weight:800;text-align:center;padding:5px 8px;flex:0 0 auto;\n    background:linear-gradient(180deg,#2C5184,#1F497D);}\n  .cch.r{background:linear-gradient(180deg,#D0342C,#C00000);}\n  .ccb{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;\n    padding:7px 9px;font-size:14px;line-height:1.35;color:var(--ink-900);}",
+    "origin": "25_자원우선순위중장기로드맵.html"
+  },
+  "patches": {
+    "n.2.0.1.1.1.0.0.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.1.0.0.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.1.0.1.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.1.0.1.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.1.0.2.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.1.0.2.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.1.0.3.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.1.0.3.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.1.0.4.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.1.0.4.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.1.0.5.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.1.0.5.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.1.0.6.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.1.0.6.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.1.0.7.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.1.0.7.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.0.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.0.1.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.0.1.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.0.1.2": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.0.1.3": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.0.1.4": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.1.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.1.1.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.1.1.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.1.1.2": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.1.1.3": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.1.1.4": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.2.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.2.1.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.2.1.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.2.1.2": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.2.1.3": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.3.2.1.4": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.0.0": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.1.1.0": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.1.2.0": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.1.3.0": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.0.1": {
+      "style": {
+        "fontSize": 19
+      }
+    },
+    "n.2.0.2.1": {
+      "style": {
+        "fontSize": 19
+      }
+    },
+    "n.2.0.4.0": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.4.1": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "05"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "가치체계 및 전략체계 수립"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "자원 배분 중장기 로드맵 구축"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {}
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T10:58:55.087Z",
+  "updatedAt": "2026-07-27T14:16:11.742Z"
+}

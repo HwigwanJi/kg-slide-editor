@@ -7,14 +7,17 @@
 표와 코드 조각은 형태를 보이려고 든 것이지 목록이 아니다. 거기 없는 경우가 훨씬 많다.
 판정의 진실은 검사 도구이고, 사람이 확인해야 넘어가는 지점은 이 파일 맨 끝에 있다.
 
-편집기 저장소: `C:\Users\JHG\Documents\02_project\kg-slide-editor`
+편집기 저장소: `{{EDITOR_ROOT}}`
 아래 `node tools/...` 명령은 **모두 이 폴더에서** 실행한다.
 작업 규칙은 그 저장소의 `AGENTS.md`, 되돌리기 어려운 결정은 `docs/DECISIONS.md`.
+
+위 경로는 `npm run setup` 이 설치본에 채워 넣는다. 아직 자리표시자 형태로 남아 있으면
+설치를 돌리지 않은 것이다 — 컴퓨터마다 저장소 위치가 다르므로 여기에 실제 경로를 적지 않는다.
 
 처음 여는 세션이면 한 번 준비한다.
 
 ```bash
-cd "C:\Users\JHG\Documents\02_project\kg-slide-editor"
+cd "{{EDITOR_ROOT}}"
 npm install && npm run build:audit && npm run build:apply
 ```
 

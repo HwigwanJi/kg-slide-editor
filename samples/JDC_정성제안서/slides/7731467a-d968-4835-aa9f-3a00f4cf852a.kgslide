@@ -1,0 +1,161 @@
+{
+  "v": 5,
+  "id": "7731467a-d968-4835-aa9f-3a00f4cf852a",
+  "title": "기관의 일반현황 — 조직 구성",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"기관의 일반현황\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"message\">01</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">기관의 일반현황</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">조직 구성 · 본부별 수행 역량</div>\n    </div>\n    <div class=\"kg-chapter-tab\"><span class=\"kg-chapter-tab__roman\" data-kg-role=\"label\">I</span><span class=\"kg-chapter-tab__sep\"></span><span class=\"kg-chapter-tag\" data-kg-role=\"label\">사업수행능력</span></div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">4개 전문 본부 체계로 지속가능경영 · 인사조직 혁신을 <b>단절 없이 연결</b> — Holistic Consulting 수행 기반 확보</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <!-- ══ 상단 : 조직 구성 ══════════════════════════════ -->\n    <div class=\"subtop\"><div class=\"kg-subtopic\" data-kg-role=\"h1\">조직 구성 — 4개 전문 본부 체계</div></div>\n\n    <div class=\"orgwrap\">\n      <div class=\"org\">\n        <div class=\"org__root\">\n          <div class=\"rt\" data-kg-role=\"h2\">케인즈 그룹</div>\n          <div class=\"rs\" data-kg-role=\"body2\">경영전략 · 정책연구 전문 컨설팅</div>\n        </div>\n        <div class=\"org__rail\">\n          <svg viewBox=\"0 0 100 26\" preserveAspectRatio=\"none\">\n            <g stroke=\"#95B3D7\" stroke-width=\"1.1\" fill=\"none\">\n              <path d=\"M50,0 L50,10\"></path>\n              <path d=\"M12.5,10 L87.5,10\"></path>\n              <path d=\"M12.5,10 L12.5,26\"></path><path d=\"M37.5,10 L37.5,26\"></path>\n              <path d=\"M62.5,10 L62.5,26\"></path><path d=\"M87.5,10 L87.5,26\"></path>\n            </g>\n          </svg>\n        </div>\n        <div class=\"org__cols\">\n          <div class=\"unit\">\n            <div class=\"unit__bar\" data-kg-role=\"h2\">전략컨설팅</div>\n            <div class=\"unit__body\">\n              <div class=\"unit__lead\" data-kg-role=\"h3\">경영 · 사업전략, 신사업 개발</div>\n              <div class=\"unit__list\">\n                <span data-kg-role=\"body2\">경영 전략 수립</span>\n                <span data-kg-role=\"body2\">프로세스 개선</span>\n              </div>\n            </div>\n          </div>\n          <div class=\"unit unit--sub\">\n            <div class=\"unit__bar\" data-kg-role=\"h2\">인사조직컨설팅</div>\n            <div class=\"unit__body\">\n              <div class=\"unit__lead\" data-kg-role=\"h3\">조직 · 인적자원관리, 조직문화</div>\n              <div class=\"unit__list\">\n                <span data-kg-role=\"body2\">인사제도 설계</span>\n                <span data-kg-role=\"body2\">운영체계 구축</span>\n              </div>\n            </div>\n          </div>\n          <div class=\"unit unit--sub\">\n            <div class=\"unit__bar\" data-kg-role=\"h2\">정책연구</div>\n            <div class=\"unit__body\">\n              <div class=\"unit__lead\" data-kg-role=\"h3\">경영 · 사업 정책, 성과환류</div>\n              <div class=\"unit__list\">\n                <span data-kg-role=\"body2\">정책 타당성 검토</span>\n                <span data-kg-role=\"body2\">성과지표 설계</span>\n              </div>\n            </div>\n          </div>\n          <div class=\"unit\">\n            <div class=\"unit__bar\" data-kg-role=\"h2\">데이터 · 실태조사</div>\n            <div class=\"unit__body\">\n              <div class=\"unit__lead\" data-kg-role=\"h3\">이해관계자 수요조사, 데이터 분석</div>\n              <div class=\"unit__list\">\n                <span data-kg-role=\"body2\">대내외 설문 설계</span>\n                <span data-kg-role=\"body2\">분석 · 관리</span>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <aside class=\"profile\">\n        <div class=\"profile__h\" data-kg-role=\"label\">수행 기반</div>\n        <dl class=\"kv\">\n          <dt data-kg-role=\"label2\">유사 수행실적</dt><dd class=\"num\" data-kg-role=\"body2\">30건</dd>\n          <dt data-kg-role=\"label2\">참여 연구진</dt><dd data-kg-role=\"body2\">PM 1 · PL 5 · PA 3</dd>\n          <dt data-kg-role=\"label2\">외부 자문위원</dt><dd class=\"num\" data-kg-role=\"body2\">16명</dd>\n        </dl>\n        <div class=\"note\">\n          <div class=\"nt\" data-kg-role=\"body2\">회계 · 법률 · 노무 · 투자 <b>전문자격 4명</b> 참여</div>\n          <div class=\"nt\" data-kg-role=\"body2\">기획재정부 경영평가위원 · 경영평가단장 포함</div>\n        </div>\n      </aside>\n    </div>\n\n    <!-- ══ 하단 : 역량 · Value Proposition ═══════════════ -->\n    <div class=\"subtop2\">\n      <div class=\"kg-subtopic\" data-kg-role=\"h1\">본부별 수행 역량 구성</div>\n      <div></div>\n      <div class=\"kg-subtopic\" data-kg-role=\"h1\">제안사 Value Proposition</div>\n    </div>\n\n    <div class=\"orgwrap\" style=\"grid-template-columns:1.18fr 26px 1fr;gap:0;flex:1 1 auto;min-height:0;\">\n      <div class=\"axes\">\n        <div class=\"axis axis--k\">\n          <div class=\"axis__h\" data-kg-role=\"h2\">Biz. Model</div>\n          <div class=\"axis__b\">\n            <div class=\"cell\"><b data-kg-role=\"h3\">Mega Trend</b><em data-kg-role=\"label2\">미래 성장동력 도출</em></div>\n            <div class=\"cell\"><b data-kg-role=\"h3\">Maj &amp; Org Strength</b><em data-kg-role=\"label2\">지속가능성 제고</em></div>\n            <div class=\"cell\"><b data-kg-role=\"h3\">Portfolio</b><em data-kg-role=\"label2\">사업 구성 재편 검토</em></div>\n            <div class=\"cell\"><b data-kg-role=\"h3\">Governance</b><em data-kg-role=\"label2\">의사결정 체계 정비</em></div>\n          </div>\n        </div>\n        <div class=\"axis\">\n          <div class=\"axis__h\" data-kg-role=\"h2\">Capability</div>\n          <div class=\"axis__b\">\n            <div class=\"cell\" data-kg-role=\"body2\">핵심사업 <em>수혜가치</em></div>\n            <div class=\"cell\" data-kg-role=\"body2\">미래사업 <em>시장 활성화</em></div>\n            <div class=\"cell\" data-kg-role=\"body2\">고객관점 <em>지향점 제시</em></div>\n            <div class=\"cell\" data-kg-role=\"body2\">경영체질 <em>지속가능성</em></div>\n          </div>\n        </div>\n        <div class=\"axis\">\n          <div class=\"axis__h\" data-kg-role=\"h2\">Way of Work</div>\n          <div class=\"axis__b\">\n            <div class=\"cell\" data-kg-role=\"body2\">조직문화 진단 및 전략</div>\n            <div class=\"cell\" data-kg-role=\"body2\">조직문화 프로그램</div>\n            <div class=\"cell\" data-kg-role=\"body2\">변화관리 및 리더십 코칭</div>\n            <div class=\"cell\" data-kg-role=\"body2\">Change Agent 양성</div>\n          </div>\n        </div>\n      </div>\n\n      <div style=\"position:relative;\"><div class=\"kgx-trapez\" style=\"position:absolute;inset:26px 3px;\"></div></div>\n\n      <div class=\"vp\">\n        <div class=\"claim\"><span class=\"kg-cornern\" data-kg-role=\"label\">1</span>\n          <div class=\"claim__t\" data-kg-role=\"h3\">경험과 전문성을 갖춘 Consulting Firm</div>\n          <div class=\"claim__l\">\n            <span data-kg-role=\"body2\">HR · 경영전략 컨설팅 전문사로서 <b>차별적 전문성</b> 보유</span>\n            <span data-kg-role=\"body2\">설립 이후 조직 · 인사 전문 컨설턴트 보유, 다수 과제 수행 중</span>\n          </div>\n        </div>\n        <div class=\"claim\"><span class=\"kg-cornern kg-cornern--blue\" data-kg-role=\"label\">2</span>\n          <div class=\"claim__t\" data-kg-role=\"h3\">핵심자원 ‘사람’에 대한 Total Solution 제공</div>\n          <div class=\"claim__l\">\n            <span data-kg-role=\"body2\">공공 · 민간 인사조직 및 경영전략 컨설팅 <b>축적 노하우</b> 보유</span>\n            <span data-kg-role=\"body2\">조직 · 인사전략 → 인사제도 → 실행지원 · 변화관리 <b>통합 제공</b></span>\n          </div>\n        </div>\n        <div class=\"claim\"><span class=\"kg-cornern kg-cornern--blue\" data-kg-role=\"label\">3</span>\n          <div class=\"claim__t\" data-kg-role=\"h3\">실행지원을 위한 유기적 컨설팅 서비스 제공</div>\n          <div class=\"claim__l\">\n            <span data-kg-role=\"body2\">인사 · 조직관리 총체적 이슈 해결을 위한 <b>Business Line</b> 보유</span>\n            <span data-kg-role=\"body2\">HR컨설팅본부 인사조직 과제와의 긴밀한 협업 체계 운영</span>\n          </div>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"close\">\n      <div class=\"close__box\">\n        <span class=\"close__lab\" data-kg-role=\"label\">수행 기반</span>\n        <span class=\"close__tx\" data-kg-role=\"body1\">4개 본부 · 3개 역량축 · 3대 제공가치가 하나의 수행 체계로 연결</span>\n      </div>\n      <div class=\"close__path\"><div class=\"kgx-trapez\"></div></div>\n      <div class=\"close__end\">\n        <div class=\"kgx-flow\"><span class=\"n\" data-kg-role=\"label\">진단 · 설계</span><span class=\"a\">›</span><span class=\"n\" data-kg-role=\"label\">제도화</span><span class=\"a\">›</span><span class=\"n k\" data-kg-role=\"label\">실행 · 정착</span></div>\n      </div>\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 케인즈그룹 사업자등록증 · 신용평가 결과, 본부별 수행실적 대장</span>\n    <span class=\"kg-footer__page\" data-kg-role=\"caption\" data-kg-auto=\"page\">–</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".subtop{display:grid;grid-template-columns:1fr;margin-bottom:9px;}\n  .subtop2{display:grid;grid-template-columns:1.18fr 26px 1fr;margin:12px 0 9px;}\n  .subtop2 .kg-subtopic{margin-bottom:0;}\n\n  /* ── 조직도 ─────────────────────────────────────── */\n  .orgwrap{display:grid;grid-template-columns:1fr 268px;gap:14px;}\n  .org{display:flex;flex-direction:column;}\n  .org__root{align-self:center;background:linear-gradient(180deg,#27517F,#17375E);border:1px solid #16365c;\n    border-radius:var(--r-sm);padding:9px 30px;text-align:center;}\n  .org__root .rt{font-size:19px;font-weight:800;color:#fff;letter-spacing:-.01em;}\n  .org__root .rs{font-size:14px;color:var(--blue-300);margin-top:2px;}\n  .org__rail{height:26px;position:relative;}\n  .org__rail svg{position:absolute;inset:0;width:100%;height:100%;}\n  .org__cols{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}\n  .unit{background:#fff;border:1px solid var(--line);border-radius:var(--r-xs);overflow:hidden;\n    display:flex;flex-direction:column;}\n  .unit__bar{background:var(--navy-800);color:#fff;font-size:14.5px;font-weight:700;text-align:center;padding:7px 6px;}\n  .unit--sub .unit__bar{background:var(--blue-500);}\n  .unit__body{padding:8px 9px;display:flex;flex-direction:column;gap:5px;flex:1;}\n  .unit__lead{font-size:14px;font-weight:700;color:var(--ink-navy);line-height:1.35;}\n  .unit__list{display:flex;flex-direction:column;gap:3px;}\n  .unit__list span{font-size:14px;color:var(--ink-700);line-height:1.35;padding-left:9px;position:relative;}\n  .unit__list span::before{content:\"–\";position:absolute;left:0;color:var(--ink-500);}\n\n  /* ── 수행 기반 ──────────────────────────────────── */\n  .profile{background:var(--neutral-050);border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    padding:8px 12px;display:grid;grid-template-rows:auto auto 1fr;gap:6px;min-height:0;}\n  .profile__h{font-size:13px;font-weight:800;color:var(--ink-500);letter-spacing:.06em;}\n  .kv{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;align-items:baseline;}\n  .kv dt{font-size:13px;color:var(--ink-500);white-space:nowrap;}\n  .kv dd{margin:0;font-size:14.5px;font-weight:700;color:var(--ink-navy);text-align:right;line-height:1.25;}\n  .kv dd.num{font-variant-numeric:tabular-nums;color:var(--navy-800);}\n  .note{display:grid;align-content:center;gap:6px;border-top:1px solid var(--neutral-300);padding-top:8px;}\n  .note .nt{font-size:14px;color:var(--ink-700);line-height:1.35;padding-left:11px;position:relative;}\n  .note .nt::before{content:\"–\";position:absolute;left:0;color:var(--ink-500);}\n  .note .nt b{color:var(--navy-800);font-weight:700;}\n\n  /* ── 역량 3축 ───────────────────────────────────── */\n  .axes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;min-height:0;overflow:hidden;}\n  .axis{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    display:flex;flex-direction:column;overflow:hidden;}\n  .axis__h{background:var(--blue-200);color:var(--ink-navy);font-size:14.5px;font-weight:800;\n    text-align:center;padding:6px 5px;}\n  .axis--k .axis__h{background:var(--blue-500);color:#fff;}\n  .axis__b{padding:7px;display:flex;flex-direction:column;gap:5px;flex:1;}\n  .cell{background:var(--neutral-050);border:1px solid var(--neutral-200);border-radius:2px;\n    padding:5px 8px;font-size:14px;color:var(--ink-900);line-height:1.32;\n    flex:1;display:flex;flex-direction:column;justify-content:center;}\n  .cell b{display:block;font-size:14px;color:var(--ink-navy);font-weight:700;}\n  .cell em{font-style:normal;color:var(--ink-500);font-size:13px;}\n\n  /* ── Value Proposition ──────────────────────────── */\n  .vp{display:flex;flex-direction:column;gap:6px;min-height:0;overflow:hidden;}\n  .claim{position:relative;background:#fff;border:1.5px dashed var(--blue-500);border-radius:var(--r-sm);\n    padding:7px 11px 7px 14px;flex:1;display:flex;flex-direction:column;justify-content:center;gap:3px;}\n  .claim__t{font-size:14px;font-weight:700;color:var(--ink-navy);line-height:1.3;padding-left:26px;}\n  .claim__l{display:flex;flex-direction:column;gap:3px;}\n  .claim__l span{font-size:14px;color:var(--ink-700);line-height:1.35;padding-left:11px;position:relative;}\n  .claim__l span::before{content:\"·\";position:absolute;left:2px;color:var(--blue-500);font-weight:800;}\n  .claim__l span b{color:var(--navy-800);}\n\n  /* ── 하단 수렴 ──────────────────────────────────── */\n  .close{margin-top:11px;display:grid;grid-template-columns:auto 54px 1fr;align-items:stretch;flex:0 0 auto;}\n  .close__box{display:flex;align-items:center;gap:12px;background:linear-gradient(180deg,#EAF1FB,#D9E6F5);\n    border:1px solid var(--blue-400);border-radius:var(--r-sm);padding:10px 15px;}\n  .close__lab{flex:0 0 auto;background:var(--navy-800);color:#fff;font-weight:800;font-size:13px;\n    padding:5px 13px;border-radius:var(--r-pill);white-space:nowrap;}\n  .close__tx{color:var(--ink-navy);font-size:14.5px;font-weight:600;line-height:1.4;}\n  .close__path{position:relative;}\n  .close__path .kgx-trapez{position:absolute;inset:5px 0;}\n  .close__end{display:flex;align-items:center;justify-content:center;background:#fff;\n    border:1px solid var(--neutral-300);border-radius:var(--r-sm);padding:0 14px;}\n  .close__end .kgx-flow .n{font-size:13.5px;padding:6px 10px;white-space:nowrap;}",
+    "origin": "01_조직구성.html"
+  },
+  "patches": {
+    "n.2.4.2.0.4": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.4.2.0.2": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.4.2.0.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.4.2": {
+      "layout": {
+        "mode": "detached",
+        "x": 882,
+        "y": 807,
+        "w": 370,
+        "h": 48,
+        "keepSlot": true
+      }
+    },
+    "n.2.4.1.0": {
+      "layout": {
+        "mode": "detached",
+        "x": 856,
+        "y": 812,
+        "w": 26,
+        "h": 38,
+        "keepSlot": true
+      }
+    },
+    "n.2.4.0": {
+      "layout": {
+        "mode": "detached",
+        "x": 28,
+        "y": 807,
+        "w": 832,
+        "h": 48,
+        "keepSlot": true
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "01"
+      },
+      "role": "message"
+    },
+    "n.2.4.0.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "제안사 소개"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.2.3.2.0.2.0": {
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "일반현황"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "제안사 조직구성"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅱ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          24.4,
+          8,
+          24.4
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [
+      "n.2.3.2.2.2.1",
+      "n.2.3.2.0.2.1"
+    ],
+    "added": {},
+    "groups": {
+      "g28729fa2": {
+        "members": [
+          "n.2.4.2.0.0",
+          "n.2.4.2.0.2",
+          "n.2.4.2.0.4"
+        ],
+        "label": ""
+      }
+    },
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "label": {
+        "fontSize": 14
+      },
+      "h2": {
+        "fontSize": 20
+      },
+      "h3": {
+        "fontSize": 16
+      },
+      "body2": {
+        "fontSize": 14
+      }
+    }
+  },
+  "stack": [
+    "n.2.4.2",
+    "n.2.4.1.0",
+    "n.2.4.0"
+  ],
+  "createdAt": "2026-07-27T03:12:45.137Z",
+  "updatedAt": "2026-07-27T14:19:23.452Z"
+}

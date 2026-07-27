@@ -1,0 +1,327 @@
+{
+  "v": 1,
+  "id": "4c26fc0e-7211-4e66-b4b2-e71a7c94dba4",
+  "name": "JDC_정성제안서",
+  "slides": [
+    {
+      "id": "38caac6b-b9e9-4122-b785-e066a62e3d00",
+      "title": "발주기관 이해 — 제주국제자유도시개발센터(JDC)",
+      "origin": "00_발주처이해.html",
+      "updatedAt": "2026-07-27T14:16:06.044Z"
+    },
+    {
+      "id": "29e39044-d773-4bfe-9a77-2e534c0ab7af",
+      "title": "제안 목적 및 수행 범위 — 4대 과업",
+      "origin": "00b_제안개요.html",
+      "updatedAt": "2026-07-27T14:16:06.286Z"
+    },
+    {
+      "id": "7731467a-d968-4835-aa9f-3a00f4cf852a",
+      "title": "기관의 일반현황 — 조직 구성",
+      "origin": "01_조직구성.html",
+      "updatedAt": "2026-07-27T14:19:23.452Z"
+    },
+    {
+      "id": "7fd6da1a-8a53-4d12-9027-c39251be07f7",
+      "title": "프로젝트 참여인력 — 전문인력·참여인력",
+      "origin": "02_참여인력.html",
+      "updatedAt": "2026-07-27T14:16:06.770Z"
+    },
+    {
+      "id": "5be7bb3e-46b1-40bc-9c2e-12c6dbbb9d56",
+      "title": "외부 자문위원 Pool — 16인",
+      "origin": "02b_자문위원.html",
+      "updatedAt": "2026-07-27T14:16:07.023Z"
+    },
+    {
+      "id": "9ec10165-0f05-45c8-a608-0f6709a2683b",
+      "title": "유사 과업 수행사례 — 30건",
+      "origin": "02c_수행사례.html",
+      "updatedAt": "2026-07-27T14:16:07.271Z"
+    },
+    {
+      "id": "5d987614-19fe-4946-a06a-3a9296fee88d",
+      "title": "유사 과업 실제 수행 산출물 — 12건",
+      "origin": "02d_수행산출물.html",
+      "updatedAt": "2026-07-27T14:16:07.509Z"
+    },
+    {
+      "id": "101ddbd8-984c-419f-8af9-444edbf1b08f",
+      "title": "경영환경 분석 개요 — 4대 세부과업",
+      "origin": "03_경영환경개요.html",
+      "updatedAt": "2026-07-27T14:19:23.738Z"
+    },
+    {
+      "id": "a684dba7-a494-4189-8f02-3b865fc8e2cd",
+      "title": "외부환경 진단 — 4대 축",
+      "origin": "03b_외부환경진단.html",
+      "updatedAt": "2026-07-27T14:19:24.005Z"
+    },
+    {
+      "id": "f2853b44-6c71-4550-b251-9d7990f644e9",
+      "title": "내부환경 진단 — 5대 축",
+      "origin": "03c_내부환경진단.html",
+      "updatedAt": "2026-07-27T14:19:24.202Z"
+    },
+    {
+      "id": "05f0ff9a-537b-4ca9-b9f8-616ecf745470",
+      "title": "6대 선도 프로젝트 현황 분석",
+      "origin": "03d_선도프로젝트.html",
+      "updatedAt": "2026-07-27T14:19:24.413Z"
+    },
+    {
+      "id": "3e89e5d8-1a4d-41f5-b3d1-2590cf7b85c5",
+      "title": "국내외 사례 벤치마킹 — 8개 기관",
+      "origin": "03e_벤치마킹.html",
+      "updatedAt": "2026-07-27T14:19:24.617Z"
+    },
+    {
+      "id": "9c85fa70-c898-4c15-8419-e3d9bee73652",
+      "title": "벤치마킹 JDC 적용 방향 — 자산 유형별",
+      "origin": "03f_적용방향.html",
+      "updatedAt": "2026-07-27T14:19:24.803Z"
+    },
+    {
+      "id": "9789823f-401f-4bdd-a471-cadded08f2d0",
+      "title": "경영환경 종합진단 — 국정·도정 연계",
+      "origin": "03g_종합진단.html",
+      "updatedAt": "2026-07-27T14:19:24.996Z"
+    },
+    {
+      "id": "4d0f50d6-cf0e-45d1-a267-3b5c32607f29",
+      "title": "전략체계도 및 SWOT 매트릭스",
+      "origin": "03h_전략체계SWOT.html",
+      "updatedAt": "2026-07-27T14:19:27.466Z"
+    },
+    {
+      "id": "f284d978-4775-4cc4-9c3f-87e6581b65bf",
+      "title": "대내외 변화동인과 4대 중점방향",
+      "origin": "03i_변화동인중점방향.html",
+      "updatedAt": "2026-07-27T14:19:25.403Z"
+    },
+    {
+      "id": "c3031af3-0e38-43f9-8785-4972da5c1193",
+      "title": "핵심사업 및 이해관계자 종합진단",
+      "origin": "04_사업이해관계자개요.html",
+      "updatedAt": "2026-07-27T14:19:25.608Z"
+    },
+    {
+      "id": "6430c2d9-aa92-4961-8326-89a0285305f3",
+      "title": "사업별 경쟁구조 · 가치사슬 분석",
+      "origin": "04b_사업별경쟁구조.html",
+      "updatedAt": "2026-07-27T14:19:25.814Z"
+    },
+    {
+      "id": "b421b254-ad48-4601-813d-c8f141263b43",
+      "title": "사업 성장방향 및 재구조화 검토",
+      "origin": "04c_사업성장방향.html",
+      "updatedAt": "2026-07-27T14:19:26.035Z"
+    },
+    {
+      "id": "7fe31d2a-b4fd-4140-8641-23dca4c50365",
+      "title": "이해관계자 분류 및 소통관리체계 고도화",
+      "origin": "04d_이해관계자분류.html",
+      "updatedAt": "2026-07-27T14:19:26.243Z"
+    },
+    {
+      "id": "3658ae2d-b89f-4be5-9dc2-dcad0f089314",
+      "title": "이해관계자 분류 및 소통관리체계 고도화",
+      "origin": "22_이해관계자분류소통체계.html",
+      "updatedAt": "2026-07-27T14:19:26.441Z"
+    },
+    {
+      "id": "7dcab42b-699b-4a93-99ab-7e29dc7a4e19",
+      "title": "가치체계 및 전략체계 수립 개요",
+      "origin": "23_가치체계전략체계수립개요.html",
+      "updatedAt": "2026-07-27T14:19:26.630Z"
+    },
+    {
+      "id": "438e231c-dd3b-41c4-b65a-076479b5fb71",
+      "title": "미션·비전·핵심가치 구성요소 진단 및 도출",
+      "origin": "24_미션비전핵심가치진단.html",
+      "updatedAt": "2026-07-27T14:16:11.503Z"
+    },
+    {
+      "id": "f88adf7a-4212-4018-bd9f-58b93d91b8d7",
+      "title": "자원 우선순위 및 중장기 추진 로드맵",
+      "origin": "25_자원우선순위중장기로드맵.html",
+      "updatedAt": "2026-07-27T14:16:11.742Z"
+    },
+    {
+      "id": "e6d691aa-4935-4b37-a99e-3d6df9ce13aa",
+      "title": "경영환경 변화를 고려한 경영전략 수립",
+      "origin": "26_경영전략수립방안.html",
+      "updatedAt": "2026-07-27T14:16:11.986Z"
+    },
+    {
+      "id": "854b0b16-1341-4690-adc8-617452537740",
+      "title": "운용계획 수립 및 실행력 강화",
+      "origin": "27_운용계획실행력강화.html",
+      "updatedAt": "2026-07-27T14:16:12.237Z"
+    },
+    {
+      "id": "4861bcf9-030a-4d50-be62-a84786f4c7da",
+      "title": "핵심과제 우선순위 설정",
+      "origin": "28_핵심과제우선순위.html",
+      "updatedAt": "2026-07-27T14:16:12.483Z"
+    },
+    {
+      "id": "12eab3c9-186c-4064-aef5-9f546b4e651c",
+      "title": "조직 진단 기반 전략 실행체계 정렬",
+      "origin": "29_조직진단실행체계정렬.html",
+      "updatedAt": "2026-07-27T14:16:12.727Z"
+    },
+    {
+      "id": "f35a4a53-e519-4610-bd3a-286a63635b27",
+      "title": "변화관리 및 실행 거버넌스 구축",
+      "origin": "30_변화관리실행거버넌스.html",
+      "updatedAt": "2026-07-27T14:16:12.970Z"
+    },
+    {
+      "id": "606cd4c9-3113-4408-818b-efae6e48af5f",
+      "title": "변화관리 및 성과 모니터링",
+      "origin": "31_변화관리성과모니터링.html",
+      "updatedAt": "2026-07-27T14:16:13.253Z"
+    },
+    {
+      "id": "ed0cbec9-dbfa-4b2c-9705-c49960842363",
+      "title": "주요사업 성과 및 BP 확산",
+      "origin": "32_주요사업성과BP확산.html",
+      "updatedAt": "2026-07-27T14:16:13.500Z"
+    },
+    {
+      "id": "e85c8f5d-a557-44fd-82bf-b199aa036b18",
+      "title": "경영평가·ESG 연계 성과관리",
+      "origin": "33_경영평가ESG연계성과관리.html",
+      "updatedAt": "2026-07-27T14:16:13.742Z"
+    },
+    {
+      "id": "8a217986-dac1-44e8-8dcd-4fa96b25d908",
+      "title": "경영환경 변화에 따른 조직진단",
+      "origin": "34_경영환경변화조직진단.html",
+      "updatedAt": "2026-07-27T14:16:13.991Z"
+    },
+    {
+      "id": "a9badffd-1dbe-4525-8fa9-5a6e27a186a5",
+      "title": "가치체계수립 approach",
+      "origin": "35_가치체계수립approach.html",
+      "updatedAt": "2026-07-27T14:16:14.238Z"
+    },
+    {
+      "id": "3a3bd9aa-24cc-4833-a928-d1bcaa641f4e",
+      "title": "3. 과업의 수행 방법론 — 전략동인 도출 (SVG)",
+      "origin": "40b_SDT_Driver_SVG.html",
+      "updatedAt": "2026-07-27T14:16:14.480Z"
+    },
+    {
+      "id": "5111edb9-62d0-4e3e-b3f9-c62a1dfb6439",
+      "title": "가치전략체계 고도화",
+      "origin": "37_가치전략체계고도화.html",
+      "updatedAt": "2026-07-27T14:16:14.715Z"
+    },
+    {
+      "id": "fd0858bb-54e7-4717-99ca-8fd3780909db",
+      "title": "이해관계자 의견수렴",
+      "origin": "38_이해관계자의견수렴.html",
+      "updatedAt": "2026-07-27T14:16:14.956Z"
+    },
+    {
+      "id": "1095c2f1-1741-425e-9e78-a9bfbb51de47",
+      "title": "주요사업 우선순위 도출방안",
+      "origin": "39_주요사업우선순위도출.html",
+      "updatedAt": "2026-07-27T14:16:15.193Z"
+    },
+    {
+      "id": "011f1969-5765-478c-adc9-4581c81d50d6",
+      "title": "3. 과업의 수행 방법론 — 성과관리 및 지표 필터링",
+      "origin": "41_KPI_Filtering.html",
+      "updatedAt": "2026-07-27T14:16:15.437Z"
+    },
+    {
+      "id": "8f336243-c29e-44ce-834f-5412c09ded33",
+      "title": "3. 과업의 수행 방법론 — 비계량 지표 평가관점",
+      "origin": "42_ADL_Nonquant.html",
+      "updatedAt": "2026-07-27T14:16:15.672Z"
+    },
+    {
+      "id": "78da7dd3-51eb-466b-940e-7558336fe9f2",
+      "title": "3. 과업의 수행 방법론 — 리더십 구현체계",
+      "origin": "43_Leadership.html",
+      "updatedAt": "2026-07-27T14:16:15.919Z"
+    },
+    {
+      "id": "d17cf0cf-025c-44b0-a45a-ca1f1db07137",
+      "title": "용역의 활용방안 및 기대효과",
+      "origin": "44_Utilization_Effects.html",
+      "updatedAt": "2026-07-27T14:16:16.212Z"
+    },
+    {
+      "id": "7db69a4a-45ef-47f8-ac09-298a5c99014d",
+      "title": "추진 일정 및 세부 일정",
+      "origin": "45_Schedule.html",
+      "updatedAt": "2026-07-27T14:16:16.458Z"
+    },
+    {
+      "id": "5170072a-58a3-4097-af14-2b909c043f00",
+      "title": "2. 과업 관리 방안 — 소통·협력체계를 통한 진행률 관리",
+      "origin": "46_Progress_Management.html",
+      "updatedAt": "2026-07-27T14:16:16.692Z"
+    },
+    {
+      "id": "84d7ca63-4f25-4254-b264-1b774009795f",
+      "title": "2. 과업 관리 방안 — 산출물 관리체계",
+      "origin": "47_Deliverable_QA.html",
+      "updatedAt": "2026-07-27T14:16:16.936Z"
+    },
+    {
+      "id": "0ed0f79d-27ad-4234-b1cb-951a3d64e60e",
+      "title": "2. 과업 관리 방안 — 규정 개정 지원",
+      "origin": "48_Regulation_Revision.html",
+      "updatedAt": "2026-07-27T14:16:17.171Z"
+    },
+    {
+      "id": "dc1ae02d-fa27-499b-be1e-5883695d0bb3",
+      "title": "3. 보안 관리체계",
+      "origin": "49_Security.html",
+      "updatedAt": "2026-07-27T14:16:17.415Z"
+    },
+    {
+      "id": "79714649-5c72-4add-85dd-5764abf0b29c",
+      "title": "1. 사후관리 방안 — 사후관리 전담조직 운영",
+      "origin": "50_PMO_Aftercare.html",
+      "updatedAt": "2026-07-27T14:19:26.818Z"
+    },
+    {
+      "id": "6edce106-9a72-4426-9fad-c2c74bf88364",
+      "title": "05 과업 유상·무상 지원계획 — 단계별 추진전략(로드맵)",
+      "origin": "51_Eval_Roadmap.html",
+      "updatedAt": "2026-07-27T14:16:17.895Z"
+    },
+    {
+      "id": "43f33b18-24b2-459c-bbed-511081532138",
+      "title": "02 과업 유상·무상 지원계획 — 성과지표 관리 및 평가 보조 방안",
+      "origin": "52_KPI_Management.html",
+      "updatedAt": "2026-07-27T14:19:27.022Z"
+    },
+    {
+      "id": "f0885f74-ca83-4b6f-99f5-3b30ecb4913c",
+      "title": "03 과업 유상·무상 지원계획 — 전략·경영평가·성과지표 연계성 강화 방안",
+      "origin": "53_KPI_Linkage.html",
+      "updatedAt": "2026-07-27T14:16:18.383Z"
+    },
+    {
+      "id": "99953e13-bb1b-44d9-aa65-dcbae5acc3c3",
+      "title": "03 과업 유상·무상 지원계획 — 내부평가 및 성과관리 모델",
+      "origin": "54_Internal_Eval.html",
+      "updatedAt": "2026-07-27T14:16:18.616Z"
+    },
+    {
+      "id": "3cd91df1-f4b2-4ff6-8774-1cc91e9fbfd7",
+      "title": "04 정성 평가항목별 제안 핵심 요약",
+      "origin": "55_Eval_Mapping.html",
+      "updatedAt": "2026-07-27T14:16:18.874Z"
+    }
+  ],
+  "createdAt": "2026-07-27T03:11:24.237Z",
+  "updatedAt": "2026-07-27T14:25:08.346Z"
+}

@@ -8,6 +8,7 @@
  */
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { DeckRail } from './DeckRail';
+import { FolderPicker } from './FolderPicker';
 import { SlideCanvas } from './SlideCanvas';
 import { StatusBar } from './StatusBar';
 import { Toasts } from './Toast';
@@ -96,6 +97,7 @@ export default function App() {
       <ContextMenu at={menuAt} ctx={ctx} onClose={useCallback(() => { setMenuAt(null); setMenuSlide(undefined); }, [])} />
       <BubbleToolbar anchor={anchor} ctx={ctx} />
       <CommandPalette open={paletteOpen} ctx={ctx} onClose={useCallback(() => setPaletteOpen(false), [])} />
+      <FolderPicker />
       <Toasts api={api} />
     </div>
   );

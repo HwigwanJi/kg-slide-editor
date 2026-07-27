@@ -1,0 +1,152 @@
+/* ============================================================================
+   폴더 고르기 창.
+   화면을 막는 껍데기(.ed-blocker)는 toast.css 가 갖고 있다. 여기는 그 안의 상자만 그린다.
+   ============================================================================ */
+
+.ed-picker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ed-sp-3);
+  width: min(46rem, 88vw);
+  height: min(34rem, 82vh);
+  padding: var(--ed-sp-5);
+  background: var(--ed-surface-raised);
+  border: var(--ed-bw) solid var(--ed-border);
+  border-radius: var(--ed-r-md);
+  box-shadow: var(--ed-shadow-md);
+  color: var(--ed-fg);
+  font-size: var(--ed-fs-md);
+}
+
+.ed-picker__head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--ed-sp-3);
+  min-width: 0;
+}
+
+.ed-picker__title {
+  font-weight: var(--ed-fw-semibold);
+  font-size: var(--ed-fs-lg);
+  white-space: nowrap;
+}
+
+/* 경로는 길다. 뒤쪽(지금 폴더)이 잘리면 어디인지 알 수 없으므로 앞을 자른다. */
+.ed-picker__path {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  direction: rtl;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--ed-fg-muted);
+  font-family: var(--ed-font-mono);
+  font-size: var(--ed-fs-xs);
+}
+
+.ed-picker__recent,
+.ed-picker__roots {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--ed-sp-2);
+}
+
+.ed-picker__label {
+  color: var(--ed-fg-muted);
+  font-size: var(--ed-fs-xs);
+  letter-spacing: var(--ed-tracking-label);
+}
+
+.ed-picker__chip {
+  height: var(--ed-control-h-sm);
+  padding: 0 var(--ed-sp-3);
+  background: var(--ed-surface);
+  border: var(--ed-bw) solid var(--ed-border);
+  border-radius: var(--ed-r-pill);
+  color: var(--ed-fg);
+  font: inherit;
+  font-size: var(--ed-fs-xs);
+  cursor: pointer;
+}
+
+.ed-picker__chip:hover:not(:disabled) { background: var(--ed-hover); }
+.ed-picker__chip:disabled { opacity: 0.45; cursor: default; }
+
+.ed-picker__list {
+  flex: 1;
+  overflow-y: auto;
+  margin: 0;
+  padding: var(--ed-sp-1);
+  list-style: none;
+  background: var(--ed-surface-sunken);
+  border: var(--ed-bw) solid var(--ed-border);
+  border-radius: var(--ed-r-sm);
+}
+
+.ed-picker__row {
+  display: block;
+  width: 100%;
+  padding: var(--ed-sp-2) var(--ed-sp-3);
+  background: none;
+  border: 0;
+  border-radius: var(--ed-r-xs);
+  color: var(--ed-fg);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ed-picker__row:hover { background: var(--ed-hover); }
+.ed-picker__row:focus-visible { outline: var(--ed-focus-ring); }
+
+/* 프로젝트 파일은 걸어 들어가는 곳이 아니라 여는 곳이다. 눈에 띄게 갈라 둔다. */
+.ed-picker__row[data-kind='file'] {
+  color: var(--ed-accent);
+  font-weight: var(--ed-fw-medium);
+}
+
+.ed-picker__empty {
+  padding: var(--ed-sp-4);
+  color: var(--ed-fg-muted);
+  text-align: center;
+}
+
+.ed-picker__empty[data-bad='true'] { color: var(--ed-danger); }
+
+.ed-picker__foot {
+  display: flex;
+  align-items: center;
+  gap: var(--ed-sp-2);
+}
+
+.ed-picker__note {
+  color: var(--ed-fg-muted);
+  font-size: var(--ed-fs-xs);
+}
+
+.ed-picker__grow { flex: 1; }
+
+.ed-picker__btn {
+  height: var(--ed-control-h);
+  padding: 0 var(--ed-sp-4);
+  background: var(--ed-surface);
+  border: var(--ed-bw) solid var(--ed-border);
+  border-radius: var(--ed-r-sm);
+  color: var(--ed-fg);
+  font: inherit;
+  cursor: pointer;
+}
+
+.ed-picker__btn:hover:not(:disabled) { background: var(--ed-hover); }
+.ed-picker__btn:disabled { opacity: 0.45; cursor: default; }
+
+.ed-picker__btn[data-primary='true'] {
+  background: var(--ed-accent);
+  border-color: var(--ed-accent);
+  color: var(--ed-fg-on-accent);
+  font-weight: var(--ed-fw-medium);
+}
+
+.ed-picker__btn[data-primary='true']:hover:not(:disabled) { background: var(--ed-accent-hover); }

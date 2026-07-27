@@ -1,0 +1,83 @@
+{
+  "v": 5,
+  "id": "9ec10165-0f05-45c8-a608-0f6709a2683b",
+  "title": "유사 과업 수행사례 — 30건",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"유사 과업 수행사례\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"message\">02</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">제안사 특징 및 장점</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">유사 과업 수행사례</div>\n    </div>\n    <div class=\"kg-chapter-tab\"><span class=\"kg-chapter-tab__roman\" data-kg-role=\"label\">Ⅰ</span><span class=\"kg-chapter-tab__sep\"></span><span class=\"kg-chapter-tag\" data-kg-role=\"label\">제안 개요</span></div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">중장기 전략 · 조직진단 · 직무 · 인사 · 성과관리 등 본 과업 전 영역에 걸친 <b>유사 수행실적 30건</b> 보유</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"wrap\">\n\n      <div class=\"top\">\n        <div class=\"kg-subtopic\" data-kg-role=\"h1\">경영목표 및 전략체계 · 경영평가 · 성과관리 개선 수행 사례</div>\n      </div>\n\n      <div class=\"cols\">\n        <!-- ───── 1 ~ 15 ───── -->\n        <div class=\"tbl\">\n          <div class=\"tr\">\n            <div class=\"th\" data-kg-role=\"h3\">순번</div>\n            <div class=\"th\" data-kg-role=\"h3\">용역명</div>\n            <div class=\"th\" data-kg-role=\"h3\">발주처</div>\n          </div>\n\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">1</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">지역콘텐츠 진흥 중장기 전략 및 성과지표 개발</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">한국콘텐츠진흥원</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">2</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">경영전략 고도화 및 성과분석 연구</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">오송첨단의료산업진흥재단</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">3</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">경영전략 고도화 기반 지속가능경영 연구</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">연구개발특구진흥재단</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">4</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">중장기 경영전략 및 경영혁신 계획 수립</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">한국보건산업진흥원</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">5</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">중장기 발전계획 수립 및 조직진단 연구용역</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">건설근로자공제회</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">6</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">미래 비전 및 중장기 경영 전략 수립</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">서울디자인재단</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">7</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">중장기 혁신 전략체계 및 실행계획 수립</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">울산항만공사</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">8</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">중장기 경영전략 수립 및 조직진단</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">부산교통공사</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">9</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">중장기 경영전략 및 경영평가 주요사업 지표 개선방안</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">영상물등급위원회</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">10</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">KR 중장기 조직진단 용역</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">국가철도공단</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">11</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">사회적 가치 실현 전략 고도화</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">소상공인시장진흥공단</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">12</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">데이터 분석을 통한 사회적 가치 활성화</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">국민건강보험공단</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">13</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">전사 전략롤링 및 성과평가 고도화</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">한전KDN</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">14</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">한국해양진흥공사 ESG 전략 고도화</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">한국해양진흥공사</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">15</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">일자리 창출 전략 로드맵 구축</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">한국해양진흥공사</span></div></div>\n        </div>\n\n        <!-- ───── 16 ~ 30 ───── -->\n        <div class=\"tbl\">\n          <div class=\"tr\">\n            <div class=\"th\" data-kg-role=\"h3\">순번</div>\n            <div class=\"th\" data-kg-role=\"h3\">용역명</div>\n            <div class=\"th\" data-kg-role=\"h3\">발주처</div>\n          </div>\n\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">16</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">직무중심 인사제도(채용 · 배치) 연구</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">정보통신기획평가원</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">17</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">인사평가제도 개편 컨설팅 용역</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">국립박물관문화재단</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">18</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">직무 분석 및 평가 고도화 연구용역</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">한국승강기안전공단</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">19</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">일하는 방식과 조직문화 개선 연구용역</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">한국환경보전원</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">20</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">조직진단 및 직무중심 보수 · 인사관리 체계 고도화</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">한국승강기안전공단</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">21</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">직무 중심 보수체계 구축을 위한 연구용역</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">국립박물관문화재단</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">22</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">직무분석 및 인력산출 연구용역</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">부산항신항시설관리센터</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">23</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">직군 · 직렬 체계 개편 및 직무 · 성과중심 보수체계 설계</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">한국환경보전원</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">24</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">직무분석을 통한 인사체계 고도화</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">한국중소벤처기업유통원</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">25</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">조직진단 및 직무분석 등 연구</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">충남신용보증재단</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">26</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">직무 · 성과 중심 인사체계 고도화 용역</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">한국승강기안전공단</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">27</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">조직진단 연구용역</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">부산항보안공사</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">28</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">직무급 설계 및 성과관리 개선</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">한국보건산업진흥원</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">29</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">조직 및 인력운영체계 재구축</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">신용보증기금</span></div></div>\n          <div class=\"tr\"><div class=\"td td--n\"><span class=\"no\" data-kg-role=\"num\">30</span></div>\n            <div class=\"td\"><span class=\"svc\" data-kg-role=\"body2\">개인성과평가제도 구축방안</span></div>\n            <div class=\"td td--o\"><span class=\"ord\" data-kg-role=\"body2\">신용보증기금</span></div></div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 케인즈그룹 수행실적 대장 — 중장기 전략 · 조직진단 · 직무 · 인사 · 성과관리 분야 30건</span>\n    <span class=\"kg-footer__page\" data-kg-role=\"caption\" data-kg-auto=\"page\">–</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".wrap{flex:1;min-height:0;display:grid;grid-template-rows:auto 1fr;gap:10px;}\n  .top .kg-subtopic{margin:0;}\n\n  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;min-height:0;}\n  .tbl{display:grid;grid-template-rows:auto repeat(15,1fr);gap:3px;min-height:0;}\n  .tr{display:grid;grid-template-columns:44px 1fr 180px;gap:3px;}\n  .th{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;font-size:14px;font-weight:800;\n    text-align:center;padding:5px 6px;border-radius:2px;}\n  .td{background:#fff;border:1px solid var(--neutral-300);border-radius:2px;\n    padding:3px 9px;display:flex;align-items:center;}\n  .td--n{justify-content:center;background:var(--neutral-100);border-color:var(--neutral-200);}\n  .no{font-size:14px;font-weight:800;color:var(--ink-500);font-variant-numeric:tabular-nums;}\n  .svc{font-size:14px;font-weight:600;color:var(--ink-900);line-height:1.3;}\n  .td--o{justify-content:center;}\n  .ord{font-size:14px;font-weight:700;color:var(--navy-800);line-height:1.3;text-align:center;}",
+    "origin": "02c_수행사례.html"
+  },
+  "patches": {
+    "n.0.1": {
+      "text": {
+        "html": "03"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "제안사 특장점"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "관련과업 수행사례"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅱ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "제안사 소개"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          24.4,
+          8,
+          24.4
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h3": {
+        "fontSize": 16
+      },
+      "body2": {
+        "fontSize": 15
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T07:13:02.042Z",
+  "updatedAt": "2026-07-27T14:16:07.271Z"
+}

@@ -1,0 +1,92 @@
+{
+  "v": 5,
+  "id": "99953e13-bb1b-44d9-aa65-dcbae5acc3c3",
+  "title": "03 과업 유상·무상 지원계획 — 내부평가 및 성과관리 모델",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"이원 성과관리형\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\">03</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\">과업 유상·무상 지원계획</div>\n      <div class=\"kg-section-sub\">내부평가 및 성과관리 모델</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">IV</span>\n      <span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\">성과관리 제도 개선</span>\n    </div>\n  </header>\n  <div class=\"kg-msgband\"><span class=\"kg-msgband__mark\"></span>\n    <p class=\"kg-message\">전략 연계 업무는 하향, 부서 고유기능은 상향으로 관리하는 이원 성과관리체계 설계</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"body2\">\n\n      <!-- ===== 좌 : 개념도 ===== -->\n      <div class=\"cn\">\n        <div class=\"cn__h\" data-kg-role=\"h1\">이원 성과관리체계</div>\n        <div class=\"cn__b\">\n\n          <div class=\"tr tr--td\">\n            <div class=\"tr__t\">\n              <span class=\"tr__n\" data-kg-role=\"h2\">하향 관리</span>\n              <span class=\"tr__e\" data-kg-role=\"label\">Top-Down</span>\n            </div>\n            <div class=\"tr__v\" data-kg-role=\"body3\">전사전략·정책목표와 연계되는 업무</div>\n            <span class=\"tr__c\" data-kg-role=\"label\">전략형</span>\n          </div>\n\n          <div class=\"arw arw--d\"><i></i><i></i><i></i></div>\n\n          <div class=\"bsc\">\n            <div class=\"bsc__h\" data-kg-role=\"h3\">BSC 3층 연계</div>\n            <div class=\"bsc__r\"><span class=\"bsc__k\" data-kg-role=\"label\">기관</span><span class=\"bsc__v\" data-kg-role=\"caption\">전략목표·경영평가 지표</span></div>\n            <div class=\"bsc__r\"><span class=\"bsc__k\" data-kg-role=\"label\">부서</span><span class=\"bsc__v\" data-kg-role=\"caption\">부서 목표·유형별 지표 구성</span></div>\n            <div class=\"bsc__r\"><span class=\"bsc__k\" data-kg-role=\"label\">개인</span><span class=\"bsc__v\" data-kg-role=\"caption\">성과계약(MBO) 반영</span></div>\n          </div>\n\n          <div class=\"arw arw--u\"><i></i><i></i><i></i></div>\n\n          <div class=\"tr tr--bu\">\n            <div class=\"tr__t\">\n              <span class=\"tr__n\" data-kg-role=\"h2\">상향 관리</span>\n              <span class=\"tr__e\" data-kg-role=\"label\">Bottom-Up</span>\n            </div>\n            <div class=\"tr__v\" data-kg-role=\"body3\">부서 고유기능과 현장과제</div>\n            <span class=\"tr__c\" data-kg-role=\"label\">현업형</span>\n          </div>\n\n        </div>\n        <div class=\"cn__f\" data-kg-role=\"h3\">전략 정합성과 평가 수용성 동시 확보</div>\n      </div>\n\n      <!-- ===== 우 : 2x2 조치 ===== -->\n      <div class=\"quads\">\n\n        <div class=\"qd\">\n          <div class=\"qd__h\"><span class=\"qd__n\" data-kg-role=\"num\">1</span><span class=\"qd__t\" data-kg-role=\"h2\">평가모델 설계</span></div>\n          <div class=\"qd__b\">\n            <div class=\"ms\">\n              <div class=\"ms__h\"><span class=\"ms__n\" data-kg-role=\"num\">01</span><span class=\"ms__t\" data-kg-role=\"h3\">하향·상향 결합 모델</span></div>\n              <div class=\"ms__k\" data-kg-role=\"body3\">목표설정 5유형을 <b>하향(전략형) ↔ 상향(현업형)</b> 스펙트럼에 두고 기관·부서·개인 BSC 3층 연계</div>\n              <div class=\"ms__d\" data-kg-role=\"caption\">실적이 명확한 조직은 전략형, 신설·정책 조직은 현업형</div>\n              <div class=\"ms__r\"><span class=\"ms__rk\" data-kg-role=\"label\">사례</span><span class=\"ms__rv\" data-kg-role=\"caption\">동종 유사기관 BSC를 직무성과계약에 반영, 팀 60 + 개인 40</span></div>\n            </div>\n            <div class=\"ms\">\n              <div class=\"ms__h\"><span class=\"ms__n\" data-kg-role=\"num\">02</span><span class=\"ms__t\" data-kg-role=\"h3\">평가군 분리</span></div>\n              <div class=\"ms__k\" data-kg-role=\"body3\">조직 성격별로 <b>시장경쟁형은 상대평가, 정책·전문형은 절대평가</b>로 분리</div>\n              <div class=\"ms__d\" data-kg-role=\"caption\">절대군 등급 상향 편중 방지를 위한 도전성 심사 병행</div>\n              <div class=\"ms__r\"><span class=\"ms__rk\" data-kg-role=\"label\">사례</span><span class=\"ms__rv\" data-kg-role=\"caption\">상대 40 : 절대 50 : 개선 10, 민간 선도사례는 상위 10%만 상대평가</span></div>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"qd\">\n          <div class=\"qd__h\"><span class=\"qd__n\" data-kg-role=\"num\">2</span><span class=\"qd__t\" data-kg-role=\"h2\">평가방법 정교화</span></div>\n          <div class=\"qd__b\">\n            <div class=\"ms\">\n              <div class=\"ms__h\"><span class=\"ms__n\" data-kg-role=\"num\">03</span><span class=\"ms__t\" data-kg-role=\"h3\">비계량 정량화</span></div>\n              <div class=\"ms__k\" data-kg-role=\"body3\">정성지표의 주관성 단계를 줄여 <b>GRS → BOS → BARS 행동앵커</b>로 전환하고 ADL 관점과 연계</div>\n              <div class=\"ms__d\" data-kg-role=\"caption\">핵심 정성지표에 등급별 대표행동 앵커 2~3개 부착, 서술근거 병기</div>\n              <div class=\"ms__r\"><span class=\"ms__rk\" data-kg-role=\"label\">사례</span><span class=\"ms__rv\" data-kg-role=\"caption\">기획재정부 계량 79.7% 대비 비계량 60.2%, 32%p 격차를 공동평가로 표준화</span></div>\n            </div>\n            <div class=\"ms\">\n              <div class=\"ms__h\"><span class=\"ms__n\" data-kg-role=\"num\">04</span><span class=\"ms__t\" data-kg-role=\"h3\">운영 편람 4축</span></div>\n              <div class=\"ms__k\" data-kg-role=\"body3\">편람을 <b>객관·유의·인위·공정</b> 4축으로 설계하고 6요소 표준목차 적용</div>\n              <div class=\"ms__d\" data-kg-role=\"caption\">객관은 BARS·AHP, 유의는 T-Score 부분보정, 공정은 평가 풀·이의신청</div>\n              <div class=\"ms__r\"><span class=\"ms__rk\" data-kg-role=\"label\">사례</span><span class=\"ms__rv\" data-kg-role=\"caption\">T-Score 표준화와 심의 3차 → 2차 축소, 평가군 표준변환식</span></div>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"qd\">\n          <div class=\"qd__h\"><span class=\"qd__n\" data-kg-role=\"num\">3</span><span class=\"qd__t\" data-kg-role=\"h2\">운영·공정성</span></div>\n          <div class=\"qd__b\">\n            <div class=\"ms\">\n              <div class=\"ms__h\"><span class=\"ms__n\" data-kg-role=\"num\">05</span><span class=\"ms__t\" data-kg-role=\"h3\">평가단 이원화</span></div>\n              <div class=\"ms__k\" data-kg-role=\"body3\">내부와 <b>외부 전문평가단을 이원화</b>하고 정책·전문형은 절대평가를 병행해 왜곡 보정</div>\n              <div class=\"ms__d\" data-kg-role=\"caption\">계량·비계량 평가주체 분리, 상피제·윤리서약, 이의신청 규정화</div>\n              <div class=\"ms__r\"><span class=\"ms__rk\" data-kg-role=\"label\">사례</span><span class=\"ms__rv\" data-kg-role=\"caption\">기획재정부 계량평가위원회(회계사 6·외부 28)와 비계량 평가단 이원화</span></div>\n            </div>\n            <div class=\"ms\">\n              <div class=\"ms__h\"><span class=\"ms__n\" data-kg-role=\"num\">06</span><span class=\"ms__t\" data-kg-role=\"h3\">환류·조정 임계치</span></div>\n              <div class=\"ms__k\" data-kg-role=\"body3\">환류 루프를 규칙화 — <b>지표 생애주기 + 비계량 P·D·C·A 배점 + 반기 환류</b></div>\n              <div class=\"ms__d\" data-kg-role=\"caption\">조정 임계치는 팀 간 현저한 차이 발생 시 배점 10% 이내</div>\n              <div class=\"ms__r\"><span class=\"ms__rk\" data-kg-role=\"label\">사례</span><span class=\"ms__rv\" data-kg-role=\"caption\">동종 유사기관 반기 배점 — 상반기 P40·D60 / 하반기 P30·D40·C20·A10</span></div>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"qd\">\n          <div class=\"qd__h\"><span class=\"qd__n\" data-kg-role=\"num\">4</span><span class=\"qd__t\" data-kg-role=\"h2\">수용성·정착</span></div>\n          <div class=\"qd__b\">\n            <div class=\"ms\">\n              <div class=\"ms__h\"><span class=\"ms__n\" data-kg-role=\"num\">07</span><span class=\"ms__t\" data-kg-role=\"h3\">수용성·저성과 육성</span></div>\n              <div class=\"ms__k\" data-kg-role=\"body3\">좁은 차등(기본연봉 1.5~2.5%)을 <b>비금전 보상</b>으로 보완하고 하위등급은 육성 관점으로 운영</div>\n              <div class=\"ms__d\" data-kg-role=\"caption\">저성과자 역량강화 3개월, 위험요인 8종 공동교육 병행</div>\n              <div class=\"ms__r\"><span class=\"ms__rk\" data-kg-role=\"label\">사례</span><span class=\"ms__rv\" data-kg-role=\"caption\">동종 연구기관 재교육 3개월(자기관리·성과·변화관리)</span></div>\n            </div>\n            <div class=\"ms\">\n              <div class=\"ms__h\"><span class=\"ms__n\" data-kg-role=\"num\">08</span><span class=\"ms__t\" data-kg-role=\"h3\">3개년 도입 로드맵</span></div>\n              <div class=\"ms__k\" data-kg-role=\"body3\"><b>연착륙 → 정밀화 → 고도화</b> 3단계로 단계적 정착</div>\n              <div class=\"ms__d\" data-kg-role=\"caption\">1년차 BSC 3층·평가군 분류, 2년차 상대·절대 분리·BARS, 3년차 절대 병행</div>\n              <div class=\"ms__r\"><span class=\"ms__rk\" data-kg-role=\"label\">사례</span><span class=\"ms__rv\" data-kg-role=\"caption\">민간 선도사례 절대평가 점진 확대, 타 공공기관 조직 단계 확대</span></div>\n            </div>\n          </div>\n        </div>\n\n      </div>\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\">JDC 중장기 경영전략체계 진단 및 수립 — 내부평가 및 성과관리 모델 설계</span>\n    <span class=\"kg-footer__page\">54</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".body2{flex:1;display:grid;grid-template-columns:298px 1fr;gap:16px;min-height:0;margin-top:10px;}\n\n  /* ---- 좌 : 이원 개념도 ---- */\n  .cn{display:flex;flex-direction:column;min-height:0;gap:7px;\n    border:1px solid var(--neutral-300);border-radius:4px;background:#fff;padding:9px;}\n  .cn__h{flex:0 0 auto;text-align:center;font-size:16px;font-weight:800;color:#fff;\n    background:linear-gradient(180deg,#2C5184,#1F497D);border-radius:3px;padding:6px 8px;}\n  .cn__b{flex:1;display:flex;flex-direction:column;min-height:0;}\n\n  /* 블록이 칸을 채우고 화살표만 고정 — 사이에 빈 공간을 남기지 않는다 */\n  .tr{flex:1;display:flex;flex-direction:column;justify-content:center;gap:4px;\n    border-radius:4px;padding:9px 11px;min-height:0;}\n  .tr--td{background:#DCE6F3;border:1.5px solid var(--blue-400);}\n  .tr--bu{background:var(--neutral-100);border:1.5px solid var(--gray-400);}\n  .tr__t{display:flex;align-items:baseline;gap:6px;}\n  .tr__n{font-size:15px;font-weight:800;color:var(--navy-800);}\n  .tr__e{font-size:12px;font-weight:700;color:var(--ink-500);}\n  .tr__v{font-size:14px;line-height:1.24;color:var(--ink-900);}\n  .tr__c{align-self:flex-start;font-size:12px;font-weight:800;color:#fff;\n    background:var(--navy-800);border-radius:2px;padding:1px 7px;margin-top:2px;}\n\n  .arw{flex:0 0 24px;display:flex;align-items:center;justify-content:center;gap:26px;}\n  .arw i{width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;}\n  .arw--d i{border-top:10px solid var(--blue-500);}\n  .arw--u i{border-bottom:10px solid var(--gray-400);}\n\n  .bsc{flex:1.35;display:flex;flex-direction:column;justify-content:center;gap:5px;\n    border:1.5px solid var(--navy-800);border-radius:4px;padding:9px 10px;\n    background:#F4F7FB;min-height:0;}\n  .bsc__h{text-align:center;font-size:14px;font-weight:800;color:var(--navy-800);}\n  .bsc__r{display:grid;grid-template-columns:52px 1fr;gap:5px;}\n  .bsc__k{display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;\n    color:#fff;background:linear-gradient(180deg,#5A86BE,#4F81BD);border-radius:2px;padding:4px 2px;}\n  .bsc__v{display:flex;align-items:center;font-size:13px;line-height:1.2;color:var(--ink-900);\n    background:#fff;border:1px solid var(--neutral-300);border-radius:2px;padding:4px 7px;}\n\n  .cn__f{flex:0 0 auto;text-align:center;font-size:14px;font-weight:800;color:var(--navy-800);\n    line-height:1.28;border:1.5px solid var(--navy-800);border-radius:3px;padding:6px 8px;}\n\n  /* ---- 우 : 2x2 조치 패널 ---- */\n  .quads{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;\n    gap:12px;min-height:0;}\n  .qd{display:flex;flex-direction:column;min-height:0;min-width:0;\n    border:1px solid var(--neutral-300);border-radius:4px;background:#fff;overflow:hidden;}\n  .qd__h{display:flex;align-items:center;gap:8px;padding:5px 10px;\n    background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;}\n  .qd__n{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;\n    width:19px;height:19px;border-radius:50%;background:rgba(255,255,255,.24);\n    font-size:12px;font-weight:800;}\n  .qd__t{flex:1;font-size:15px;font-weight:800;}\n  .qd__b{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;\n    gap:7px;padding:8px 10px;min-height:0;}\n\n  .ms{display:flex;flex-direction:column;gap:4px;}\n  .ms__h{display:flex;align-items:baseline;gap:7px;}\n  .ms__n{flex:0 0 auto;font-size:12px;font-weight:800;color:#fff;background:var(--navy-800);\n    border-radius:2px;padding:1px 6px;}\n  .ms__t{flex:1;font-size:15px;font-weight:800;color:var(--ink-navy);}\n  .ms__k{font-size:14px;line-height:1.24;color:var(--ink-900);}\n  .ms__k b{color:var(--navy-800);}\n  .ms__d{display:flex;align-items:flex-start;gap:6px;font-size:13px;line-height:1.22;color:var(--ink-700);}\n  .ms__d::before{content:\"\";flex:0 0 auto;width:4px;height:4px;margin-top:6px;\n    background:var(--blue-400);border-radius:1px;}\n  .ms__r{display:flex;align-items:flex-start;gap:6px;}\n  .ms__rk{flex:0 0 auto;font-size:12px;font-weight:800;color:var(--ink-navy);\n    background:var(--neutral-100);border-radius:2px;padding:1px 6px;}\n  .ms__rv{flex:1;font-size:13px;line-height:1.2;color:var(--ink-500);}",
+    "origin": "54_Internal_Eval.html"
+  },
+  "patches": {
+    "n.0.1": {
+      "text": {
+        "html": "02"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "추가 제안"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "내부평가 · 성과관리 모델 고도화"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅳ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "기타"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          41.1,
+          8,
+          41.1
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h2": {
+        "fontSize": 19
+      },
+      "h1": {
+        "fontSize": 20
+      },
+      "h3": {
+        "fontSize": 18
+      },
+      "body3": {
+        "fontSize": 16
+      },
+      "caption": {
+        "fontSize": 14
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T11:25:03.757Z",
+  "updatedAt": "2026-07-27T14:16:18.616Z"
+}

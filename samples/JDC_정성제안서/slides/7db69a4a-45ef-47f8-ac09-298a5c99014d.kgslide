@@ -1,0 +1,150 @@
+{
+  "v": 5,
+  "id": "7db69a4a-45ef-47f8-ac09-298a5c99014d",
+  "title": "추진 일정 및 세부 일정",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"추진일정(간트)형\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\">02</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\">추진 일정 및 세부 일정</div>\n      <div class=\"kg-section-sub\">계약체결일 ~ 2026.12.31 (약 5개월) · 4대 과업 주차별</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">Ⅰ</span>\n      <span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\">제안 개요</span>\n    </div>\n  </header>\n  <div class=\"kg-msgband\"><span class=\"kg-msgband__mark\"></span>\n    <p class=\"kg-message\">계약체결일부터 2026년 12월 31일까지 20주에 걸쳐 4대 과업을 배치하고 보고 시점을 연계</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"kg-area-title\"><span class=\"kg-area-title__bar\"></span>\n      <span class=\"kg-body-title\">4대 과업 주차별 추진 일정</span>\n    </div>\n\n    <div class=\"sched\">\n      <div class=\"gantt\">\n\n        <div class=\"grow head\">\n          <div class=\"lcell\"><span class=\"lname\" data-kg-role=\"h3\">수행 과제</span></div>\n          <div class=\"months\">\n            <div data-kg-role=\"label\">1개월차</div><div data-kg-role=\"label\">2개월차</div>\n            <div data-kg-role=\"label\">3개월차</div><div data-kg-role=\"label\">4개월차</div>\n            <div data-kg-role=\"label\">5개월차</div>\n          </div>\n        </div>\n\n        <div class=\"grow weeks\">\n          <div class=\"lcell\"><span class=\"ldesc\" data-kg-role=\"caption\">주차 · 계약일 기준</span></div>\n          <div class=\"wk\">\n            <div data-kg-role=\"label\">1W</div><div data-kg-role=\"label\">2W</div><div data-kg-role=\"label\">3W</div><div data-kg-role=\"label\">4W</div>\n            <div data-kg-role=\"label\">5W</div><div data-kg-role=\"label\">6W</div><div data-kg-role=\"label\">7W</div><div data-kg-role=\"label\">8W</div>\n            <div data-kg-role=\"label\">9W</div><div data-kg-role=\"label\">10W</div><div data-kg-role=\"label\">11W</div><div data-kg-role=\"label\">12W</div>\n            <div data-kg-role=\"label\">13W</div><div data-kg-role=\"label\">14W</div><div data-kg-role=\"label\">15W</div><div data-kg-role=\"label\">16W</div>\n            <div data-kg-role=\"label\">17W</div><div data-kg-role=\"label\">18W</div><div data-kg-role=\"label\">19W</div><div data-kg-role=\"label\">20W</div>\n          </div>\n        </div>\n\n        <div class=\"grow\">\n          <div class=\"lcell\"><span class=\"ldesc\" data-kg-role=\"caption\">보고 시점</span></div>\n          <div class=\"msrow\">\n            <span class=\"ms\" style=\"left:7.5%;\"><span class=\"dot\"></span><span class=\"mt\" data-kg-role=\"label\">착수보고</span></span>\n            <span class=\"ms\" style=\"left:47.5%;\"><span class=\"dot\"></span><span class=\"mt\" data-kg-role=\"label\">중간보고</span></span>\n            <span class=\"ms\" style=\"left:93%;\"><span class=\"dot\"></span><span class=\"mt\" data-kg-role=\"label\">최종보고</span></span>\n          </div>\n        </div>\n\n        <div class=\"grow band\">\n          <div class=\"lcell\"><span class=\"lname\" data-kg-role=\"h3\">1차 과업 — 진단·분석</span></div>\n          <div class=\"bandnote\" data-kg-role=\"body3\">경영환경과 사업구조를 훑어 기회·위험과 시사점 도출</div>\n        </div>\n\n        <div class=\"grow task\">\n          <div class=\"lcell\">\n            <span class=\"lt\"><span class=\"ln\" data-kg-role=\"num\">1</span><span class=\"lname\" data-kg-role=\"body3\">환경·내부역량 분석</span></span>\n            <span class=\"ldesc\" data-kg-role=\"caption\">거시·이해관계자·재무·조직·인력, 기관장 인터뷰</span>\n          </div>\n          <div class=\"track\">\n            <div class=\"cellgrid\"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>\n            <div class=\"bar\" style=\"left:0.5%;width:24%;\" data-kg-role=\"label\">1W–5W</div>\n          </div>\n        </div>\n\n        <div class=\"grow task\">\n          <div class=\"lcell\">\n            <span class=\"lt\"><span class=\"ln\" data-kg-role=\"num\">1</span><span class=\"lname\" data-kg-role=\"body3\">벤치마킹·종합진단</span></span>\n            <span class=\"ldesc\" data-kg-role=\"caption\">유관기관·선진사례에서 기회·위험·시사점 정리</span>\n          </div>\n          <div class=\"track\">\n            <div class=\"cellgrid\"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>\n            <div class=\"bar\" style=\"left:10.5%;width:24%;\" data-kg-role=\"label\">3W–7W</div>\n          </div>\n        </div>\n\n        <div class=\"grow task\">\n          <div class=\"lcell\">\n            <span class=\"lt\"><span class=\"ln\" data-kg-role=\"num\">2</span><span class=\"lname\" data-kg-role=\"body3\">사업·산업구조 분석</span></span>\n            <span class=\"ldesc\" data-kg-role=\"caption\">시장·경쟁·가치사슬·공공성·사업성 검토</span>\n          </div>\n          <div class=\"track\">\n            <div class=\"cellgrid\"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>\n            <div class=\"bar\" style=\"left:20.5%;width:24%;\" data-kg-role=\"label\">5W–9W</div>\n          </div>\n        </div>\n\n        <div class=\"grow task\">\n          <div class=\"lcell\">\n            <span class=\"lt\"><span class=\"ln\" data-kg-role=\"num\">2</span><span class=\"lname\" data-kg-role=\"body3\">이해관계자·포트폴리오</span></span>\n            <span class=\"ldesc\" data-kg-role=\"caption\">중요도 포지셔닝과 의견수렴으로 재구조화</span>\n          </div>\n          <div class=\"track\">\n            <div class=\"cellgrid\"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>\n            <div class=\"bar\" style=\"left:30.5%;width:24%;\" data-kg-role=\"label\">7W–11W</div>\n          </div>\n        </div>\n\n        <div class=\"grow band\">\n          <div class=\"lcell\"><span class=\"lname\" data-kg-role=\"h3\">2차 과업 — 전략수립·실행</span></div>\n          <div class=\"bandnote\" data-kg-role=\"body3\">가치체계와 전략체계를 세우고 운용계획으로 실행력 확보</div>\n        </div>\n\n        <div class=\"grow task\">\n          <div class=\"lcell\">\n            <span class=\"lt\"><span class=\"ln\" data-kg-role=\"num\">3</span><span class=\"lname\" data-kg-role=\"body3\">가치체계 진단·정립</span></span>\n            <span class=\"ldesc\" data-kg-role=\"caption\">미션·비전·핵심가치·행동규범·역량체계</span>\n          </div>\n          <div class=\"track\">\n            <div class=\"cellgrid\"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>\n            <div class=\"bar\" style=\"left:40.5%;width:24%;\" data-kg-role=\"label\">9W–13W</div>\n          </div>\n        </div>\n\n        <div class=\"grow task\">\n          <div class=\"lcell\">\n            <span class=\"lt\"><span class=\"ln\" data-kg-role=\"num\">3</span><span class=\"lname\" data-kg-role=\"body3\">전략체계 수립</span></span>\n            <span class=\"ldesc\" data-kg-role=\"caption\">전략목표·전략과제·CSF·KPI·KRI·로드맵</span>\n          </div>\n          <div class=\"track\">\n            <div class=\"cellgrid\"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>\n            <div class=\"bar\" style=\"left:50.5%;width:34%;\" data-kg-role=\"label\">11W–17W</div>\n          </div>\n        </div>\n\n        <div class=\"grow task\">\n          <div class=\"lcell\">\n            <span class=\"lt\"><span class=\"ln\" data-kg-role=\"num\">4</span><span class=\"lname\" data-kg-role=\"body3\">운영·조직·변화관리</span></span>\n            <span class=\"ldesc\" data-kg-role=\"caption\">자원배분·변화 지표·계층 전개·PDCA</span>\n          </div>\n          <div class=\"track\">\n            <div class=\"cellgrid\"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>\n            <div class=\"bar\" style=\"left:65.5%;width:24%;\" data-kg-role=\"label\">14W–18W</div>\n          </div>\n        </div>\n\n        <div class=\"grow task\">\n          <div class=\"lcell\">\n            <span class=\"lt\"><span class=\"ln\" data-kg-role=\"num\">4</span><span class=\"lname\" data-kg-role=\"body3\">내재화·성과발굴</span></span>\n            <span class=\"ldesc\" data-kg-role=\"caption\">인지도 진단(사전·사후)·우수사례·경영실적평가 대응</span>\n          </div>\n          <div class=\"track\">\n            <div class=\"cellgrid\"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>\n            <div class=\"bar\" style=\"left:75.5%;width:24%;\" data-kg-role=\"label\">16W–20W</div>\n          </div>\n        </div>\n\n        <div class=\"grow task\">\n          <div class=\"lcell\">\n            <span class=\"lt\"><span class=\"ln\" data-kg-role=\"num\">상시</span><span class=\"lname\" data-kg-role=\"body3\">보고·의견수렴·품질관리</span></span>\n            <span class=\"ldesc\" data-kg-role=\"caption\">의견수렴·워크숍·설명회·품질관리</span>\n          </div>\n          <div class=\"track\">\n            <div class=\"cellgrid\"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>\n            <div class=\"bar g\" style=\"left:0.5%;width:99%;\" data-kg-role=\"label\">전 기간 상시 운영</div>\n          </div>\n        </div>\n\n      </div>\n\n      <div class=\"below\">\n        <div class=\"mscard\">\n          <span class=\"d\"></span>\n          <span class=\"x\">\n            <span class=\"t\" data-kg-role=\"h3\">착수보고</span>\n            <span class=\"s\" data-kg-role=\"caption\">과업 범위·수행방법·일정 확정</span>\n          </span>\n          <span class=\"w\" data-kg-role=\"label\">2W</span>\n        </div>\n        <div class=\"mscard\">\n          <span class=\"d\"></span>\n          <span class=\"x\">\n            <span class=\"t\" data-kg-role=\"h3\">중간보고</span>\n            <span class=\"s\" data-kg-role=\"caption\">진단 결과와 전략방향 초안 검토</span>\n          </span>\n          <span class=\"w\" data-kg-role=\"label\">10W</span>\n        </div>\n        <div class=\"mscard\">\n          <span class=\"d\"></span>\n          <span class=\"x\">\n            <span class=\"t\" data-kg-role=\"h3\">최종보고</span>\n            <span class=\"s\" data-kg-role=\"caption\">전략체계·운용계획 확정과 납품</span>\n          </span>\n          <span class=\"w\" data-kg-role=\"label\">20W</span>\n        </div>\n      </div>\n\n      <div class=\"foot\" data-kg-role=\"caption\">착수 후 실제 계약일을 기준으로 주차를 확정하며, 과업기간은 2026년 12월 31일 종료</div>\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\">자료 : JDC 과업내용서(2026.7) 기반 추진일정(안)</span>\n    <span class=\"kg-footer__page\">45</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".sched{flex:1;min-height:0;display:flex;flex-direction:column;gap:9px;margin-top:9px;}\n\n  .gantt{flex:1;min-height:0;display:flex;flex-direction:column;\n    border:1px solid var(--neutral-300);border-radius:4px;overflow:hidden;background:#fff;}\n  .grow{display:grid;grid-template-columns:296px 1fr;align-items:stretch;\n    border-bottom:1px solid var(--neutral-300);min-height:0;}\n  .grow:last-child{border-bottom:none;}\n  .grow.task{flex:1;}\n\n  .lcell{display:flex;flex-direction:column;justify-content:center;gap:1px;\n    padding:3px 10px;border-right:1px solid var(--neutral-300);min-width:0;}\n  .lt{display:flex;align-items:baseline;gap:7px;}\n  .ln{flex:0 0 auto;font-size:12px;font-weight:800;color:#fff;background:var(--navy-800);\n    border-radius:3px;padding:1px 6px;}\n  .lname{font-size:14px;font-weight:700;color:var(--ink-navy);line-height:1.2;}\n  .ldesc{font-size:13px;color:var(--ink-700);line-height:1.2;}\n\n  /* 머리 */\n  .grow.head{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;}\n  .grow.head .lcell{border-right-color:rgba(255,255,255,.22);justify-content:center;}\n  .grow.head .lname{color:#fff;}\n  .months{display:grid;grid-template-columns:repeat(5,1fr);}\n  .months>div{display:flex;align-items:center;justify-content:center;\n    padding:5px 0;font-size:13px;font-weight:700;border-right:1px solid rgba(255,255,255,.22);}\n  .months>div:last-child{border-right:none;}\n\n  .grow.weeks{background:var(--neutral-100);}\n  .grow.weeks .lcell{justify-content:center;}\n  .wk{display:grid;grid-template-columns:repeat(20,1fr);}\n  .wk>div{display:flex;align-items:center;justify-content:center;padding:3px 0;\n    font-size:12px;font-weight:700;color:var(--ink-700);border-right:1px solid var(--neutral-300);}\n  .wk>div:last-child{border-right:none;}\n\n  /* 구간 밴드 */\n  .grow.band{background:var(--neutral-200);}\n  .grow.band .lcell{justify-content:center;}\n  .grow.band .lname{color:var(--ink-navy);}\n  .bandnote{display:flex;align-items:center;padding:3px 12px;\n    font-size:14px;font-weight:700;color:var(--ink-700);}\n\n  /* 마일스톤 */\n  .msrow{position:relative;height:34px;}\n  .ms{position:absolute;top:5px;transform:translateX(-50%);\n    display:flex;flex-direction:column;align-items:center;gap:2px;}\n  .ms .dot{width:13px;height:13px;border-radius:50%;background:#fff;\n    border:3px solid var(--red-500);}\n  .ms .mt{font-size:12px;font-weight:800;color:var(--red-600);white-space:nowrap;}\n\n  /* 트랙 */\n  .track{position:relative;min-height:0;}\n  .cellgrid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(20,1fr);}\n  .cellgrid>div{border-right:1px solid var(--neutral-100);}\n  .cellgrid>div:nth-child(4n){border-right-color:var(--neutral-300);}\n  .bar{position:absolute;top:50%;transform:translateY(-50%);height:20px;border-radius:10px;\n    background:linear-gradient(90deg,#5A86BE,#1F497D);display:flex;align-items:center;\n    justify-content:center;color:#fff;font-size:12px;font-weight:700;white-space:nowrap;z-index:2;}\n  .bar.g{background:linear-gradient(90deg,#B7BFC9,#8B95A3);}\n\n  /* 하단 : 보고 마일스톤 */\n  .below{flex:0 0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}\n  .mscard{display:flex;align-items:center;gap:10px;background:#fff;\n    border:1px solid var(--neutral-300);border-radius:4px;padding:8px 11px;}\n  .mscard .d{flex:0 0 auto;width:14px;height:14px;border-radius:50%;\n    background:#fff;border:3px solid var(--red-500);}\n  .mscard .x{flex:1;min-width:0;}\n  .mscard .t{font-size:14px;font-weight:800;color:var(--ink-navy);}\n  .mscard .s{font-size:13px;color:var(--ink-700);line-height:1.2;margin-top:1px;}\n  .mscard .w{flex:0 0 auto;font-size:13px;font-weight:800;color:#fff;\n    background:var(--navy-800);border-radius:3px;padding:3px 9px;}\n\n  .foot{flex:0 0 auto;font-size:13px;color:var(--ink-500);}",
+    "origin": "45_Schedule.html"
+  },
+  "patches": {
+    "n.2.1.0.2.1.2.1": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.0.2.1.1.1": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.0.2.1.0.1": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.0.1.0.0": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.1.0.2.0.0": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.1.0.4.0.0.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.1.0.5.0.0.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.1.0.6.0.0.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.1.0.7.0.0.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.1.0.9.0.0.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.1.0.10.0.0.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.1.0.11.0.0.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.1.0.12.0.0.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.1.0.13.0.0.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "16"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "과업 추진 일정"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "과업 추진 일정"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          41.1,
+          8,
+          41.1
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "label": {
+        "fontSize": 16
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T09:06:09.451Z",
+  "updatedAt": "2026-07-27T14:16:16.458Z"
+}

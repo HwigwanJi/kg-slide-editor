@@ -1,0 +1,197 @@
+{
+  "v": 5,
+  "id": "38caac6b-b9e9-4122-b785-e066a62e3d00",
+  "title": "발주기관 이해 — 제주국제자유도시개발센터(JDC)",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"발주기관 이해\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"message\">Ⅰ</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">발주기관 이해</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">제주국제자유도시개발센터(JDC) 정체성 · 사업구조 · 발주 배경</div>\n    </div>\n    <div class=\"kg-chapter-tab\"><span class=\"kg-chapter-tab__roman\" data-kg-role=\"label\">Ⅰ</span><span class=\"kg-chapter-tab__sep\"></span><span class=\"kg-chapter-tag\" data-kg-role=\"label\">과업 개요</span></div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">면세 90% 편중 · 경영평가 2년 연속 D의 구조적 위기를 첨단 8.7조 <b>숨은 자산</b>으로 전환</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"wrap\">\n\n      <!-- ══ 컬럼 머리 ══════════════════════════════════════ -->\n      <div class=\"heads\">\n        <div class=\"chd\" data-kg-role=\"h1\">① 기관 정체성 · 사명</div>\n        <div class=\"chd\" data-kg-role=\"h1\">② 사업구조 · 경영여건</div>\n        <div class=\"chd\" data-kg-role=\"h1\">③ 발주 배경 · 핵심 요구사항</div>\n      </div>\n\n      <!-- ══ 3단 본문 ══════════════════════════════════════ -->\n      <div class=\"cols\">\n\n        <!-- ───── ① 기관 정체성 · 사명 ───── -->\n        <div class=\"c1\">\n          <div class=\"blk\">\n            <div class=\"blk__h\" data-kg-role=\"h2\">기관 개요</div>\n            <div class=\"blk__b kv\">\n              <div class=\"kv__r\"><span class=\"kv__k\" data-kg-role=\"label2\">설립</span><span class=\"kv__v\" data-kg-role=\"body2\">2002.5 · 제주특별법 근거</span></div>\n              <div class=\"kv__r\"><span class=\"kv__k\" data-kg-role=\"label2\">지위</span><span class=\"kv__v\" data-kg-role=\"body2\">국토교통부 산하 공공기관</span></div>\n              <div class=\"kv__r\"><span class=\"kv__k\" data-kg-role=\"label2\">이사장</span><span class=\"kv__v\" data-kg-role=\"body2\">송석언 (’26.3 · 공모 20:1 · 임기 3년)</span></div>\n              <div class=\"kv__r\"><span class=\"kv__k\" data-kg-role=\"label2\">임직원</span><span class=\"kv__v\" data-kg-role=\"body2\">273명 · 자회사 JDC파트너스</span></div>\n              <div class=\"kv__r\"><span class=\"kv__k\" data-kg-role=\"label2\">재원</span><span class=\"kv__v\" data-kg-role=\"body2\">면세 · 개발수익 자기재원 순환 (정부출연 축소)</span></div>\n            </div>\n          </div>\n\n          <div class=\"blk\">\n            <div class=\"blk__h\" data-kg-role=\"h2\">현행 가치체계</div>\n            <div class=\"blk__b val\">\n              <div class=\"val__c\">\n                <div class=\"val__k\" data-kg-role=\"label2\">미션</div>\n                <div class=\"val__t\" data-kg-role=\"body2\">자연을 닮은 미래를 담은 세계로 닿는 제주국제자유도시 조성</div>\n              </div>\n              <div class=\"val__c\">\n                <div class=\"val__k\" data-kg-role=\"label2\">핵심가치</div>\n                <div class=\"val__t\" data-kg-role=\"body2\">BEST — 균형 · 교류 · 전문성 · 신뢰</div>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"blk\">\n            <div class=\"blk__h blk__h--b\" data-kg-role=\"h2\">JDC 3중 정체성 (미래역할)</div>\n            <div class=\"blk__b idn\">\n              <div class=\"idn__r\"><span class=\"kg-cornern\" data-kg-role=\"label\">1</span>\n                <span class=\"idn__t\" data-kg-role=\"body2\">미래산업 · 자연자본 개발 플랫폼</span></div>\n              <div class=\"idn__r\"><span class=\"kg-cornern kg-cornern--blue\" data-kg-role=\"label\">2</span>\n                <span class=\"idn__t\" data-kg-role=\"body2\">제주 3특 균형성장 파트너</span></div>\n              <div class=\"idn__r\"><span class=\"kg-cornern kg-cornern--blue\" data-kg-role=\"label\">3</span>\n                <span class=\"idn__t\" data-kg-role=\"body2\">개발이익 도민환원 거버넌스 주체</span></div>\n            </div>\n          </div>\n\n          <div class=\"purp\">\n            <div class=\"purp__k\" data-kg-role=\"label2\">설립목적</div>\n            <div class=\"purp__t\" data-kg-role=\"body2\">국제자유도시 개발 촉진 · 국가차원 제주 지원 · 개발이익 지역환원(도민 삶의 질) · 미래산업 성장 기여</div>\n          </div>\n        </div>\n\n        <!-- ───── ② 사업구조 · 경영여건 ───── -->\n        <div class=\"c2\">\n          <div class=\"blk\">\n            <div class=\"blk__h blk__h--b\" data-kg-role=\"h2\">자기재원 순환구조</div>\n            <div class=\"blk__b cyc\">\n              <div class=\"kgx-flow\">\n                <span class=\"n\" data-kg-role=\"label\">면세 · 개발 수익</span>\n                <span class=\"a\">›</span>\n                <span class=\"n\" data-kg-role=\"label\">6대 선도프로젝트 재투자</span>\n                <span class=\"a\">›</span>\n                <span class=\"n k\" data-kg-role=\"label\">자립 개발기구</span>\n              </div>\n              <div class=\"cyc__note\" data-kg-role=\"body2\">누적 재투자 <b>2.37조</b> · 정부 출연 없이 자립</div>\n            </div>\n          </div>\n\n          <div class=\"blk\">\n            <div class=\"blk__h\" data-kg-role=\"h2\">6대 선도프로젝트 · 지정면세 핵심 수치</div>\n            <div class=\"blk__b proj\">\n              <div class=\"proj__c k\">\n                <div class=\"proj__n\" data-kg-role=\"h3\">첨단과학기술단지</div>\n                <div class=\"proj__v\" data-kg-role=\"body2\">206사 · 매출 8.7조 · 고용 3,382</div>\n              </div>\n              <div class=\"proj__c\">\n                <div class=\"proj__n\" data-kg-role=\"h3\">지정면세점</div>\n                <div class=\"proj__v\" data-kg-role=\"body2\">누적 8.2조 · 순이익 △63%</div>\n              </div>\n              <div class=\"proj__c\">\n                <div class=\"proj__n\" data-kg-role=\"h3\">신화역사공원</div>\n                <div class=\"proj__v\" data-kg-role=\"body2\">카지노 6,465억 (+40.8%)</div>\n              </div>\n              <div class=\"proj__c\">\n                <div class=\"proj__n\" data-kg-role=\"h3\">영어교육도시</div>\n                <div class=\"proj__v\" data-kg-role=\"body2\">국제학교 4 · 재학생 4,131 (△10.4%)</div>\n              </div>\n              <div class=\"proj__c\">\n                <div class=\"proj__n\" data-kg-role=\"h3\">헬스케어타운</div>\n                <div class=\"proj__v\" data-kg-role=\"body2\">10년 표류 → 정상화 착수</div>\n              </div>\n              <div class=\"proj__c\">\n                <div class=\"proj__n\" data-kg-role=\"h3\">공공임대 · 항공우주</div>\n                <div class=\"proj__v\" data-kg-role=\"body2\">793세대 · 개발이익 환원사업</div>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"blk\">\n            <div class=\"blk__h\" data-kg-role=\"h2\">경영여건 · 핵심 현안</div>\n            <div class=\"blk__b isu\">\n              <div class=\"isu__r\"><span class=\"isu__d b\"></span>\n                <span class=\"isu__t\" data-kg-role=\"body2\">수익구조 취약 — 면세 <b>6,585 → 4,636억</b> (2년 △2천억) · 순이익 △63%</span></div>\n              <div class=\"isu__r\"><span class=\"isu__d\"></span>\n                <span class=\"isu__t\" data-kg-role=\"body2\">경영평가 <b>2년 연속 D</b> · 성과급 삭감 · 비상경영 9대 과제</span></div>\n              <div class=\"isu__r\"><span class=\"isu__d c\"></span>\n                <span class=\"isu__t\" data-kg-role=\"body2\">사업 양극화 — 첨단 성공(8.7조) ↔ 헬스케어 · 예래 표류</span></div>\n            </div>\n          </div>\n        </div>\n\n        <!-- ───── ③ 발주 배경 · 핵심 요구사항 ───── -->\n        <div class=\"c3\">\n          <div class=\"blk\">\n            <div class=\"blk__h\" data-kg-role=\"h2\">발주 배경</div>\n            <div class=\"blk__b why\">\n              <div class=\"why__r\">\n                <div class=\"why__k\" data-kg-role=\"h3\">정책 정합</div>\n                <div class=\"why__v\" data-kg-role=\"body2\">국정 123대 · 제주 3특 · K관광 3천만 + 제3차 종합계획 3단계(2027~31 · <b>7.9조</b>) 전략기간 일치</div>\n              </div>\n              <div class=\"why__r\">\n                <div class=\"why__k\" data-kg-role=\"h3\">전환 요구</div>\n                <div class=\"why__v\" data-kg-role=\"body2\">면세 이후 미래산업(AI · 데이터센터 · 바이오) · 개발이익 도민환원 거버넌스 재설계</div>\n              </div>\n              <div class=\"why__r\">\n                <div class=\"why__k\" data-kg-role=\"h3\">존립 · 실행</div>\n                <div class=\"why__v\" data-kg-role=\"body2\">비전 재검토 · 이관 압력 리스크 → <b>경영실적 평가 대응</b> · 실행체계(BSC · KPI) 구축</div>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"blk\">\n            <div class=\"blk__h blk__h--b\" data-kg-role=\"h2\">핵심 요구사항 — 4대 전환 방향</div>\n            <div class=\"blk__b nd\">\n              <div class=\"nd__c k\">\n                <div class=\"nd__e\" data-kg-role=\"h3\">Diversify 수익 다변화</div>\n                <div class=\"nd__t\" data-kg-role=\"body2\">면세 탈피 · 비면세 수익 비중 30%</div>\n              </div>\n              <div class=\"nd__c\">\n                <div class=\"nd__e\" data-kg-role=\"h3\">Innovate 미래산업</div>\n                <div class=\"nd__t\" data-kg-role=\"body2\">AI · 데이터센터 기반 산업 혁신</div>\n              </div>\n              <div class=\"nd__c\">\n                <div class=\"nd__e\" data-kg-role=\"h3\">Connect 협력망</div>\n                <div class=\"nd__t\" data-kg-role=\"body2\">국정 · 글로벌 협력 네트워크</div>\n              </div>\n              <div class=\"nd__c\">\n                <div class=\"nd__e\" data-kg-role=\"h3\">Return 가치환원</div>\n                <div class=\"nd__t\" data-kg-role=\"body2\">개발이익 환원 · 청정에너지 거버넌스</div>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"term\">\n            <span class=\"term__y\" data-kg-role=\"h3\">전략목표기간 2027 ~ 2031 · 협상에 의한 계약</span>\n            <span class=\"term__t\" data-kg-role=\"body2\">산출물은 선언이 아닌 체질 전환과 실행력</span>\n          </div>\n        </div>\n      </div>\n\n      <!-- ══ 하단 수렴 ══════════════════════════════════════ -->\n      <div class=\"close\">\n        <div class=\"close__box\">\n          <span class=\"close__lab\" data-kg-role=\"label\">우리의 이해</span>\n          <span class=\"close__tx\" data-kg-role=\"body1\">JDC가 바라는 것은 선언이 아닌 체질 전환과 실행력</span>\n        </div>\n        <div class=\"close__path\"><div class=\"kgx-trapez\"></div></div>\n        <div class=\"close__end\">\n          <div class=\"kgx-flow\">\n            <span class=\"n\" data-kg-role=\"label\">과업1 경영환경 진단</span>\n            <span class=\"a\">›</span>\n            <span class=\"n\" data-kg-role=\"label\">과업2 사업 · 이해관계자</span>\n            <span class=\"a\">›</span>\n            <span class=\"n\" data-kg-role=\"label\">과업3 가치 · 전략체계</span>\n            <span class=\"a\">›</span>\n            <span class=\"n k\" data-kg-role=\"label\">과업4 운용 · 실행력</span>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: JDC 경영공시(ALIO) · 기관 소개자료 · 언론보도(경영평가 · 재무현황) 종합 / 공식 미션 · 비전 · 핵심가치 원문은 발주처 제공자료로 대조 · 확정</span>\n    <span class=\"kg-footer__page\" data-kg-role=\"caption\" data-kg-auto=\"page\">–</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": "/* ── 본문 골격 : 하나의 grid 로 높이를 고정한다 ───────────── */\n  .wrap{flex:1;min-height:0;display:grid;grid-template-rows:auto 1fr auto;gap:9px;}\n  .heads,.cols{display:grid;grid-template-columns:1fr 1.14fr 1.34fr;gap:12px;}\n  .cols{min-height:0;}\n\n  .chd{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;border-radius:var(--r-xs);\n    padding:7px 12px;font-size:16px;font-weight:800;letter-spacing:-.01em;}\n\n  /* ── 블록 공통 ─────────────────────────────────────────── */\n  .c1,.c2,.c3{display:grid;gap:9px;min-height:0;}\n  .c1{grid-template-rows:1.44fr 1.61fr 1.28fr 0.70fr;}\n  .c2{grid-template-rows:0.73fr 1.60fr 1.00fr;}\n  .c3{grid-template-rows:1.35fr 1.11fr 64px;}\n\n  .blk{background:#fff;border:1px solid var(--line);border-radius:var(--r-xs);\n    display:grid;grid-template-rows:auto 1fr;overflow:hidden;min-height:0;}\n  .blk__h{background:var(--neutral-100);border-bottom:1px solid var(--neutral-200);\n    padding:4px 10px;font-size:14px;font-weight:800;color:var(--ink-navy);letter-spacing:-.01em;}\n  .blk__h--b{background:var(--blue-200);border-bottom-color:var(--blue-300);}\n  .blk__b{padding:6px 9px;display:grid;gap:6px;min-height:0;}\n\n  /* ── ① 기관 개요 (kv) ──────────────────────────────────── */\n  .kv{grid-template-rows:repeat(5,1fr);gap:4px;}\n  .kv__r{display:grid;grid-template-columns:56px 1fr;align-items:center;gap:8px;\n    border-bottom:1px dashed var(--neutral-200);}\n  .kv__r:last-child{border-bottom:none;}\n  .kv__k{font-size:13px;font-weight:700;color:var(--ink-500);}\n  .kv__v{font-size:14px;font-weight:600;color:var(--ink-navy);line-height:1.3;}\n\n  /* ── ① 현행 가치체계 ───────────────────────────────────── */\n  .val{grid-template-rows:1.38fr 1fr;}\n  .val__c{background:var(--neutral-050);border:1px solid var(--neutral-200);border-radius:var(--r-xs);\n    padding:6px 9px;display:grid;grid-template-rows:auto 1fr;gap:3px;align-content:center;}\n  .val__k{font-size:13px;font-weight:800;color:var(--blue-600);}\n  .val__t{font-size:14px;color:var(--ink-900);line-height:1.35;}\n  .val__t b{color:var(--navy-800);font-weight:700;}\n\n  /* ── ① 3중 정체성 ──────────────────────────────────────── */\n  .idn{grid-template-rows:repeat(3,1fr);gap:5px;}\n  .idn__r{position:relative;background:linear-gradient(180deg,#EAF1FB,#D9E6F5);\n    border:1px solid var(--blue-400);border-radius:var(--r-xs);\n    display:flex;align-items:center;padding:4px 9px 4px 32px;}\n  .idn__t{font-size:14px;font-weight:700;color:var(--navy-800);line-height:1.3;}\n\n  /* ── ① 설립목적 ────────────────────────────────────────── */\n  .purp{background:var(--blue-050);border:1px solid var(--blue-300);border-radius:var(--r-xs);\n    padding:6px 10px;display:grid;grid-template-columns:auto 1fr;gap:9px;align-items:center;}\n  .purp__k{font-size:13px;font-weight:800;color:var(--blue-600);white-space:nowrap;}\n  .purp__t{font-size:14px;color:var(--ink-900);line-height:1.35;}\n\n  /* ── ② 자기재원 순환구조 ───────────────────────────────── */\n  .cyc{grid-template-rows:1fr auto;}\n  .cyc .kgx-flow .n{font-size:13px;padding:8px 6px;line-height:1.25;}\n  .cyc__note{font-size:14px;color:var(--ink-700);line-height:1.3;text-align:center;}\n  .cyc__note b{color:var(--navy-800);font-weight:700;}\n\n  /* ── ② 6대 선도프로젝트 ────────────────────────────────── */\n  .proj{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,1fr);gap:6px;}\n  .proj__c{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    padding:4px 8px;display:grid;grid-template-rows:auto 1fr;gap:2px;align-content:center;}\n  .proj__c.k{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border-color:var(--blue-400);}\n  .proj__n{font-size:13px;font-weight:800;color:var(--navy-800);line-height:1.2;}\n  .proj__v{font-size:14px;color:var(--ink-900);line-height:1.3;}\n\n  /* ── ② 경영여건 핵심 현안 ──────────────────────────────── */\n  .isu{grid-template-rows:repeat(3,1fr);}\n  .isu__r{display:grid;grid-template-columns:11px 1fr;align-items:center;gap:8px;\n    background:var(--neutral-050);border:1px solid var(--neutral-200);border-radius:var(--r-xs);\n    padding:4px 9px;}\n  .isu__d{width:11px;height:11px;border-radius:50%;background:var(--red-500);}\n  .isu__d.b{background:var(--red-600);}\n  .isu__d.c{background:var(--amber-500);}\n  .isu__t{font-size:14px;color:var(--ink-900);line-height:1.3;}\n  .isu__t b{color:var(--navy-800);font-weight:700;}\n\n  /* ── ③ 발주 배경 (관계 매핑) ───────────────────────────── */\n  .why{grid-template-rows:1.2fr 1fr 1fr;gap:7px;}\n  .why__r{display:grid;grid-template-columns:82px 1fr;align-items:stretch;\n    background:linear-gradient(180deg,#FCFCFD,#EFF1F4);border:1px solid var(--neutral-300);\n    border-radius:var(--r-xs);overflow:hidden;}\n  .why__k{display:flex;align-items:center;justify-content:center;text-align:center;\n    background:var(--neutral-200);border-right:1px solid var(--neutral-300);\n    font-size:13px;font-weight:800;color:var(--ink-navy);line-height:1.25;padding:0 6px;}\n  /* 문장 안 <b> 가 flex 항목으로 떨어져 나가지 않도록 일반 블록으로 둔다 */\n  .why__v{align-self:center;padding:6px 10px;\n    font-size:14px;color:var(--ink-900);line-height:1.35;}\n  .why__v b{color:var(--navy-800);font-weight:700;}\n\n  /* ── ③ 4대 전환 방향 ───────────────────────────────────── */\n  .nd{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:7px;}\n  .nd__c{position:relative;background:#fff;border:1px solid var(--neutral-300);\n    border-radius:var(--r-xs);padding:7px 10px;display:grid;grid-template-rows:auto 1fr;gap:3px;\n    align-content:center;}\n  .nd__c.k{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border-color:var(--blue-400);}\n  .nd__e{font-size:14px;font-weight:800;color:var(--navy-800);letter-spacing:.01em;}\n  .nd__t{font-size:14px;color:var(--ink-900);line-height:1.3;}\n\n  /* ── ③ 전략목표기간 띠 ─────────────────────────────────── */\n  .term{background:var(--navy-800);color:#fff;border-radius:var(--r-xs);\n    display:grid;align-content:center;justify-items:center;gap:4px;padding:0 12px;}\n  .term__y{font-size:15px;font-weight:800;letter-spacing:.01em;}\n  .term__t{font-size:14px;font-weight:500;color:var(--blue-300);line-height:1.3;}\n\n  /* ── 하단 수렴 ─────────────────────────────────────────── */\n  .close{display:grid;grid-template-columns:auto 46px 1fr;align-items:stretch;}\n  .close__box{display:flex;align-items:center;gap:11px;padding:8px 14px;\n    background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border:1px solid var(--blue-400);\n    border-radius:var(--r-xs);}\n  .close__lab{flex:0 0 auto;background:var(--navy-800);color:#fff;font-size:13px;font-weight:800;\n    padding:4px 12px;border-radius:var(--r-pill);white-space:nowrap;}\n  .close__tx{font-size:14.5px;font-weight:600;color:var(--ink-navy);line-height:1.35;}\n  .close__path{position:relative;}\n  .close__path .kgx-trapez{position:absolute;inset:6px 0;}\n  .close__end{display:flex;align-items:center;background:#fff;border:1px solid var(--neutral-300);\n    border-radius:var(--r-xs);padding:0 12px;}\n  .close__end .kgx-flow{width:100%;}\n  .close__end .kgx-flow .n{font-size:13px;padding:6px 7px;line-height:1.25;}",
+    "origin": "00_발주처이해.html"
+  },
+  "patches": {
+    "n.1.0": {
+      "text": {
+        "html": "면세 90% 편중 · 경영평가 D 2년 연속의 구조적 위기를 첨단 8.7조 · 재무체력이라는 <strong>숨은 자산</strong>으로 전환"
+      }
+    },
+    "n.2.0.1.1.1.1.5.1": {
+      "style": {
+        "letterSpacing": -0.03
+      }
+    },
+    "n.2.0.1.1.2.1.2.1": {
+      "style": {
+        "letterSpacing": -0.005
+      }
+    },
+    "n.2.0.1.1.0.1.0.0": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.2.2.0.0": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.2.2.0.2": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.2.2.0.4": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.2.2.0.6": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.1.0.1.0.4": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.1.0.1.0.2": {
+      "text": {
+        "html": "6대 선도프로젝트"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.2.0.1.2.0.1.2.0": {
+      "style": {
+        "letterSpacing": -0.025
+      }
+    },
+    "n.2.0.1.0.1.1.0.1": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.0.1.0.1.1.1.1": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.0.1.2.1.1.0.1": {
+      "style": {
+        "letterSpacing": -0.025
+      }
+    },
+    "n.2.0.1.0.0.1.4.1": {
+      "layout": {
+        "mode": "detached",
+        "x": 118,
+        "y": 379,
+        "w": 261,
+        "h": 42,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.1.1.0.1.1": {
+      "layout": {
+        "mode": "flow",
+        "dx": 0,
+        "dy": -5
+      }
+    },
+    "n.2.0.1.0.2.1.0.1": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.0.1.0.2.1.1.1": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.0.1.0.2.1.2.1": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.0.4.0": {
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          32.4,
+          8,
+          32.4
+        ]
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "01"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "발주처에 대한 이해"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "제주국제자유도시개발센터 개요"
+      }
+    }
+  },
+  "tree": {
+    "removed": [
+      "n.2.0.1.0.0.1.2",
+      "n.2.0.1.0.0.1.4"
+    ],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h1": {
+        "fontSize": 18
+      },
+      "h2": {
+        "fontSize": 16
+      },
+      "h3": {
+        "fontSize": 17
+      },
+      "body2": {
+        "fontSize": 16
+      },
+      "label": {
+        "fontSize": 16
+      },
+      "label2": {
+        "fontSize": 16
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T05:38:32.011Z",
+  "updatedAt": "2026-07-27T14:16:06.044Z"
+}

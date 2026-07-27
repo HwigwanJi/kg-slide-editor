@@ -19,6 +19,7 @@ import { readFile, readdir, rm, stat, writeFile } from 'node:fs/promises';
 import { basename, dirname, extname, join, resolve } from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { ensureBundle } from './bundle.mjs';
+import { linkAssets, projectRootOf } from './assets.mjs';
 
 // fileURLToPath 를 쓴다. URL 의 pathname 은 한글과 공백이 퍼센트로 인코딩된 채라
 // 손으로 자르면 경로가 어긋난다 — 폴더 이름이 ASCII 일 때만 우연히 맞는다.
@@ -210,7 +211,7 @@ async function assemble(file) {
 <link rel="stylesheet" href="kg-slide.css">
 <style>html,body{margin:0;background:#fff;}
 .kg-detached-layer{position:absolute;inset:0;pointer-events:none;}
-${slideCss}</style></head><body>${slideHtml.replace(/(?:(?:\.\.\/)+|\/kg\/)assets\//g, 'assets/')}</body></html>`;
+${slideCss}</style></head><body>${linkAssets(slideHtml, projectRootOf(file))}</body></html>`;
 }
 
 /* ------------------------------------------------------------------ */

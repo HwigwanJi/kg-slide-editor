@@ -1,0 +1,76 @@
+{
+  "v": 5,
+  "id": "7fd6da1a-8a53-4d12-9027-c39251be07f7",
+  "title": "프로젝트 참여인력 — 전문인력·참여인력",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"프로젝트 참여인력\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"message\">03</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">프로젝트 참여인력</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">전문인력 · 참여인력 구성</div>\n    </div>\n    <div class=\"kg-chapter-tab\"><span class=\"kg-chapter-tab__roman\" data-kg-role=\"label\">Ⅰ</span><span class=\"kg-chapter-tab__sep\"></span><span class=\"kg-chapter-tag\" data-kg-role=\"label\">제안 개요</span></div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">경영전략 · 성과관리 · 평가대응 · 인사제도 설계 수행 이력을 갖춘 <b>연구진 9명</b>과 전문자격 4명으로 구성</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"wrap\">\n\n      <!-- ══ 전문자격 4인 ══════════════════════════════ -->\n      <div class=\"experts\">\n        <div class=\"ex\">\n          <div class=\"ex__h\"><span class=\"ex__n\" data-kg-role=\"h3\">***</span><span class=\"ex__q\" data-kg-role=\"label\">공인회계사</span></div>\n          <div class=\"ex__s\" data-kg-role=\"label2\">고려대학교 경영학</div>\n          <div class=\"ex__b\">\n            <span data-kg-role=\"body2\">재무 · 회계 진단 · 타당성 검토</span>\n            <span data-kg-role=\"body2\">예산 · 자원배분 적정성 분석</span>\n            <span data-kg-role=\"body2\">투자심사 · 재무성과 평가 자문</span>\n          </div>\n        </div>\n        <div class=\"ex\">\n          <div class=\"ex__h\"><span class=\"ex__n\" data-kg-role=\"h3\">***</span><span class=\"ex__q\" data-kg-role=\"label\">투자심사역</span></div>\n          <div class=\"ex__s\" data-kg-role=\"label2\">연세대 정치외교학</div>\n          <div class=\"ex__b\">\n            <span data-kg-role=\"body2\">공공기관 경영 · 사업 성과 진단</span>\n            <span data-kg-role=\"body2\">성과관리체계 적정성 검토</span>\n            <span data-kg-role=\"body2\">사업 · 전략 타당성 평가</span>\n          </div>\n        </div>\n        <div class=\"ex\">\n          <div class=\"ex__h\"><span class=\"ex__n\" data-kg-role=\"h3\">***</span><span class=\"ex__q\" data-kg-role=\"label\">공인노무사</span></div>\n          <div class=\"ex__s\" data-kg-role=\"label2\">전북대학교 경영학</div>\n          <div class=\"ex__b\">\n            <span data-kg-role=\"body2\">성과 · 보수 제도 정합성 점검</span>\n            <span data-kg-role=\"body2\">정부 경영평가 위원</span>\n            <span data-kg-role=\"body2\">제도 · 거버넌스 진단 자문</span>\n          </div>\n        </div>\n        <div class=\"ex\">\n          <div class=\"ex__h\"><span class=\"ex__n\" data-kg-role=\"h3\">***</span><span class=\"ex__q\" data-kg-role=\"label\">변호사</span></div>\n          <div class=\"ex__s\" data-kg-role=\"label2\">연세대학교 법학 · 고려대학교 법학전문대학원</div>\n          <div class=\"ex__b\">\n            <span data-kg-role=\"body2\">사업 · 계약 법률 리스크 검토</span>\n            <span data-kg-role=\"body2\">규정 · 거버넌스 법적 쟁점 자문</span>\n            <span data-kg-role=\"body2\">제도개편 법적 정합성 검토</span>\n          </div>\n        </div>\n      </div>\n\n      <!-- ══ 연구진 ═══════════════════════════════════ -->\n      <div class=\"tbl\">\n        <div class=\"tr\">\n          <div class=\"th\" data-kg-role=\"h3\">성명</div>\n          <div class=\"th\" data-kg-role=\"h3\">직위</div>\n          <div class=\"th\" data-kg-role=\"h3\">학력 · 경력</div>\n          <div class=\"th\" data-kg-role=\"h3\">전문성</div>\n          <div class=\"th\" data-kg-role=\"h3\">유관기관 수행사 및 주요 고객사</div>\n        </div>\n\n        <div class=\"tr\">\n          <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">***</span></div>\n          <div class=\"td td--c\"><span class=\"pos\" data-kg-role=\"label\">PM</span></div>\n          <div class=\"td\"><div class=\"edu\">\n            <span data-kg-role=\"body2\">고려대학교 교육공학 박사수료</span>\n            <span data-kg-role=\"body2\">고려대학교 경영학 석사</span>\n            <span data-kg-role=\"body2\">고려대학교 · 한양대학교 강사</span>\n          </div></div>\n          <div class=\"td spec\"><span class=\"st\" data-kg-role=\"h3\">중장기 경영전략 · 성과관리 체계 수립 총괄</span></div>\n          <div class=\"td\"><span class=\"org\" data-kg-role=\"body2\">한국해양진흥공사, 한전KDN, 한국승강기안전공단, 정보통신기획평가원, 중소기업유통센터, 소상공인시장진흥공단, 한전KPS, 한국철도시설공단, 신용보증기금, 부산교통공사, 국민연금공단, 한국보건산업진흥원, 한국인터넷진흥원 등</span></div>\n        </div>\n\n        <div class=\"tr\">\n          <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">***</span></div>\n          <div class=\"td td--c\"><span class=\"pos pos--pl\" data-kg-role=\"label\">PL</span></div>\n          <div class=\"td\"><div class=\"edu\">\n            <span data-kg-role=\"body2\">한국외국어대학교 경영학 박사</span>\n            <span data-kg-role=\"body2\">한국외국어대학교 경영학 석사</span>\n            <span data-kg-role=\"body2\">한국외국어대학교 겸임교수</span>\n          </div></div>\n          <div class=\"td spec\"><span class=\"st\" data-kg-role=\"h3\">핵심사업 · 신사업 발굴 및 내재화 · 확산</span></div>\n          <div class=\"td\"><span class=\"org\" data-kg-role=\"body2\">한국해양진흥공사, 신협중앙회, 롯데손해보험, 기업은행, 한국벤처투자, 한전KPS, 한국서부발전, 티센크루프엘리베이터, 코웨이, 한국해양과학기술진흥원 등</span></div>\n        </div>\n\n        <div class=\"tr\">\n          <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">***</span></div>\n          <div class=\"td td--c\"><span class=\"pos pos--pl\" data-kg-role=\"label\">PL</span></div>\n          <div class=\"td\"><div class=\"edu\">\n            <span data-kg-role=\"body2\">고려대학교 교육공학 석사</span>\n            <span data-kg-role=\"body2\">성신여자대학교 겸임교수</span>\n          </div></div>\n          <div class=\"td spec\"><span class=\"st\" data-kg-role=\"h3\">경영평가 대응체계 및 전략적 성과관리 컨설팅</span></div>\n          <div class=\"td\"><span class=\"org\" data-kg-role=\"body2\">고려대학교 교육연구소, 한국교육개발원, 한국교육학술정보원, 중앙교육연수원, (사)한국직업상담협회, 한국토지주택공사, 신용보증기금, 한국콘텐츠진흥원 등</span></div>\n        </div>\n\n        <div class=\"tr\">\n          <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">***</span></div>\n          <div class=\"td td--c\"><span class=\"pos pos--pl\" data-kg-role=\"label\">PL</span></div>\n          <div class=\"td\"><div class=\"edu\">\n            <span data-kg-role=\"body2\">경희대학교 정치외교학 학사</span>\n          </div></div>\n          <div class=\"td spec\"><span class=\"st\" data-kg-role=\"h3\">산업환경 · 경영전략 · 성과관리</span></div>\n          <div class=\"td\"><span class=\"org\" data-kg-role=\"body2\">한국콘텐츠진흥원, Wagner Group, ISSAC Deo, 마인드앳플레이, 아산나눔재단, 시스트란 코리아, 국제서법예술연합 등</span></div>\n        </div>\n\n        <div class=\"tr\">\n          <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">***</span></div>\n          <div class=\"td td--c\"><span class=\"pos pos--pl\" data-kg-role=\"label\">PL</span></div>\n          <div class=\"td\"><div class=\"edu\">\n            <span data-kg-role=\"body2\">중앙대학교 심리학 학사</span>\n          </div></div>\n          <div class=\"td spec\"><span class=\"st\" data-kg-role=\"h3\">전략체계 및 산업환경 분석</span></div>\n          <div class=\"td\"><span class=\"org\" data-kg-role=\"body2\">한국승강기안전공단, 한국벤처투자, 한국과학창의재단, 한전KDN, 국립박물관재단, 세종시교육청, 한국사회복지협의회, 부산항신항시설센터 등</span></div>\n        </div>\n\n        <div class=\"tr\">\n          <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">***</span></div>\n          <div class=\"td td--c\"><span class=\"pos pos--pl\" data-kg-role=\"label\">PL</span></div>\n          <div class=\"td\"><div class=\"edu\">\n            <span data-kg-role=\"body2\">단국대학교 경영학 학사</span>\n          </div></div>\n          <div class=\"td spec\"><span class=\"st\" data-kg-role=\"h3\">신사업 발굴 · 인적 · 물적자원관리 진단 및 개선</span></div>\n          <div class=\"td\"><span class=\"org\" data-kg-role=\"body2\">한국승강기안전공단, 한국환경보전원, 국립박물관재단, 서울시교육청, 세종시교육청, 한국환경산업기술원, 한전KDN 등</span></div>\n        </div>\n\n        <div class=\"tr\">\n          <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">***</span></div>\n          <div class=\"td td--c\"><span class=\"pos pos--pa\" data-kg-role=\"label\">PA</span></div>\n          <div class=\"td\"><div class=\"edu\">\n            <span data-kg-role=\"body2\">서울시립대학교 국문학 학사</span>\n          </div></div>\n          <div class=\"td spec\"><span class=\"st\" data-kg-role=\"h3\">경영전략 · 경영평가 · 성과관리 고도화 지원</span></div>\n          <div class=\"td\"><span class=\"org\" data-kg-role=\"body2\">국립박물관문화재단, 한국승강기안전공단, 한국콘텐츠진흥원, 건강보험심사평가원 등</span></div>\n        </div>\n\n        <div class=\"tr\">\n          <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">***</span></div>\n          <div class=\"td td--c\"><span class=\"pos pos--pa\" data-kg-role=\"label\">PA</span></div>\n          <div class=\"td\"><div class=\"edu\">\n            <span data-kg-role=\"body2\">서울시립대학교 환경공학 학사</span>\n          </div></div>\n          <div class=\"td spec\"><span class=\"st\" data-kg-role=\"h3\">경영전략 · 경영평가 · 성과관리 고도화 지원</span></div>\n          <div class=\"td\"><span class=\"org\" data-kg-role=\"body2\">국가유산진흥원, 정보통신기획평가원, 국립박물관문화재단, 신용보증기금 등</span></div>\n        </div>\n\n        <div class=\"tr\">\n          <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">***</span></div>\n          <div class=\"td td--c\"><span class=\"pos pos--pa\" data-kg-role=\"label\">PA</span></div>\n          <div class=\"td\"><div class=\"edu\">\n            <span data-kg-role=\"body2\">서울대학교 사회교육학 학사</span>\n          </div></div>\n          <div class=\"td spec\"><span class=\"st\" data-kg-role=\"h3\">경영전략 · 경영평가 · 성과관리 고도화 지원</span></div>\n          <div class=\"td\"><span class=\"org\" data-kg-role=\"body2\">국가유산진흥원, 정보통신기획평가원, 국립박물관문화재단, 한국토지주택공사, 신용보증기금 등</span></div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 케인즈그룹 참여인력 이력 · 수행실적 대장 / 성명은 블라인드 평가 기준에 따라 비표기</span>\n    <span class=\"kg-footer__page\" data-kg-role=\"caption\" data-kg-auto=\"page\">–</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".wrap{flex:1;min-height:0;display:grid;grid-template-rows:auto 1fr;gap:12px;}\n\n  /* ── 전문자격 4인 ───────────────────────────────── */\n  .experts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}\n  .ex{background:#fff;border:1px solid var(--line);border-radius:var(--r-xs);\n    display:grid;grid-template-rows:auto auto 1fr;overflow:hidden;}\n  .ex__h{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;\n    display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px;padding:5px 10px;}\n  .ex__n{font-size:14px;font-weight:800;letter-spacing:.08em;}\n  .ex__q{background:rgba(255,255,255,.18);font-size:13px;font-weight:800;\n    padding:2px 9px;border-radius:var(--r-pill);white-space:nowrap;}\n  .ex__s{font-size:13px;color:var(--ink-500);padding:5px 10px 0;line-height:1.3;}\n  .ex__b{padding:5px 10px 8px;display:grid;gap:2px;align-content:start;}\n  .ex__b span{font-size:14px;color:var(--ink-900);line-height:1.3;padding-left:10px;position:relative;}\n  .ex__b span::before{content:\"·\";position:absolute;left:2px;color:var(--blue-500);font-weight:800;}\n\n  /* ── 연구진 표 (박스 그리드) ────────────────────── */\n  .tbl{display:grid;grid-auto-rows:auto;gap:3px;align-content:start;min-height:0;}\n  .tr{display:grid;grid-template-columns:56px 56px 226px 196px 1fr;gap:3px;}\n  .th{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;font-size:14px;font-weight:800;\n    text-align:center;padding:6px 8px;border-radius:2px;}\n  .td{background:#fff;border:1px solid var(--neutral-300);border-radius:2px;\n    padding:4px 8px;display:flex;flex-direction:column;justify-content:center;}\n  .td--c{align-items:center;text-align:center;}\n  .nm{font-size:14px;font-weight:700;color:var(--ink-700);letter-spacing:.14em;white-space:nowrap;}\n  .pos{font-size:14px;font-weight:800;color:#fff;background:var(--blue-500);\n    padding:2px 10px;border-radius:var(--r-pill);}\n  .pos--pl{background:var(--blue-600);}\n  .pos--pa{background:var(--xg3,#7C8794);}\n  .edu{display:grid;gap:2px;}\n  .edu span{font-size:14px;color:var(--ink-900);line-height:1.3;padding-left:10px;position:relative;}\n  .edu span::before{content:\"▪\";position:absolute;left:0;top:0;color:var(--navy-800);font-size:9px;line-height:1.9;}\n  .spec{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border:1px solid var(--blue-400);}\n  .spec .st{font-size:14px;font-weight:700;color:var(--navy-800);line-height:1.3;text-align:center;}\n  .org{font-size:14px;color:var(--ink-700);line-height:1.32;}",
+    "origin": "02_참여인력.html"
+  },
+  "patches": {
+    "n.0.3.0": {
+      "text": {
+        "html": "일반현황"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "프로젝트 참여인력"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅱ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "제안사 소개"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          24.4,
+          8,
+          24.4
+        ]
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "02"
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {}
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T06:41:13.222Z",
+  "updatedAt": "2026-07-27T14:16:06.770Z"
+}

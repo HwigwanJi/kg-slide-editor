@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  모듈 매트릭스 — 두 축(공통·특화)이 교차해 조합을 이루는 도해.
+  CSS 박스로는 다대다 연결선을 그릴 수 없어 SVG 로 그린다.
+
+  색은 KG 토큰을 var() 로 참조하되, 장표 밖에서 단독으로 열릴 때를 위해 대체값을 함께 둔다.
+  글자는 <text> 로 표시해 두었다. 나중에 편집기가 이 표시를 보고 갈아 끼운다.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="560" height="150"
+     role="img" aria-label="공통모듈과 특화모듈의 교차 구성">
+  <g fill="none" stroke="var(--blue-400, #95B3D7)" stroke-width="1.1">
+    <path d="M150,42 L250,42 M150,42 L340,42 M150,42 L430,42"/>
+    <path d="M150,108 L250,108 M150,108 L340,108 M150,108 L430,108"/>
+    <path d="M250,58 L340,92 M340,58 L250,92 M340,58 L430,92 M430,58 L340,92"/>
+    <path d="M250,58 L250,92 M340,58 L340,92 M430,58 L430,92"/>
+  </g>
+
+  <g font-family="Pretendard, sans-serif" text-anchor="middle">
+    <g fill="var(--blue-200, #DCE6F2)" stroke="var(--blue-500, #4F81BD)" stroke-width="1.2">
+      <path d="M75,20 L140,42 L75,64 L10,42 Z"/>
+      <path d="M75,86 L140,108 L75,130 L10,108 Z"/>
+    </g>
+    <text x="75" y="38" font-size="13" font-weight="700" fill="var(--ink-navy, #17375E)" data-slot="axis1">직무 기능</text>
+    <text x="75" y="53" font-size="11" fill="var(--ink-700, #3F3F3F)" data-slot="axis1-sub">공통모듈</text>
+    <text x="75" y="104" font-size="13" font-weight="700" fill="var(--ink-navy, #17375E)" data-slot="axis2">연구 분야</text>
+    <text x="75" y="119" font-size="11" fill="var(--ink-700, #3F3F3F)" data-slot="axis2-sub">특화모듈</text>
+    <text x="75" y="79" font-size="15" font-weight="800" fill="var(--blue-500, #4F81BD)">+</text>
+
+    <g stroke="var(--line, #C9D2DE)" stroke-width="1">
+      <rect x="196" y="28" width="108" height="28" rx="3" fill="var(--paper, #FFFFFF)"/>
+      <rect x="286" y="28" width="108" height="28" rx="3" fill="var(--paper, #FFFFFF)"/>
+      <rect x="376" y="28" width="108" height="28" rx="3" fill="var(--paper, #FFFFFF)"/>
+      <rect x="196" y="94" width="108" height="28" rx="3" fill="var(--neutral-050, #F7F8FA)"/>
+      <rect x="286" y="94" width="108" height="28" rx="3" fill="var(--neutral-050, #F7F8FA)"/>
+      <rect x="376" y="94" width="108" height="28" rx="3" fill="var(--neutral-050, #F7F8FA)"/>
+    </g>
+    <g font-size="12.5" fill="var(--ink-900, #1A1A1A)">
+      <text x="250" y="47" data-slot="c1">공통 1</text>
+      <text x="340" y="47" data-slot="c2">공통 2</text>
+      <text x="430" y="47" data-slot="c3">공통 3</text>
+      <text x="250" y="113" data-slot="s1">특화 1</text>
+      <text x="340" y="113" data-slot="s2">특화 2</text>
+      <text x="430" y="113" data-slot="s3">특화 3</text>
+    </g>
+    <text x="512" y="47" font-size="13" fill="var(--ink-500, #6B7280)">…</text>
+    <text x="512" y="113" font-size="13" fill="var(--ink-500, #6B7280)">…</text>
+  </g>
+</svg>

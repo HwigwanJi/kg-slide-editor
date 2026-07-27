@@ -1,0 +1,124 @@
+{
+  "v": 5,
+  "id": "6430c2d9-aa92-4961-8326-89a0285305f3",
+  "title": "사업별 경쟁구조 · 가치사슬 분석",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"사업별 경쟁구조 · 가치사슬\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"message\">02</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">사업분석 및 이해관계자 진단</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">사업별 시장 · 경쟁력 · Value Chain · 리스크 / 대응</div>\n    </div>\n    <div class=\"kg-chapter-tab\"><span class=\"kg-chapter-tab__roman\" data-kg-role=\"label\">Ⅱ</span><span class=\"kg-chapter-tab__sep\"></span><span class=\"kg-chapter-tag\" data-kg-role=\"label\">사업 · 이해관계자</span></div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">사업별 성장 가능성과 운영 한계가 상이해 <b>핵심사업 간 연계 방향</b> 부각</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"grid\">\n\n      <!-- ───── ① 지정면세점 ───── -->\n      <div class=\"card\">\n        <div class=\"card__h\">\n          <span class=\"card__t\" data-kg-role=\"h2\">① 지정면세점 (내국인)</span>\n          <span class=\"card__g\" data-kg-role=\"label\">캐시카우 · 유지혁신</span>\n        </div>\n        <div class=\"card__b\">\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">시장</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">면세시장 12.5조 원으로 전년 대비 11.9% 감소한 가운데 내국인 매출은 3.2조 원으로 상승. 조세특례제한법 특례에 따라 연 6회 · 1회 800달러 · 판매품목 제한</span></div>\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">VC</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">브랜드 소싱 · MD – 보세물류 – 온 · 오프라인 판매. 브랜드사 · 여행사 · 항공 · 항만 연계</span></div>\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">리스크 · 대응</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">중국 소비둔화 · 환율 · 한도규제에 대응해 온라인 · 픽업 확대, K뷰티 · 프리미엄 MD, 비면세 임대 수익원 확보</span></div>\n          <div class=\"row row--imp\"><span class=\"row__l\" data-kg-role=\"label\">시사점</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">효율화 방어와 재도약의 이중과제. 조특법 규제완화 입법대응, K뷰티 · 온라인 객단가 방어, 면세의존 90%에서 70%대로 관리</span></div>\n        </div>\n      </div>\n\n      <!-- ───── ② 첨단과학기술단지 ───── -->\n      <div class=\"card\">\n        <div class=\"card__h\">\n          <span class=\"card__t\" data-kg-role=\"h2\">② 첨단과학기술단지</span>\n          <span class=\"card__g card__g--g\" data-kg-role=\"label\">육성</span>\n        </div>\n        <div class=\"card__b\">\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">시장</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">국내 데이터센터 시장 연평균 15.9% 성장 전망. 수도권 집중 완화와 지역 분산 정책 확대로 제주 분산에너지 특화지역 지정 · 재생에너지 활용 기반 보유</span></div>\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">VC</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">부지 조성 – 분양 · 임대 – IT · BT 기업 입주 – 산학연 클러스터 연계</span></div>\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">리스크 · 대응</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">전력 · 냉각 인프라 부족과 핵심기업 이탈 가능성에 대응해 RE100 기반 기업 유치, 임대 · 기업지원 서비스 강화</span></div>\n          <div class=\"row row--imp\"><span class=\"row__l\" data-kg-role=\"label\">시사점</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">1단지 기업 집적 성과를 바탕으로 2단지를 AI · 첨단산업 성장거점으로 육성. 분양 중심에서 임대 · 기업지원 중심 운영모델로 전환</span></div>\n        </div>\n      </div>\n\n      <!-- ───── ③ 헬스케어타운 ───── -->\n      <div class=\"card\">\n        <div class=\"card__h\">\n          <span class=\"card__t\" data-kg-role=\"h2\">③ 헬스케어타운</span>\n          <span class=\"card__g card__g--r\" data-kg-role=\"label\">재편 · 정상화</span>\n        </div>\n        <div class=\"card__b\">\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">시장</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">2024년 외국인환자 117만 명으로 93.2% 증가했으나 제주 비중은 1.9%. 글로벌 웰니스 관광시장 연평균 9.3% 성장 전망으로 거점 의료기관 확보가 과제</span></div>\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">VC</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">부지 조성 – 의료 · 웰니스 시설 개발 – 병원 · 숙박 운영 – 외국인환자 유치</span></div>\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">리스크 · 대응</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">중국 소비둔화 · 환율 · 한도규제에 대응해 온라인 · 픽업 확대, K뷰티 · 프리미엄 MD, 비면세 임대 수익원 확보</span></div>\n          <div class=\"row row--imp\"><span class=\"row__l\" data-kg-role=\"label\">시사점</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">의료서비스센터 입주 확대와 핵심 의료기관 유치로 정상화. 비급여 진료 · 웰니스 · 시니어케어를 연계한 사업모델 마련</span></div>\n        </div>\n      </div>\n\n      <!-- ───── ④ 신화역사공원 ───── -->\n      <div class=\"card\">\n        <div class=\"card__h\">\n          <span class=\"card__t\" data-kg-role=\"h2\">④ 신화역사공원</span>\n          <span class=\"card__g\" data-kg-role=\"label\">강화</span>\n        </div>\n        <div class=\"card__b\">\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">시장</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">2025년 제주 외국인 전용 카지노 매출 6,465억 원으로 40.8% 증가. 드림타워가 제주 카지노 매출의 73.7%를 차지하며 카지노 · 호텔 · 테마파크 · MICE 복합리조트 운영</span></div>\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">VC</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">부지 조성 – 복합리조트 개발 – 카지노 · 호텔 · 테마파크 – 관광객 유치</span></div>\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">리스크 · 대응</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">카지노 편중 · 드림타워 독과점 · 운영사 재무에 대응해 비게이밍 콘텐츠 · J지구 개발 · 운영사 상시 모니터링</span></div>\n          <div class=\"row row--imp\"><span class=\"row__l\" data-kg-role=\"label\">시사점</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">운영 중인 복합리조트의 비카지노 콘텐츠 강화. 테마공원과 전시 · 공연시설 중심의 문화관광 거점으로 J지구 개발(2029년 개장)</span></div>\n        </div>\n      </div>\n\n      <!-- ───── ⑤ 영어교육도시 ───── -->\n      <div class=\"card\">\n        <div class=\"card__h\">\n          <span class=\"card__t\" data-kg-role=\"h2\">⑤ 영어교육도시</span>\n          <span class=\"card__g\" data-kg-role=\"label\">유지 · 강화</span>\n        </div>\n        <div class=\"card__b\">\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">시장</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">사업비 1.93조 원 · 379만㎡ 규모. 내국인 입학 비율 제한이 없는 국제교육 특례로 해외유학 수요를 국내로 전환하는 기능 보유</span></div>\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">VC</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">국제학교 유치 · 운영 – 학생 · 학부모 정주 – 주거 · 상업 · 교육서비스 연계</span></div>\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">리스크 · 대응</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">학령인구 감소와 생활 인프라 부족에 대응해 제5국제학교 유치와 정주 · 생활서비스 확충</span></div>\n          <div class=\"row row--imp\"><span class=\"row__l\" data-kg-role=\"label\">시사점</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">순수 민간자본 STEM 특화 국제학교 FSAA 유치. 2028년 8월 개교로 교육수요와 학교 선택권 확대</span></div>\n        </div>\n      </div>\n\n      <!-- ───── ⑥ 신규 · 미래사업 ───── -->\n      <div class=\"card\">\n        <div class=\"card__h\">\n          <span class=\"card__t\" data-kg-role=\"h2\">⑥ 신규 · 미래사업</span>\n          <span class=\"card__g card__g--g\" data-kg-role=\"label\">선별육성 · 실증</span>\n        </div>\n        <div class=\"card__b\">\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">시장</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">AI 인프라 · 첨단 모빌리티 등 미래사업 확대로 국가 AI · 에너지 정책과 정합. 데이터센터는 1,556억 원에서 920억 원으로 예비타당성 미달, UAM 2단계 실증 완료</span></div>\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">VC</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">사업 기획 · 실증 – 기관 협업 – 플랫폼 · 인프라 구축. 제2첨단을 활용한 미래 모빌리티 연구 · 실증</span></div>\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">리스크 · 대응</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">대규모 투자와 수요 불확실성에 대응해 실수요를 확인한 단계적 실증, 민관 재원 연계 추진</span></div>\n          <div class=\"row row--imp\"><span class=\"row__l\" data-kg-role=\"label\">시사점</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">전면 확대보다 실증을 통해 사업성을 먼저 검증. AI 데이터센터 · 첨단 모빌리티 중심의 선택적 육성</span></div>\n        </div>\n      </div>\n\n      <!-- ───── ⑦ 공공임대주택 ───── -->\n      <div class=\"card\">\n        <div class=\"card__h\">\n          <span class=\"card__t\" data-kg-role=\"h2\">⑦ 공공임대주택 (신설)</span>\n          <span class=\"card__g\" data-kg-role=\"label\">연계 · 재설계</span>\n        </div>\n        <div class=\"card__b\">\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">시장</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">제주첨단 리슈빌 공공임대주택 793세대 운영, 제주 매입임대 평균 경쟁률 7.4 대 1. 제주개발공사는 2025년 매입임대 436가구 공급에 736억 원 투자</span></div>\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">VC</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">주택 건설 – 임대운영 – 입주자 지원. 첨단단지 입주기업 · 근로자 주거수요와 연계</span></div>\n          <div class=\"row\"><span class=\"row__l\" data-kg-role=\"label\">리스크 · 대응</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">임대료 부담 · 공실 · 인구 순유출에 따른 수요 위축에 대응해 산업단지 입주기업 · 근로자 연계형 임대모델 도입</span></div>\n          <div class=\"row row--imp\"><span class=\"row__l\" data-kg-role=\"label\">시사점</span>\n            <span class=\"row__d\" data-kg-role=\"body2\">첨단 · 교육의 정주 완성을 위한 연계 인프라로 재정의. 첨단단지 기업유치와 근로자 정착을 지원하는 재직자형 배후주거로 재설계</span></div>\n        </div>\n      </div>\n\n      <!-- ───── 종합 ───── -->\n      <div class=\"sum\">\n        <div class=\"sum__h\" data-kg-role=\"h2\">종합 — 포트폴리오 시사점</div>\n        <div class=\"sum__b\">\n          <div class=\"sm\"><span class=\"sm__n\" data-kg-role=\"num\">1</span>\n            <span class=\"sm__d\" data-kg-role=\"body2\">수익은 면세 · 카지노에 집중되고 개발 · 정주형은 성과가 저조. 운영 · 서비스 · 정주 수익으로 재균형</span></div>\n          <div class=\"sm\"><span class=\"sm__n\" data-kg-role=\"num\">2</span>\n            <span class=\"sm__d\" data-kg-role=\"body2\">공공임대주택은 자체 사업성보다 첨단 · 교육의 정주여건을 완성하는 연계 인프라로 재정의</span></div>\n          <div class=\"sm\"><span class=\"sm__n\" data-kg-role=\"num\">3</span>\n            <span class=\"sm__d\" data-kg-role=\"body2\">개별 최적화가 아닌 정주 · 산업 · 관광 생태계 단위의 시너지 설계가 핵심. 공통 토대는 제도 특례와 환원 거버넌스</span></div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: JDC 사업별 운영실적 · 관세청 면세점 통계 · 제주특별자치도 카지노 · 의료관광 통계 종합</span>\n    <span class=\"kg-footer__page\" data-kg-role=\"caption\" data-kg-auto=\"page\">–</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);\n    grid-template-rows:1fr 1fr;gap:11px;}\n\n  .card{background:#fff;border:1px solid var(--blue-300);border-radius:var(--r-xs);\n    display:grid;grid-template-rows:auto 1fr;overflow:hidden;min-height:0;}\n  .card__h{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;padding:5px 9px;\n    display:grid;grid-template-columns:1fr auto;gap:6px;align-items:center;}\n  .card__t{font-size:14px;font-weight:800;letter-spacing:-.02em;line-height:1.2;}\n  .card__g{font-size:12px;font-weight:800;color:#fff;background:var(--blue-500);\n    padding:1px 7px;border-radius:var(--r-pill);white-space:nowrap;line-height:1.4;}\n  .card__g--g{background:var(--green-600);}\n  .card__g--r{background:var(--red-500);}\n\n  .card__b{padding:6px 7px;display:grid;grid-auto-rows:auto;gap:5px;align-content:space-between;min-height:0;}\n\n  .row{display:grid;grid-template-columns:42px 1fr;gap:6px;align-items:start;}\n  .row__l{font-size:12px;font-weight:800;color:var(--blue-600);line-height:1.3;\n    padding-top:1px;}\n  .row__d{font-size:14px;color:var(--ink-700);line-height:1.3;}\n\n  .row--imp{background:var(--blue-050);border-radius:var(--r-xs);padding:5px 6px;}\n  .row--imp .row__l{color:var(--navy-800);}\n  .row--imp .row__d{color:var(--navy-800);font-weight:600;}\n\n  /* ── 종합 칸 ─────────────────────────────────── */\n  .sum{background:linear-gradient(180deg,#2C5184,#17375E);border-radius:var(--r-xs);\n    display:grid;grid-template-rows:auto 1fr;overflow:hidden;min-height:0;}\n  .sum__h{color:#fff;font-size:14px;font-weight:800;padding:6px 10px;\n    border-bottom:1px solid rgba(255,255,255,.24);letter-spacing:-.01em;}\n  .sum__b{padding:9px;display:grid;grid-auto-rows:auto;gap:9px;align-content:space-around;min-height:0;}\n  .sm{display:grid;grid-template-columns:20px 1fr;gap:8px;align-items:start;}\n  .sm__n{width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;\n    font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}\n  .sm__d{font-size:14px;color:#EAF1FB;line-height:1.4;}",
+    "origin": "04b_사업별경쟁구조.html"
+  },
+  "patches": {
+    "n.2.0.2.0.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.3.0.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.1.0.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.0.0.0": {
+      "style": {
+        "fontSize": 17,
+        "letterSpacing": -0.06
+      }
+    },
+    "n.2.0.4.0.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.5.0.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.6.0.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.7.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "02"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "핵심사업 및 이해관계자 진단"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "사업별 가치사슬 분석"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "body2": {
+        "fontSize": 14
+      },
+      "label": {
+        "fontSize": 15
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T10:14:40.073Z",
+  "updatedAt": "2026-07-27T14:19:25.814Z"
+}

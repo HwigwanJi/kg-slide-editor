@@ -1,0 +1,108 @@
+{
+  "v": 5,
+  "id": "9c85fa70-c898-4c15-8419-e3d9bee73652",
+  "title": "벤치마킹 JDC 적용 방향 — 자산 유형별",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"벤치마킹 적용 방향\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"message\">01</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">단계별 세부 추진내용 및 일정</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">벤치마킹 JDC 적용 방향 — 1-3</div>\n    </div>\n    <div class=\"kg-chapter-tab\"><span class=\"kg-chapter-tab__roman\" data-kg-role=\"label\">Ⅱ</span><span class=\"kg-chapter-tab__sep\"></span><span class=\"kg-chapter-tag\" data-kg-role=\"label\">경영환경 분석</span></div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">조성 중심 1단계를 넘어 자산 성격별 재편 — <b>면세 편중에서 운영 · 서비스 · 정주 수익</b>으로 전환</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"wrap\">\n\n      <div class=\"nav\">\n        <span class=\"k\" data-kg-role=\"h3\">과업 1 대내 · 외 경영환경 분석</span>\n        <span data-kg-role=\"label\">과업 2 사업분석 및 이해관계자 진단</span>\n        <span data-kg-role=\"label\">과업 3 가치체계 및 전략체계 수립</span>\n        <span data-kg-role=\"label\">과업 4 운용계획 수립 및 실행력 강화</span>\n      </div>\n\n      <div class=\"cols\">\n        <!-- ① 성숙 자산 -->\n        <div class=\"col\">\n          <div class=\"col__h\"><span class=\"col__n\" data-kg-role=\"num\">1</span>\n            <span class=\"col__t\" data-kg-role=\"h2\">성숙 자산 / 운영 · 서비스 수익화</span></div>\n          <div class=\"now\">\n            <p data-kg-role=\"body2\">첨단과기단지(200사 · 8.7조) — 앵커 의존 · 자족기능 부족 · IT 편중</p>\n            <p data-kg-role=\"body2\">신화역사공원(투자 4.03조) — 카지노 의존 · J지구 20년 방치 · 드림타워 열위</p>\n          </div>\n          <div class=\"down\"></div>\n          <div class=\"step\">\n            <div class=\"step__h\"><span class=\"step__n\" data-kg-role=\"num\">1</span>\n              <span class=\"step__t\" data-kg-role=\"h3\">벤치마크 → 적용 방향</span></div>\n            <div class=\"step__b\">\n              <p data-kg-role=\"body2\"><b>판교 · 싱가포르 원노스</b> → 직 · 주 · 락 혼합 복합단지</p>\n              <p data-kg-role=\"body2\"><b>파라다이스시티</b> → J지구 비게이밍(MICE · 웰니스 · K콘텐츠)</p>\n            </div>\n          </div>\n          <div class=\"step\">\n            <div class=\"step__h\"><span class=\"step__n\" data-kg-role=\"num\">2</span>\n              <span class=\"step__t\" data-kg-role=\"h3\">고도화 실행</span></div>\n            <div class=\"step__b\">\n              <p data-kg-role=\"body2\">딥테크 특구펀드 · 대학 R&amp;D로 앵커 다변화</p>\n              <p data-kg-role=\"body2\">상 · 하수도 인프라 선제 확충 → 운영 · 서비스 수익 전환</p>\n            </div>\n          </div>\n          <div class=\"src\">\n            <p data-kg-role=\"body2\"><b>강원랜드</b> 비카지노 반복수익 확대 및 KPI 관리</p>\n            <p data-kg-role=\"body2\"><b>한국공항공사</b> 비항공 수익 기반 교차보조 체계 강화</p>\n          </div>\n          <div class=\"plan\">\n            <div class=\"plan__r\"><span class=\"plan__k\" data-kg-role=\"label\">단기</span>\n              <span class=\"plan__t\" data-kg-role=\"body2\">반복수익 KPI 도입 · 임대전환 규정 검토</span></div>\n            <div class=\"plan__r\"><span class=\"plan__k m\" data-kg-role=\"label\">중기</span>\n              <span class=\"plan__t\" data-kg-role=\"body2\">임대 · 서비스 수익 확대 · 민간투자 연계</span></div>\n            <div class=\"plan__r\"><span class=\"plan__k l\" data-kg-role=\"label\">장기</span>\n              <span class=\"plan__t\" data-kg-role=\"body2\">운영 · 자산관리(AM) 체계 정착 및 수익 재투자</span></div>\n            <div class=\"kpi\" data-kg-role=\"body1\">KPI | 반복수익 비중 · 임대전환율 · 민간투자 유치액</div>\n          </div>\n        </div>\n\n        <!-- ② 정체 자산 -->\n        <div class=\"col\">\n          <div class=\"col__h\"><span class=\"col__n\" data-kg-role=\"num\">2</span>\n            <span class=\"col__t\" data-kg-role=\"h2\">정체 자산 / 재구조화 · 민간위탁</span></div>\n          <div class=\"now\">\n            <p data-kg-role=\"body2\">헬스케어타운(1.60조) — 영리병원 무산 · 10년 방치 · 콘텐츠 부재</p>\n            <p data-kg-role=\"body2\">항공우주박물관 — 수요 20% · 연적자 77~80억 · 누적 △1,000억</p>\n          </div>\n          <div class=\"down\"></div>\n          <div class=\"step\">\n            <div class=\"step__h\"><span class=\"step__n\" data-kg-role=\"num\">1</span>\n              <span class=\"step__t\" data-kg-role=\"h3\">벤치마크 → 적용 방향</span></div>\n            <div class=\"step__b\">\n              <p data-kg-role=\"body2\"><b>두바이 헬스케어시티</b> → 비급여 · 웰니스 앵커</p>\n              <p data-kg-role=\"body2\"><b>케네디우주센터</b> → 전문 민간위탁 · 성과연동</p>\n            </div>\n          </div>\n          <div class=\"step\">\n            <div class=\"step__h\"><span class=\"step__n\" data-kg-role=\"num\">2</span>\n              <span class=\"step__t\" data-kg-role=\"h3\">고도화 실행</span></div>\n            <div class=\"step__b\">\n              <p data-kg-role=\"body2\">의료 · 바이오 R&amp;D · 의료체류 패키지</p>\n              <p data-kg-role=\"body2\">몰입형 콘텐츠 유료화 · 정기교체 · KPI 재정의</p>\n            </div>\n          </div>\n          <div class=\"src\">\n            <p data-kg-role=\"body2\"><b>일본 UR도시기구</b> 신규개발에서 재생 · 운영 · AM 중심으로 전환</p>\n            <p data-kg-role=\"body2\"><b>아부다비</b> 개발이익의 투자자산화 및 미래자산 축적</p>\n          </div>\n          <div class=\"plan\">\n            <div class=\"plan__r\"><span class=\"plan__k\" data-kg-role=\"label\">단기</span>\n              <span class=\"plan__t\" data-kg-role=\"body2\">항공박물관 위탁 파일럿 · AM 기능 검토</span></div>\n            <div class=\"plan__r\"><span class=\"plan__k m\" data-kg-role=\"label\">중기</span>\n              <span class=\"plan__t\" data-kg-role=\"body2\">민간위탁 · 자산재편 확대</span></div>\n            <div class=\"plan__r\"><span class=\"plan__k l\" data-kg-role=\"label\">장기</span>\n              <span class=\"plan__t\" data-kg-role=\"body2\">흑자전환 · 투자심의 · AM 기반 정상화 체계 구축</span></div>\n            <div class=\"kpi\" data-kg-role=\"body1\">KPI | 자산회수율 · 관람객 수 · 운영적자 축소율</div>\n          </div>\n        </div>\n\n        <!-- ③ 수익·정주 기반 -->\n        <div class=\"col\">\n          <div class=\"col__h\"><span class=\"col__n\" data-kg-role=\"num\">3</span>\n            <span class=\"col__t\" data-kg-role=\"h2\">수익 · 정주 기반 / 규제완화 · 산업연계</span></div>\n          <div class=\"now\">\n            <p data-kg-role=\"body2\">지정면세점(누적 8.2조) — 23년째 고정규제(6회 · 800$) · 순이익 △63%</p>\n            <p data-kg-role=\"body2\">영어교육도시 · 공공임대 — 재학생 △10.4% · 정주여건 부족 · 793세대 단일단지</p>\n          </div>\n          <div class=\"down\"></div>\n          <div class=\"step\">\n            <div class=\"step__h\"><span class=\"step__n\" data-kg-role=\"num\">1</span>\n              <span class=\"step__t\" data-kg-role=\"h3\">벤치마크 → 적용 방향</span></div>\n            <div class=\"step__b\">\n              <p data-kg-role=\"body2\"><b>하이난</b> → 규제 현실화(네거티브)</p>\n              <p data-kg-role=\"body2\"><b>DIAC · GH 판교</b> → 해외학생 유치 · 산단형 배후임대</p>\n            </div>\n          </div>\n          <div class=\"step\">\n            <div class=\"step__h\"><span class=\"step__n\" data-kg-role=\"num\">2</span>\n              <span class=\"step__t\" data-kg-role=\"h3\">고도화 실행</span></div>\n            <div class=\"step__b\">\n              <p data-kg-role=\"body2\">온라인 · 인도채널 · K뷰티로 객단가 · 방문 · 재원 다변화</p>\n              <p data-kg-role=\"body2\">미개발 90만㎡ 정주개발 · 기업단체계약으로 공실 흡수</p>\n            </div>\n          </div>\n          <div class=\"src\">\n            <p data-kg-role=\"body2\"><b>마카오</b> 사업권을 활용한 비게이밍 투자 · 환원 의무화</p>\n            <p data-kg-role=\"body2\"><b>경기주택도시공사</b> 전략 · 재무 · 도민환원 연계체계 구축</p>\n            <p data-kg-role=\"body2\"><b>싱가포르 EDB</b> 유치–개발 기능 분리 및 공동 KPI 관리</p>\n          </div>\n          <div class=\"eng\">\n            <div class=\"eng__h\" data-kg-role=\"label2\">신규 성장엔진</div>\n            <div class=\"eng__t\" data-kg-role=\"h3\">e스포츠 복합리조트 수직결합</div>\n            <p data-kg-role=\"body2\">신화역사공원 → e스포츠 · K팝 · MICE 복합 아레나</p>\n            <p data-kg-role=\"body2\">첨단단지 → 데이터 · 클라우드 · IDC(저지연 게임서버)</p>\n            <p data-kg-role=\"body2\">영어교육도시 → e스포츠 아카데미(방송 · 코칭 · 공적재원)</p>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 6대 선도프로젝트 추진현황 · 국내외 벤치마킹 결과 · JDC 적용 검토안 종합</span>\n    <span class=\"kg-footer__page\" data-kg-role=\"caption\" data-kg-auto=\"page\">–</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".wrap{flex:1;min-height:0;display:grid;grid-template-rows:auto 1fr;gap:9px;}\n\n  .nav{display:grid;grid-template-columns:repeat(4,1fr);}\n  .nav span{font-size:14px;font-weight:700;color:#fff;background:var(--xg2,#AEB6C0);\n    text-align:center;padding:5px 6px;margin-left:-10px;\n    clip-path:polygon(0 0,calc(100% - 11px) 0,100% 50%,calc(100% - 11px) 100%,0 100%,11px 50%);}\n  .nav span:first-child{margin-left:0;clip-path:polygon(0 0,calc(100% - 11px) 0,100% 50%,calc(100% - 11px) 100%,0 100%);}\n  .nav span.k{background:linear-gradient(90deg,#2C5184,#1F497D);}\n\n  .cols{display:grid;grid-template-columns:repeat(3,1fr);\n    grid-template-rows:auto auto auto auto auto auto 1fr;gap:7px 14px;min-height:0;}\n  .col{display:grid;grid-row:1 / -1;grid-template-rows:subgrid;min-height:0;}\n\n  .col__h{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;border-radius:var(--r-xs);\n    padding:6px 10px;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:9px;}\n  .col__n{width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.2);\n    font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}\n  .col__t{font-size:15px;font-weight:800;letter-spacing:-.01em;}\n\n  /* 현재 진단 */\n  .now{background:var(--red-050);border:1px solid var(--red-500);border-radius:var(--r-xs);\n    padding:6px 9px;display:grid;gap:3px;}\n  .now p{margin:0;font-size:14px;color:var(--red-600);line-height:1.26;\n    padding-left:11px;position:relative;font-weight:600;}\n  .now p::before{content:\"·\";position:absolute;left:2px;font-weight:800;}\n  .now p b{color:var(--red-600);font-weight:800;}\n\n  .down{display:flex;align-items:center;justify-content:center;height:16px;}\n  .down::after{content:\"\";width:0;height:0;border-left:9px solid transparent;\n    border-right:9px solid transparent;border-top:11px solid var(--blue-500);}\n\n  /* 단계 블록 */\n  .step{border:1px solid var(--blue-300);border-radius:var(--r-xs);overflow:hidden;\n    display:grid;grid-template-rows:auto 1fr;}\n  .step__h{background:var(--blue-200);color:var(--ink-navy);padding:3px 9px;\n    display:grid;grid-template-columns:auto 1fr;align-items:center;gap:7px;}\n  .step__n{width:18px;height:18px;border-radius:50%;background:var(--navy-800);color:#fff;\n    font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}\n  .step__t{font-size:14px;font-weight:800;}\n  .step__b{padding:6px 9px;display:grid;gap:3px;background:#fff;}\n  .step__b p{margin:0;font-size:14px;color:var(--ink-900);line-height:1.26;\n    padding-left:11px;position:relative;}\n  .step__b p::before{content:\"·\";position:absolute;left:2px;color:var(--blue-500);font-weight:800;}\n  .step__b p b{color:var(--navy-800);font-weight:700;}\n\n  /* 근거 기관 */\n  .src{background:var(--neutral-050);border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    padding:6px 9px;display:grid;gap:3px;}\n  .src p{margin:0;font-size:14px;color:var(--ink-700);line-height:1.26;\n    padding-left:11px;position:relative;}\n  .src p::before{content:\"›\";position:absolute;left:2px;color:var(--xg3,#7C8794);font-weight:800;}\n  .src p b{color:var(--ink-navy);font-weight:700;}\n\n  /* 단·중·장기 + KPI */\n  .plan{background:var(--neutral-050);border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    padding:8px 9px;display:grid;gap:6px;align-content:space-between;min-height:0;}\n  .plan__r{display:grid;grid-template-columns:38px 1fr;gap:7px;align-items:center;}\n  .plan__k{background:var(--blue-500);color:#fff;font-size:12px;font-weight:800;text-align:center;\n    padding:2px 0;border-radius:var(--r-pill);}\n  .plan__k.m{background:var(--blue-600);}\n  .plan__k.l{background:var(--navy-800);}\n  .plan__t{font-size:14px;color:var(--ink-900);line-height:1.26;}\n  .kpi{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border:1px solid var(--blue-400);\n    border-radius:var(--r-xs);padding:4px 9px;font-size:14px;font-weight:700;\n    color:var(--navy-800);line-height:1.25;}\n\n  /* 신규 성장엔진 (3열 전용) */\n  .eng{background:linear-gradient(180deg,#2C5184,#17375E);border:1px solid #16365c;\n    border-radius:var(--r-xs);color:#fff;padding:7px 10px;display:grid;gap:5px;align-content:center;}\n  .eng__h{font-size:14px;font-weight:800;color:var(--blue-300);letter-spacing:.02em;}\n  .eng__t{font-size:15px;font-weight:800;line-height:1.25;}\n  .eng p{margin:0;font-size:14px;line-height:1.26;color:#EAF1FB;\n    padding-left:11px;position:relative;}\n  .eng p::before{content:\"·\";position:absolute;left:2px;color:var(--blue-300);font-weight:800;}",
+    "origin": "03f_적용방향.html"
+  },
+  "patches": {
+    "n.2.0.0.3": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.0.2": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.0.1": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.0.0": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "01"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "경영환경 진단"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "벤치마킹 적용방향"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [
+      "n.2.0.0.0",
+      "n.2.0.0.1",
+      "n.2.0.0.2",
+      "n.2.0.0.3"
+    ],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h3": {
+        "fontSize": 16
+      },
+      "body2": {
+        "fontSize": 15
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T09:31:07.709Z",
+  "updatedAt": "2026-07-27T14:19:24.803Z"
+}

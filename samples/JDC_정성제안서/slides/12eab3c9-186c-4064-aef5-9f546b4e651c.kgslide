@@ -1,0 +1,104 @@
+{
+  "v": 5,
+  "id": "12eab3c9-186c-4064-aef5-9f546b4e651c",
+  "title": "조직 진단 기반 전략 실행체계 정렬",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"조직 진단 기반 전략 실행체계 정렬\">\n\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"num\">04</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">운용계획 수립 및 실행력 강화</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">조직 진단 기반 전략 실행체계 정렬</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">Ⅳ</span><span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\" data-kg-role=\"label\">운용·실행력</span>\n    </div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">본 기관의 업무 프로세스와 조직 기능을 기준으로 구조·운영·문화 이슈를 진단하고<br>전략체계·성과관리·기능 재설계·실행체계를 하나의 흐름으로 정렬</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"kg-content cols2\">\n\n      <!-- ============ 좌: 조직 진단 ============ -->\n      <div class=\"kg-stackcol\">\n        <div class=\"dtab\">\n          <div class=\"dh hatch\"></div>\n          <div class=\"dh\" data-kg-role=\"h3\">진단영역</div>\n          <div class=\"dh\" data-kg-role=\"h3\">주요 이슈</div>\n\n          <div class=\"dcat\" style=\"grid-row:span 3;\" data-kg-role=\"h3\">Structure</div>\n          <div class=\"dk\" data-kg-role=\"h3\">전략–조직구조 연계</div>\n          <div class=\"dv\" data-kg-role=\"body2\">전략 총괄·조정하는 컨트롤타워 기능 미흡</div>\n          <div class=\"dk\" data-kg-role=\"h3\">수직적 구조</div>\n          <div class=\"dv\" data-kg-role=\"body2\">신성장사업과 단위조직 간 역할·책임 불명확</div>\n          <div class=\"dk\" data-kg-role=\"h3\">수평적 구조</div>\n          <div class=\"dv\" data-kg-role=\"body2\">부서 간 협업체계 부족으로 의사결정 지연</div>\n\n          <div class=\"dcat\" style=\"grid-row:span 4;\" data-kg-role=\"h3\">Operation</div>\n          <div class=\"dk\" data-kg-role=\"h3\">업무분장 명확성</div>\n          <div class=\"dv\" data-kg-role=\"body2\">개인별 권한과 책임, 조직 간 역할 구분 미흡</div>\n          <div class=\"dk\" data-kg-role=\"h3\">부서 간 소통</div>\n          <div class=\"dv\" data-kg-role=\"body2\">정보와 업무를 공유하는 협업체계 미흡</div>\n          <div class=\"dk\" data-kg-role=\"h3\">의사결정 체계</div>\n          <div class=\"dv\" data-kg-role=\"body2\">신규·미래사업을 위한 의사결정 기준과 절차 부족</div>\n          <div class=\"dk\" data-kg-role=\"h3\">인력구조</div>\n          <div class=\"dv\" data-kg-role=\"body2\">신규채용 감소와 인력 고령화에 따른 역량 공백 우려</div>\n\n          <div class=\"dcat\" style=\"grid-row:span 2;\" data-kg-role=\"h3\">Culture<br>&amp; Mind</div>\n          <div class=\"dk\" data-kg-role=\"h3\">비전 공유</div>\n          <div class=\"dv\" data-kg-role=\"body2\">비전과 핵심가치에 대한 조직 내 공감과 공유 부족</div>\n          <div class=\"dk\" data-kg-role=\"h3\">리더십</div>\n          <div class=\"dv\" data-kg-role=\"body2\">구체적인 업무방향 제시와 구성원 동기부여 미흡</div>\n        </div>\n\n        <div class=\"dnote\" data-kg-role=\"body2\">전략과제 추진을 위한 조직·인력·재원 운영방안 수립 관점에서<br>업무 프로세스·조직 업무기능·가치사슬 3원적 요소를 모두 반영한 핵심업무 도출</div>\n      </div>\n\n      <!-- ============ 우: 프로세스 · Cascading · 중점사항 ============ -->\n      <div class=\"kg-stackcol\">\n\n        <div class=\"r1\">\n          <div class=\"bx\">\n            <div class=\"bxh\" data-kg-role=\"h2\">업무 프로세스 분석을 통한<br>핵심업무 및 이슈 도출</div>\n            <div class=\"bxb\">\n              <div class=\"prow\"><span class=\"plab\" data-kg-role=\"label\">P1</span>\n                <span class=\"ka\" data-kg-role=\"label\">KA1</span><span class=\"ka\" data-kg-role=\"label\">KA2</span>\n                <span class=\"ka\" data-kg-role=\"label\">KA3</span><span class=\"ka\" data-kg-role=\"label\">KA4</span>\n                <span class=\"ka\" data-kg-role=\"label\">KA5</span></div>\n              <div class=\"prow\"><span class=\"plab\" data-kg-role=\"label\">P2</span>\n                <span class=\"ka\" data-kg-role=\"label\">KA1</span><span class=\"ka\" data-kg-role=\"label\">KA2</span>\n                <span class=\"ka\" data-kg-role=\"label\">KA3</span></div>\n              <div class=\"prow\"><span class=\"plab\" data-kg-role=\"label\">P3</span>\n                <span class=\"ka\" data-kg-role=\"label\">KA1</span><span class=\"ka\" data-kg-role=\"label\">KA2</span>\n                <span class=\"ka\" data-kg-role=\"label\">KA3</span><span class=\"ka\" data-kg-role=\"label\">KA4</span>\n                <span class=\"ka\" data-kg-role=\"label\">KA5</span></div>\n              <div class=\"prow\"><span class=\"plab\" data-kg-role=\"label\">P4</span>\n                <span class=\"ka\" data-kg-role=\"label\">KA1</span><span class=\"ka\" data-kg-role=\"label\">KA2</span></div>\n            </div>\n          </div>\n\n          <div class=\"bx\">\n            <div class=\"bxh\" data-kg-role=\"h2\">조직별 업무 기능 분석에 의한<br>핵심업무 및 이슈 도출</div>\n            <div class=\"bxb\">\n              <div class=\"ohat hatch\"></div>\n              <div class=\"otask\" data-kg-role=\"h3\">Task 1~3</div>\n              <div class=\"olv\" data-kg-role=\"body2\"><b>1st</b> 홍보 · 예산편성 · Job</div>\n              <div class=\"olv\" data-kg-role=\"body2\"><b>2nd</b> 전략기획 · 재무관리 · 중기능</div>\n              <div class=\"olv\" data-kg-role=\"body2\"><b>3rd</b> 기획 · 대기능</div>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"bx casc\">\n          <div class=\"bxh\" data-kg-role=\"h2\">Cascading을 통한 상하 본부별 목표 및 지표의 연계</div>\n          <div class=\"bxb\">\n            <div class=\"cvis\" data-kg-role=\"h3\">전사 비전과 전략방향</div>\n            <div class=\"cvtx\" data-kg-role=\"body2\">제주 미래산업의 성장·성과를 도민에게 환원하는 지속가능한 개발 파트너</div>\n            <div class=\"crow\">\n              <div class=\"cbox\"><span class=\"kg-numdot kg-numdot--navy\" data-kg-role=\"label\">1</span>\n                <span class=\"ctx\" data-kg-role=\"body2\">핵심사업 수익<br>다변화·재무건전</span></div>\n              <span class=\"kg-plus\" data-kg-role=\"label\">+</span>\n              <div class=\"cbox\"><span class=\"kg-numdot kg-numdot--navy\" data-kg-role=\"label\">2</span>\n                <span class=\"ctx\" data-kg-role=\"body2\">미래산업<br>육성·개발이익 환원</span></div>\n              <span class=\"kg-plus\" data-kg-role=\"label\">+</span>\n              <div class=\"cbox\"><span class=\"kg-numdot kg-numdot--navy\" data-kg-role=\"label\">3</span>\n                <span class=\"ctx\" data-kg-role=\"body2\">안전·지속가능경영<br>미래형 혁신조직</span></div>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"r3\">\n          <div class=\"rlab\">\n            <span class=\"rl1\" data-kg-role=\"h3\">자원배분<br>우선순위</span>\n            <span class=\"rl2\" data-kg-role=\"label\">4대<br>중점사항</span>\n          </div>\n          <div class=\"fcd\"><span class=\"ck\"></span>\n            <div class=\"fct\" data-kg-role=\"h3\">전략체계와<br>조직구조 정합</div>\n            <div class=\"fcd_d\" data-kg-role=\"body3\">4대 방향·16개 전략과제에 맞춰 조직 기능과 전담체계 재정비</div></div>\n          <div class=\"fcd\"><span class=\"ck\"></span>\n            <div class=\"fct\" data-kg-role=\"h3\">경영평가<br>변화 대응</div>\n            <div class=\"fcd_d\" data-kg-role=\"body3\">면세·관광사업의 부진을 개선하고 미래산업·지속가능경영 성과관리 강화</div></div>\n          <div class=\"fcd\"><span class=\"ck\"></span>\n            <div class=\"fct\" data-kg-role=\"h3\">기능 재설계와<br>효율화</div>\n            <div class=\"fcd_d\" data-kg-role=\"body3\">유사 기능 통합하고 현장 중심으로 재배치해 ADX·ERM 전담기능 보강</div></div>\n          <div class=\"fcd\"><span class=\"ck\"></span>\n            <div class=\"fct\" data-kg-role=\"h3\">조직구조와<br>실행체계 연계</div>\n            <div class=\"fcd_d\" data-kg-role=\"body3\">PDCA·Cascading 기반 추진상황 관리, 사회적 가치 성과 구체화</div></div>\n        </div>\n\n      </div>\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 기관 조직·직제 규정 · 업무분장표 · 내부 진단자료</span>\n    <span class=\"kg-footer__page\" data-kg-auto=\"page\" data-kg-role=\"caption\">29</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n\n</section>",
+    "css": ".cols2{grid-template-columns:430px 1fr;gap:14px;}\n  .kg-stackcol{gap:10px;}\n  .hatch{background:repeating-linear-gradient(135deg,rgba(96,106,122,.12) 0 1px,transparent 1px 5px),var(--neutral-100);}\n\n  /* ---- 좌: 진단영역 × 주요 이슈 ---- */\n  .dtab{flex:1;min-height:0;display:grid;grid-template-columns:62px 120px 1fr;\n    grid-template-rows:auto repeat(9,1fr);gap:3px;}\n  .dh{background:var(--neutral-200);color:var(--ink-navy);font-size:14px;font-weight:800;\n    display:flex;align-items:center;justify-content:center;padding:6px 4px;border-radius:var(--r-xs);}\n  .dcat{background:var(--xg3);color:#fff;font-size:14px;font-weight:800;border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.2;padding:0 4px;}\n  .dk{background:var(--neutral-100);border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;font-weight:700;color:var(--ink-navy);line-height:1.25;padding:5px 4px;}\n  .dv{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;color:var(--ink-900);line-height:1.3;padding:5px 8px;}\n  .dnote{flex:0 0 auto;background:var(--blue-050);border:1.5px dashed var(--blue-400);\n    border-radius:var(--r-xs);padding:8px 10px;font-size:14px;line-height:1.4;\n    color:var(--ink-navy);text-align:center;font-weight:600;}\n\n  /* ---- 우: 공통 박스 ---- */\n  .bx{display:flex;flex-direction:column;min-height:0;border:1px solid var(--neutral-300);\n    border-radius:var(--r-sm);overflow:hidden;background:#fff;}\n  .bxh{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;font-size:15px;font-weight:800;\n    text-align:center;padding:7px 10px;line-height:1.25;flex:0 0 auto;}\n  .bxb{flex:1;min-height:0;padding:9px;display:flex;flex-direction:column;gap:6px;justify-content:space-between;}\n\n  /* 업무 프로세스 P1~P4 × KA */\n  .r1{display:grid;grid-template-columns:1.38fr 1fr;gap:10px;flex:0 0 auto;}\n  .prow{display:grid;grid-template-columns:34px repeat(5,1fr);gap:5px;}\n  .plab{background:var(--blue-500);color:#fff;font-size:13px;font-weight:800;border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;}\n  .ka{background:#fff;border:1px solid var(--blue-300);border-radius:var(--r-xs);\n    font-size:13px;font-weight:800;color:var(--navy-800);\n    display:flex;align-items:center;justify-content:center;padding:6px 2px;}\n\n  /* 조직별 업무기능 계층 */\n  .ohat{height:14px;border-radius:var(--r-xs);flex:0 0 auto;}\n  .otask{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border:1px solid var(--blue-400);\n    border-radius:var(--r-xs);text-align:center;font-size:14px;font-weight:800;color:var(--navy-800);\n    padding:7px 6px;}\n  .olv{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    text-align:center;font-size:14px;color:var(--ink-900);padding:6px;line-height:1.25;}\n  .olv b{color:var(--navy-800);font-weight:800;}\n\n  /* Cascading */\n  .casc{flex:0 0 auto;}\n  .cvis{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border:1px solid var(--blue-400);\n    border-radius:var(--r-xs);text-align:center;font-size:14px;font-weight:800;color:var(--navy-800);\n    padding:5px 8px;}\n  .cvtx{text-align:center;font-size:14px;color:var(--ink-900);line-height:1.35;padding:2px 0;}\n  .crow{display:flex;align-items:stretch;gap:6px;}\n  .cbox{flex:1;display:flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--neutral-300);\n    border-radius:var(--r-xs);padding:7px 9px;}\n  .cbox .kg-numdot{width:21px;height:21px;font-size:12px;}\n  .ctx{font-size:14px;font-weight:700;color:var(--ink-navy);line-height:1.25;}\n  .crow .kg-plus{align-self:center;width:21px;height:21px;font-size:13px;}\n\n  /* 4대 중점사항 */\n  .r3{display:grid;grid-template-columns:86px repeat(4,1fr);gap:8px;flex:1;min-height:0;}\n  /* 글자만 두면 칸이 비어 보인다. 두 조각으로 나눠 세로를 채운다 */\n  .rlab{background:var(--neutral-200);border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    display:flex;flex-direction:column;gap:5px;padding:5px;}\n  .rlab span{display:flex;align-items:center;justify-content:center;text-align:center;\n    border-radius:var(--r-xs);line-height:1.35;padding:4px 3px;}\n  .rl1{flex:1.35;background:#fff;border:1px solid var(--neutral-300);\n    font-size:15px;font-weight:800;color:var(--ink-navy);}\n  .rl2{flex:1;background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;\n    font-size:14px;font-weight:800;}\n  .fcd{display:flex;flex-direction:column;gap:5px;background:#fff;border:1px solid var(--neutral-300);\n    border-radius:var(--r-xs);padding:8px 8px 9px;}\n  /* 체크 표시 — ✓ 글리프는 문구 규칙에서 장식으로 걸린다. CSS 마스크로 그린다 */\n  .ck{width:16px;height:16px;flex:0 0 auto;background:var(--blue-500);align-self:center;\n    -webkit-mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E\") center/contain no-repeat;\n            mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E\") center/contain no-repeat;}\n  .fct{font-size:14px;font-weight:800;color:var(--navy-800);text-align:center;line-height:1.25;}\n  .fcd_d{font-size:14px;color:var(--ink-700);line-height:1.35;text-align:center;}",
+    "origin": "29_조직진단실행체계정렬.html"
+  },
+  "patches": {
+    "n.1.0": {
+      "text": {
+        "html": "본 기관의 업무 프로세스와 조직 기능을 기준으로 구조·운영·문화 이슈를 진단하고 전략·성과관리·기능·실행체계를 정렬"
+      }
+    },
+    "n.2.0.0.0.3": {
+      "text": {
+        "html": "Struc<br>-ture"
+      }
+    },
+    "n.2.0.0.0.10": {
+      "text": {
+        "html": "Opera<br>-tion"
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "07"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "운용계획 및 실행력 강화"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "조직구조진단 및 실행체계 고도화"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h3": {
+        "fontSize": 17
+      },
+      "h2": {
+        "fontSize": 18
+      },
+      "body2": {
+        "fontSize": 16
+      },
+      "body3": {
+        "fontSize": 15
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T07:58:33.866Z",
+  "updatedAt": "2026-07-27T14:16:12.727Z"
+}

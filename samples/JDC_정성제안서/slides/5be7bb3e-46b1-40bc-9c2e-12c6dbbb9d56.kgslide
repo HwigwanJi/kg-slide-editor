@@ -1,0 +1,83 @@
+{
+  "v": 5,
+  "id": "5be7bb3e-46b1-40bc-9c2e-12c6dbbb9d56",
+  "title": "외부 자문위원 Pool — 16인",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"외부 자문위원\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"message\">03</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">프로젝트 참여인력</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">외부 자문위원 Pool</div>\n    </div>\n    <div class=\"kg-chapter-tab\"><span class=\"kg-chapter-tab__roman\" data-kg-role=\"label\">Ⅰ</span><span class=\"kg-chapter-tab__sep\"></span><span class=\"kg-chapter-tag\" data-kg-role=\"label\">제안 개요</span></div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">공공기관 평가 · 인사제도 · 전략 컨설팅 <b>외부 자문위원 16명</b> 운영</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"wrap\">\n\n      <div class=\"top\">\n        <div class=\"legend\">\n          <div class=\"lg\"><i class=\"c1\"></i><span data-kg-role=\"label2\">경영전략</span></div>\n          <div class=\"lg\"><i class=\"c2\"></i><span data-kg-role=\"label2\">경영평가</span></div>\n          <div class=\"lg\"><i class=\"c3\"></i><span data-kg-role=\"label2\">성과관리</span></div>\n        </div>\n        <div class=\"kg-subtopic\" data-kg-role=\"h1\">외부 자문위원 Pool</div>\n        <div></div>\n      </div>\n\n      <div class=\"cols\">\n        <!-- ───── 좌 ───── -->\n        <div class=\"tbl\">\n          <div class=\"tr\">\n            <div class=\"th\" data-kg-role=\"h3\">성명</div>\n            <div class=\"th\" data-kg-role=\"h3\">소속 · 자격</div>\n            <div class=\"th\" data-kg-role=\"h3\">이력 · 분야</div>\n            <div class=\"th\" data-kg-role=\"h3\">과업</div>\n          </div>\n\n          <div class=\"tr\">\n            <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">황준호</span></div>\n            <div class=\"td td--c\"><span class=\"af\" data-kg-role=\"body2\">고려대학교 경영학과</span></div>\n            <div class=\"td fld td--c\"><span data-kg-role=\"h3\">산업규모 확대 및 발전방향 분석 · 산업환경 진단</span></div>\n            <div class=\"td task\"><i class=\"q on1\"></i><i class=\"q on2\"></i><i class=\"q on3\"></i></div>\n          </div>\n\n          <div class=\"tr\">\n            <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">남태우</span></div>\n            <div class=\"td td--c\"><span class=\"af\" data-kg-role=\"body2\">성균관대학교 행정학과</span></div>\n            <div class=\"td fld td--c\"><span data-kg-role=\"h3\">정부업무평가 · 공공정책 · 산업육성 · 조직혁신</span></div>\n            <div class=\"td task\"><i class=\"q\"></i><i class=\"q on2\"></i><i class=\"q on3\"></i></div>\n          </div>\n\n          <div class=\"tr\">\n            <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">이정언</span></div>\n            <div class=\"td td--c\"><span class=\"af\" data-kg-role=\"body2\">배재대학교 경영학과</span></div>\n            <div class=\"td fld td--c\"><span data-kg-role=\"h3\">경영전략 · 사업개선방안 연구 · 산업변화요인 분석</span></div>\n            <div class=\"td task\"><i class=\"q\"></i><i class=\"q on2\"></i><i class=\"q on3\"></i></div>\n          </div>\n\n          <div class=\"tr\">\n            <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">유태용</span></div>\n            <div class=\"td td--c\"><span class=\"af\" data-kg-role=\"body2\">광운대학교 산업심리학과</span></div>\n            <div class=\"td fld td--c\"><span data-kg-role=\"h3\">조직심리 · 직무적성 · 조직역량</span></div>\n            <div class=\"td task\"><i class=\"q on1\"></i><i class=\"q on2\"></i><i class=\"q\"></i></div>\n          </div>\n\n          <div class=\"tr\">\n            <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">박경원</span></div>\n            <div class=\"td td--c\"><span class=\"af\" data-kg-role=\"body2\">서울여자대학교 행정학과</span></div>\n            <div class=\"td fld td--c\"><span data-kg-role=\"h3\">인사행정 · 국정관리 · 조직이론</span></div>\n            <div class=\"td task\"><i class=\"q on1\"></i><i class=\"q on2\"></i><i class=\"q on3\"></i></div>\n          </div>\n\n          <div class=\"tr\">\n            <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">김신우</span></div>\n            <div class=\"td td--c\"><span class=\"af\" data-kg-role=\"body2\">광운대학교 산업심리학과</span></div>\n            <div class=\"td fld td--c\"><span data-kg-role=\"h3\">고위공무원단 평가 · 공공기관 역량평가 · 채용선발</span></div>\n            <div class=\"td task\"><i class=\"q on1\"></i><i class=\"q\"></i><i class=\"q on3\"></i></div>\n          </div>\n\n          <div class=\"tr\">\n            <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">박인후</span></div>\n            <div class=\"td td--c\"><span class=\"af\" data-kg-role=\"body2\">고려대학교 교육학과</span></div>\n            <div class=\"td fld td--c\"><span data-kg-role=\"h3\">조직 · 직무 · 성과 진단</span></div>\n            <div class=\"td task\"><i class=\"q\"></i><i class=\"q on2\"></i><i class=\"q on3\"></i></div>\n          </div>\n\n          <div class=\"tr\">\n            <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">이선우</span></div>\n            <div class=\"td td--c\"><span class=\"af\" data-kg-role=\"body2\">한국방송통신대학교 행정학과</span></div>\n            <div class=\"td fld td--c\"><span data-kg-role=\"h3\">기획재정부 경영평가위원 · 행정안전부 책임운영기관 평가위원</span></div>\n            <div class=\"td task\"><i class=\"q on1\"></i><i class=\"q on2\"></i><i class=\"q on3\"></i></div>\n          </div>\n        </div>\n\n        <!-- ───── 우 ───── -->\n        <div class=\"tbl\">\n          <div class=\"tr\">\n            <div class=\"th\" data-kg-role=\"h3\">성명</div>\n            <div class=\"th\" data-kg-role=\"h3\">소속 · 자격</div>\n            <div class=\"th\" data-kg-role=\"h3\">이력 · 분야</div>\n            <div class=\"th\" data-kg-role=\"h3\">과업</div>\n          </div>\n\n          <div class=\"tr\">\n            <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">김미경</span></div>\n            <div class=\"td td--c\"><span class=\"af\" data-kg-role=\"body2\">상명대학교 행정학과</span></div>\n            <div class=\"td fld td--c\"><span data-kg-role=\"h3\">정부업무평가 · 조직혁신 · 경영평가단장 · 재정운용심의</span></div>\n            <div class=\"td task\"><i class=\"q on1\"></i><i class=\"q on2\"></i><i class=\"q on3\"></i></div>\n          </div>\n\n          <div class=\"tr\">\n            <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">이영우</span></div>\n            <div class=\"td td--c\"><span class=\"af\" data-kg-role=\"body2\">공인회계사</span></div>\n            <div class=\"td fld td--c\"><span data-kg-role=\"h3\">재무성과 · 자원분배 · 재무영향 및 예산 적정성 평가</span></div>\n            <div class=\"td task\"><i class=\"q on1\"></i><i class=\"q on2\"></i><i class=\"q\"></i></div>\n          </div>\n\n          <div class=\"tr\">\n            <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">한인숙</span></div>\n            <div class=\"td td--c\"><span class=\"af\" data-kg-role=\"body2\">Temple University</span></div>\n            <div class=\"td fld td--c\"><span data-kg-role=\"h3\">AX · DX 발전방향 · 미래산업 로드맵</span></div>\n            <div class=\"td task\"><i class=\"q on1\"></i><i class=\"q on2\"></i><i class=\"q\"></i></div>\n          </div>\n\n          <div class=\"tr\">\n            <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">정용주</span></div>\n            <div class=\"td td--c\"><span class=\"af\" data-kg-role=\"body2\">University of Oklahoma</span></div>\n            <div class=\"td fld td--c\"><span data-kg-role=\"h3\">조직혁신 · 조직변화관리 · 인사제도 개선</span></div>\n            <div class=\"td task\"><i class=\"q on1\"></i><i class=\"q\"></i><i class=\"q on3\"></i></div>\n          </div>\n\n          <div class=\"tr\">\n            <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">임정빈</span></div>\n            <div class=\"td td--c\"><span class=\"af\" data-kg-role=\"body2\">성결대학교 행정학과</span></div>\n            <div class=\"td fld td--c\"><span data-kg-role=\"h3\">조직성과평가 · 성과과제 컨설팅 · 조직진단 · 인사행정</span></div>\n            <div class=\"td task\"><i class=\"q on1\"></i><i class=\"q on2\"></i><i class=\"q on3\"></i></div>\n          </div>\n\n          <div class=\"tr\">\n            <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">황원상</span></div>\n            <div class=\"td td--c\"><span class=\"af\" data-kg-role=\"body2\">고려대학교 경영학과</span></div>\n            <div class=\"td fld td--c\"><span data-kg-role=\"h3\">공공기관 재무체계 · 공공부문 예산 적정성 평가</span></div>\n            <div class=\"td task\"><i class=\"q on1\"></i><i class=\"q on2\"></i><i class=\"q\"></i></div>\n          </div>\n\n          <div class=\"tr\">\n            <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">임성열</span></div>\n            <div class=\"td td--c\"><span class=\"af\" data-kg-role=\"body2\">고려대학교 융합학과</span></div>\n            <div class=\"td fld td--c\"><span data-kg-role=\"h3\">산업환경 · AI 전환 · 산업진흥</span></div>\n            <div class=\"td task\"><i class=\"q on1\"></i><i class=\"q\"></i><i class=\"q\"></i></div>\n          </div>\n\n          <div class=\"tr\">\n            <div class=\"td td--c\"><span class=\"nm\" data-kg-role=\"body2\">김기태</span></div>\n            <div class=\"td td--c\"><span class=\"af\" data-kg-role=\"body2\">상명대학교 경영학과</span></div>\n            <div class=\"td fld td--c\"><span data-kg-role=\"h3\">인적자원관리 · 인사평가 · 조직성과 · 인사조직</span></div>\n            <div class=\"td task\"><i class=\"q on1\"></i><i class=\"q on2\"></i><i class=\"q on3\"></i></div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 케인즈그룹 외부 자문위원 Pool 명부 / 과업 표시는 위원별 주 참여 분야</span>\n    <span class=\"kg-footer__page\" data-kg-role=\"caption\" data-kg-auto=\"page\">–</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".wrap{flex:1;min-height:0;display:grid;grid-template-rows:auto 1fr;gap:10px;}\n\n  /* ── 소주제 + 범례 ─────────────────────────────── */\n  .top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;\n    border-bottom:1px solid var(--neutral-300);padding-bottom:6px;}\n  .top .kg-subtopic{margin:0;padding:0;border:none;}\n  .legend{display:flex;align-items:center;gap:14px;}\n  .lg{display:flex;align-items:center;gap:6px;}\n  .lg i{width:14px;height:14px;border-radius:2px;display:block;}\n  .lg span{font-size:13px;font-weight:700;color:var(--ink-700);}\n  .c1{background:var(--navy-800);}\n  .c2{background:var(--amber-500);}\n  .c3{background:var(--blue-500);}\n\n  /* ── 2열 명단 ──────────────────────────────────── */\n  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;min-height:0;}\n  .tbl{display:grid;grid-template-rows:auto repeat(8,1fr);gap:3px;min-height:0;}\n  .tr{display:grid;grid-template-columns:64px 186px 1fr 94px;gap:3px;}\n  .th{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;font-size:14px;font-weight:800;\n    text-align:center;padding:6px 6px;border-radius:2px;}\n  .td{background:#fff;border:1px solid var(--neutral-300);border-radius:2px;\n    padding:5px 8px;display:flex;flex-direction:column;justify-content:center;}\n  .td--c{align-items:center;text-align:center;}\n  .nm{font-size:14px;font-weight:700;color:var(--ink-navy);white-space:nowrap;}\n  .af{font-size:14px;color:var(--ink-900);line-height:1.3;text-align:center;}\n  .fld{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border-color:var(--blue-400);}\n  .fld span{font-size:14px;font-weight:700;color:var(--navy-800);line-height:1.3;text-align:center;}\n  /* .td 가 세로 flex 라 방향을 되돌려야 세 칸이 가로로 선다 */\n  .task{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:6px;}\n  .q{width:16px;height:16px;border-radius:2px;border:1px solid var(--neutral-300);\n    background:#fff;display:block;}\n  .q.on1{background:var(--navy-800);border-color:var(--navy-800);}\n  .q.on2{background:var(--amber-500);border-color:var(--amber-500);}\n  .q.on3{background:var(--blue-500);border-color:var(--blue-500);}",
+    "origin": "02b_자문위원.html"
+  },
+  "patches": {
+    "n.0.3.0": {
+      "text": {
+        "html": "일반현황"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "외부 자문위원 POOL"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅱ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "제안사 소개"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          24.4,
+          8,
+          24.4
+        ]
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "02"
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "body2": {
+        "fontSize": 16
+      },
+      "h3": {
+        "fontSize": 15
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T07:07:37.677Z",
+  "updatedAt": "2026-07-27T14:16:07.023Z"
+}

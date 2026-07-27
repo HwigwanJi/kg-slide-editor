@@ -7,7 +7,7 @@
  * 임포트 시점에 상단 고정 위계를 잠근다. 헤더·메시지띠·꼬리말은 KG 장표의 정체성이라
  * 실수로 끌어 옮기거나 지우면 장표 전체가 무너진다. 필요하면 사용자가 잠금을 푼다.
  */
-import { LOCKED_BY_DEFAULT, createSlideDoc, type SlideDoc } from '@contract/index';
+import { ASSETS_DIR, LOCKED_BY_DEFAULT, createSlideDoc, type SlideDoc } from '@contract/index';
 import { ID_ATTR, stampIds } from '@core/index';
 
 export interface ImportOptions {
@@ -20,7 +20,10 @@ export interface ImportOptions {
 const ASSET_REF = /^(?:\.\.\/)*assets\//;
 
 export function importKgHtml(html: string, opts: ImportOptions = {}): SlideDoc {
-  const assetBase = opts.assetBase ?? '/kg/assets/';
+  // 프로젝트 기준 상대경로로 맞춘다. 작도 원본은 slides/ 안에 있어 `../assets/` 로 가리키는데,
+  // 그대로 두면 적재 후 위치가 달라 깨진다. 절대경로나 남의 폴더(/kg/assets/)로 바꾸지는 않는다 —
+  // 그러면 프로젝트를 옮길 때 그림이 따라오지 않고, 스킬 폴더는 setup 이 갈아 끼운다(ASSETS_DIR).
+  const assetBase = opts.assetBase ?? `${ASSETS_DIR}/`;
   const parsed = new DOMParser().parseFromString(html, 'text/html');
 
   const slide = parsed.querySelector<HTMLElement>('section.kg-slide');

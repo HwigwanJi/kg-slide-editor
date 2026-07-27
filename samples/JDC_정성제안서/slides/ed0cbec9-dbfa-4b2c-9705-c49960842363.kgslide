@@ -1,0 +1,103 @@
+{
+  "v": 5,
+  "id": "ed0cbec9-dbfa-4b2c-9705-c49960842363",
+  "title": "주요사업 성과 및 BP 확산",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"주요사업 성과 및 BP 확산\">\n\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"num\">04</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">운용계획 수립 및 실행력 강화</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">주요사업 성과 및 BP 확산</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">Ⅳ</span><span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\" data-kg-role=\"label\">운용·실행력</span>\n    </div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">주요사업별 성과와 대응방향을 진단하고, 정량성과·차별성·ESG 정합성·확산성을 기준으로 우수사례를 선별해 조직 전반으로 확산</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"subrow\">\n      <div class=\"kg-subtopic\" data-kg-role=\"h2\">주요사업 성과 진단</div>\n      <div class=\"kg-subtopic\" data-kg-role=\"h2\">BP 발굴·확산</div>\n    </div>\n\n    <div class=\"kg-content cols2\">\n\n      <!-- ============ 좌: 성과 진단 ============ -->\n      <div class=\"dg\">\n        <div class=\"dh\" data-kg-role=\"h3\">주요사업</div>\n        <div class=\"dh\" data-kg-role=\"h3\">성과 분석</div>\n        <div class=\"dh\" data-kg-role=\"h3\">대응법</div>\n\n        <div class=\"dk\" data-kg-role=\"h3\">지정면세</div>\n        <div class=\"dv hatch\" data-kg-role=\"body2\">3년 연속 감소<br>⟹ 누적매출 8.2조·환원 재원</div>\n        <div class=\"dr\" data-kg-role=\"body2\">규제완화·채널·객단가</div>\n\n        <div class=\"dk\" data-kg-role=\"h3\">첨단과기단지</div>\n        <div class=\"dv hatch\" data-kg-role=\"body2\">입주 206사·매출 7.6조<br>·고용 3,382명</div>\n        <div class=\"dr\" data-kg-role=\"body2\">2단지·RE100 그린DC</div>\n\n        <div class=\"dk\" data-kg-role=\"h3\">영어교육도시</div>\n        <div class=\"dv hatch\" data-kg-role=\"body2\">재학생 △10.4%<br>국제학교 4→5개</div>\n        <div class=\"dr\" data-kg-role=\"body2\">정주여건·FSAA</div>\n\n        <div class=\"dk\" data-kg-role=\"h3\">신화역사공원</div>\n        <div class=\"dv hatch\" data-kg-role=\"body2\">운영사 의존<br>- 카지노 회복·J지구</div>\n        <div class=\"dr\" data-kg-role=\"body2\">비게이밍·MICE</div>\n\n        <div class=\"dk\" data-kg-role=\"h3\">헬스케어타운</div>\n        <div class=\"dv hatch\" data-kg-role=\"body2\">10년 표류 - 정상화 착수</div>\n        <div class=\"dr\" data-kg-role=\"body2\">웰니스·회수관리</div>\n\n        <div class=\"dk\" data-kg-role=\"h3\">공공임대·환원</div>\n        <div class=\"dv hatch\" data-kg-role=\"body2\">리슈빌 793세대·사회공헌 1,644억</div>\n        <div class=\"dr\" data-kg-role=\"body2\">기업연계·환원 제도화</div>\n      </div>\n\n      <!-- ============ 우: BP 발굴·확산 ============ -->\n      <div class=\"kg-stackcol\" style=\"gap:9px;\">\n        <div class=\"rt\" data-kg-role=\"h3\">발굴 기준</div>\n        <div class=\"crit\">\n          <div class=\"crc\"><span class=\"kg-numdot kg-numdot--navy\" data-kg-role=\"label\">1</span>\n            <span class=\"t\" data-kg-role=\"body2\">정량 성과</span></div>\n          <div class=\"crc\"><span class=\"kg-numdot kg-numdot--navy\" data-kg-role=\"label\">2</span>\n            <span class=\"t\" data-kg-role=\"body2\">차별성·혁신성</span></div>\n          <div class=\"crc\"><span class=\"kg-numdot kg-numdot--navy\" data-kg-role=\"label\">3</span>\n            <span class=\"t\" data-kg-role=\"body2\">국정·ESG 정합</span></div>\n          <div class=\"crc\"><span class=\"kg-numdot kg-numdot--navy\" data-kg-role=\"label\">4</span>\n            <span class=\"t\" data-kg-role=\"body2\">확산·재현성</span></div>\n        </div>\n\n        <div class=\"rt\" data-kg-role=\"h3\">확산 프로세스</div>\n        <div class=\"flow\">\n          <span class=\"n\" data-kg-role=\"body2\">발굴</span><span class=\"a\"></span>\n          <span class=\"n\" data-kg-role=\"body2\">검증</span><span class=\"a\"></span>\n          <span class=\"n\" data-kg-role=\"body2\">스토리화</span><span class=\"a\"></span>\n          <span class=\"n\" data-kg-role=\"body2\">확산</span><span class=\"a\"></span>\n          <span class=\"n\" data-kg-role=\"body2\">평가·인사</span>\n        </div>\n\n        <div class=\"rt\" data-kg-role=\"h3\">JDC BP 후보 6선</div>\n        <div class=\"bpl\">\n          <div class=\"bpr hatch\"><span class=\"bpn\" data-kg-role=\"label\">1</span>\n            <span class=\"bpt\" data-kg-role=\"body2\">첨단과기단지 산업생태계</span>\n            <span class=\"bpg\" data-kg-role=\"label\">국정 균형성장·AI</span></div>\n          <div class=\"bpr hatch\"><span class=\"bpn\" data-kg-role=\"label\">2</span>\n            <span class=\"bpt\" data-kg-role=\"body2\">ADX 생성형AI 활용</span>\n            <span class=\"bpg\" data-kg-role=\"label\">경영실적 평가<br>AI 가점</span></div>\n          <div class=\"bpr hatch\"><span class=\"bpn\" data-kg-role=\"label\">3</span>\n            <span class=\"bpt\" data-kg-role=\"body2\">개발이익 제주 환원</span>\n            <span class=\"bpg\" data-kg-role=\"label\">ESG-S·도민소득</span></div>\n          <div class=\"bpr hatch\"><span class=\"bpn\" data-kg-role=\"label\">4</span>\n            <span class=\"bpt\" data-kg-role=\"body2\">고객만족 PCSI 95.4</span>\n            <span class=\"bpg\" data-kg-role=\"label\">국민중심</span></div>\n          <div class=\"bpr hatch\"><span class=\"bpn\" data-kg-role=\"label\">5</span>\n            <span class=\"bpt\" data-kg-role=\"body2\">로컬파트너·참여 거버넌스</span>\n            <span class=\"bpg\" data-kg-role=\"label\">사회적가치</span></div>\n          <div class=\"bpr hatch\"><span class=\"bpn\" data-kg-role=\"label\">6</span>\n            <span class=\"bpt\" data-kg-role=\"body2\">제주형 RE100·그린DC</span>\n            <span class=\"bpg\" data-kg-role=\"label\">ESG-E·탄소중립</span></div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 기관 경영공시 · 사업별 추진현황 · 내부 진단자료</span>\n    <span class=\"kg-footer__page\" data-kg-auto=\"page\" data-kg-role=\"caption\">32</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n\n</section>",
+    "css": ".subrow{display:grid;grid-template-columns:700px 1fr;gap:16px;}\n  .cols2{grid-template-columns:700px 1fr;gap:16px;}\n  .hatch{background:repeating-linear-gradient(135deg,rgba(96,106,122,.09) 0 1px,transparent 1px 5px);}\n\n  /* ---- 좌: 주요사업 성과 진단 ---- */\n  .dg{flex:1;min-height:0;display:grid;grid-template-columns:126px 1fr 226px;\n    grid-template-rows:auto repeat(6,1fr);gap:7px;}\n  .dh{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;font-size:15px;font-weight:800;\n    display:flex;align-items:center;justify-content:center;border-radius:var(--r-xs);padding:7px 6px;}\n  .dk{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;font-weight:800;line-height:1.25;padding:6px 5px;}\n  .dv{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;line-height:1.4;color:var(--ink-900);padding:7px 9px;}\n  .dr{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border:1px solid var(--blue-400);\n    border-radius:var(--r-xs);display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;font-weight:700;color:var(--navy-800);line-height:1.3;padding:7px 8px;}\n\n  /* ---- 우: BP 발굴·확산 ---- */\n  .rt{font-size:15px;font-weight:800;color:var(--navy-800);text-decoration:underline;\n    text-underline-offset:4px;flex:0 0 auto;margin-bottom:2px;}\n  .crit{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;flex:0 0 auto;}\n  .crc{display:flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--neutral-300);\n    border-radius:var(--r-pill);padding:5px 10px;}\n  .crc .kg-numdot{width:19px;height:19px;font-size:12px;}\n  .crc span.t{font-size:14px;font-weight:700;color:var(--ink-navy);}\n\n  .flow{display:flex;align-items:center;gap:4px;flex:0 0 auto;}\n  .flow .n{flex:1;text-align:center;background:linear-gradient(180deg,#EAF1FB,#D9E6F5);\n    border:1px solid var(--blue-400);border-radius:var(--r-xs);\n    font-size:14px;font-weight:700;color:var(--navy-800);padding:7px 2px;line-height:1.2;}\n  .flow .a{flex:0 0 auto;width:0;height:0;border-top:5px solid transparent;\n    border-bottom:5px solid transparent;border-left:7px solid var(--blue-500);}\n\n  .bpl{flex:1;min-height:0;display:flex;flex-direction:column;gap:6px;}\n  .bpr{flex:1;display:flex;align-items:center;gap:9px;border:1px solid var(--neutral-300);\n    border-radius:var(--r-xs);padding:6px 10px;}\n  .bpn{flex:0 0 auto;width:20px;height:20px;border-radius:50%;background:var(--neutral-200);\n    color:var(--ink-navy);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}\n  .bpt{flex:1;font-size:14px;font-weight:700;color:var(--ink-navy);line-height:1.25;}\n  .bpg{flex:0 0 auto;font-size:13px;font-weight:800;color:var(--navy-800);text-align:right;line-height:1.2;}",
+    "origin": "32_주요사업성과BP확산.html"
+  },
+  "patches": {
+    "n.2.1.1.1.1.1": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.1.1.1.0.1": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.1.1.1.2.1": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.1.1.1.3.1": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "07"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "운용계획 및 실행력 강화"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "주요사업별 성과확산 방안"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "body2": {
+        "fontSize": 17
+      },
+      "h3": {
+        "fontSize": 17
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T08:39:11.510Z",
+  "updatedAt": "2026-07-27T14:16:13.500Z"
+}

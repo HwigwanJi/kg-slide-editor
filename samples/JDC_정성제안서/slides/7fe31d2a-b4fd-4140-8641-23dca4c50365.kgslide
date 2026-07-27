@@ -1,0 +1,88 @@
+{
+  "v": 5,
+  "id": "7fe31d2a-b4fd-4140-8641-23dca4c50365",
+  "title": "이해관계자 분류 및 소통관리체계 고도화",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"이해관계자 분류 · 소통관리\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"message\">02</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">사업분석 및 이해관계자 진단</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">이해관계자 분류 및 소통관리체계 고도화</div>\n    </div>\n    <div class=\"kg-chapter-tab\"><span class=\"kg-chapter-tab__roman\" data-kg-role=\"label\">Ⅱ</span><span class=\"kg-chapter-tab__sep\"></span><span class=\"kg-chapter-tag\" data-kg-role=\"label\">사업 · 이해관계자</span></div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">영향력 · 이해관계 수준 분류에 <b>가치의 창출 · 증대 · 전달 · 향유 관점</b>을 더해 입체 재구성</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"wrap\">\n\n      <!-- ══ 상 : 분류 축과 전환 ══ -->\n      <div class=\"low\">\n\n        <!-- 가치사슬 갈래 -->\n        <div class=\"pn\">\n          <div class=\"pn__h\" data-kg-role=\"h3\">가치사슬 기반 이해관계자 분류</div>\n          <div class=\"pn__b\">\n            <div class=\"vcd\">\n              <div class=\"vcd__g\">\n                <div class=\"nd nd--l\" data-kg-role=\"h3\">가치 창출</div>\n                <div class=\"lk lk--l\"></div>\n                <div class=\"nd nd--t\" data-kg-role=\"h3\">가치 전달</div>\n                <div class=\"nd nd--b\" data-kg-role=\"h3\">가치 증대</div>\n                <div class=\"lk lk--r\"></div>\n                <div class=\"nd nd--r\" data-kg-role=\"h3\">가치 향유</div>\n              </div>\n              <div class=\"vcd__n\" data-kg-role=\"caption\">가치의 창출 · 증대 · 전달 · 향유 과정에 따른 이해관계자 분류</div>\n            </div>\n          </div>\n        </div>\n\n        <!-- 현행 -->\n        <div class=\"pn\">\n          <div class=\"pn__h\" data-kg-role=\"h3\">현행 · 영향력 × 이해관계 수준</div>\n          <div class=\"pn__b\">\n            <div class=\"mx\">\n              <div class=\"ax\" data-kg-role=\"label\"><b>低</b>정책 영향도<b>高</b></div>\n              <div class=\"q\">\n                <span class=\"q__g\" data-kg-role=\"label\">B그룹</span>\n                <span class=\"q__t\" data-kg-role=\"body2\">만족상태 유지</span>\n              </div>\n              <div class=\"q\">\n                <span class=\"q__g\" data-kg-role=\"label\">A그룹</span>\n                <span class=\"q__t\" data-kg-role=\"body2\">집중 관리</span>\n              </div>\n              <div class=\"q\">\n                <span class=\"q__g\" data-kg-role=\"label\">D그룹</span>\n                <span class=\"q__t\" data-kg-role=\"body2\">지속 모니터링</span>\n              </div>\n              <div class=\"q\">\n                <span class=\"q__g\" data-kg-role=\"label\">C그룹</span>\n                <span class=\"q__t\" data-kg-role=\"body2\">정보 제공</span>\n              </div>\n              <div class=\"axb axb--2\" data-kg-role=\"label\"><b>低</b>이해관계 수준<b>高</b></div>\n            </div>\n          </div>\n        </div>\n\n        <!-- 전환 -->\n        <div class=\"tr\">\n          <span class=\"tr__t\" data-kg-role=\"h3\">가치사슬 과정기반 입체관리</span>\n          <span class=\"tr__a\"></span>\n        </div>\n\n        <!-- 개선 -->\n        <div class=\"pn\">\n          <div class=\"pn__h\" data-kg-role=\"h3\">개선 · 가치사슬 입체관리</div>\n          <div class=\"pn__b\">\n            <div class=\"mx3\">\n              <div class=\"ax ax--4\" data-kg-role=\"label\"><b>低</b>정책 영향도<b>高</b></div>\n              <div class=\"ly\" style=\"grid-column:2;grid-row:1\" data-kg-role=\"h3\">창출</div>\n              <div class=\"dep\">\n                <svg viewBox=\"0 0 20 160\" preserveAspectRatio=\"none\" aria-hidden=\"true\">\n                  <path d=\"M0 0 L20 12 L20 42 L0 34 Z\" fill=\"var(--blue-300)\"></path>\n                  <path d=\"M0 38 L20 48 L20 78 L0 72 Z\" fill=\"var(--blue-400)\"></path>\n                  <path d=\"M0 76 L20 84 L20 114 L0 110 Z\" fill=\"var(--blue-500)\"></path>\n                  <path d=\"M0 114 L20 120 L20 150 L0 148 Z\" fill=\"var(--blue-600)\"></path>\n                </svg>\n                <span class=\"dep__l\" data-kg-role=\"label\">가치사슬</span>\n              </div>\n              <div class=\"ly\" style=\"grid-column:2;grid-row:2\" data-kg-role=\"h3\">증대</div>\n              <div class=\"ly\" style=\"grid-column:2;grid-row:3\" data-kg-role=\"h3\">전달</div>\n              <div class=\"ly\" style=\"grid-column:2;grid-row:4\" data-kg-role=\"h3\">향유</div>\n              <div class=\"axb axb--3\" data-kg-role=\"label\"><b>低</b>이해관계 수준<b>高</b></div>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <!-- ══ 하 : 이해관계자 구분 정의 ══ -->\n      <div class=\"tbl\">\n        <div class=\"th\" data-kg-role=\"h3\">이해관계자 구분</div>\n        <div class=\"th\" data-kg-role=\"h3\">정의</div>\n        <div class=\"th\" data-kg-role=\"h3\">예시</div>\n        <div class=\"th\" style=\"grid-column:5\" data-kg-role=\"h3\">소통그룹 연계</div>\n\n        <div class=\"tbl__a\">\n          <svg viewBox=\"0 0 26 200\" preserveAspectRatio=\"none\" aria-hidden=\"true\">\n            <defs><linearGradient id=\"jdc-ar\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">\n              <stop offset=\"0\" stop-color=\"var(--blue-200)\"></stop>\n              <stop offset=\"1\" stop-color=\"var(--blue-500)\"></stop>\n            </linearGradient></defs>\n            <path d=\"M7 0 H19 V158 H26 L13 200 L0 158 H7 Z\" fill=\"url(#jdc-ar)\"></path>\n          </svg>\n        </div>\n\n        <div class=\"c c--k\" data-kg-role=\"h3\">가치 창출 고객</div>\n        <div class=\"c\" data-kg-role=\"body2\">사업 수행, ESG 인프라 지원, 기술개발 등을 통해 가치를 직접 만들어내는 주체</div>\n        <div class=\"c\" data-kg-role=\"body2\">첨단 입주기업, 연구기관, 협력 대기업, 창업기업 등</div>\n        <div class=\"c c--g\" style=\"grid-column:5\" data-kg-role=\"label\">A그룹</div>\n\n        <div class=\"c c--k\" data-kg-role=\"h3\">가치 증대 고객</div>\n        <div class=\"c\" data-kg-role=\"body2\">창출된 가치의 규모와 영향력을 확대하거나 제도적 기반을 제공하는 주체</div>\n        <div class=\"c\" data-kg-role=\"body2\">국토교통부, 국회, 제주도, 전문가, 해외투자자 및 녹지그룹 등</div>\n        <div class=\"c c--g\" style=\"grid-column:5\" data-kg-role=\"label\">B그룹</div>\n\n        <div class=\"c c--k\" data-kg-role=\"h3\">가치 전달 고객</div>\n        <div class=\"c\" data-kg-role=\"body2\">내 · 외부에서 창출된 가치를 수혜자에게 전달하고 확산하는 주체</div>\n        <div class=\"c\" data-kg-role=\"body2\">면세 · 관광사업자, 금융기관, 지방자치단체, 언론 등</div>\n        <div class=\"c c--g\" style=\"grid-column:5\" data-kg-role=\"label\">C그룹</div>\n\n        <div class=\"c c--k\" data-kg-role=\"h3\">가치 향유 고객</div>\n        <div class=\"c\" data-kg-role=\"body2\">창출된 가치와 서비스를 직접 이용하거나 그 성과를 체감하는 주체</div>\n        <div class=\"c\" data-kg-role=\"body2\">도민, 관광객, 공공임대 입주민, 학부모, 취약계층</div>\n        <div class=\"c c--g\" style=\"grid-column:5\" data-kg-role=\"label\">D그룹</div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: JDC 이해관계자 현황 · Mitchell Salience 분류 기준 · 가치사슬 단계별 재구성</span>\n    <span class=\"kg-footer__page\" data-kg-role=\"caption\" data-kg-auto=\"page\">–</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".wrap{flex:1;min-height:0;display:grid;grid-template-rows:1fr 1.22fr;gap:13px;}\n\n  /* ── 상 : 3개 패널 ──────────────────────────── */\n  .low{display:grid;grid-template-columns:1fr 1.02fr 78px 1.02fr;gap:10px;min-height:0;}\n  .pn{display:grid;grid-template-rows:auto 1fr;gap:8px;min-height:0;}\n  .pn__h{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;border-radius:var(--r-xs);\n    font-size:14px;font-weight:800;text-align:center;padding:5px 8px;letter-spacing:-.01em;}\n  .pn__b{border:1px solid var(--neutral-300);border-radius:var(--r-xs);background:#fff;\n    padding:9px;min-height:0;display:grid;}\n\n  /* 가치사슬 갈래 연결도 */\n  .vcd{display:grid;grid-template-rows:1fr auto;gap:8px;min-height:0;}\n  .vcd__g{display:grid;grid-template-columns:1fr 24px 1.12fr 24px 1fr;grid-template-rows:1fr 1fr;\n    align-items:center;min-height:0;}\n  .nd{border:1px solid var(--blue-400);border-radius:var(--r-xs);background:var(--blue-050);\n    font-size:14px;font-weight:800;color:var(--navy-800);text-align:center;padding:7px 4px;\n    line-height:1.2;align-self:center;}\n  .nd--l{grid-column:1;grid-row:1 / span 2;}\n  .nd--r{grid-column:5;grid-row:1 / span 2;}\n  .nd--t{grid-column:3;grid-row:1;margin:4px 0;}\n  .nd--b{grid-column:3;grid-row:2;margin:4px 0;}\n  /* 갈래 : 세로선이 위·아래 칸 한가운데를 잇고, 가로선이 바깥 칸으로 나간다 */\n  .lk{position:relative;grid-row:1 / span 2;align-self:stretch;}\n  .lk::before{content:\"\";position:absolute;top:25%;height:50%;width:2px;background:var(--blue-400);}\n  .lk::after{content:\"\";position:absolute;top:calc(50% - 1px);height:2px;background:var(--blue-400);\n    left:0;right:0;}\n  .lk--l{grid-column:2;}\n  .lk--r{grid-column:4;}\n  .lk--l::before{right:0;}\n  .lk--r::before{left:0;}\n\n  .vcd__n{background:var(--neutral-050);border:1px solid var(--neutral-200);border-radius:var(--r-xs);\n    font-size:14px;color:var(--ink-500);line-height:1.3;text-align:center;padding:5px 8px;}\n\n  /* 2×2 매트릭스 */\n  .mx{display:grid;grid-template-columns:24px 1fr 1fr;grid-template-rows:1fr 1fr 22px;\n    gap:6px;min-height:0;}\n  .ax{writing-mode:vertical-rl;transform:rotate(180deg);grid-row:1 / span 2;\n    display:flex;align-items:center;justify-content:space-between;\n    font-size:12px;font-weight:700;color:var(--ink-500);\n    background:var(--neutral-100);border-radius:var(--r-xs);padding:5px 3px;}\n  .ax b{font-size:12px;font-weight:800;color:var(--ink-navy);}\n  .axb{display:flex;align-items:center;justify-content:space-between;\n    font-size:12px;font-weight:700;color:var(--ink-500);\n    background:var(--neutral-100);border-radius:var(--r-xs);padding:2px 9px;}\n  .axb b{font-size:12px;font-weight:800;color:var(--ink-navy);}\n  .axb--2{grid-column:2 / span 2;}\n\n  .q{border:1px solid var(--blue-300);border-radius:var(--r-xs);background:var(--blue-050);\n    padding:6px 8px;display:grid;gap:2px;align-content:center;justify-items:center;min-height:0;}\n  .q__g{font-size:14px;font-weight:800;color:var(--navy-800);line-height:1.2;}\n  .q__t{font-size:14px;color:var(--ink-700);line-height:1.25;text-align:center;}\n\n  /* 개선 : 가치사슬 4개 층 */\n  .mx3{display:grid;grid-template-columns:24px 1fr 40px;grid-template-rows:repeat(4,1fr) 22px;\n    gap:5px 6px;min-height:0;}\n  .ax--4{grid-column:1;grid-row:1 / span 4;}\n  .axb--3{grid-column:2;grid-row:5;}\n  .ly{border:1px solid var(--blue-300);border-radius:var(--r-xs);background:var(--blue-050);\n    font-size:14px;font-weight:800;color:var(--navy-800);text-align:center;line-height:1.2;\n    display:flex;align-items:center;justify-content:center;}\n  .dep{grid-column:3;grid-row:1 / span 4;display:grid;grid-template-columns:20px 18px;align-items:stretch;}\n  .dep svg{width:100%;height:100%;display:block;}\n  .dep__l{writing-mode:vertical-rl;font-size:12px;font-weight:800;color:var(--blue-600);\n    display:flex;align-items:center;justify-content:center;}\n\n  /* 전환 */\n  .tr{display:grid;align-self:center;justify-items:center;gap:6px;}\n  .tr__t{font-size:13px;font-weight:800;color:var(--blue-600);line-height:1.3;text-align:center;}\n  .tr__a{width:0;height:0;border-top:11px solid transparent;border-bottom:11px solid transparent;\n    border-left:15px solid var(--blue-500);}\n\n  /* ── 하 : 구분 정의표 ────────────────────────── */\n  .tbl{display:grid;grid-template-columns:150px 1fr 1fr 44px 118px;\n    grid-template-rows:auto repeat(4,1fr);gap:7px 8px;min-height:0;}\n  .th{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;border-radius:var(--r-xs);\n    font-size:14px;font-weight:800;text-align:center;padding:5px 8px;}\n  .c{border:1px solid var(--neutral-300);border-radius:var(--r-xs);background:#fff;\n    padding:6px 11px;display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;line-height:1.32;color:var(--ink-700);}\n  .c--k{background:var(--neutral-050);font-weight:800;color:var(--ink-navy);}\n  .c--g{background:var(--blue-050);border-color:var(--blue-300);\n    font-weight:800;color:var(--navy-800);}\n  .tbl__a{grid-column:4;grid-row:2 / span 4;display:flex;align-items:center;justify-content:center;}\n  .tbl__a svg{width:26px;height:100%;display:block;}",
+    "origin": "04d_이해관계자분류.html"
+  },
+  "patches": {
+    "n.1.0": {
+      "text": {
+        "html": "영향력 · 이해관계 수준 분류에 <strong>가치의 창출 · 증대 · 전달 · 향유 관점</strong>을 더해 입체적으로 재구성"
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "02"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "핵심사업 및 이해관계자 진단"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "이해관계자 분류체계 고도화"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h3": {
+        "fontSize": 18
+      },
+      "body2": {
+        "fontSize": 16
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T10:28:05.523Z",
+  "updatedAt": "2026-07-27T14:19:26.243Z"
+}

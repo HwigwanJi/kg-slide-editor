@@ -1,0 +1,211 @@
+{
+  "v": 5,
+  "id": "b421b254-ad48-4601-813d-c8f141263b43",
+  "title": "사업 성장방향 및 재구조화 검토",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"사업 성장방향 · 재구조화\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"message\">02</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">사업분석 및 이해관계자 진단</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">사업 성장방향 및 재구조화 검토</div>\n    </div>\n    <div class=\"kg-chapter-tab\"><span class=\"kg-chapter-tab__roman\" data-kg-role=\"label\">Ⅱ</span><span class=\"kg-chapter-tab__sep\"></span><span class=\"kg-chapter-tag\" data-kg-role=\"label\">사업 · 이해관계자</span></div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">사업별 성장기반과 수익구조가 구체화되어 <b>사업 · 경영체계의 역할 구분</b> 뚜렷</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"wrap\">\n\n      <div class=\"fld\">\n        <span data-kg-role=\"h3\">사 업 분 야</span>\n        <span class=\"m\" data-kg-role=\"h3\">경 영 분 야</span>\n      </div>\n\n      <div class=\"cols\">\n\n        <!-- ══ 1 미래산업 육성 ══ -->\n        <div class=\"col\">\n          <div class=\"col__h\" data-kg-role=\"h2\">미래산업 육성</div>\n          <div class=\"kpi\">\n            <div class=\"kpi__c\"><span class=\"kpi__l\" data-kg-role=\"label\">첨단 1단지 누적매출</span>\n              <span class=\"kpi__v\" data-kg-role=\"num\">7.6조</span></div>\n            <div class=\"kpi__c\"><span class=\"kpi__l\" data-kg-role=\"label\">입주 · 고용 3,382명</span>\n              <span class=\"kpi__v\" data-kg-role=\"num\">206사</span></div>\n          </div>\n          <div class=\"card\">\n            <div class=\"card__h\" data-kg-role=\"h3\">첨단단지 2단지</div>\n            <div class=\"card__b\">\n              <p data-kg-role=\"body2\">사업비 3,921억 원 · 2028년 준공 목표 · 고용 3,600명</p>\n              <p data-kg-role=\"body2\">848,163㎡ 규모, 생산유발 1.3조 원</p>\n              <p data-kg-role=\"body2\">RE100 · 분산에너지 특화지역 후보(2025.5)</p>\n            </div>\n          </div>\n          <div class=\"card\">\n            <div class=\"card__h\" data-kg-role=\"h3\">데이터센터 · 클라우드</div>\n            <div class=\"card__b\">\n              <p data-kg-role=\"body2\">국내 시장 연평균 20.3% 성장, 비수도권 분산 수요 확대</p>\n              <p data-kg-role=\"body2\">재생에너지 연계 40MW급 그린 AI 데이터센터</p>\n              <p data-kg-role=\"body2\">2026년 0.3MW 바이오 특화 실증, 과학기술정보통신부 기획비 5억 원</p>\n            </div>\n          </div>\n          <div class=\"card\">\n            <div class=\"card__h\" data-kg-role=\"h3\">신규 · 미래사업</div>\n            <div class=\"card__b\">\n              <p data-kg-role=\"body2\">AI · 모빌리티 · 바이오 중심 신규사업 선별 육성</p>\n              <p data-kg-role=\"body2\">UAM 2단계 실증을 바탕으로 첨단 모빌리티 사업 검토</p>\n              <p data-kg-role=\"body2\">소규모 실증 후 민관 재원 연계 · 사업화 여부 결정</p>\n            </div>\n          </div>\n        </div>\n\n        <!-- ══ 2 관광 · 교육 · 헬스 강화 ══ -->\n        <div class=\"col\">\n          <div class=\"col__h\" data-kg-role=\"h2\">관광 · 교육 · 헬스 강화</div>\n          <div class=\"kpi\">\n            <div class=\"kpi__c\"><span class=\"kpi__l\" data-kg-role=\"label\">2025년 신화 카지노 매출</span>\n              <span class=\"kpi__v\" data-kg-role=\"num\">6,465억</span></div>\n            <div class=\"kpi__c\"><span class=\"kpi__l\" data-kg-role=\"label\">교육도시 재학 10.4% 감소</span>\n              <span class=\"kpi__v\" data-kg-role=\"num\">206사</span></div>\n          </div>\n          <div class=\"card\">\n            <div class=\"card__h\" data-kg-role=\"h3\">신화역사공원</div>\n            <div class=\"card__b\">\n              <p data-kg-role=\"body2\">J지구 2,480억 원 · 2029년 상반기 개장</p>\n              <p data-kg-role=\"body2\">제주 카지노 매출 40.8% 증가 · 드림타워 비중 73%</p>\n              <p data-kg-role=\"body2\">J지구 2026년 8월 인허가 완료 · 하반기 착공</p>\n            </div>\n          </div>\n          <div class=\"card\">\n            <div class=\"card__h\" data-kg-role=\"h3\">영어교육도시</div>\n            <div class=\"card__b\">\n              <p data-kg-role=\"body2\">국제학교 4개교 · FSAA 2026년 4월 기공 · 정원 1,354명</p>\n              <p data-kg-role=\"body2\">정주여건 개선과 용지 수익 기반 강화</p>\n              <p data-kg-role=\"body2\">BHA 재학생 25.5% 감소 · FSAA 2028년 8월 개교 · STEM 특화</p>\n            </div>\n          </div>\n          <div class=\"card\">\n            <div class=\"card__h\" data-kg-role=\"h3\">헬스케어타운</div>\n            <div class=\"card__b\">\n              <p data-kg-role=\"body2\">공사 재개 사업비 3,963억 원 · 2030년 전면 재개장</p>\n              <p data-kg-role=\"body2\">2028~2029년 3,455억 원 집중 투입, 웰니스 · 시니어 재편</p>\n              <p data-kg-role=\"body2\">녹지 7필지 19.7만㎡ 인수, 부민병원 비영리 전환</p>\n            </div>\n          </div>\n        </div>\n\n        <!-- ══ 3 정주 · 수익기반 유지 · 연계 ══ -->\n        <div class=\"col\">\n          <div class=\"col__h\" data-kg-role=\"h2\">정주 · 수익기반 유지 · 연계</div>\n          <div class=\"kpi\">\n            <div class=\"kpi__c\"><span class=\"kpi__l\" data-kg-role=\"label\">면세 누적매출</span>\n              <span class=\"kpi__v\" data-kg-role=\"num\">8.2조</span></div>\n            <div class=\"kpi__c\"><span class=\"kpi__l\" data-kg-role=\"label\">면세 의존도 목표</span>\n              <span class=\"kpi__v\" data-kg-role=\"num\">90 → 70%</span></div>\n          </div>\n          <div class=\"card\">\n            <div class=\"card__h\" data-kg-role=\"h3\">지정면세점 (캐시카우)</div>\n            <div class=\"card__b\">\n              <p data-kg-role=\"body2\">매출 6,585억 원에서 4,636억 원으로 29.6% 감소</p>\n              <p data-kg-role=\"body2\">K-뷰티 · 온라인 · 픽업 확대를 통한 매출 방어</p>\n              <p data-kg-role=\"body2\">품목 확대 · 연 12회 개정안 국회 심사 중</p>\n            </div>\n          </div>\n          <div class=\"card\">\n            <div class=\"card__h\" data-kg-role=\"h3\">반복수익 기반 (신설)</div>\n            <div class=\"card__b\">\n              <p data-kg-role=\"body2\">임대 · 서비스형 반복수익 도입 · 확대</p>\n              <p data-kg-role=\"body2\">인천공항 비항공수익 약 63%를 수익 다각화 준거로 활용</p>\n              <p data-kg-role=\"body2\">신주과학단지 · 싱가포르 JTC · KAC 임대 · 서비스 모델 검토</p>\n            </div>\n          </div>\n          <div class=\"card\">\n            <div class=\"card__h\" data-kg-role=\"h3\">공공임대 (연계)</div>\n            <div class=\"card__b\">\n              <p data-kg-role=\"body2\">리슈빌 793세대, 제2첨단 배후 기업연계형 임대</p>\n              <p data-kg-role=\"body2\">첨단단지 근로자 정착 지원 배후주거로 재정의</p>\n              <p data-kg-role=\"body2\">제2첨단 주거시설용지 52,008㎡ 산업단지형 행복주택</p>\n            </div>\n          </div>\n        </div>\n\n        <!-- ══ 4 지속가능 경영체계 확립 ══ -->\n        <div class=\"col\">\n          <div class=\"col__h\" data-kg-role=\"h2\">지속가능 경영체계 확립</div>\n          <div class=\"kpi\">\n            <div class=\"kpi__c\"><span class=\"kpi__l\" data-kg-role=\"label\">경영평가 2년 연속 D</span>\n              <span class=\"kpi__v\" data-kg-role=\"num\">등급 개선</span></div>\n            <div class=\"kpi__c\"><span class=\"kpi__l\" data-kg-role=\"label\">면세 외 매출 목표</span>\n              <span class=\"kpi__v\" data-kg-role=\"num\">30%</span></div>\n          </div>\n          <div class=\"card\">\n            <div class=\"card__h\" data-kg-role=\"h3\">재무건전성 확보</div>\n            <div class=\"card__b\">\n              <p data-kg-role=\"body2\">부채 · 면세사업 의존도 개선 및 부채관리 로드맵 KPI화</p>\n              <p data-kg-role=\"body2\">목적기금 · 투자풀, 녹색 · 사회적채권으로 재원 다각화</p>\n              <p data-kg-role=\"body2\">LH 기능분할 사례 참고 사업 · 부채 관리체계 검토</p>\n            </div>\n          </div>\n          <div class=\"card\">\n            <div class=\"card__h\" data-kg-role=\"h3\">ESG · 개발이익 환원</div>\n            <div class=\"card__b\">\n              <p data-kg-role=\"body2\">TNFD · OECM 기반 제주 자연자본 관리 강화</p>\n              <p data-kg-role=\"body2\">GH환원기금 640억 원 사례를 참고한 개발이익 환원체계</p>\n              <p data-kg-role=\"body2\">경상북도개발공사 공공기관 최초 TNFD 채택 사례 벤치마킹</p>\n            </div>\n          </div>\n          <div class=\"card\">\n            <div class=\"card__h\" data-kg-role=\"h3\">책임경영 · 거버넌스</div>\n            <div class=\"card__b\">\n              <p data-kg-role=\"body2\">산재예방 배점 0.5점에서 2.5점으로 확대, 안전관리 강화</p>\n              <p data-kg-role=\"body2\">직접시행과 민간 · SPC 협업 기능의 역할 구분</p>\n              <p data-kg-role=\"body2\">EDB · JTC · IRDA · LH 참고 투자유치–개발–운영 기능 재설계</p>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <!-- ══ 하단 : 유관기관 재구조화 유형 적용 ══ -->\n      <div class=\"bt\">\n        <div class=\"bt__l\" data-kg-role=\"h3\">유관기관 재구조화 유형 적용</div>\n        <div class=\"ty\">\n          <span class=\"ty__t\" data-kg-role=\"h3\">① 캐시카우 탈피</span>\n          <span class=\"ty__d\" data-kg-role=\"body2\">분산에너지 특화 · 그린 데이터센터로 분양에서 임대 · 서비스 플랫폼 병행. 2단지 RE100 앵커 · 선분양 KPI화</span>\n        </div>\n        <div class=\"ty\">\n          <span class=\"ty__t\" data-kg-role=\"h3\">② 정체자산 분리 · AM</span>\n          <span class=\"ty__d\" data-kg-role=\"body2\">헬스케어타운 2028~2029년 집중투입 재무 반영. 드림타워 73% 편중을 직시해 J지구 비게임 · 웰니스로 재편</span>\n        </div>\n        <div class=\"ty\">\n          <span class=\"ty__t\" data-kg-role=\"h3\">③ 신성장 앵커</span>\n          <span class=\"ty__d\" data-kg-role=\"body2\">반복수익 비중 목표화, 준거는 인천공항 63%. 면세 규제완화와 온라인 · 배후임대 기업연계</span>\n        </div>\n        <div class=\"ty\">\n          <span class=\"ty__t\" data-kg-role=\"h3\">④ 기능분화 (유치–개발–운영)</span>\n          <span class=\"ty__d\" data-kg-role=\"body2\">정체자산 SPC · AM 분리와 기능분화. 경영평가 D를 출발점으로 ESG채권 · 환원기금 · TNFD 조기채택</span>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: JDC 사업별 추진계획 · 경영공시(ALIO) · 유관기관 재구조화 사례 분석 종합</span>\n    <span class=\"kg-footer__page\" data-kg-role=\"caption\" data-kg-auto=\"page\">–</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".wrap{flex:1;min-height:0;display:grid;grid-template-rows:auto 1fr auto;gap:9px;}\n\n  /* ── 분야 띠 ─────────────────────────────────── */\n  .fld{display:grid;grid-template-columns:3fr 1fr;gap:11px;}\n  .fld span{font-size:14px;font-weight:800;color:#fff;text-align:center;padding:3px 8px;\n    border-radius:var(--r-xs);letter-spacing:.08em;background:var(--navy-800);}\n  .fld span.m{background:var(--ink-500);}\n\n  /* ── 4열 ────────────────────────────────────── */\n  .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;min-height:0;}\n  .col{display:grid;grid-template-rows:auto auto 1fr 1fr 1fr;gap:7px;min-height:0;}\n  .col__h{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;border-radius:var(--r-xs);\n    font-size:14px;font-weight:800;text-align:center;padding:5px 8px;letter-spacing:-.01em;}\n\n  .kpi{display:grid;grid-template-columns:1fr 1fr;gap:7px;}\n  .kpi__c{background:var(--blue-050);border:1px solid var(--blue-300);border-radius:var(--r-xs);\n    padding:4px 7px;display:grid;gap:1px;align-content:center;}\n  .kpi__l{font-size:12px;font-weight:600;color:var(--ink-500);line-height:1.25;}\n  .kpi__v{font-size:16px;font-weight:800;color:var(--blue-600);line-height:1.2;}\n\n  .card{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    display:grid;grid-template-rows:auto 1fr;overflow:hidden;min-height:0;}\n  .card__h{background:var(--neutral-100);border-bottom:1px solid var(--neutral-300);\n    font-size:14px;font-weight:800;color:var(--ink-navy);padding:4px 9px;line-height:1.25;}\n  .card__b{padding:4px 9px;display:grid;gap:4px;align-content:center;min-height:0;}\n  .card__b p{margin:0;font-size:14px;line-height:1.3;color:var(--ink-700);\n    padding-left:9px;position:relative;}\n  .card__b p::before{content:\"\";position:absolute;left:0;top:8px;width:4px;height:4px;\n    border-radius:50%;background:var(--blue-400);}\n\n  /* ── 하단 : 재구조화 유형 ──────────────────────── */\n  .bt{display:grid;grid-template-columns:74px repeat(4,1fr);gap:9px;}\n  .bt__l{background:linear-gradient(180deg,#2C5184,#17375E);color:#fff;border-radius:var(--r-xs);\n    font-size:13px;font-weight:800;line-height:1.3;text-align:center;\n    display:flex;align-items:center;justify-content:center;padding:6px 6px;}\n  .ty{background:var(--neutral-050);border:1px solid var(--blue-300);border-radius:var(--r-xs);\n    padding:6px 9px;display:grid;gap:2px;align-content:center;}\n  .ty__t{font-size:14px;font-weight:800;color:var(--navy-800);line-height:1.25;}\n  .ty__d{font-size:14px;color:var(--ink-700);line-height:1.3;}",
+    "origin": "04c_사업성장방향.html"
+  },
+  "patches": {
+    "n.2.0.1.0.1.0.1": {
+      "style": {
+        "textAlign": "center"
+      }
+    },
+    "n.2.0.1.0.1.1.1": {
+      "style": {
+        "textAlign": "center"
+      }
+    },
+    "n.2.0.1.1.1.0.1": {
+      "style": {
+        "textAlign": "center"
+      }
+    },
+    "n.2.0.1.1.1.1.1": {
+      "style": {
+        "textAlign": "center"
+      }
+    },
+    "n.2.0.1.2.1.0.1": {
+      "style": {
+        "textAlign": "center"
+      }
+    },
+    "n.2.0.1.2.1.1.1": {
+      "style": {
+        "textAlign": "center"
+      }
+    },
+    "n.2.0.1.3.1.0.1": {
+      "style": {
+        "textAlign": "center"
+      }
+    },
+    "n.2.0.1.3.1.1.1": {
+      "style": {
+        "textAlign": "center"
+      }
+    },
+    "n.2.0.0.0": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.0.1": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.1.3.0": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.1.2.0": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.1.1.0": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.1.0.0": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.1.0.2.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.1.1.2.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.1.2.2.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.1.3.2.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.1.3.3.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.1.2.3.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.1.1.3.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.1.0.3.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.1.0.4.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.1.1.4.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.1.2.4.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.1.3.4.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.1.0": {
+      "text": {
+        "html": "<strong>사업별 성장기반과 수익구조가 구체화되어 유관기관 재구조화 방향에 따라 사업·경영체계의 역할 구분이 뚜렷해짐</strong>"
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "02"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "핵심사업 및 이해관계자 진단"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "사업 재구조화 방안 검토"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {}
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T10:20:10.703Z",
+  "updatedAt": "2026-07-27T14:19:26.035Z"
+}

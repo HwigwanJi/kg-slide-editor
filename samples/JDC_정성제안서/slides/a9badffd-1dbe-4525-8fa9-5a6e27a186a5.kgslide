@@ -1,0 +1,131 @@
+{
+  "v": 5,
+  "id": "a9badffd-1dbe-4525-8fa9-5a6e27a186a5",
+  "title": "가치체계수립 approach",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"가치체계수립 approach\">\n\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"num\">03</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">연구수행방법론 — 가치체계수립 approach</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">현황 진단 · 임직원 참여 기반 신 가치체계 수립</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">Ⅱ</span><span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\" data-kg-role=\"label\">사업수행계획</span>\n    </div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">제안사 가치체계 진단 도구로 개선 방향을 수립하고 워크숍·설문 등 임직원 참여로 新 가치체계(안) 도출</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"strow\">\n      <div class=\"kg-subtopic\" style=\"margin-bottom:0;border-bottom:none;\" data-kg-role=\"h2\">가치체계 수립 Process</div>\n      <span class=\"kg-stamp\" data-kg-role=\"label\">Illustrative</span>\n    </div>\n\n    <div class=\"kg-content\" style=\"display:flex;flex-direction:column;\">\n      <div class=\"phase\">\n        <div class=\"phl\"><span data-kg-role=\"h3\">가치체계 현황 진단</span></div>\n        <div class=\"phl\"><span data-kg-role=\"h3\">新 가치체계 수립</span></div>\n      </div>\n\n      <div class=\"steps\">\n\n        <!-- ===== Step 1 ===== -->\n        <div class=\"stp\">\n          <div class=\"stph\"><b data-kg-role=\"h3\">Step 1</b><span data-kg-role=\"body3\">환경분석 및 진단</span></div>\n          <div class=\"stpb\">\n            <div class=\"nd\"><b data-kg-role=\"h3\">외부환경분석</b><span data-kg-role=\"body2\">거시환경분석(PEST)</span></div>\n            <span class=\"vline\"></span>\n            <div class=\"nd\"><b data-kg-role=\"h3\">내부환경분석</b><span data-kg-role=\"body2\">SPRO 및 인터뷰</span></div>\n            <span class=\"vline\"></span>\n            <div class=\"nd\"><b data-kg-role=\"h3\">내부의견수렴</b><span data-kg-role=\"body2\">임직원설문조사</span></div>\n            <span class=\"vline\"></span>\n            <div class=\"nd\"><b data-kg-role=\"h3\">벤치마킹</b><span data-kg-role=\"body2\">국내·외 우수사례 분석</span></div>\n            <span class=\"vline\"></span>\n            <div class=\"nd plain\"><b data-kg-role=\"h3\">Org. Value List</b></div>\n          </div>\n          <div class=\"stpf\">\n            <div data-kg-role=\"body2\">1차 : Key word 도출</div>\n            <div data-kg-role=\"body2\">2차 : Filtering, Grouping을 통한 Key word 선정</div>\n          </div>\n        </div>\n\n        <!-- ===== Step 2 ===== -->\n        <div class=\"stp\">\n          <div class=\"stph\"><b data-kg-role=\"h3\">Step 2</b><span data-kg-role=\"body3\">제안사 Tool 진단</span></div>\n          <div class=\"stpb\">\n            <div class=\"area\">\n              <div class=\"arh\" data-kg-role=\"h3\">미션 진단 영역</div>\n              <div class=\"arg\">\n                <span data-kg-role=\"body2\">역할<br>(How)</span>\n                <span data-kg-role=\"body2\">고객<br>(Who)</span>\n                <span data-kg-role=\"body2\">기대가치<br>(What)</span>\n              </div>\n            </div>\n            <div class=\"area\">\n              <div class=\"arh\" data-kg-role=\"h3\">비전 진단 영역</div>\n              <div class=\"arg\">\n                <span data-kg-role=\"body2\">사업영역</span>\n                <span data-kg-role=\"body2\">제공가치</span>\n                <span data-kg-role=\"body2\">시·공간적<br>범위</span>\n                <span data-kg-role=\"body2\">미래<br>이미지</span>\n                <span data-kg-role=\"body2\">핵심역량</span>\n                <span data-kg-role=\"body2\">서비스<br>대상</span>\n              </div>\n            </div>\n            <div class=\"area\">\n              <div class=\"arh\" data-kg-role=\"h3\">핵심가치 진단 영역</div>\n              <div class=\"arg\">\n                <span data-kg-role=\"body2\">고객<br>(공익)</span>\n                <span data-kg-role=\"body2\">회사<br>(역할)</span>\n                <span data-kg-role=\"body2\">구성원<br>(조직)</span>\n              </div>\n            </div>\n          </div>\n          <div class=\"stpf\">\n            <div data-kg-role=\"body2\">현 가치체계 Vs. Key-word간 GAP 분석</div>\n            <div data-kg-role=\"body2\">가치체계 개선 방향 수립</div>\n          </div>\n        </div>\n\n        <!-- ===== Step 3 ===== -->\n        <div class=\"stp\">\n          <div class=\"stph\"><b data-kg-role=\"h3\">Step 3</b><span data-kg-role=\"body3\">임직원 의견 수렴</span></div>\n          <div class=\"stpb\">\n            <div class=\"nd plain\"><b data-kg-role=\"h3\">가치체계 수립 TF 협의</b></div>\n            <span class=\"op\" data-kg-role=\"label\">+</span>\n            <div class=\"nd plain\"><b data-kg-role=\"h3\">제안사의견 반영</b></div>\n            <span class=\"eqs\"><i></i><i></i></span>\n            <div class=\"nd\"><b data-kg-role=\"h3\">가치체계 1차 대안 도출</b></div>\n            <span class=\"taper\"></span>\n            <div class=\"nd plain\"><b data-kg-role=\"h3\">가치체계 선호도 조사</b></div>\n            <span class=\"taper\"></span>\n            <div class=\"nd plain\"><b data-kg-role=\"h3\">선호도 조사 결과 보고·<br>추가의견수렴</b></div>\n          </div>\n          <div class=\"stpf\">\n            <div data-kg-role=\"body2\">임직원 의견 반영 하여 미션, 비전, 핵심가치 대안 수립</div>\n          </div>\n        </div>\n\n        <!-- ===== Step 4 ===== -->\n        <div class=\"stp\">\n          <div class=\"stph\"><b data-kg-role=\"h3\">Step 4</b><span data-kg-role=\"body3\">가치체계(안) 도출</span></div>\n          <div class=\"stpb\">\n            <div class=\"nd plain\"><b data-kg-role=\"h3\">선호도 조사 결과 취합</b></div>\n            <span class=\"op\" data-kg-role=\"label\">+</span>\n            <div class=\"nd plain\"><b data-kg-role=\"h3\">추가 의견수렴 결과 취합</b></div>\n            <span class=\"op\" data-kg-role=\"label\">+</span>\n            <div class=\"nd plain\"><b data-kg-role=\"h3\">제안사 의견</b></div>\n            <span class=\"taper\"></span>\n            <div class=\"final\" data-kg-role=\"h2\">新 가치체계 최종(안) 도출</div>\n          </div>\n          <div class=\"stpf\">\n            <div data-kg-role=\"body2\">가치체계 선호도 조사 결과, 경영진 의견수렴 결과, 삼일 의견을 반영한 최종(안) 도출</div>\n          </div>\n        </div>\n\n      </div>\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 제안사 가치체계 진단 도구 · 국내외 우수사례 · 내부 진단자료</span>\n    <span class=\"kg-footer__page\" data-kg-auto=\"page\" data-kg-role=\"caption\">35</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n\n</section>",
+    "css": ".strow{display:flex;align-items:center;justify-content:center;gap:14px;}\n  .phase{display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:0 0 auto;margin-bottom:8px;}\n  .phl{display:flex;align-items:center;gap:8px;}\n  .phl::before,.phl::after{content:\"\";flex:1;height:1px;background:var(--neutral-300);}\n  .phl span{background:var(--neutral-200);color:var(--ink-navy);font-size:14px;font-weight:800;\n    padding:4px 14px;border-radius:var(--r-xs);white-space:nowrap;}\n\n  .steps{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}\n  .stp{display:flex;flex-direction:column;min-height:0;}\n  .stph{flex:0 0 auto;background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;\n    text-align:center;padding:8px 20px 8px 12px;line-height:1.25;\n    clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);}\n  .stph b{display:block;font-size:15px;font-weight:800;}\n  .stph span{display:block;font-size:14px;font-weight:600;color:var(--blue-300);margin-top:2px;}\n  .stpb{flex:1;min-height:0;border:1px solid var(--neutral-300);border-top:none;\n    background:#fff;padding:10px;display:flex;flex-direction:column;gap:6px;justify-content:space-between;}\n  .stpf{flex:0 0 auto;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    background:var(--neutral-050);padding:8px 10px;margin-top:8px;display:flex;flex-direction:column;gap:4px;}\n  .stpf div{position:relative;padding-left:11px;font-size:14px;line-height:1.35;color:var(--ink-900);text-align:left;}\n  .stpf div::before{content:\"\";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:1px;background:var(--navy-800);}\n\n  /* 세로 흐름 공통 */\n  .nd{background:var(--blue-100);border:1px solid var(--blue-300);border-radius:var(--r-xs);\n    text-align:center;padding:8px 8px;line-height:1.3;}\n  .nd b{display:block;font-size:14px;font-weight:800;color:var(--ink-navy);}\n  .nd span{display:block;font-size:14px;color:var(--ink-700);margin-top:2px;}\n  .nd.plain{background:#fff;border-color:var(--neutral-300);}\n  .vline{align-self:center;width:1.5px;height:12px;background:var(--xg3);}\n  .op{align-self:center;display:flex;align-items:center;justify-content:center;\n    width:22px;height:22px;border-radius:50%;background:var(--blue-500);color:#fff;\n    font-size:14px;font-weight:800;line-height:1;}\n  .eqs{align-self:center;display:flex;flex-direction:column;gap:3px;\n    width:22px;height:22px;align-items:center;justify-content:center;\n    border-radius:50%;background:var(--xg3);}\n  .eqs i{display:block;width:11px;height:2px;background:#fff;border-radius:1px;}\n  .taper{height:14px;background:var(--neutral-200);clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);}\n\n  /* Step 2 진단영역 */\n  .area{display:flex;flex-direction:column;gap:5px;}\n  .arh{background:var(--blue-200);color:var(--ink-navy);font-size:14px;font-weight:800;\n    text-align:center;padding:5px 6px;border-radius:var(--r-xs);}\n  .arg{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;}\n  .arg span{background:var(--neutral-100);border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;color:var(--ink-navy);line-height:1.25;padding:7px 3px;}\n\n  /* Step 4 최종안 */\n  .final{border:1.5px dashed var(--navy-800);border-radius:var(--r-xs);background:var(--neutral-050);\n    text-align:center;padding:14px 10px;font-size:15px;font-weight:800;color:var(--navy-800);line-height:1.3;}",
+    "origin": "35_가치체계수립approach.html"
+  },
+  "patches": {
+    "n.2.1.1.3.1.6": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.1.1.0.0.0": {
+      "style": {
+        "fontSize": 20
+      }
+    },
+    "n.2.1.1.1.0.0": {
+      "style": {
+        "fontSize": 20
+      }
+    },
+    "n.2.1.1.0.0.1": {
+      "style": {
+        "fontSize": 20
+      }
+    },
+    "n.2.1.1.1.0.1": {
+      "style": {
+        "fontSize": 20
+      }
+    },
+    "n.2.1.1.2.0.0": {
+      "style": {
+        "fontSize": 20
+      }
+    },
+    "n.2.1.1.2.0.1": {
+      "style": {
+        "fontSize": 20
+      }
+    },
+    "n.2.1.1.3.0.0": {
+      "style": {
+        "fontSize": 20
+      }
+    },
+    "n.2.1.1.3.0.1": {
+      "style": {
+        "fontSize": 20
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "09"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "과업 수행의 방법론"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "조직 가치체계 수립 프로세스"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h3": {
+        "fontSize": 18
+      },
+      "body3": {
+        "fontSize": 16
+      },
+      "body2": {
+        "fontSize": 16
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T09:09:32.672Z",
+  "updatedAt": "2026-07-27T14:16:14.238Z"
+}

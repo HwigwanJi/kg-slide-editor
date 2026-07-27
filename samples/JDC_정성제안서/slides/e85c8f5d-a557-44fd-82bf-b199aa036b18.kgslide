@@ -1,0 +1,166 @@
+{
+  "v": 5,
+  "id": "e85c8f5d-a557-44fd-82bf-b199aa036b18",
+  "title": "경영평가·ESG 연계 성과관리",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"경영평가·ESG 연계 성과관리\">\n\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"num\">04</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">운용계획 수립 및 실행력 강화</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">경영평가·ESG 연계 성과관리</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">Ⅳ</span><span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\" data-kg-role=\"label\">운용·실행력</span>\n    </div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">경영평가 배점 변화에 맞춰 사업별 대응방향과 ESG 추진실적·우수사례·전사 KPI를 연계해 성과관리 일관성 확보</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"kg-subtopic\" data-kg-role=\"h2\">가치사슬 기반 JDC 이해관계자 분류 · 소통그룹 연계</div>\n\n    <div class=\"kg-content cols2\">\n\n      <!-- ============ 좌 ============ -->\n      <div class=\"kg-stackcol\">\n        <div class=\"st\" data-kg-role=\"h3\">2026 경영평가 배점 대응</div>\n        <div class=\"sc\">\n          <div class=\"sch\" data-kg-role=\"h3\">평가영역</div>\n          <div class=\"sch\" data-kg-role=\"h3\">배점 변화</div>\n          <div class=\"sch\" data-kg-role=\"h3\">대응방향</div>\n\n          <div class=\"sck\" data-kg-role=\"h3\">안전·재난</div>\n          <div class=\"scv hi\" data-kg-role=\"body2\">0.5→2.5</div>\n          <div class=\"scd\" data-kg-role=\"body2\">중대재해 Zero·산재예방 선제</div>\n\n          <div class=\"sck\" data-kg-role=\"h3\">공공성</div>\n          <div class=\"scv\" data-kg-role=\"body2\">16.5→20.5</div>\n          <div class=\"scd\" data-kg-role=\"body2\">환원·상생·안전 KPI 강화</div>\n\n          <div class=\"sck\" data-kg-role=\"h3\">주요사업</div>\n          <div class=\"scv\" data-kg-role=\"body2\">45→50</div>\n          <div class=\"scd\" data-kg-role=\"body2\">사업별 성과·BP 집중</div>\n\n          <div class=\"sck\" data-kg-role=\"h3\">재무성과</div>\n          <div class=\"scv\" data-kg-role=\"body2\">21→15.5</div>\n          <div class=\"scd\" data-kg-role=\"body2\">실질 개선(부채·의존도)</div>\n\n          <div class=\"sck\" data-kg-role=\"h3\">AI가점</div>\n          <div class=\"scv\" data-kg-role=\"body2\">+1.5 신설</div>\n          <div class=\"scd\" data-kg-role=\"body2\">ADX 선제·정량 서비스 개선</div>\n\n          <div class=\"sck\" data-kg-role=\"h3\">기관장 계약</div>\n          <div class=\"scv\" data-kg-role=\"body2\">평가 신설</div>\n          <div class=\"scd\" data-kg-role=\"body2\">KPI-계약 정렬·이행 관리</div>\n        </div>\n\n        <div class=\"st\" data-kg-role=\"h3\">D등급 개선 로드맵</div>\n        <div class=\"rmap\">\n          <div class=\"rmc\"><b data-kg-role=\"h3\">진단</b><span data-kg-role=\"label\">'27상</span></div>\n          <div class=\"rmc\"><b data-kg-role=\"h3\">D→C</b><span data-kg-role=\"label\">'27하~28</span></div>\n          <div class=\"rmc\"><b data-kg-role=\"h3\">C→B</b><span data-kg-role=\"label\">'29~30</span></div>\n          <div class=\"rmc k\"><b data-kg-role=\"h3\">B+ 유지</b><span data-kg-role=\"label\">'31</span></div>\n        </div>\n\n        <div class=\"st\" data-kg-role=\"h3\">ESG 반영 추진실적 &amp; BP</div>\n        <div class=\"esg\">\n          <div class=\"esr\"><span class=\"esb e\" data-kg-role=\"label\">E</span>\n            <span class=\"est\" data-kg-role=\"body2\">2035 탄소중립·RE100 그린DC — <b>BP</b> 제주형 그린데이터센터</span></div>\n          <div class=\"esr\"><span class=\"esb s\" data-kg-role=\"label\">S</span>\n            <span class=\"est\" data-kg-role=\"body2\">개발이익 환원 2.3조·PCSI 95.4 — <b>BP</b> 도민환원·고객만족 모델</span></div>\n          <div class=\"esr\"><span class=\"esb g\" data-kg-role=\"label\">G</span>\n            <span class=\"est\" data-kg-role=\"body2\">청렴·안전 KPI·ADX 리스크관리 — <b>BP</b> 청렴 페스티벌·ERM</span></div>\n        </div>\n      </div>\n\n      <!-- ============ 우 ============ -->\n      <div class=\"kg-stackcol\">\n        <div class=\"st\" data-kg-role=\"h3\">경영관리·주요사업 분야별 ESG 추진실적 점검 &amp; BP 사례</div>\n        <div class=\"fld\">\n          <div class=\"fdc hatch\"><div class=\"fdt\" data-kg-role=\"h3\">경영관리</div>\n            <div class=\"fdd\" data-kg-role=\"body2\">ESG위원회·통합공시·내부통제<br><b>BP</b> ESG보고서·K-ESG 대응</div></div>\n          <div class=\"fdc hatch\"><div class=\"fdt\" data-kg-role=\"h3\">지정면세</div>\n            <div class=\"fdd\" data-kg-role=\"body2\">청렴·안전 무사고·상생환원<br><b>BP</b> 클린 유통·수익환원</div></div>\n          <div class=\"fdc hatch\"><div class=\"fdt\" data-kg-role=\"h3\">첨단과기단지</div>\n            <div class=\"fdd\" data-kg-role=\"body2\">RE100·데이터센터·입주지원<br><b>BP</b> 제주형 그린DC</div></div>\n          <div class=\"fdc hatch\"><div class=\"fdt\" data-kg-role=\"h3\">영어교육도시</div>\n            <div class=\"fdd\" data-kg-role=\"body2\">지역인재·정주·상생<br><b>BP</b> 교육 사회공헌·장학</div></div>\n          <div class=\"fdc hatch\"><div class=\"fdt\" data-kg-role=\"h3\">헬스케어·관광</div>\n            <div class=\"fdd\" data-kg-role=\"body2\">안전·무장애·건강증진<br><b>BP</b> 무장애·헬스투어</div></div>\n          <div class=\"fdc hatch\"><div class=\"fdt\" data-kg-role=\"h3\">공공임대·환원</div>\n            <div class=\"fdd\" data-kg-role=\"body2\">개발이익 환원·주거안정<br><b>BP</b> 정주·상생주택</div></div>\n        </div>\n        <div class=\"fnote\" data-kg-role=\"body2\">분야별 추진실적 상시 점검(반기) → 우수사례 BP 등록·전사 확산, 경영평가·ESG 공시 연계</div>\n\n        <div class=\"st\" data-kg-role=\"h3\">시사점·내재화 방안</div>\n        <div class=\"lst\">\n          <div class=\"lsi\" data-kg-role=\"body2\">6대 사업 성과격차·경영실적 평가 D의 근인은 실행·환류 부재 — <b>성과관리 상시화</b>가 등급 개선의 핵심</div>\n          <div class=\"lsi\" data-kg-role=\"body2\">BP 표준 스토리화·경영계약 KPI 반영·전사→개인 Cascading으로 성과 DNA 정착</div>\n        </div>\n\n        <div class=\"st\" data-kg-role=\"h3\">성과관리체계·거버넌스</div>\n        <div class=\"chain\" data-kg-role=\"body2\">BSC 전략맵 → 전사 KPI → Cascading(본부·팀·개인 MBO) →<br>성과급·승진·기관장 경영계약 연계</div>\n        <div class=\"lst\">\n          <div class=\"lsi\" data-kg-role=\"body2\">PDCA 회의체(월·분기·반기)·성과 대시보드(KPI 신호등)·경영실적 평가 대응 T/F·증빙 상시 축적</div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 공공기관 경영평가 편람 · 기관 ESG 추진실적 · 내부 진단자료</span>\n    <span class=\"kg-footer__page\" data-kg-auto=\"page\" data-kg-role=\"caption\">33</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n\n</section>",
+    "css": ".cols2{grid-template-columns:588px 1fr;gap:16px;}\n  .kg-stackcol{gap:11px;}\n  .hatch{background:repeating-linear-gradient(135deg,rgba(96,106,122,.09) 0 1px,transparent 1px 5px);}\n  .st{font-size:15px;font-weight:800;color:var(--navy-800);text-decoration:underline;\n    text-underline-offset:4px;flex:0 0 auto;}\n\n  /* ---- 좌1: 배점 대응표 ---- */\n  .sc{flex:1;min-height:0;display:grid;grid-template-columns:118px 132px 1fr;gap:4px;\n    grid-template-rows:auto repeat(6,1fr);}\n  .sch{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;font-size:14px;font-weight:800;\n    display:flex;align-items:center;justify-content:center;border-radius:var(--r-xs);padding:6px 4px;}\n  .sck{background:var(--neutral-200);color:var(--ink-navy);border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;}\n  .scv{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--ink-900);}\n  .scv.hi{color:var(--red-600);font-weight:800;}\n  .scd{background:var(--blue-050);border:1px solid var(--blue-300);border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;color:var(--ink-navy);line-height:1.25;padding:5px 8px;}\n\n  /* ---- 좌2: 등급 개선 로드맵 (셰브론) ---- */\n  .rmap{display:flex;gap:0;flex:0 0 auto;}\n  .rmc{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;\n    background:var(--neutral-150);color:var(--ink-navy);padding:9px 14px 9px 22px;margin-left:-10px;\n    clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%,12px 50%);}\n  .rmc:first-child{margin-left:0;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%);padding-left:14px;}\n  .rmc.k{background:linear-gradient(180deg,#2C5184,#17375E);color:#fff;}\n  .rmc b{font-size:14px;font-weight:800;line-height:1.1;}\n  .rmc span{font-size:12px;font-weight:700;opacity:.8;line-height:1.1;}\n\n  /* ---- 좌3: ESG 실적 행 ---- */\n  /* 행을 늘리면 한 줄짜리 글이 가운데 떠서 칸이 비어 보인다. 내용 높이로 둔다 */\n  .esg{flex:0 0 auto;display:flex;flex-direction:column;gap:7px;\n    border:1px solid var(--neutral-300);border-radius:var(--r-xs);padding:9px;}\n  .esr{flex:0 0 auto;display:flex;align-items:center;gap:9px;}\n  .esb{flex:0 0 auto;width:22px;height:22px;border-radius:var(--r-xs);color:#fff;\n    font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;}\n  .esb.e{background:var(--green-600);}\n  .esb.s{background:var(--blue-500);}\n  .esb.g{background:var(--amber-500);}\n  .est{flex:1;font-size:14px;line-height:1.35;color:var(--ink-900);}\n  .est b{color:var(--navy-800);font-weight:700;}\n\n  /* ---- 우1: 분야별 점검 6칸 ---- */\n  .fld{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,1fr);gap:8px;}\n  .fdc{border:1px solid var(--neutral-300);border-radius:var(--r-xs);padding:8px 10px;\n    display:flex;flex-direction:column;gap:4px;justify-content:center;}\n  .fdt{font-size:14px;font-weight:800;color:var(--navy-800);line-height:1.2;}\n  .fdd{font-size:14px;line-height:1.35;color:var(--ink-700);}\n  .fdd b{color:var(--ink-navy);font-weight:700;}\n  .fnote{flex:0 0 auto;font-size:14px;line-height:1.35;color:var(--ink-navy);text-align:center;\n    background:var(--blue-050);border:1px solid var(--blue-300);border-radius:var(--r-xs);padding:6px 9px;}\n\n  /* ---- 우2·3: 시사점 · 성과관리체계 ---- */\n  .lst{flex:0 0 auto;display:flex;flex-direction:column;gap:5px;}\n  .lsi{position:relative;padding-left:13px;font-size:14px;line-height:1.4;color:var(--ink-900);}\n  .lsi::before{content:\"\";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:1px;background:var(--blue-500);}\n  .lsi b{color:var(--navy-800);font-weight:700;}\n  .chain{flex:0 0 auto;background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border:1px solid var(--blue-400);\n    border-radius:var(--r-xs);padding:9px 11px;font-size:14px;font-weight:700;color:var(--navy-800);\n    text-align:center;line-height:1.4;}",
+    "origin": "33_경영평가ESG연계성과관리.html"
+  },
+  "patches": {
+    "n.2.1.1.4.0": {
+      "style": {
+        "letterSpacing": -0.02
+      },
+      "layout": {
+        "mode": "detached",
+        "x": 632,
+        "y": 660,
+        "w": 620,
+        "h": 22,
+        "keepSlot": true
+      }
+    },
+    "n.2.1.1.2": {
+      "layout": {
+        "mode": "detached",
+        "x": 632,
+        "y": 585,
+        "w": 620,
+        "h": 35,
+        "keepSlot": true
+      }
+    },
+    "n.2.1.1.1.0.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.1.1.1.1.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.1.1.1.3.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.1.1.1.2.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.1.1.1.4.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.1.1.1.5.0": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.1.1.6": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.1.1.3": {
+      "layout": {
+        "mode": "detached",
+        "x": 632,
+        "y": 621,
+        "w": 620,
+        "h": 29,
+        "keepSlot": true
+      }
+    },
+    "n.2.1.1.4.1": {
+      "layout": {
+        "mode": "detached",
+        "x": 632,
+        "y": 687,
+        "w": 620,
+        "h": 22,
+        "keepSlot": true
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "07"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "운용계획 및 실행력 강화"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "정부경영평가 및 ESG 성과 연계"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h3": {
+        "fontSize": 19
+      },
+      "body2": {
+        "fontSize": 16
+      }
+    }
+  },
+  "stack": [
+    "n.2.1.1.2",
+    "n.2.1.1.3",
+    "n.2.1.1.4.0",
+    "n.2.1.1.4.1"
+  ],
+  "createdAt": "2026-07-27T08:43:48.575Z",
+  "updatedAt": "2026-07-27T14:16:13.742Z"
+}

@@ -1,0 +1,111 @@
+{
+  "v": 5,
+  "id": "3e89e5d8-1a4d-41f5-b3d1-2590cf7b85c5",
+  "title": "국내외 사례 벤치마킹 — 8개 기관",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"국내외 사례 벤치마킹\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"message\">01</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">단계별 세부 추진내용 및 일정</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">국내외 사례 벤치마킹 — 1-3</div>\n    </div>\n    <div class=\"kg-chapter-tab\"><span class=\"kg-chapter-tab__roman\" data-kg-role=\"label\">Ⅱ</span><span class=\"kg-chapter-tab__sep\"></span><span class=\"kg-chapter-tag\" data-kg-role=\"label\">경영환경 분석</span></div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">국내외 8개 사례에서 <b>비면세 성장 · 자산운영 · 성과환원</b> 체계 강화 방향 도출</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"wrap\">\n\n      <div class=\"nav\">\n        <span class=\"k\" data-kg-role=\"h3\">과업 1 대내 · 외 경영환경 분석</span>\n        <span data-kg-role=\"label\">과업 2 사업분석 및 이해관계자 진단</span>\n        <span data-kg-role=\"label\">과업 3 가치체계 및 전략체계 수립</span>\n        <span data-kg-role=\"label\">과업 4 운용계획 수립 및 실행력 강화</span>\n      </div>\n\n      <div class=\"top\">\n        <div class=\"kg-subtopic\" data-kg-role=\"h1\">유관기관 · 선진사례 수익구조 · 거버넌스 비교분석</div>\n      </div>\n\n      <div class=\"band\">\n        <div data-kg-role=\"h2\">국 내</div>\n        <div class=\"o\" data-kg-role=\"h2\">국 외</div>\n      </div>\n\n      <div class=\"grid\">\n        <!-- 국내 ① 강원랜드 -->\n        <div class=\"cs\">\n          <div class=\"cs__tags\"><i class=\"t-gov\" data-kg-role=\"label\">정체성 전환</i><i class=\"t-rev\" data-kg-role=\"label\">수익 다각화</i></div>\n          <div class=\"cs__n\" data-kg-role=\"h2\">강원랜드</div>\n          <div class=\"cs__s\" data-kg-role=\"label2\">카지노(고규제) 캐시카우 · 폐광지역 특수</div>\n          <div class=\"cs__m\"><span class=\"cs__mv\" data-kg-role=\"h3\">13→30%</span>\n            <span class=\"cs__mk\" data-kg-role=\"body2\">비카지노 비중(’24→’32)</span></div>\n          <div class=\"cs__w\" data-kg-role=\"h3\">캐시카우 → 웰니스 중심 사업 재구조화</div>\n          <div class=\"cs__l\">\n            <p data-kg-role=\"body2\">2030년 매출 2조 원 목표</p>\n            <p data-kg-role=\"body2\">비게이밍 수익원 육성</p>\n            <p data-kg-role=\"body2\">지역기업 성과 S등급 유지</p>\n          </div>\n          <div class=\"cs__o\" data-kg-role=\"body1\">비면세 사업에 재투자하는 수익구조 다각화</div>\n        </div>\n\n        <!-- 국내 ② 제주개발공사 -->\n        <div class=\"cs\">\n          <div class=\"cs__tags\"><i class=\"t-rev\" data-kg-role=\"label\">수익 다각화</i></div>\n          <div class=\"cs__n\" data-kg-role=\"h2\">제주개발공사</div>\n          <div class=\"cs__s\" data-kg-role=\"label2\">삼다수 단일재원 · 제주도 산하</div>\n          <div class=\"cs__m\"><span class=\"cs__mv\" data-kg-role=\"h3\">90%+</span>\n            <span class=\"cs__mk\" data-kg-role=\"body2\">삼다수 편중 → 신재생 · 부동산</span></div>\n          <div class=\"cs__w\" data-kg-role=\"h3\">단일재원 → 신사업 다각화</div>\n          <div class=\"cs__l\">\n            <p data-kg-role=\"body2\">관광 · 신재생 · 부동산 사업 확대</p>\n            <p data-kg-role=\"body2\">삼다수 수익 기반 신규 투자재원 확보</p>\n            <p data-kg-role=\"body2\">RE100 대응을 통한 친환경 성장축 육성</p>\n          </div>\n          <div class=\"cs__o\" data-kg-role=\"body1\">사업 중첩 조정 및 다각화 방식 벤치마킹</div>\n        </div>\n\n        <!-- 국외 ① 싱가포르 EDB·JTC -->\n        <div class=\"cs\">\n          <div class=\"cs__tags\"><i class=\"t-gov\" data-kg-role=\"label\">거버넌스 기능분화</i></div>\n          <div class=\"cs__n\" data-kg-role=\"h2\">싱가포르 EDB 및 JTC</div>\n          <div class=\"cs__s\" data-kg-role=\"label2\">투자유치(EDB) · 단지운영(JTC) 기능 분리</div>\n          <div class=\"cs__m\"><span class=\"cs__mv\" data-kg-role=\"h3\">76%</span>\n            <span class=\"cs__mk\" data-kg-role=\"body2\">JTC 순영업이익률(FY24)</span></div>\n          <div class=\"cs__w\" data-kg-role=\"h3\">유치 · 개발 기능 분화 및 KPI 공표</div>\n          <div class=\"cs__l\">\n            <p data-kg-role=\"body2\">유치 · 개발 분리로 이해상충 최소화</p>\n            <p data-kg-role=\"body2\">고임금 일자리 · 투자이행 중심 성과관리</p>\n            <p data-kg-role=\"body2\">기업 유치–입주–성장 공동 KPI 관리</p>\n          </div>\n          <div class=\"cs__o\" data-kg-role=\"body1\">유치–개발 기능 분리 및 KPI 대시보드 도입</div>\n        </div>\n\n        <!-- 국외 ② 마카오 -->\n        <div class=\"cs\">\n          <div class=\"cs__tags\"><i class=\"t-ret\" data-kg-role=\"label\">개발이익 환원</i></div>\n          <div class=\"cs__n\" data-kg-role=\"h2\">마카오</div>\n          <div class=\"cs__s\" data-kg-role=\"label2\">정부 경상수입의 82%가 카지노사업</div>\n          <div class=\"cs__m\"><span class=\"cs__mv\" data-kg-role=\"h3\">90%+</span>\n            <span class=\"cs__mk\" data-kg-role=\"body2\">MOP 90% 이상 비게이밍 투자</span></div>\n          <div class=\"cs__w\" data-kg-role=\"h3\">재계약 → 비게이밍 투자 의무화</div>\n          <div class=\"cs__l\">\n            <p data-kg-role=\"body2\">카지노 사업권 재계약과 투자 의무 연계</p>\n            <p data-kg-role=\"body2\">총 투자 규모 MOP 1,188억 설정</p>\n            <p data-kg-role=\"body2\">일정 매출 초과 시 투자 의무 20% 확대</p>\n          </div>\n          <div class=\"cs__o\" data-kg-role=\"body1\">사업권을 비면세 투자의 지렛대로 활용</div>\n        </div>\n\n        <!-- 국내 ③ 경기주택도시공사 -->\n        <div class=\"cs\">\n          <div class=\"cs__tags\"><i class=\"t-ret\" data-kg-role=\"label\">재무 건전성</i><i class=\"t-ret\" data-kg-role=\"label\">개발이익 환원</i></div>\n          <div class=\"cs__n\" data-kg-role=\"h2\">경기주택도시공사</div>\n          <div class=\"cs__s\" data-kg-role=\"label2\">주택 개발 시장형 · 경기도 산하</div>\n          <div class=\"cs__m\"><span class=\"cs__mv\" data-kg-role=\"h3\">31조</span>\n            <span class=\"cs__mk\" data-kg-role=\"body2\">공사채 관리 규모</span></div>\n          <div class=\"cs__w\" data-kg-role=\"h3\">재무관리 → 도민환원 연계</div>\n          <div class=\"cs__l\">\n            <p data-kg-role=\"body2\">전략 3단계와 재무목표 연계</p>\n            <p data-kg-role=\"body2\">브릿지2030 기반 중장기 재무관리</p>\n            <p data-kg-role=\"body2\">도민환원기금 제도화 추진</p>\n          </div>\n          <div class=\"cs__o\" data-kg-role=\"body1\">JDC 전략 · 재무 · 지역환원 연계</div>\n        </div>\n\n        <!-- 국내 ④ 한국공항공사 -->\n        <div class=\"cs\">\n          <div class=\"cs__tags\"><i class=\"t-rev\" data-kg-role=\"label\">수익 구조</i></div>\n          <div class=\"cs__n\" data-kg-role=\"h2\">한국공항공사</div>\n          <div class=\"cs__s\" data-kg-role=\"label2\">비항공 수익의 공항운영 보조</div>\n          <div class=\"cs__m\"><span class=\"cs__mv\" data-kg-role=\"h3\">50.1%</span>\n            <span class=\"cs__mk\" data-kg-role=\"body2\">안정적인 부채비율</span></div>\n          <div class=\"cs__w\" data-kg-role=\"h3\">면세 · 임대 교차보조 모델</div>\n          <div class=\"cs__l\">\n            <p data-kg-role=\"body2\">매출 9,762억 원 규모</p>\n            <p data-kg-role=\"body2\">면세 · 임대 등 비항공 수익 확보</p>\n            <p data-kg-role=\"body2\">비항공 수익으로 적자공항 운영 보전</p>\n          </div>\n          <div class=\"cs__o\" data-kg-role=\"body1\">JDC 면세수익의 교차보조 계량관리</div>\n        </div>\n\n        <!-- 국외 ③ 아부다비 -->\n        <div class=\"cs\">\n          <div class=\"cs__tags\"><i class=\"t-ret\" data-kg-role=\"label\">개발이익 환원</i><i class=\"t-ret\" data-kg-role=\"label\">재무 건전성</i></div>\n          <div class=\"cs__n\" data-kg-role=\"h2\">아부다비</div>\n          <div class=\"cs__s\" data-kg-role=\"label2\">국부펀드 3종</div>\n          <div class=\"cs__m\"><span class=\"cs__mv\" data-kg-role=\"h3\">54%</span>\n            <span class=\"cs__mk\" data-kg-role=\"body2\">비석유 GDP 비중(’24)</span></div>\n          <div class=\"cs__w\" data-kg-role=\"h3\">개발이익 → 투자자산 풀 전환</div>\n          <div class=\"cs__l\">\n            <p data-kg-role=\"body2\">비석유 GDP 비중을 대표 KPI로 설정</p>\n            <p data-kg-role=\"body2\">사디야트 문화지구 등 자산 집중 투자</p>\n            <p data-kg-role=\"body2\">개발수익을 문화 · 미래산업 자산으로 전환</p>\n          </div>\n          <div class=\"cs__o\" data-kg-role=\"body1\">면세이익 투자풀화(목표수익률 명문화)</div>\n        </div>\n\n        <!-- 국외 ④ 일본 UR도시기구 -->\n        <div class=\"cs\">\n          <div class=\"cs__tags\"><i class=\"t-gov\" data-kg-role=\"label\">정체성 전환</i></div>\n          <div class=\"cs__n\" data-kg-role=\"h2\">일본 UR도시기구</div>\n          <div class=\"cs__s\" data-kg-role=\"label2\">독립행정법인 · 임대 반복수익</div>\n          <div class=\"cs__m\"><span class=\"cs__mv\" data-kg-role=\"h3\">2.3조엔</span>\n            <span class=\"cs__mk\" data-kg-role=\"body2\">부채 감축</span></div>\n          <div class=\"cs__w\" data-kg-role=\"h3\">신규개발 폐지 후 재생 · 운영 중심 전환</div>\n          <div class=\"cs__l\">\n            <p data-kg-role=\"body2\">2001년 각의결정으로 신규개발 폐지</p>\n            <p data-kg-role=\"body2\">임대사업수익 FY24 5,576억 엔 확보</p>\n            <p data-kg-role=\"body2\">자산 매각 · 사업 재편으로 부채 감축</p>\n          </div>\n          <div class=\"cs__o\" data-kg-role=\"body1\">신규부지 소진 후 운영 중심 전환</div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 각 기관 경영공시 · 연차보고서 · 국내외 개발기관 사례조사 종합</span>\n    <span class=\"kg-footer__page\" data-kg-role=\"caption\" data-kg-auto=\"page\">–</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".wrap{flex:1;min-height:0;display:grid;grid-template-rows:auto auto auto 1fr;gap:8px;}\n\n  .nav{display:grid;grid-template-columns:repeat(4,1fr);}\n  .nav span{font-size:14px;font-weight:700;color:#fff;background:var(--xg2,#AEB6C0);\n    text-align:center;padding:5px 6px;margin-left:-10px;\n    clip-path:polygon(0 0,calc(100% - 11px) 0,100% 50%,calc(100% - 11px) 100%,0 100%,11px 50%);}\n  .nav span:first-child{margin-left:0;clip-path:polygon(0 0,calc(100% - 11px) 0,100% 50%,calc(100% - 11px) 100%,0 100%);}\n  .nav span.k{background:linear-gradient(90deg,#2C5184,#1F497D);}\n  .top .kg-subtopic{margin:0;padding-bottom:5px;}\n\n  /* 국내 / 국외 구획 머리 */\n  .band{display:grid;grid-template-columns:1fr 1fr;gap:11px;}\n  .band div{background:linear-gradient(180deg,#4F81BD,#366092);color:#fff;font-size:15px;font-weight:800;\n    text-align:center;padding:5px 8px;border-radius:var(--r-xs);letter-spacing:.06em;}\n  .band div.o{background:linear-gradient(180deg,#2C5184,#17375E);}\n\n  .grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:11px;min-height:0;}\n\n  /* ── 사례 카드 ─────────────────────────────────── */\n  .cs{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    padding:8px 9px;display:grid;gap:5px;align-content:space-between;min-height:0;overflow:hidden;}\n  .cs__tags{display:flex;gap:4px;flex-wrap:wrap;}\n  .cs__tags i{font-style:normal;font-size:12px;font-weight:800;color:#fff;\n    padding:2px 8px;border-radius:var(--r-pill);white-space:nowrap;}\n  .t-rev{background:var(--blue-500);}      /* 수익 구조·다각화 */\n  .t-ret{background:var(--navy-800);}      /* 개발이익 환원·재무 건전성 */\n  .t-gov{background:var(--amber-500);}     /* 정체성 전환·거버넌스 기능분화 */\n\n  .cs__n{font-size:16px;font-weight:800;color:var(--navy-800);line-height:1.25;text-align:center;}\n  .cs__s{font-size:13px;color:var(--ink-500);line-height:1.25;text-align:center;}\n\n  .cs__m{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center;\n    background:var(--neutral-050);border-left:3px solid var(--blue-500);border-radius:2px;padding:4px 8px;}\n  .cs__mv{font-size:17px;font-weight:800;color:var(--navy-800);font-variant-numeric:tabular-nums;}\n  .cs__mk{font-size:14px;color:var(--ink-700);line-height:1.2;}\n\n  .cs__w{font-size:14px;font-weight:800;color:var(--navy-800);line-height:1.25;}\n  .cs__l{display:grid;gap:3px;}\n  .cs__l p{margin:0;font-size:14px;color:var(--ink-700);line-height:1.26;\n    padding-left:11px;position:relative;}\n  .cs__l p::before{content:\"·\";position:absolute;left:2px;color:var(--blue-500);font-weight:800;}\n\n  .cs__o{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border:1px solid var(--blue-400);\n    border-radius:var(--r-xs);padding:4px 8px;font-size:14px;font-weight:700;\n    color:var(--navy-800);line-height:1.25;text-align:center;}",
+    "origin": "03e_벤치마킹.html"
+  },
+  "patches": {
+    "n.2.0.0.0": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.0.1": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.0.2": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.0.3": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.2.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.2.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "01"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "경영환경 진단"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "국내외 주요사례 분석"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [
+      "n.2.0.0.0",
+      "n.2.0.0.1",
+      "n.2.0.0.2",
+      "n.2.0.0.3"
+    ],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {}
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T09:23:07.383Z",
+  "updatedAt": "2026-07-27T14:19:24.617Z"
+}

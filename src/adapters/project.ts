@@ -25,6 +25,11 @@ export interface ProjectAdapter {
   readonly isFolder: boolean;
   /** 표시용 위치 이름 */
   readonly location: string;
+  /**
+   * 실제 폴더의 전체 경로. 파일 다리를 쓰는 저장소만 안다.
+   * 내보내기처럼 서버 쪽에서 폴더를 다뤄야 하는 일이 이 값을 쓴다.
+   */
+  readonly root?: string;
 
   loadDeck(): Promise<DeckDoc>;
   saveDeck(deck: DeckDoc): Promise<void>;
@@ -45,6 +50,15 @@ export interface ProjectAdapter {
    * 편집기가 주기적으로 물어 디스크가 바뀌었는지만 가린다. 폴더 저장소만 답한다.
    */
   stamps?(slideId: string): Promise<{ deck: number; slide: number }>;
+
+  /**
+   * 프로젝트 그림(assets/) 하나를 화면에 띄울 수 있는 주소로.
+   *
+   * 장표는 그림을 `assets/…` 상대경로로 가리킨다. 그래야 프로젝트를 옮겨도 따라온다.
+   * 다만 그 경로는 편집기 주소 기준이 아니므로 브라우저가 그대로는 찾지 못한다.
+   * 저장소마다 찾는 법이 다르므로 여기서 답한다. 없으면 그림을 못 띄우는 저장소다.
+   */
+  assetUrl?(name: string): Promise<string | null>;
 }
 
 /* ------------------------------------------------------------------ */

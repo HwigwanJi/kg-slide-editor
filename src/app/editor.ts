@@ -27,10 +27,12 @@ import {
 import {
   SNIPPETS, clipboard, cloneNodeSnapshot, createTransform, downloadDoc, downloadText,
   DEFAULT_PROJECT_NAME, editText, formatProbe, grantRecalledFolder, importKgHtml, importKgHtmlFrom,
-  localProject, pickProjectFolder, probeFolderAccess, readDocFile, recallProjectFolder,
-  snippetNode,
+  exportDeck as exportDeckTo,
+  isBridgeUp, listDir, listStarters, localApiProject, localProject, pickProjectFolder, probeFolderAccess,
+  readDocFile, recallProjectFolder, snippetNode,
   type MarqueeMode, type ProjectAdapter, type TextSession, type TransformController,
 } from '@adapters/index';
+import { rememberRecent, requestFolder } from './folder.request';
 
 /** KG 공통 CSS·자산이 서비스되는 위치. index.html 의 <link> 와 같아야 한다. */
 export const KG_BASE = '/kg/';
@@ -101,6 +103,11 @@ export interface EditorApi {
   save(): Promise<void>;
   exportHtml(): void;
   exportJson(): void;
+  /**
+   * 덱 전체를 좌측 목록 순서대로 내보낸다. 실제로 찍는 일은 dev 서버가 한다.
+   * 폴더 프로젝트에서만 된다 — 브라우저 저장소에는 내보낼 자리가 없다.
+   */
+  exportDeck(what: { png?: boolean; pdf?: boolean; pptx?: boolean }): Promise<void>;
   setTitle(title: string): void;
 
   /* 원시 통로 — 패널의 수치 입력처럼 커맨드를 그대로 보내야 할 때만 쓴다 */
@@ -224,6 +231,43 @@ const entryOf = (doc: SlideDoc): DeckEntry => ({
   ...(doc.source.origin ? { origin: doc.source.origin } : {}),
 });
 
+/** 지난번에 연 폴더. 다리를 쓸 때는 경로 문자열 하나라 권한을 다시 받을 것이 없다. */
+const LAST_FOLDER = 'kg-slide-editor/last-folder';
+
+/**
+ * 그림 경로에서 프로젝트 assets/ 안의 이름을 뽑는다. 아니면 null.
+ *
+ * 세 형태가 돌아다닌다 — 작도 원본은 `../assets/`, 예전 적재본은 `/kg/assets/`,
+ * 지금 적재본은 `assets/`. 예전 것을 빼먹으면 이미 만들어 둔 장표의 그림이 뜨지 않는다.
+ * 명령줄 도구(tools/assets.mjs)도 같은 세 형태를 본다 — 한쪽만 알면 화면과 미리보기가 갈린다.
+ */
+function assetNameOf(src: string): string | null {
+  const m = /^(?:(?:\.\.\/)+|\/kg\/)?assets\/(.+)$/.exec(src);
+  return m?.[1] ?? null;
+}
+
+/**
+ * 폴더 하나를 골라 저장소를 만든다.
+ *
+ * 다리(dev 서버)가 붙어 있으면 그쪽을 쓴다 — 권한을 묻지 않고, 브라우저가 막는 위치도 없다.
+ * 붙어 있지 않은 경우(빌드본을 파일로 연 경우)에만 예전 길로 물러난다.
+ *
+ * **물러날 때는 반드시 알린다.** 옛 길은 윈도우 탐색기 대화상자를 띄우는데, 그 대화상자가
+ * 셸 확장(동기화 도구·보안 프로그램)과 부딪히면 브라우저가 통째로 꺼지는 일이 실제로 있다.
+ * 조용히 물러나면 사람은 편집기가 죽었다고만 알지, 어느 길로 갔다가 죽었는지 알 수 없다.
+ */
+async function chooseFolder(warn: (m: string) => void): Promise<ProjectAdapter | null> {
+  if (!await isBridgeUp()) {
+    warn('개발 서버에 연결하지 못해 브라우저 폴더 창을 씁니다 — 이 창은 일부 환경에서 브라우저를 종료시킵니다');
+    return pickProjectFolder();
+  }
+  const path = await requestFolder();
+  if (!path) return null;
+  rememberRecent(path);
+  try { localStorage.setItem(LAST_FOLDER, path); } catch { /* 못 적어도 여는 데는 지장이 없다 */ }
+  return localApiProject(path);
+}
+
 export function createEditor(initial: ProjectAdapter = localProject): EditorApi {
   let project = initial;
   const slides = createSlideStore(blankDoc());
@@ -312,6 +356,33 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
     }
     drawnPage = pageStamp();
     transform?.refresh();
+    linkAssets(root);
+  }
+
+  /**
+   * 장표가 가리키는 그림을 저장소에서 찾아 붙인다.
+   *
+   * 장표는 그림을 `assets/…` 상대경로로 들고 있다(계약 ASSETS_DIR). 그래야 프로젝트를 옮겨도
+   * 따라온다. 다만 그 경로는 편집기 주소 기준이 아니라 프로젝트 폴더 기준이라 브라우저가
+   * 그대로는 찾지 못한다. 어디서 찾을지는 저장소만 아므로 저장소에게 묻는다.
+   *
+   * 원본(source.html)은 건드리지 않는다. 화면에 붙은 DOM 의 src 만 바꾼다 —
+   * 되쓰면 프로젝트를 옮겼을 때 따라오지 않는 절대주소가 원본에 박힌다(AGENTS R2).
+   *
+   * 그림은 늦게 온다. 다시 그리면 이 함수도 다시 도므로 그 사이 캔버스가 갈렸으면 버린다.
+   */
+  function linkAssets(drawn: HTMLElement | null): void {
+    if (!drawn || !project.assetUrl) return;
+    for (const img of drawn.querySelectorAll<HTMLImageElement>('img[src]')) {
+      const name = assetNameOf(img.getAttribute('src') ?? '');
+      if (!name) continue;
+      void project.assetUrl(name).then((url) => {
+        // 프로젝트에 없으면 그대로 둔다. 케인즈 로고처럼 스킬이 주인인 자산은
+        // /kg/assets/ 에 그대로 있으므로 손대지 않아야 뜬다.
+        // 그 사이 다시 그렸으면 이 노드는 이미 화면에 없다.
+        if (url && img.isConnected) img.src = url;
+      });
+    }
   }
 
   /**
@@ -524,6 +595,48 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       applyScale();
       // 새로고침 직후에는 아직 브라우저 저장소를 보고 있다. 지난번 폴더가 있으면 그것으로 잇는다.
       void (async () => {
+        // 다리를 쓸 때는 지난 폴더를 말없이 잇는다. 되살릴 것이 경로 문자열뿐이라
+        // 받아 낼 권한도, 사람이 눌러 줘야 할 단추도 없다.
+        const last = localStorage.getItem(LAST_FOLDER);
+        if (last && await isBridgeUp()) {
+          // 폴더가 사라졌거나 옮겨졌으면 없던 일로 한다. 여기서 죽으면 편집기가 아예 안 뜬다.
+          const alive = await listDir(last).then(() => true).catch(() => false);
+          if (alive) {
+            project = localApiProject(last);
+            await api.reloadProject();
+            status(`프로젝트 — ${project.location}`);
+            return;
+          }
+          localStorage.removeItem(LAST_FOLDER);
+        }
+
+        // 아직 아무것도 연 적이 없으면 설치가 깔아 둔 시작 프로젝트를 연다.
+        // 처음 받은 사람이 빈 화면 대신 실물을 보게 하려는 것이다. 한 번 열고 나면
+        // LAST_FOLDER 가 생기므로 위에서 갈리고, 여기로 다시 오지 않는다.
+        if (!last) {
+          const [starter] = await listStarters();
+          if (starter) {
+            project = localApiProject(starter);
+            await api.reloadProject();
+            status(`프로젝트 — ${project.location}`);
+            try { localStorage.setItem(LAST_FOLDER, starter); } catch { /* 없어도 동작한다 */ }
+            return;
+          }
+        }
+
+        /*
+         * 여기부터는 다리가 없을 때의 길이다.
+         *
+         * 다리가 붙어 있으면 브라우저에 남은 옛 폴더 핸들은 쳐다보지 않는다. 그것을 되살리려면
+         * requestPermission() — 네이티브 권한 대화상자 — 를 불러야 하는데, 그 대화상자가
+         * 셸 확장과 부딪혀 브라우저를 통째로 내리는 환경이 있다. 다리는 그 창이 필요 없고
+         * 같은 폴더를 경로로 열 수 있으므로, 굳이 위험한 길로 갈 이유가 없다.
+         */
+        if (await isBridgeUp()) {
+          await api.reloadProject();
+          return;
+        }
+
         const back = await recallProjectFolder().catch(() => null);
         if (back && !back.needsPermission) {
           project = back.project;
@@ -571,8 +684,10 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       const fail = (e: unknown) => { status(msg(e), true); toast('error', msg(e)); return null; };
 
       let picked: ProjectAdapter | null = null;
-      if (pendingFolder) picked = await grantRecalledFolder().catch(fail);
-      if (!picked) picked = await pickProjectFolder().catch(fail);
+      // 브라우저에 남은 옛 핸들은 다리가 없을 때만 되살린다. 되살리려면 네이티브 권한 창을
+      // 띄워야 하는데, 그 창이 브라우저를 통째로 내리는 환경이 있다(위 chooseFolder 주석).
+      if (pendingFolder && !await isBridgeUp()) picked = await grantRecalledFolder().catch(fail);
+      if (!picked) picked = await chooseFolder((m) => toast('info', m)).catch(fail);
       if (!picked) {
         // 취소는 잘못이 아니다. 다만 아무 일도 안 일어난 까닭은 남긴다.
         status('프로젝트를 열지 않았습니다');
@@ -613,7 +728,8 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
     onProjectState(fn) { stateListeners.add(fn); return () => stateListeners.delete(fn); },
 
     async saveToFolder() {
-      const picked = await pickProjectFolder().catch((e) => { status(msg(e), true); return null; });
+      const picked = await chooseFolder((m) => toast('info', m))
+        .catch((e) => { status(msg(e), true); return null; });
       if (!picked) return;
       await withBusy('폴더로 저장하는 중', '', async () => {
         await persistCurrent();
@@ -880,6 +996,33 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
     exportJson() {
       downloadDoc(slides.get());
       status('kgslide 내보냄');
+    },
+
+    /**
+     * 덱 전체를 내보낸다.
+     *
+     * 내보내기는 디스크의 파일을 읽어 찍는다. 그래서 저장하지 않은 편집은 반영되지 않는다 —
+     * 먼저 저장한다. 묻지 않고 저장하는 이유는, 여기서 되물으면 사람이 무엇을 고르든
+     * "내보냈는데 방금 고친 게 없다" 가 되기 때문이다.
+     */
+    async exportDeck(what) {
+      const root = project.root;
+      if (!root) {
+        const why = '폴더 프로젝트에서만 내보낼 수 있습니다. 먼저 "폴더로 저장"을 하세요.';
+        status(why, true);
+        toast('error', why);
+        return;
+      }
+      await withBusy('내보내는 중', '장표를 한 장씩 찍습니다 — 장수에 따라 시간이 걸립니다', async () => {
+        await persistCurrent();
+        const r = await exportDeckTo(root, what);
+        status(`내보냄 — ${r.count}장`);
+        toast('ok', `내보냈습니다 — ${r.made.join(' · ')}`);
+        if (r.missing.length) {
+          // 조용히 빠뜨리지 않는다. 목차에 있는데 파일이 없으면 그 수를 그대로 알린다.
+          toast('info', `목차에 있으나 파일이 없어 뺀 장표 ${r.missing.length}건`);
+        }
+      });
     },
 
     setTitle: (title) => slides.dispatch({ type: 'setTitle', title }, { coalesce: 'title' }),

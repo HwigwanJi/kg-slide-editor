@@ -1,0 +1,78 @@
+{
+  "v": 5,
+  "id": "5170072a-58a3-4097-af14-2b909c043f00",
+  "title": "2. 과업 관리 방안 — 소통·협력체계를 통한 진행률 관리",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"과업관리·소통체계형\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\">02</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\">과업 관리 방안</div>\n      <div class=\"kg-section-sub\">소통·협력체계를 통한 진행률 관리</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">III</span>\n      <span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\">과업 품질 관리</span>\n    </div>\n  </header>\n  <div class=\"kg-msgband\"><span class=\"kg-msgband__mark\"></span>\n    <p class=\"kg-message\">발주기관과 주간·월간·단계별 업무계획을 공유하고 정기회의와 공유회로 진행률 관리</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"wrap\">\n\n      <!-- ===== 정기회의 ===== -->\n      <div class=\"sec sec--reg\">\n        <div class=\"band\" data-kg-role=\"h1\">정기회의</div>\n        <div class=\"rgrid\">\n\n          <div></div>\n          <div class=\"chv\" data-kg-role=\"h2\">정기 업무 회의</div>\n          <div class=\"chv\" data-kg-role=\"h2\">월간 업무 회의</div>\n          <div class=\"chv\" data-kg-role=\"h2\">단계별 업무 회의</div>\n\n          <div class=\"pill\" data-kg-role=\"h3\">관리 활동</div>\n          <div class=\"cell\"><div class=\"acts\">\n            <span data-kg-role=\"body3\">격주 업무계획 공유 회의</span>\n            <span data-kg-role=\"body3\">격주 업무실적 점검</span>\n            <span data-kg-role=\"body3\">미결업무 원인 파악과 대응방안 마련</span>\n            <span data-kg-role=\"body3\">미결업무 처리 담당자 지정</span>\n          </div></div>\n          <div class=\"cell\"><div class=\"acts\">\n            <span data-kg-role=\"body3\">월간 업무계획 공유 회의</span>\n            <span data-kg-role=\"body3\">월간 업무실적 점검</span>\n            <span data-kg-role=\"body3\">미결업무 목록화</span>\n            <span data-kg-role=\"body3\">미결업무 처리 계획 별도 수립(일정·담당자)</span>\n          </div></div>\n          <div class=\"cell\"><div class=\"acts\">\n            <span data-kg-role=\"body3\">월간 업무관리와 함께 각 단계별 일정 점검</span>\n            <span data-kg-role=\"body3\">전담조직(TF) 팀장과 수행책임자(PM)가 공동 관리</span>\n          </div></div>\n\n          <div class=\"pill\" data-kg-role=\"h3\">업무계획<br>Work Plan</div>\n          <div class=\"wp\">\n            <div class=\"wp__t\" data-kg-role=\"h3\">주간 Work Plan</div>\n            <div class=\"wp__d\" data-kg-role=\"body3\">격주 프로젝트 팀 회의에서 확정</div>\n            <div class=\"wp__d\" data-kg-role=\"body3\">해당 주의 수행 활동·일정·담당 모듈·담당자·비고로 구성</div>\n          </div>\n          <div class=\"wp\">\n            <div class=\"wp__t\" data-kg-role=\"h3\">월간 Work Plan</div>\n            <div class=\"wp__d\" data-kg-role=\"body3\">전월 말에 익월 업무계획 작성</div>\n            <div class=\"wp__d\" data-kg-role=\"body3\">프로젝트 구성원의 주요 일정과 주요 시점 공유</div>\n          </div>\n          <div class=\"wp\">\n            <div class=\"wp__t\" data-kg-role=\"h3\">단계별 Work Plan</div>\n            <div class=\"wp__d\" data-kg-role=\"body3\">각 단계 시작 전 전체 일정을 수립하고 공유</div>\n            <div class=\"wp__d\" data-kg-role=\"body3\">월간·주간 업무계획 작성의 토대로 활용</div>\n          </div>\n\n        </div>\n      </div>\n\n      <!-- ===== 공유회 및 워크숍 ===== -->\n      <div class=\"sec sec--share\">\n        <div class=\"band\" data-kg-role=\"h1\">공유회 및 워크숍</div>\n        <div class=\"shares\">\n\n          <div class=\"grp\">\n            <div class=\"grp__r c3\">\n              <div class=\"sh\">\n                <div class=\"sh__t\" data-kg-role=\"h2\">착수 공유회</div>\n                <div class=\"sh__b\"><div class=\"sh__l\">\n                  <span data-kg-role=\"body3\">프로젝트 기대사항 사전 수렴과 명확화</span>\n                  <span data-kg-role=\"body3\">주의사항과 제약요건 확인</span>\n                  <span data-kg-role=\"body3\">프로젝트 시작 시점에 실시</span>\n                </div></div>\n              </div>\n              <div class=\"sh\">\n                <div class=\"sh__t\" data-kg-role=\"h2\">주간 회의</div>\n                <div class=\"sh__b\"><div class=\"sh__l\">\n                  <span data-kg-role=\"body3\">세부 조직체계 개선에 대한 기대사항과 제약요건 확인</span>\n                  <span data-kg-role=\"body3\">세부 분야별 주요 현안 확인</span>\n                </div></div>\n              </div>\n              <div class=\"sh\">\n                <div class=\"sh__t\" data-kg-role=\"h2\">월간 회의</div>\n                <div class=\"sh__b\"><div class=\"sh__l\">\n                  <span data-kg-role=\"body3\">조직체계 개선 결과 설명과 변화 공감대 형성</span>\n                  <span data-kg-role=\"body3\">연구용역 결과의 실행 준비</span>\n                </div></div>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"grp\">\n            <div class=\"grp__r c2\">\n              <div class=\"sh\">\n                <div class=\"sh__t\" data-kg-role=\"h2\">중간 공유회</div>\n                <div class=\"sh__b\"><div class=\"sh__l\">\n                  <span data-kg-role=\"body3\">프로젝트 진행 사항에 대한 중간 결과물 공유</span>\n                  <span data-kg-role=\"body3\">개선 방향성 공유와 의견 수렴</span>\n                </div></div>\n              </div>\n              <div class=\"sh\">\n                <div class=\"sh__t\" data-kg-role=\"h2\">최종 공유회</div>\n                <div class=\"sh__b\"><div class=\"sh__l\">\n                  <span data-kg-role=\"body3\">세부 사안별 경영진·전담조직 의견 수렴과 검토</span>\n                  <span data-kg-role=\"body3\">최종안 도출</span>\n                  <span data-kg-role=\"body3\">추가 요청사항 수렴</span>\n                </div></div>\n              </div>\n            </div>\n            <div class=\"anynote\" data-kg-role=\"body2\">비정기적으로 발생하는 주요 사안은 필요 시 언제든 논의</div>\n          </div>\n\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\">JDC 중장기 경영전략체계 진단 및 수립 — 과업 관리 및 발주기관 소통·협력체계</span>\n    <span class=\"kg-footer__page\">46</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".wrap{flex:1;display:flex;flex-direction:column;min-height:0;gap:11px;margin-top:11px;}\n  .sec{display:flex;flex-direction:column;min-height:0;gap:9px;}\n  .sec--reg{flex:1;}\n  .sec--share{flex:0 0 auto;}\n\n  .band{flex:0 0 auto;text-align:center;font-size:16px;font-weight:800;color:#fff;\n    background:linear-gradient(180deg,#2C5184,#1F497D);border-radius:3px;padding:6px 10px;}\n\n  /* ---- 정기회의 : 행 라벨 + 3열 ---- */\n  /* 남는 높이는 칸 안이 아니라 행 사이로 돌린다 */\n  .rgrid{flex:1;display:grid;grid-template-columns:108px 1fr 1fr 1fr;\n    grid-template-rows:auto auto auto;align-content:space-evenly;\n    column-gap:14px;row-gap:0;min-height:0;}\n\n  .chv{display:flex;align-items:center;justify-content:center;text-align:center;\n    background:var(--neutral-200);color:var(--ink-navy);font-size:15px;font-weight:800;\n    line-height:1.2;padding:8px 22px 8px 14px;\n    clip-path:polygon(0 0,calc(100% - 15px) 0,100% 50%,calc(100% - 15px) 100%,0 100%);}\n\n  .pill{display:flex;align-items:center;justify-content:center;text-align:center;\n    align-self:center;justify-self:center;width:100px;height:52px;border-radius:999px;\n    background:var(--neutral-200);border:1px solid var(--neutral-300);\n    font-size:14px;font-weight:800;color:var(--ink-navy);line-height:1.15;}\n\n  /* 목록은 한 덩어리로 위쪽에 붙인다 — 칸에 맞춰 벌리면 원본과 다르게 늘어진다 */\n  .cell{display:flex;align-items:flex-start;min-height:0;}\n  .acts{display:flex;flex-direction:column;gap:8px;}\n  .acts span{display:flex;align-items:flex-start;gap:7px;\n    font-size:14px;line-height:1.24;color:var(--ink-900);}\n  .acts span::before{content:\"\";flex:0 0 auto;width:5px;height:5px;margin-top:6px;\n    background:var(--ink-navy);border-radius:1px;}\n\n  /* Work Plan 칸 — 위에 브래킷을 얹고 제목은 이탤릭 */\n  .wp{position:relative;display:flex;flex-direction:column;justify-content:space-evenly;\n    gap:4px;padding-top:14px;min-height:0;}\n  .wp::before{content:\"\";position:absolute;left:5%;right:5%;top:0;height:9px;\n    border:2px solid var(--amber-500);border-bottom:none;border-radius:5px 5px 0 0;}\n  .wp__t{text-align:center;font-size:15px;font-weight:800;font-style:italic;color:var(--red-600);}\n  .wp__d{text-align:center;font-size:14px;line-height:1.26;color:var(--ink-900);}\n\n  /* ---- 공유회 및 워크숍 ---- */\n  .shares{flex:0 0 auto;display:grid;grid-template-columns:3fr 2fr;gap:14px;min-height:0;}\n  .grp{display:flex;flex-direction:column;min-height:0;gap:9px;padding:11px 12px 13px;\n    background:repeating-linear-gradient(135deg,var(--hatch) 0 1px,transparent 1px 6px),#fff;\n    border:1px solid var(--neutral-300);border-radius:4px;}\n  .grp__r{flex:0 0 auto;display:grid;gap:11px;min-height:0;}\n  .grp__r.c3{grid-template-columns:repeat(3,1fr);}\n  .grp__r.c2{grid-template-columns:repeat(2,1fr);}\n\n  .sh{display:flex;flex-direction:column;min-height:0;}\n  .sh__t{flex:0 0 auto;text-align:center;font-size:15px;font-weight:800;color:var(--ink-navy);\n    padding-bottom:5px;margin-bottom:7px;border-bottom:1px solid var(--neutral-300);}\n  .sh__b{flex:1;display:flex;align-items:flex-start;min-height:0;}\n  .sh__l{display:flex;flex-direction:column;gap:8px;}\n  .sh__l span{display:flex;align-items:flex-start;gap:7px;\n    font-size:14px;line-height:1.24;color:var(--ink-900);}\n  .sh__l span::before{content:\"\";flex:0 0 auto;width:5px;height:5px;margin-top:6px;\n    background:var(--blue-500);border-radius:1px;}\n\n  .anynote{flex:0 0 auto;text-align:center;font-size:14px;font-style:italic;font-weight:700;\n    color:var(--navy-800);text-decoration:underline;text-underline-offset:3px;}",
+    "origin": "46_Progress_Management.html"
+  },
+  "patches": {
+    "n.0.1": {
+      "text": {
+        "html": "17"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "과업 수행 소통 체계"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          41.1,
+          8,
+          41.1
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h1": {
+        "fontSize": 21
+      },
+      "h2": {
+        "fontSize": 18
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T09:27:45.839Z",
+  "updatedAt": "2026-07-27T14:16:16.692Z"
+}

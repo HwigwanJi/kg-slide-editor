@@ -1,0 +1,250 @@
+{
+  "v": 5,
+  "id": "f284d978-4775-4cc4-9c3f-87e6581b65bf",
+  "title": "대내외 변화동인과 4대 중점방향",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"변화동인 · 중점방향\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"message\">01</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">단계별 세부 추진내용 및 일정</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">대내외 변화동인과 4대 중점방향 — 1-4</div>\n    </div>\n    <div class=\"kg-chapter-tab\"><span class=\"kg-chapter-tab__roman\" data-kg-role=\"label\">Ⅱ</span><span class=\"kg-chapter-tab__sep\"></span><span class=\"kg-chapter-tag\" data-kg-role=\"label\">경영환경 분석</span></div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">대외 구조변화와 대내 수익 · 거버넌스 한계를 종합해 <b>4대 중점방향</b> 연계</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"wrap\">\n\n      <div class=\"nav\">\n        <span class=\"k\" data-kg-role=\"h3\">과업 1 대내 · 외 경영환경 분석</span>\n        <span data-kg-role=\"label\">과업 2 사업분석 및 이해관계자 진단</span>\n        <span data-kg-role=\"label\">과업 3 가치체계 및 전략체계 수립</span>\n        <span data-kg-role=\"label\">과업 4 운용계획 수립 및 실행력 강화</span>\n      </div>\n\n      <div class=\"mx\">\n        <div class=\"hd\" data-kg-role=\"h3\">대외 변화동인</div>\n        <div class=\"hd hd--k\" data-kg-role=\"h3\">4대 중점방향</div>\n        <div class=\"hd\" data-kg-role=\"h3\">대내 변화동인</div>\n\n        <!-- ① Diversify -->\n        <div class=\"dr dr--out\">\n          <div class=\"dr__t\" data-kg-role=\"h3\">면세시장 축소와 단일 수익원 한계</div>\n          <div class=\"dr__b\">\n            <p data-kg-role=\"body2\">하이난 이도면세 확대와 중국 소비변화로 면세시장 규모가 25조 원에서 15조 원으로 축소</p>\n            <p data-kg-role=\"body2\">조특법 개정 등 규제완화의 불확실성에 대비한 비면세 수익원 확대와 대정부 대응력 강화</p>\n          </div>\n        </div>\n        <div class=\"fc\">\n          <b data-kg-role=\"h2\">① Diversify JDC</b>\n          <span data-kg-role=\"body2\">면세 탈피 비면세 수익사업 다변화 체계 구축</span>\n        </div>\n        <div class=\"dr dr--in\">\n          <div class=\"dr__t\" data-kg-role=\"h3\">면세 편중과 수익성 저하</div>\n          <div class=\"dr__b\">\n            <p data-kg-role=\"body2\">지정면세 매출이 2년간 약 2천억 원 감소하고 순이익도 63% 하락</p>\n            <p data-kg-role=\"body2\">경영평가 2년 연속 D등급이나, 부채비율 약 20% · 현금 2천억 원의 투자여력은 보유</p>\n          </div>\n        </div>\n\n        <!-- ② Innovate -->\n        <div class=\"dr dr--out\">\n          <div class=\"dr__t\" data-kg-role=\"h3\">AI · 디지털 전환 가속으로 기회 부상</div>\n          <div class=\"dr__b\">\n            <p data-kg-role=\"body2\">생성형 AI · AX · 디지털 트윈 확산과 디지털 FDI 증가로 첨단산업 전환 기회 확대</p>\n            <p data-kg-role=\"body2\">AI고속도로 · 데이터센터 40MW 등 국정 · 도정 과제와 연계한 미래산업 인프라 선점</p>\n          </div>\n        </div>\n        <div class=\"fc\">\n          <b data-kg-role=\"h2\">② Innovate JDC</b>\n          <span data-kg-role=\"body2\">AI · 데이터센터 등 첨단기술 기반 미래산업 인프라 혁신</span>\n        </div>\n        <div class=\"dr dr--in\">\n          <div class=\"dr__t\" data-kg-role=\"h3\">첨단단지 · AI 성장기반 확보</div>\n          <div class=\"dr__b\">\n            <p data-kg-role=\"body2\">첨단과기단지 입주기업 206개사 · 매출 8.7조 원의 검증된 산업생태계 확보</p>\n            <p data-kg-role=\"body2\">ADX 착수와 신임 리더십으로 미래사업 추진동력을 확보했으나 실행 · 투자역량 보강 과제</p>\n          </div>\n        </div>\n\n        <!-- ③ Connect -->\n        <div class=\"dr dr--out\">\n          <div class=\"dr__t\" data-kg-role=\"h3\">국정 · 도정 정책과 전략기간 정합</div>\n          <div class=\"dr__b\">\n            <p data-kg-role=\"body2\">제2공항 배후개발 · K-관광 3천만 등 정부 핵심과제와 JDC 사업 간 연계성 확대</p>\n            <p data-kg-role=\"body2\">제3차 종합계획 3단계와 중장기 전략기간이 일치해 신규사업 추진의 정책적 기반 확보</p>\n          </div>\n        </div>\n        <div class=\"fc\">\n          <b data-kg-role=\"h2\">③ Connect JDC</b>\n          <span data-kg-role=\"body2\">국정 · 도정 · 글로벌 협력 네트워크로 산업 시너지 강화</span>\n        </div>\n        <div class=\"dr dr--in\">\n          <div class=\"dr__t\" data-kg-role=\"h3\">기능 재정립과 존립 정당성 과제</div>\n          <div class=\"dr__b\">\n            <p data-kg-role=\"body2\">국제자유도시 비전 재검토와 기능 이관 논의에 따른 JDC 역할 · 정체성 재정립 과제</p>\n            <p data-kg-role=\"body2\">AI · 도민소득 등 도정 핵심과제와의 연계를 통한 정책 정합성과 기관 존립가치 강화</p>\n          </div>\n        </div>\n\n        <!-- ④ Return -->\n        <div class=\"dr dr--out\">\n          <div class=\"dr__t\" data-kg-role=\"h3\">탄소중립 · 지역상생 요구 확대</div>\n          <div class=\"dr__b\">\n            <p data-kg-role=\"body2\">지역상생 · 환경 · 노사 리스크 상시화, 개발이익 도민환원 요구 강화</p>\n            <p data-kg-role=\"body2\">CFI2030 · 그린수소 · 출력제어 잉여전력 1,069GWh 활용 기회</p>\n          </div>\n        </div>\n        <div class=\"fc\">\n          <b data-kg-role=\"h2\">④ Return JDC</b>\n          <span data-kg-role=\"body2\">개발이익 환원 · 청정에너지 지속가능 거버넌스 강화</span>\n        </div>\n        <div class=\"dr dr--in\">\n          <div class=\"dr__t\" data-kg-role=\"h3\">표류사업과 거버넌스 취약</div>\n          <div class=\"dr__b\">\n            <p data-kg-role=\"body2\">헬스케어타운 10년 · 예래 소송 등 표류사업 매몰 · 법적리스크 상존</p>\n            <p data-kg-role=\"body2\">투자 · 성과 · 계약 관리체계 재설계와 개발이익 환원 · 책임경영 기반 강화</p>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: JDC 대외 정책환경 조사 · 내부 경영실적 및 사업현황 분석 종합</span>\n    <span class=\"kg-footer__page\" data-kg-role=\"caption\" data-kg-auto=\"page\">–</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".wrap{flex:1;min-height:0;display:grid;grid-template-rows:auto 1fr;gap:10px;}\n\n  .nav{display:grid;grid-template-columns:repeat(4,1fr);}\n  .nav span{font-size:14px;font-weight:700;color:#fff;background:var(--xg2,#AEB6C0);\n    text-align:center;padding:5px 6px;margin-left:-10px;\n    clip-path:polygon(0 0,calc(100% - 11px) 0,100% 50%,calc(100% - 11px) 100%,0 100%,11px 50%);}\n  .nav span:first-child{margin-left:0;clip-path:polygon(0 0,calc(100% - 11px) 0,100% 50%,calc(100% - 11px) 100%,0 100%);}\n  .nav span.k{background:linear-gradient(90deg,#2C5184,#1F497D);}\n\n  /* ── 3열 수렴 매트릭스 ─────────────────────────── */\n  .mx{display:grid;grid-template-columns:1fr 300px 1fr;grid-template-rows:auto repeat(4,1fr);\n    gap:9px 22px;min-height:0;}\n\n  .hd{border-radius:var(--r-xs);text-align:center;font-size:15px;font-weight:800;\n    padding:5px 8px;letter-spacing:.03em;background:var(--neutral-200);color:var(--ink-navy);}\n  .hd--k{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;}\n\n  /* 변화동인 칸 */\n  .dr{border:1px solid var(--neutral-300);border-radius:var(--r-xs);background:#fff;\n    display:grid;grid-template-rows:auto 1fr;min-height:0;overflow:hidden;}\n  .dr__t{font-size:14px;font-weight:800;color:var(--ink-navy);\n    background:var(--neutral-100);border-bottom:1px solid var(--neutral-300);\n    padding:4px 10px;line-height:1.3;}\n  .dr__b{padding:6px 11px;display:grid;align-content:center;gap:9px;min-height:0;}\n  .dr__b p{margin:0;font-size:14px;line-height:1.45;color:var(--ink-700);\n    padding-left:10px;position:relative;}\n  .dr__b p::before{content:\"\";position:absolute;left:0;top:8px;width:4px;height:4px;\n    border-radius:50%;background:var(--blue-400);}\n\n  .dr--out{border-color:var(--blue-300);}\n  .dr--out .dr__t{background:var(--blue-050);color:#1F497D;}\n  .dr--in{border-color:var(--xg2,#AEB6C0);}\n  .dr--in .dr__t{background:var(--neutral-100);}\n  .dr--in .dr__b p::before{background:var(--xg2,#AEB6C0);}\n\n  /* 중점방향 칸 */\n  .fc{position:relative;background:linear-gradient(180deg,#2C5184,#1F497D);\n    border-radius:var(--r-sm);color:#fff;padding:10px 14px;\n    display:grid;align-content:center;gap:5px;min-height:0;}\n  .fc b{font-size:22px;font-weight:800;line-height:1.25;letter-spacing:.01em;}\n  .fc span{font-size:16px;font-weight:500;line-height:1.45;color:var(--blue-100,#D9E6F5);}\n  .fc::before,.fc::after{content:\"\";position:absolute;top:50%;margin-top:-8px;\n    border-top:8px solid transparent;border-bottom:8px solid transparent;}\n  .fc::before{left:-14px;border-right:11px solid var(--blue-300);}\n  .fc::after{right:-14px;border-left:11px solid var(--xg2,#AEB6C0);}",
+    "origin": "03i_변화동인중점방향.html"
+  },
+  "patches": {
+    "n.2.0.1.4.1": {
+      "style": {
+        "fontSize": 15,
+        "textAlign": "center"
+      }
+    },
+    "n.2.0.1.7.1": {
+      "style": {
+        "fontSize": 15,
+        "textAlign": "center"
+      }
+    },
+    "n.2.0.1.10.1": {
+      "style": {
+        "fontSize": 15,
+        "textAlign": "center"
+      }
+    },
+    "n.2.0.1.13.1": {
+      "style": {
+        "fontSize": 15,
+        "textAlign": "center"
+      }
+    },
+    "n.2.0.0.0": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.0.1": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.0.2": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.0.3": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.1.2": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.5.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.3.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.6.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.8.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.11.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.9.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.12.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.14.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.5.1.0": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.5.1.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.3.1.0": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.3.1.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.6.1.0": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.6.1.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.8.1.0": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.8.1.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.11.1.0": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.11.1.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.9.1.0": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.9.1.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.12.1.0": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.12.1.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.14.1.0": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.14.1.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "01"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "경영환경 진단"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "대내외 환경변화 중점방향"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {}
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T09:59:43.654Z",
+  "updatedAt": "2026-07-27T14:19:25.403Z"
+}

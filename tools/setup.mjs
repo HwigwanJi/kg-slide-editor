@@ -14,8 +14,9 @@
  *
  * 몇 번을 돌려도 결과가 같다. 이미 있는 설정은 덮어쓰지 않고 필요한 항목만 더한다.
  */
+import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readFile, readdir, rename, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
@@ -44,6 +45,30 @@ const HOOK_SLOTS = [
 ];
 
 const log = (mark, msg) => console.log(`${mark} ${msg}`);
+
+/* ---------- 0. 준비물 ---------- */
+
+/**
+ * --all 이면 준비물까지 여기서 받는다.
+ *
+ * 받는 사람이 외울 명령을 하나로 줄이려는 것이다. 순서가 있다 — npm install 이 끝나야
+ * 번들을 만들 수 있고, playwright 브라우저가 있어야 검사·미리보기가 돈다.
+ * 이미 있으면 npm 과 playwright 가 알아서 건너뛰므로 몇 번을 돌려도 결과가 같다.
+ */
+if (process.argv.includes('--all')) {
+  for (const [what, cmd] of [
+    ['의존성', 'npm install --no-audit --no-fund'],
+    ['미리보기 브라우저', 'npx playwright install chromium'],
+  ]) {
+    log('•', `${what} 받는 중…`);
+    // 윈도우의 npm·npx 는 배치 파일이라 셸을 거쳐야 실행된다. 셸 없이 부르면 EINVAL 로 떨어진다.
+    const r = spawnSync(cmd, { cwd: ROOT, stdio: 'inherit', shell: true });
+    if (r.status !== 0) {
+      console.error(`✕ ${what} 를 받지 못했습니다. 위 출력을 확인하세요.`);
+      process.exit(1);
+    }
+  }
+}
 
 /* ---------- 1. 스킬 ---------- */
 
@@ -102,12 +127,31 @@ if (touched.length > 0 && !force) {
   process.exit(1);
 }
 
+/**
+ * 설치본에 이 저장소의 실제 경로를 채운다.
+ *
+ * 컴퓨터마다 저장소 위치가 다르므로 문서에 경로를 적어 둘 수 없다. 적어 두면 다른 컴퓨터에서
+ * 없는 폴더를 부른다. 그래서 저장소본은 자리표시자만 갖고 실제 경로는 설치할 때 채운다.
+ * 지문을 뜨기 전에 채운다 — 나중에 채우면 다음 설치가 이것을 "사람이 고친 것" 으로 본다.
+ */
+async function stampRoot(dir) {
+  for (const e of await readdir(dir, { withFileTypes: true })) {
+    const p = join(dir, e.name);
+    if (e.isDirectory()) { await stampRoot(p); continue; }
+    if (!e.name.endsWith('.md')) continue;
+    const text = await readFile(p, 'utf8');
+    if (!text.includes('{{EDITOR_ROOT}}')) continue;
+    await writeFile(p, text.replaceAll('{{EDITOR_ROOT}}', ROOT), 'utf8');
+  }
+}
+
 const ledger = {};
 for (const name of await readdir(join(ROOT, 'skills'))) {
   const dst = join(HOME, 'skills', name);
   // 통째로 갈아 끼운다. 남은 옛 파일이 새 규칙과 섞이면 무엇이 적용됐는지 알 수 없게 된다.
   await rm(dst, { recursive: true, force: true });
   await cp(join(ROOT, 'skills', name), dst, { recursive: true });
+  await stampRoot(dst);
   Object.assign(ledger, await fingerprint(dst, name));
   log('•', `스킬 ${name}`);
 }
@@ -124,9 +168,18 @@ log('•', '훅 kg-workflow.mjs');
 /* ---------- 3. 훅 등록 ---------- */
 
 const settingsPath = join(HOME, 'settings.json');
-const settings = existsSync(settingsPath)
-  ? JSON.parse(await readFile(settingsPath, 'utf8'))
-  : {};
+
+/**
+ * BOM 을 떼고 읽는다.
+ *
+ * 윈도우에서 PowerShell 로 settings.json 을 한 번이라도 건드리면 앞에 BOM 이 붙는다.
+ * JSON.parse 는 그것을 글자로 보고 죽는다. 설치가 훅 등록 직전에 멈추므로,
+ * 스킬은 깔렸는데 워크플로우는 주입되지 않는 어중간한 상태로 남는다.
+ * 쓸 때는 다시 붙이지 않는다 — BOM 이 붙은 JSON 은 다른 도구도 똑같이 게운다.
+ */
+const readJson = async (p) => JSON.parse((await readFile(p, 'utf8')).replace(/^\uFEFF/, ''));
+
+const settings = existsSync(settingsPath) ? await readJson(settingsPath) : {};
 settings.hooks ??= {};
 
 let added = 0;
@@ -159,8 +212,29 @@ if (!existsSync(KG)) {
   console.error('✕ skills/keynes-group-design 이 없습니다. 저장소를 통째로 받았는지 확인하세요.');
   process.exit(1);
 }
+/*
+ * 자리를 비우기 전에 비울 수 있는지 먼저 가린다.
+ *
+ * 개발 서버가 떠 있으면 윈도우가 public/kg 안의 파일을 잡고 있다. 그대로 rm 하면 절반쯤
+ * 지워진 뒤 mkdir 이 EPERM 으로 죽고, 자산이 사라진 채 설치가 끝난다. 편집기는 글꼴도
+ * 색도 없는 상태로 남는데, 사람은 설치가 실패한 줄만 알지 무엇이 사라졌는지 모른다.
+ *
+ * 그래서 지우지 않고 이름부터 바꾼다. 잡혀 있으면 이름 바꾸기가 실패하고, 그때는
+ * 아무것도 잃지 않은 상태다. 성공하면 새로 만든 뒤 옛것을 치운다.
+ */
 const kgOut = join(ROOT, 'public', 'kg');
-await rm(kgOut, { recursive: true, force: true });
+const kgOld = join(ROOT, 'public', '.kg-old');
+if (existsSync(kgOut)) {
+  await rm(kgOld, { recursive: true, force: true }).catch(() => undefined);
+  try {
+    await rename(kgOut, kgOld);
+  } catch (e) {
+    console.error(`✕ public/kg 를 비울 수 없습니다 — ${e.code ?? e.message}`);
+    console.error('  개발 서버(npm run dev)가 떠 있으면 그 안의 파일을 잡고 있습니다.');
+    console.error('  서버를 내리고 다시 실행하세요. 아무것도 지우지 않았습니다.');
+    process.exit(1);
+  }
+}
 await mkdir(kgOut, { recursive: true });
 for (const [from, to] of ASSETS) {
   const src = join(KG, from);
@@ -170,6 +244,8 @@ for (const [from, to] of ASSETS) {
   }
   await cp(src, join(kgOut, to), { recursive: true });
 }
+// 새 자산이 다 들어간 뒤에 옛것을 치운다. 여기서 실패해도 설치는 이미 성공이다.
+await rm(kgOld, { recursive: true, force: true }).catch(() => undefined);
 log('•', `편집기 자산 ${ASSETS.length}건 (public/kg)`);
 
 /* ---------- 5. 도구 번들 ---------- */
@@ -186,12 +262,42 @@ try {
   console.error('  npm install 을 먼저 돌렸는지 확인하세요.');
 }
 
-console.log(`
-설치를 마쳤습니다. 이어서 할 일
+/* ---------- 6. 시작 프로젝트 ---------- */
 
+/**
+ * 받은 사람이 열자마자 볼 것을 깔아 둔다.
+ *
+ * 빈 편집기는 무엇을 할 수 있는 도구인지 알려 주지 못한다. samples/ 의 프로젝트를
+ * projects/ 로 펼쳐, 열면 바로 실물이 뜨게 한다.
+ *
+ * **원본은 samples/ 에 그대로 둔다.** projects/ 는 사람이 고치는 작업본이고 git 이 무시한다.
+ * 이미 있으면 건드리지 않는다 — 설치를 다시 돌렸다고 남의 편집분을 덮으면 안 된다.
+ */
+const samples = join(ROOT, 'samples');
+if (existsSync(samples)) {
+  const work = join(ROOT, 'projects');
+  await mkdir(work, { recursive: true });
+  const laid = [];
+  for (const name of await readdir(samples)) {
+    const dst = join(work, name);
+    if (existsSync(dst)) continue;
+    await cp(join(samples, name), dst, { recursive: true });
+    laid.push(name);
+  }
+  log('•', laid.length ? `시작 프로젝트 ${laid.join(', ')} (projects/)` : '시작 프로젝트 이미 있음 — 그대로 둡니다');
+}
+
+const rest = process.argv.includes('--all') ? '' : `
+아직 안 받은 것이 있으면 (--all 로 돌리면 여기까지 함께 합니다)
+
+  npm install
   npx playwright install chromium
-  npm run build                              빌드가 통과하는지
-  npm run lint:slides -- public/fixtures     검사가 도는지
+`;
 
-편집기는 npm run dev 로 띄웁니다.
-저장소를 새로 받았을 때(git pull)도 npm install 과 npm run setup 을 다시 돌립니다.`);
+console.log(`
+설치를 마쳤습니다.
+${rest}
+  npm run dev        편집기를 띄웁니다 (http://localhost:5180)
+
+열면 시작 프로젝트가 이미 들어 있습니다. 그것을 고쳐도 samples/ 의 원본은 그대로입니다.
+저장소를 새로 받았을 때(git pull)도 npm run setup 을 다시 돌립니다.`);

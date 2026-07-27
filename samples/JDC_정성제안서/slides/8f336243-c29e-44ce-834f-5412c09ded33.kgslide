@@ -1,0 +1,88 @@
+{
+  "v": 5,
+  "id": "8f336243-c29e-44ce-834f-5412c09ded33",
+  "title": "3. 과업의 수행 방법론 — 비계량 지표 평가관점",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"평가관점 그리드형\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\">03</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\">과업의 수행 방법론</div>\n      <div class=\"kg-section-sub\">비계량 지표 평가관점 · 접근방법–실행–학습과 혁신</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">III</span>\n      <span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\">추진방안 및 관리계획</span>\n    </div>\n  </header>\n  <div class=\"kg-msgband\"><span class=\"kg-msgband__mark\"></span>\n    <p class=\"kg-message\">비계량 지표를 접근방법·방법의 실행·학습과 혁신 3개 관점으로 나누어 평가하고, 5개 평가영역마다 세부평가항목을 정해 충족 개수에 따라 A부터 E까지 등급을 부여</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"kg-content s-1-3\">\n\n      <!-- ================= 좌 ================= -->\n      <div class=\"col\">\n        <div class=\"kg-subtopic\">평가관점 3개 축</div>\n        <div class=\"col__b\">\n          <div class=\"adl\">\n\n            <div class=\"adl__i\">\n              <div class=\"adl__h\">\n                <span class=\"adl__n\" data-kg-role=\"num\">A</span>\n                <span class=\"adl__t\" data-kg-role=\"h2\">접근방법</span>\n                <span class=\"adl__e\" data-kg-role=\"label\">Approach</span>\n              </div>\n              <div class=\"adl__b\">\n                <div class=\"adl__r\" data-kg-role=\"body3\">지표관리 방법</div>\n                <div class=\"adl__r\" data-kg-role=\"body3\">방법 사용의 이유</div>\n                <div class=\"adl__r\" data-kg-role=\"body3\">방법의 체계성·효과성</div>\n              </div>\n            </div>\n\n            <div class=\"adl__i\">\n              <div class=\"adl__h\">\n                <span class=\"adl__n\" data-kg-role=\"num\">D</span>\n                <span class=\"adl__t\" data-kg-role=\"h2\">방법의 실행</span>\n                <span class=\"adl__e\" data-kg-role=\"label\">Deployment</span>\n              </div>\n              <div class=\"adl__b\">\n                <div class=\"adl__r\" data-kg-role=\"body3\">방법 실행의 타당성</div>\n                <div class=\"adl__r\" data-kg-role=\"body3\">방법 적용의 범위</div>\n                <div class=\"adl__r\" data-kg-role=\"body3\">방법 적용의 난이도</div>\n                <div class=\"adl__r\" data-kg-role=\"body3\">방법 적용의 일관성</div>\n              </div>\n            </div>\n\n            <div class=\"adl__i\">\n              <div class=\"adl__h\">\n                <span class=\"adl__n\" data-kg-role=\"num\">L</span>\n                <span class=\"adl__t\" data-kg-role=\"h2\">학습과 혁신</span>\n                <span class=\"adl__e\" data-kg-role=\"label\">Learning &amp; Innovation</span>\n              </div>\n              <div class=\"adl__b\">\n                <div class=\"adl__r\" data-kg-role=\"body3\">평가와 개선 시스템</div>\n                <div class=\"adl__r\" data-kg-role=\"body3\">성과의 공유와 이를 통한 조직학습</div>\n              </div>\n            </div>\n\n          </div>\n        </div>\n      </div>\n\n      <!-- ================= 우 ================= -->\n      <div class=\"col\">\n        <div class=\"kg-subtopic\">평가영역별 세부평가항목과 등급기준</div>\n        <div class=\"col__b\">\n          <div class=\"tbl\">\n\n            <!-- 1행 · 영역 머리 -->\n            <div class=\"rh\" data-kg-role=\"h3\">평가<br>영역</div>\n            <div class=\"ch\" data-kg-role=\"h3\">계획수립</div>\n            <div class=\"ch\" style=\"grid-column:span 2;\" data-kg-role=\"h3\">개선노력</div>\n            <div class=\"ch\" data-kg-role=\"h3\">실행 적절성</div>\n            <div class=\"ch\" style=\"grid-column:span 2;\" data-kg-role=\"h3\">대응수준</div>\n            <div class=\"ch\" data-kg-role=\"h3\">환류활동</div>\n\n            <!-- 2행 · 세부평가항목 -->\n            <div class=\"rh rh--v\"><span data-kg-role=\"h3\">세부평가항목</span></div>\n\n            <div class=\"cell\">\n              <div class=\"lst\">\n                <div class=\"lst__i\" data-kg-role=\"body3\">① 중장기계획 및 전략과제와의 연관성</div>\n                <div class=\"lst__i\" data-kg-role=\"body3\">② 관련 통계현황·사례 조사를 통한 분석</div>\n                <div class=\"lst__i\" data-kg-role=\"body3\">③ 정책 효과분석 또는 장단점 분석</div>\n                <div class=\"lst__i\" data-kg-role=\"body3\">④ 이해관계자 및 전문가 의견수렴</div>\n              </div>\n            </div>\n\n            <div class=\"cell cell--pair\" style=\"grid-column:span 2;\">\n              <div class=\"pane\">\n                <div class=\"pane__h\" data-kg-role=\"label\">업무 프로세스 개선</div>\n                <div class=\"lst\">\n                  <div class=\"lst__i\" data-kg-role=\"body3\">① 업무프로세스 개선의 공식화</div>\n                  <div class=\"lst__i\" data-kg-role=\"body3\">② 개선점 도출과 문서화·보고</div>\n                  <div class=\"lst__i\" data-kg-role=\"body3\">③ 개선을 위한 문제점 파악</div>\n                  <div class=\"lst__i\" data-kg-role=\"body3\">④ 업무효율성 제고 성과</div>\n                </div>\n              </div>\n              <div class=\"pane\">\n                <div class=\"pane__h\" data-kg-role=\"label\">법규 제·개정</div>\n                <div class=\"para\" data-kg-role=\"body3\">법제처 제출 전 내부 승인, 국회 제출, 제·개정 완료 등 단계별로 연초 계획 대비 달성 수준을 정성 평가</div>\n              </div>\n            </div>\n\n            <div class=\"cell\">\n              <div class=\"gr\">\n                <div class=\"gr__r\"><span class=\"gr__t\" data-kg-role=\"body3\">계획 대비 목표보다 조기 완료</span><span class=\"gr__b gr__b--k\" data-kg-role=\"label\">A</span></div>\n                <div class=\"gr__r\"><span class=\"gr__t\" data-kg-role=\"body3\">계획 대비 일반적 수준 완료</span><span class=\"gr__b\" data-kg-role=\"label\">B</span></div>\n                <div class=\"gr__r\"><span class=\"gr__t\" data-kg-role=\"body3\">계획 대비 다소 지연</span><span class=\"gr__b\" data-kg-role=\"label\">C</span></div>\n                <div class=\"gr__r\"><span class=\"gr__t\" data-kg-role=\"body3\">계획 대비 현저히 지연</span><span class=\"gr__b gr__b--g\" data-kg-role=\"label\">D</span></div>\n                <div class=\"gr__r\"><span class=\"gr__t\" data-kg-role=\"body3\">계획과 일관성 없이 진행</span><span class=\"gr__b gr__b--g\" data-kg-role=\"label\">E</span></div>\n              </div>\n            </div>\n\n            <div class=\"cell cell--pair\" style=\"grid-column:span 2;\">\n              <div class=\"pane\">\n                <div class=\"pane__h\" data-kg-role=\"label\">사전 예방</div>\n                <div class=\"lst\">\n                  <div class=\"lst__i\" data-kg-role=\"body3\">① 모니터링 여부</div>\n                  <div class=\"lst__i\" data-kg-role=\"body3\">② 주요 현안·문제점 사전 파악</div>\n                  <div class=\"lst__i\" data-kg-role=\"body3\">③ 사전예방 대책 수립</div>\n                  <div class=\"lst__i\" data-kg-role=\"body3\">④ 예방대책의 효과성</div>\n                </div>\n              </div>\n              <div class=\"pane\">\n                <div class=\"pane__h\" data-kg-role=\"label\">사후 대처</div>\n                <div class=\"lst\">\n                  <div class=\"lst__i\" data-kg-role=\"body3\">① 모니터링 여부</div>\n                  <div class=\"lst__i\" data-kg-role=\"body3\">② 주요 현안·문제점 명시</div>\n                  <div class=\"lst__i\" data-kg-role=\"body3\">③ 문제 대응방안 수립</div>\n                  <div class=\"lst__i\" data-kg-role=\"body3\">④ 문제해결 여부</div>\n                </div>\n              </div>\n            </div>\n\n            <div class=\"cell\">\n              <div class=\"lst\">\n                <div class=\"lst__i\" data-kg-role=\"body3\">① 전년 평가·지적에 대한 계획 수립 여부</div>\n                <div class=\"lst__i\" data-kg-role=\"body3\">② 계획의 타당성 및 구체성</div>\n                <div class=\"lst__i\" data-kg-role=\"body3\">③ 계획 실행 여부</div>\n                <div class=\"lst__i\" data-kg-role=\"body3\">④ 환류 실행 성과 수준</div>\n              </div>\n            </div>\n\n            <!-- 3행 · 등급기준 -->\n            <div class=\"rh\" data-kg-role=\"h3\">등급<br>기준</div>\n\n            <div class=\"scale\" style=\"grid-column:span 3;\">\n              <span class=\"scale__k\" data-kg-role=\"h3\">충족 개수</span>\n              <span class=\"scale__l\">\n                <span class=\"sc sc--k\"><span class=\"sc__n\" data-kg-role=\"body3\">4개</span><span class=\"sc__g\" data-kg-role=\"label\">A</span></span>\n                <span class=\"sc\"><span class=\"sc__n\" data-kg-role=\"body3\">3개</span><span class=\"sc__g\" data-kg-role=\"label\">B</span></span>\n                <span class=\"sc\"><span class=\"sc__n\" data-kg-role=\"body3\">2개</span><span class=\"sc__g\" data-kg-role=\"label\">C</span></span>\n                <span class=\"sc\"><span class=\"sc__n\" data-kg-role=\"body3\">1개</span><span class=\"sc__g\" data-kg-role=\"label\">D</span></span>\n                <span class=\"sc\"><span class=\"sc__n\" data-kg-role=\"body3\">0개</span><span class=\"sc__g\" data-kg-role=\"label\">E</span></span>\n              </span>\n            </div>\n\n            <div class=\"note\" data-kg-role=\"caption\">좌측 단계별 척도를 그대로 적용</div>\n\n            <div class=\"scale\" style=\"grid-column:span 3;\">\n              <span class=\"scale__k\" data-kg-role=\"h3\">충족 개수</span>\n              <span class=\"scale__l\">\n                <span class=\"sc sc--k\"><span class=\"sc__n\" data-kg-role=\"body3\">4개</span><span class=\"sc__g\" data-kg-role=\"label\">A</span></span>\n                <span class=\"sc\"><span class=\"sc__n\" data-kg-role=\"body3\">3개</span><span class=\"sc__g\" data-kg-role=\"label\">B</span></span>\n                <span class=\"sc\"><span class=\"sc__n\" data-kg-role=\"body3\">2개</span><span class=\"sc__g\" data-kg-role=\"label\">C</span></span>\n                <span class=\"sc\"><span class=\"sc__n\" data-kg-role=\"body3\">1개</span><span class=\"sc__g\" data-kg-role=\"label\">D</span></span>\n                <span class=\"sc\"><span class=\"sc__n\" data-kg-role=\"body3\">0개</span><span class=\"sc__g\" data-kg-role=\"label\">E</span></span>\n              </span>\n            </div>\n\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\">JDC 중장기 경영전략체계 진단 및 수립 — 비계량 지표 평가관점 및 평가영역별 등급기준</span>\n    <span class=\"kg-footer__page\">42</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".kg-content{margin-top:12px;}\n  .col{display:flex;flex-direction:column;min-height:0;}\n  .col__b{flex:1;display:flex;flex-direction:column;min-height:0;}\n\n  /* ---- 좌: ADL 3관점 ---- */\n  .adl{flex:1;display:flex;flex-direction:column;gap:9px;min-height:0;}\n  .adl__i{flex:1;display:flex;flex-direction:column;border:1px solid var(--neutral-300);\n    border-radius:4px;background:#fff;overflow:hidden;min-height:0;}\n  .adl__h{display:flex;align-items:baseline;gap:7px;padding:6px 10px;\n    background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;}\n  .adl__n{flex:0 0 auto;font-size:12px;font-weight:800;background:rgba(255,255,255,.2);\n    border-radius:3px;padding:2px 7px;}\n  .adl__t{font-size:15px;font-weight:700;}\n  .adl__e{font-size:12px;font-weight:600;color:var(--blue-200);}\n  .adl__b{flex:1;display:flex;flex-direction:column;gap:5px;padding:8px 9px;min-height:0;}\n  .adl__r{flex:1;display:flex;align-items:center;\n    font-size:14px;line-height:1.2;color:var(--ink-900);background:var(--neutral-050);\n    border-left:3px solid var(--blue-400);border-radius:0 3px 3px 0;padding:4px 8px;}\n\n  /* ---- 우: 평가영역 그리드 ---- */\n  .tbl{flex:1;display:grid;grid-template-columns:44px repeat(7,1fr);\n    grid-template-rows:auto 1fr auto;gap:4px;min-height:0;}\n  .rh{display:flex;align-items:center;justify-content:center;text-align:center;\n    background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;border-radius:3px;\n    font-size:13px;font-weight:800;line-height:1.15;padding:5px 2px;}\n  /* 긴 세로 칸은 세로쓰기 스파인 라벨로 채운다 */\n  .rh--v span{writing-mode:vertical-rl;text-orientation:upright;letter-spacing:3px;}\n  .ch{display:flex;align-items:center;justify-content:center;text-align:center;\n    background:linear-gradient(180deg,#5A86BE,#4F81BD);color:#fff;border-radius:3px;\n    font-size:14px;font-weight:700;line-height:1.15;padding:6px 4px;}\n  .cell{display:flex;flex-direction:column;gap:5px;min-height:0;\n    border:1px solid var(--neutral-300);border-radius:3px;background:#fff;padding:6px;}\n  .cell--pair{flex-direction:row;}\n\n  .pane{flex:1;display:flex;flex-direction:column;min-width:0;min-height:0;}\n  .pane__h{font-size:12px;font-weight:800;color:var(--navy-800);background:var(--blue-050);\n    border:1px solid var(--blue-300);border-radius:3px;text-align:center;\n    padding:3px 2px;line-height:1.15;margin-bottom:5px;}\n  .lst{flex:1;display:flex;flex-direction:column;gap:4px;min-height:0;}\n  .lst__i{flex:1;display:flex;align-items:center;\n    font-size:14px;line-height:1.2;color:var(--ink-900);\n    background:var(--neutral-050);border-radius:3px;padding:4px 7px;}\n  .para{flex:1;display:flex;align-items:center;font-size:14px;line-height:1.28;color:var(--ink-900);\n    background:var(--neutral-050);border-radius:3px;padding:6px 7px;}\n\n  .gr{flex:1;display:flex;flex-direction:column;gap:4px;min-height:0;}\n  .gr__r{flex:1;display:flex;align-items:center;gap:6px;\n    background:var(--neutral-050);border-radius:3px;padding:4px 7px;}\n  .gr__t{flex:1;font-size:14px;line-height:1.2;color:var(--ink-900);}\n  .gr__b{flex:0 0 22px;font-size:12px;font-weight:800;color:#fff;background:var(--blue-500);\n    border-radius:3px;text-align:center;padding:2px 0;}\n  .gr__b--k{background:var(--navy-800);}\n  .gr__b--g{background:var(--neutral-300);color:var(--ink-navy);}\n\n  .scale{display:flex;align-items:center;gap:6px;padding:6px;\n    border:1px solid var(--neutral-300);border-radius:3px;background:#fff;}\n  .scale__k{flex:0 0 auto;font-size:13px;font-weight:800;color:var(--navy-800);}\n  .scale__l{flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:5px;}\n  .sc{display:flex;align-items:center;justify-content:center;gap:5px;\n    border-radius:3px;padding:4px 3px;background:var(--neutral-050);\n    border:1px solid var(--neutral-300);}\n  .sc__n{font-size:14px;font-weight:700;color:var(--ink-900);}\n  .sc__g{font-size:13px;font-weight:800;color:#fff;background:var(--blue-500);\n    border-radius:3px;padding:1px 7px;}\n  .sc--k{background:var(--blue-050);border-color:var(--blue-400);}\n  .sc--k .sc__g{background:var(--navy-800);}\n  .note{display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:13px;line-height:1.2;color:var(--ink-700);background:var(--neutral-050);\n    border:1px dashed var(--neutral-300);border-radius:3px;padding:6px 5px;}",
+    "origin": "42_ADL_Nonquant.html"
+  },
+  "patches": {
+    "n.1.1": {
+      "text": {
+        "html": "비계량 지표를 3개 관점으로 나누어 평가하고, 5개 평가영역마다 세부평가항목을 정해 충족 개수에 따라 A부터 E까지 등급을 부여"
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "14"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "과업 수행의 방법론"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "ADL 기반 비계량 평가 고도화"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h3": {
+        "fontSize": 16
+      },
+      "body3": {
+        "fontSize": 16
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T08:26:51.212Z",
+  "updatedAt": "2026-07-27T14:16:15.672Z"
+}

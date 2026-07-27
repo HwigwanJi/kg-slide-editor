@@ -1,0 +1,93 @@
+{
+  "v": 5,
+  "id": "4861bcf9-030a-4d50-be62-a84786f4c7da",
+  "title": "핵심과제 우선순위 설정",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"핵심과제 우선순위 설정\">\n\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"num\">04</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">운용계획 수립 및 실행력 강화</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">핵심과제 우선순위 설정</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">Ⅳ</span><span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\" data-kg-role=\"label\">운용·실행력</span>\n    </div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">전략적 중요도와 실행 긴급도을 기준으로 핵심과제의 우선순위 구분하고, 사업 포트폴리오별 조직·인력·재원 배분 방향 구체화</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"kg-content q4\">\n\n      <!-- ============ ① 진단 결과 8대 핵심이슈 ============ -->\n      <div class=\"quad\">\n        <span class=\"kg-cornern\" data-kg-role=\"label\">1</span>\n        <div class=\"qhd\" data-kg-role=\"h2\">진단 결과 8대 핵심이슈</div>\n        <div class=\"qbd tight\">\n          <div class=\"iss\"><span class=\"issn\" data-kg-role=\"label\">1</span>\n            <span class=\"isst\" data-kg-role=\"body2\">면세사업 의존도 완화 및 수익원 다각화</span>\n            <span class=\"issg\" data-kg-role=\"label\">재무·수익</span></div>\n          <div class=\"iss\"><span class=\"issn\" data-kg-role=\"label\">2</span>\n            <span class=\"isst\" data-kg-role=\"body2\">첨단2단지·데이터센터·그린 데이터센터 등 미래사업 육성</span>\n            <span class=\"issg\" data-kg-role=\"label\">신성장</span></div>\n          <div class=\"iss\"><span class=\"issn\" data-kg-role=\"label\">3</span>\n            <span class=\"isst\" data-kg-role=\"body2\">헬스케어타운·예래사업 정상화</span>\n            <span class=\"issg\" data-kg-role=\"label\">현안</span></div>\n          <div class=\"iss\"><span class=\"issn\" data-kg-role=\"label\">4</span>\n            <span class=\"isst\" data-kg-role=\"body2\">개발이익 환원체계 제도화</span>\n            <span class=\"issg\" data-kg-role=\"label\">상생·환원</span></div>\n          <div class=\"iss\"><span class=\"issn\" data-kg-role=\"label\">5</span>\n            <span class=\"isst\" data-kg-role=\"body2\">투자심의 및 전사 위험관리체계 구축</span>\n            <span class=\"issg\" data-kg-role=\"label\">지배구조</span></div>\n          <div class=\"iss\"><span class=\"issn\" data-kg-role=\"label\">6</span>\n            <span class=\"isst\" data-kg-role=\"body2\">인공지능 전환을 통한 전사 업무혁신</span>\n            <span class=\"issg\" data-kg-role=\"label\">혁신조직</span></div>\n          <div class=\"iss\"><span class=\"issn\" data-kg-role=\"label\">7</span>\n            <span class=\"isst\" data-kg-role=\"body2\">안전·지속가능경영 기반 경영건전성 회복</span>\n            <span class=\"issg\" data-kg-role=\"label\">책임경영</span></div>\n          <div class=\"iss\"><span class=\"issn\" data-kg-role=\"label\">8</span>\n            <span class=\"isst\" data-kg-role=\"body2\">정주여건 개선과 이해관계자 상생 강화</span>\n            <span class=\"issg\" data-kg-role=\"label\">상생·정주</span></div>\n        </div>\n      </div>\n\n      <!-- ============ ② 핵심과제 우선순위 매트릭스 ============ -->\n      <div class=\"quad\">\n        <span class=\"kg-cornern\" data-kg-role=\"label\">2</span>\n        <div class=\"qhd\" data-kg-role=\"h2\">핵심과제 우선순위 매트릭스</div>\n        <div class=\"qbd\">\n          <div class=\"mx\">\n            <div class=\"mxy\" data-kg-role=\"label\">실행 긴급도</div>\n            <div class=\"mxg\">\n              <div class=\"mq\">\n                <div class=\"mqh\" data-kg-role=\"h3\">교육 실행자</div>\n                <div class=\"mqb\" data-kg-role=\"body3\">초등학교 담임교사,<br>중·고등학교 사회·도덕·역사 교사</div>\n              </div>\n              <div class=\"mq k\">\n                <div class=\"mqh\" data-kg-role=\"h3\">학교 운영자</div>\n                <div class=\"mqb\" data-kg-role=\"body3\">초·중·고등학교 교장·교감</div>\n              </div>\n              <div class=\"mq\">\n                <div class=\"mqh\" data-kg-role=\"h3\">교육 수요자</div>\n                <div class=\"mqb\" data-kg-role=\"body3\">초등학생(5, 6학년),<br>중·고등학생(전학년)</div>\n              </div>\n              <div class=\"mq k\">\n                <div class=\"mqh\" data-kg-role=\"h3\">청년세대</div>\n                <div class=\"mqb\" data-kg-role=\"body3\">일반대학 및<br>선도대학 재학생</div>\n              </div>\n            </div>\n            <div class=\"mxx\" data-kg-role=\"label\">전략적 중요도</div>\n          </div>\n        </div>\n      </div>\n\n      <!-- ============ ③ 사업 포트폴리오 발전방향 ============ -->\n      <div class=\"quad\">\n        <span class=\"kg-cornern\" data-kg-role=\"label\">3</span>\n        <div class=\"qbd\">\n          <div class=\"pf\">\n            <div class=\"pfs\" data-kg-role=\"label\">집중 투자</div>\n            <div class=\"pfs w2\" data-kg-role=\"label\">선택 투자</div>\n            <div class=\"pfs t3\" data-kg-role=\"label\">현행 유지</div>\n            <div class=\"pfs off\" data-kg-role=\"label\">구조 조정</div>\n\n            <div class=\"pfc\">\n              <div class=\"pfi top\"><div class=\"pfn\" data-kg-role=\"h3\">첨단단지2·데이터센터</div>\n                <div class=\"pfa\" data-kg-role=\"label\">집중 육성</div></div>\n            </div>\n            <div class=\"pfc\">\n              <div class=\"pfi\"><div class=\"pfn\" data-kg-role=\"h3\">신규·미래사업<br>(인공지능·바이오·그린)</div>\n                <div class=\"pfa\" data-kg-role=\"label\">단계적 확대</div></div>\n              <div class=\"pfi\"><div class=\"pfn\" data-kg-role=\"h3\">신화역사공원</div>\n                <div class=\"pfa\" data-kg-role=\"label\">강화</div></div>\n            </div>\n            <div class=\"pfc\">\n              <div class=\"pfi\"><div class=\"pfn\" data-kg-role=\"h3\">지정면세점</div>\n                <div class=\"pfa\" data-kg-role=\"label\">유지 혁신</div></div>\n              <div class=\"pfi\"><div class=\"pfn\" data-kg-role=\"h3\">헬스케어타운</div>\n                <div class=\"pfa\" data-kg-role=\"label\">정상화</div></div>\n            </div>\n            <div class=\"pfc\">\n              <div class=\"pfi\"><div class=\"pfn\" data-kg-role=\"h3\">영어교육도시</div>\n                <div class=\"pfa\" data-kg-role=\"label\">유지·강화</div></div>\n            </div>\n            <div class=\"pfc\">\n              <div class=\"pfi out\"><div class=\"pfn\" data-kg-role=\"h3\">예래·박물관</div>\n                <div class=\"pfa\" data-kg-role=\"label\">사업 재검토</div></div>\n            </div>\n          </div>\n        </div>\n        <div class=\"qft\" data-kg-role=\"h2\">사업 포트폴리오 발전방향</div>\n      </div>\n\n      <!-- ============ ④ 우선순위별 자원배분 결론 ============ -->\n      <div class=\"quad\">\n        <span class=\"kg-cornern\" data-kg-role=\"label\">4</span>\n        <div class=\"qbd\">\n          <div class=\"pri\">\n            <div class=\"prb\">\n              <div class=\"prh\" data-kg-role=\"h3\">1순위 | 즉시 개선</div>\n              <div class=\"prd\" data-kg-role=\"body3\">경영평가 등급 회복·면세 수익 방어·장기 표류사업 정상화\n                <span class=\"prw\" data-kg-role=\"label\">추진방식: 자체 추진·특수목적법인 활용</span></div>\n            </div>\n            <div class=\"prb b2\">\n              <div class=\"prh\" data-kg-role=\"h3\">2순위 | 전략적 육성</div>\n              <div class=\"prd\" data-kg-role=\"body3\">첨단2단지·데이터센터 등 미래사업에 40~45% 집중\n                <span class=\"prw\" data-kg-role=\"label\">추진방식: 자체 투자·국비·민간자본 연계</span></div>\n            </div>\n            <div class=\"prb b3\">\n              <div class=\"prh\" data-kg-role=\"h3\">3순위 | 경쟁력 강화</div>\n              <div class=\"prd\" data-kg-role=\"body3\">신화·교육·헬스사업 정상화 이후 15~20% 선택 투자\n                <span class=\"prw\" data-kg-role=\"label\">추진방식: 민간 협력·자체 투자</span></div>\n            </div>\n            <div class=\"prb b4\">\n              <div class=\"prh\" data-kg-role=\"h3\">4순위 | 연계 확대</div>\n              <div class=\"prd\" data-kg-role=\"body3\">공공임대·정주·개발이익 환원에 5~10% 배분하고 환원기금 연계\n                <span class=\"prw\" data-kg-role=\"label\">추진방식: 국비·기금 활용</span></div>\n            </div>\n            <div class=\"prb b5\">\n              <div class=\"prh\" data-kg-role=\"h3\">5순위 | 운영 효율화</div>\n              <div class=\"prd\" data-kg-role=\"body3\">예래·박물관 등은 5~10% 범위에서 출구전략과 위탁운영 검토\n                <span class=\"prw\" data-kg-role=\"label\">추진방식: 매각·위탁</span></div>\n            </div>\n          </div>\n        </div>\n        <div class=\"qft\" data-kg-role=\"h2\">우선순위별 자원배분 결론</div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 기관 경영공시 · 사업별 추진현황 · 내부 진단자료</span>\n    <span class=\"kg-footer__page\" data-kg-auto=\"page\" data-kg-role=\"caption\">28</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n\n</section>",
+    "css": "/* ---- 골격: 2x2 사분면. 읽는 순서는 모서리 번호로 ---- */\n  .q4{grid-template-columns:1fr 1fr;grid-template-rows:0.92fr 1fr;gap:12px;}\n  .quad{position:relative;display:flex;flex-direction:column;min-height:0;\n    border:1px solid var(--neutral-300);border-radius:var(--r-sm);background:#fff;overflow:hidden;}\n  .qhd,.qft{background:var(--neutral-150);color:var(--ink-navy);font-size:15px;font-weight:800;\n    text-align:center;padding:6px 10px;line-height:1.25;flex:0 0 auto;}\n  .qhd{border-bottom:1px solid var(--neutral-300);}\n  .qft{border-top:1px solid var(--neutral-300);}\n  .qbd{flex:1;min-height:0;padding:9px;display:flex;flex-direction:column;gap:6px;justify-content:space-between;}\n  .qbd.tight{gap:2px;}\n\n  /* ---- ① 8대 핵심이슈 ---- */\n  .iss{display:grid;grid-template-columns:26px 1fr 88px;gap:5px;align-items:stretch;}\n  .issn{display:flex;align-items:center;justify-content:center;background:var(--neutral-100);\n    border:1px solid var(--neutral-300);border-radius:var(--r-xs);font-size:13px;font-weight:800;color:var(--ink-navy);}\n  .isst{display:flex;align-items:center;background:#fff;border:1px solid var(--neutral-300);\n    border-radius:var(--r-xs);padding:4px 9px;font-size:14px;line-height:1.3;color:var(--ink-900);}\n  .issg{display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#EAF1FB,#D9E6F5);\n    border:1px solid var(--blue-400);border-radius:var(--r-xs);font-size:12px;font-weight:800;color:var(--navy-800);\n    text-align:center;line-height:1.2;padding:0 4px;}\n\n  /* ---- ② 우선순위 매트릭스 ---- */\n  .mx{flex:1;min-height:0;display:grid;grid-template-columns:20px 1fr;grid-template-rows:1fr 18px;gap:5px;}\n  .mxy{display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--ink-navy);\n    writing-mode:vertical-rl;text-orientation:upright;letter-spacing:.08em;\n    background:var(--neutral-100);border:1px solid var(--neutral-300);border-radius:var(--r-xs);}\n  .mxx{grid-column:2;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;\n    color:var(--ink-navy);letter-spacing:.08em;background:var(--neutral-100);\n    border:1px solid var(--neutral-300);border-radius:var(--r-xs);}\n  .mxg{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:7px;min-height:0;}\n  .mq{display:flex;flex-direction:column;border-radius:var(--r-xs);overflow:hidden;\n    border:1px solid var(--neutral-300);background:#fff;}\n  .mqh{padding:5px 8px;font-size:14px;font-weight:800;text-align:center;line-height:1.2;\n    background:linear-gradient(180deg,#EAF1FB,#D9E6F5);color:var(--navy-800);}\n  .mq.k .mqh{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;}\n  .mqb{flex:1;padding:7px 9px;display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;line-height:1.35;color:var(--ink-700);}\n\n  /* ---- ③ 사업 포트폴리오 발전방향 ---- */\n  /* 등급 표기 — 별 대신 투자 강도를 글로 적고 색 농도로 위계를 만든다 */\n  .pf{flex:1;min-height:0;display:grid;grid-template-columns:repeat(5,1fr);\n    grid-template-rows:auto 1fr;gap:6px;}\n  .pfs{grid-row:1;text-align:center;font-size:13px;font-weight:800;line-height:1;\n    padding:5px 4px;border-radius:var(--r-xs);color:#fff;background:var(--navy-800);}\n  .pfs.w2{grid-column:span 2;background:var(--blue-500);}\n  .pfs.t3{background:var(--blue-400);color:var(--ink-navy);}\n  .pfs.off{background:var(--neutral-200);color:var(--ink-700);}\n  .pfc{grid-row:2;display:flex;flex-direction:column;gap:6px;min-height:0;}\n  .pfi{flex:1;display:flex;flex-direction:column;border:1px solid var(--neutral-300);\n    border-radius:var(--r-xs);overflow:hidden;background:#fff;}\n  .pfn{padding:6px;font-size:14px;font-weight:800;text-align:center;line-height:1.2;\n    color:var(--ink-navy);background:var(--neutral-100);flex:1;display:flex;align-items:center;justify-content:center;}\n  .pfa{padding:4px 6px;font-size:13px;font-weight:700;text-align:center;line-height:1.2;\n    color:var(--navy-800);background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border-top:1px solid var(--blue-400);}\n  .pfi.top .pfn{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;}\n  .pfi.out .pfn{color:var(--ink-500);}\n  .pfi.out .pfa{background:var(--neutral-100);border-top-color:var(--neutral-300);color:var(--ink-700);}\n\n  /* ---- ④ 우선순위별 자원배분 결론 ---- */\n  .pri{flex:1;min-height:0;display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:1.1fr 1fr;gap:5px;}\n  .prb{display:flex;flex-direction:column;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    overflow:hidden;background:#fff;}\n  .prb:nth-child(-n+3){grid-column:span 2;}\n  .prb:nth-child(n+4){grid-column:span 3;}\n  .prh{padding:4px 8px;font-size:14px;font-weight:800;text-align:center;line-height:1.2;color:#fff;\n    background:linear-gradient(180deg,#2C5184,#1F497D);}\n  .prb.b2 .prh{background:linear-gradient(180deg,#3D6A9E,#2E5D91);}\n  .prb.b3 .prh{background:linear-gradient(180deg,#5A86BE,#4F81BD);}\n  .prb.b4 .prh,.prb.b5 .prh{background:linear-gradient(180deg,#8FA9C6,#7E9BBB);}\n  .prd{flex:1;padding:6px 8px;font-size:14px;line-height:1.32;color:var(--ink-700);\n    display:flex;flex-direction:column;justify-content:space-between;gap:3px;}\n  .prw{font-size:12px;font-weight:700;color:var(--blue-600);border-top:1px dashed var(--neutral-300);padding-top:3px;}",
+    "origin": "28_핵심과제우선순위.html"
+  },
+  "patches": {
+    "n.2.0.3.1.0.0.1": {
+      "style": {
+        "fontSize": 15,
+        "letterSpacing": 0
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "07"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "운용계획 및 실행력 강화"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h2": {
+        "fontSize": 20
+      },
+      "h3": {
+        "fontSize": 17
+      },
+      "body3": {
+        "fontSize": 16
+      },
+      "body2": {
+        "fontSize": 16
+      },
+      "label": {
+        "fontSize": 15
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T07:20:13.980Z",
+  "updatedAt": "2026-07-27T14:16:12.483Z"
+}

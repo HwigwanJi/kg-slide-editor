@@ -89,6 +89,19 @@ export const ACTIONS: ActionDef[] = [
     run: ({ api }) => api.exportHtml() },
   { id: 'file.exportJson', label: 'JSON 내보내기', group: '파일', surfaces: ['toolbar', 'palette'],
     run: ({ api }) => api.exportJson() },
+  // 덱 전체 내보내기 — 좌측 목록 순서대로 export/ 에 떨어진다(계약 EXPORT_DIR).
+  { id: 'file.exportPng', label: 'PNG 내보내기', group: '파일', surfaces: ['toolbar', 'palette'],
+    hint: '덱 전체를 순서대로 PNG 로 — export/png/ 에 01_제목.png 로 떨어집니다',
+    run: ({ api }) => void api.exportDeck({ png: true }) },
+  { id: 'file.exportPdf', label: 'PDF 내보내기', group: '파일', surfaces: ['toolbar', 'palette'],
+    hint: '덱 전체를 한 PDF 로 — 글자가 벡터라 확대·검색이 됩니다',
+    run: ({ api }) => void api.exportDeck({ pdf: true }) },
+  { id: 'file.exportPptx', label: 'PPTX 내보내기', group: '파일', surfaces: ['toolbar', 'palette'],
+    hint: '덱 전체를 PPTX 로 — 장당 그림 한 장이라 화면과 똑같습니다(도형 편집은 안 됩니다)',
+    run: ({ api }) => void api.exportDeck({ pptx: true }) },
+  { id: 'file.exportAll', label: 'PNG + PDF + PPTX', group: '파일', surfaces: ['palette'],
+    hint: '셋 다 한 번에 내보냅니다',
+    run: ({ api }) => void api.exportDeck({ png: true, pdf: true, pptx: true }) },
   { id: 'file.rename', label: '제목 바꾸기', group: '파일', surfaces: ['palette'], covers: ['setTitle'],
     run: ({ api }) => {
       const next = window.prompt('장표 제목', api.slides.get().title);

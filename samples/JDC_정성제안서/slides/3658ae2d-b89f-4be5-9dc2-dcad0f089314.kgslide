@@ -1,0 +1,98 @@
+{
+  "v": 5,
+  "id": "3658ae2d-b89f-4be5-9dc2-dcad0f089314",
+  "title": "이해관계자 분류 및 소통관리체계 고도화",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"이해관계자 분류 및 소통관리체계 고도화\">\n\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"num\">02</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">사업분석 및 이해관계자 진단</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">이해관계자 분류 및 소통관리체계 고도화</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">Ⅱ</span><span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\" data-kg-role=\"label\">사업·이해관계자</span>\n    </div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">기관 이해관계자를 사업프로세스와 가치사슬 기준으로 식별·그룹화하고<br>소통그룹과 연계해 대상별 대응수준과 관리방식을 구체화</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"kg-content\">\n\n      <div class=\"bans\">\n        <div class=\"ban\" data-kg-role=\"h2\">이해관계자 분류 및 소통 전략</div>\n        <div class=\"ban\" data-kg-role=\"h2\">가치사슬 기반 JDC 이해관계자 분류 · 소통그룹 연계</div>\n      </div>\n\n      <div class=\"main\">\n        <!-- ===== 좌: 식별 흐름 + 10대 이해관계자 ===== -->\n        <div class=\"lft\">\n          <div class=\"flow\">\n            <div class=\"fs\" data-kg-role=\"body2\">ⅰ. 사업 프로세스<br>분석</div>\n            <span class=\"fl\"></span>\n            <div class=\"fs\" data-kg-role=\"body2\">ⅱ. 이해관계자 식별</div>\n            <span class=\"fl\"></span>\n            <div class=\"fs\" data-kg-role=\"body2\">ⅲ. 이해관계자<br>그룹화</div>\n            <span class=\"fl\"></span>\n            <div class=\"fs\" data-kg-role=\"body2\">ⅳ. 우선순위 선정</div>\n            <span class=\"fl\"></span>\n            <div class=\"fs\" data-kg-role=\"body2\">ⅴ. 기대효과 파악</div>\n            <span class=\"fl\"></span>\n            <div class=\"fs\" data-kg-role=\"body2\">ⅵ. 사업추진 반영</div>\n            <span class=\"fl\"></span>\n            <div class=\"fend\" data-kg-role=\"body2\">사업프로세스 분석 기반 이해관계자 선정으로 기대사항 파악 및 사업추진 계획 반영</div>\n          </div>\n\n          <div class=\"tb\">\n            <div class=\"th\" data-kg-role=\"h3\">10대 이해관계자</div>\n            <div class=\"th\" data-kg-role=\"h3\">구성원</div>\n            <div class=\"th\" data-kg-role=\"h3\">소통채널</div>\n\n            <div class=\"tk\" data-kg-role=\"h3\">정부·유관기관</div>\n            <div class=\"tv\" data-kg-role=\"body2\">국토부·기획재정부·관세청·제주특별자치도·JTP</div>\n            <div class=\"tv\" data-kg-role=\"body2\">정책협의체(MOU)·유관기관 협의회</div>\n\n            <div class=\"tk\" data-kg-role=\"h3\">임직원·노조</div>\n            <div class=\"tv\" data-kg-role=\"body2\">JDC 임직원·노동조합·자회사 임직원 399명</div>\n            <div class=\"tv\" data-kg-role=\"body2\">노사협의회·조직문화 설문·FGI</div>\n\n            <div class=\"tk\" data-kg-role=\"h3\">입주기업</div>\n            <div class=\"tv\" data-kg-role=\"body2\">제주첨단과학단지 입주기업 206사·근로자 3,382명</div>\n            <div class=\"tv\" data-kg-role=\"body2\">기업성장응답센터·업종별 FGI</div>\n\n            <div class=\"tk\" data-kg-role=\"h3\">국회·감독기관</div>\n            <div class=\"tv\" data-kg-role=\"body2\">국회·국민권익위원회, 사행산업통합감독위원회</div>\n            <div class=\"tv\" data-kg-role=\"body2\">국정감사·경영공시(ALIO)</div>\n\n            <div class=\"tk\" data-kg-role=\"h3\">도민·시민사회</div>\n            <div class=\"tv\" data-kg-role=\"body2\">도민·시민단체·마을공동체</div>\n            <div class=\"tv\" data-kg-role=\"body2\">도민공청회·로컬파트너·혁신단</div>\n\n            <div class=\"tk\" data-kg-role=\"h3\">고객·입주민</div>\n            <div class=\"tv\" data-kg-role=\"body2\">면세고객·공공임대 793세대</div>\n            <div class=\"tv\" data-kg-role=\"body2\">PCSI·만족도 조사·주거복지센터</div>\n\n            <div class=\"tk\" data-kg-role=\"h3\">협력·용역기관</div>\n            <div class=\"tv\" data-kg-role=\"body2\">협력사·회계법인·컨설팅사</div>\n            <div class=\"tv\" data-kg-role=\"body2\">용역 보고회·간담회</div>\n\n            <div class=\"tk\" data-kg-role=\"h3\">언론·일반국민</div>\n            <div class=\"tv\" data-kg-role=\"body2\">언론사·일반국민</div>\n            <div class=\"tv\" data-kg-role=\"body2\">보도·취재·SNS</div>\n\n            <div class=\"tk\" data-kg-role=\"h3\">지역주민·지자체</div>\n            <div class=\"tv\" data-kg-role=\"body2\">제2첨단단지·신화역사공원 인근 주민·지자체</div>\n            <div class=\"tv\" data-kg-role=\"body2\">사회영향평가(SIA)</div>\n\n            <div class=\"tk\" data-kg-role=\"h3\">환경단체</div>\n            <div class=\"tv\" data-kg-role=\"body2\">곶자왈·수자원·지하수 보전단체</div>\n            <div class=\"tv\" data-kg-role=\"body2\">환경총량제 협의·TNFD 공시</div>\n          </div>\n        </div>\n\n        <!-- ===== 우: 가치사슬 매핑 ===== -->\n        <div class=\"vc\">\n          <div class=\"vh\" data-kg-role=\"h3\">가치사슬<br>구분</div>\n          <div class=\"vh\" data-kg-role=\"h3\">역할</div>\n          <div class=\"vh\" data-kg-role=\"h3\">주요 이해관계자</div>\n\n          <div class=\"vk\" data-kg-role=\"h3\">가치<br>창출 고객</div>\n          <div class=\"vv k\" data-kg-role=\"body2\">\n            <i>친환경(CFI·RE100)·ESG 인프라 지원·기술개발</i>\n            <i>국민·도민 정주·안전 기반 사업 수행</i></div>\n          <div class=\"vv\" data-kg-role=\"body2\">\n            <i>임직원 및 이사회</i><i>첨단 입주기업</i>\n            <i>206사·연구기관(KAIST·JTP)</i>\n            <i>협력 대기업·금융기관·자문기관</i><i>사업 참여기업</i></div>\n\n          <div class=\"vk\" data-kg-role=\"h3\">가치<br>증대 고객</div>\n          <div class=\"vv k\" data-kg-role=\"body2\">\n            <i>모니터링·감사·평가·의견제시로 사업·제도 개선</i>\n            <i>가치 창출·전달·향유 전 과정에 영향</i></div>\n          <div class=\"vv\" data-kg-role=\"body2\">\n            <i>국토부·기획재정부·국회·권익위</i>\n            <i>제주도·도의회, 국제학교·특성화기관</i>\n            <i>전문가·교수진, 시민단체·환경단체</i>\n            <i>해외투자자(녹지 등)·해외바이어</i></div>\n\n          <div class=\"vk\" data-kg-role=\"h3\">가치<br>전달 고객</div>\n          <div class=\"vv k\" data-kg-role=\"body2\">\n            <i>면세·관광·금융 지원사업 이행 기관</i>\n            <i>홍보·캠페인→정보 확산·향유기회 확대</i></div>\n          <div class=\"vv\" data-kg-role=\"body2\">\n            <i>면세·관광 사업자·유통, 로컬파트너</i>\n            <i>금융기관·투자펀드</i>\n            <i>지자체·의료기관(정책·제도 홍보)</i>\n            <i>언론사·기자단·시민참여혁신단</i></div>\n\n          <div class=\"vk\" data-kg-role=\"h3\">가치<br>향유 고객</div>\n          <div class=\"vv k\" data-kg-role=\"body2\">\n            <i>안전·환경·주거복지 사업 대상</i>\n            <i>교육·양성 대상 인력</i></div>\n          <div class=\"vv\" data-kg-role=\"body2\">\n            <i>면세·고객·관광객·도민·사회취약계층·인근주민공공임대</i>\n            <i>입주민·학부모·학생</i>\n            <i>사업 참여기업·교육 대상자</i></div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 기관 이해관계자 현황 · 소통채널 운영실적 · 내부 진단자료</span>\n    <span class=\"kg-footer__page\" data-kg-auto=\"page\" data-kg-role=\"caption\">22</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n\n</section>",
+    "css": ".kg-content{display:flex;flex-direction:column;gap:9px;}\n  .bans{flex:0 0 auto;display:grid;grid-template-columns:690px 1fr;gap:14px;}\n  .ban{background:var(--neutral-200);color:var(--ink-navy);font-size:15px;font-weight:800;\n    text-align:center;padding:6px 26px 6px 14px;line-height:1.2;\n    clip-path:polygon(0 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,0 100%,14px 50%);}\n  .ban:first-child{clip-path:polygon(0 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,0 100%);}\n\n  .main{flex:1;min-height:0;display:grid;grid-template-columns:690px 1fr;gap:14px;}\n  .lft{display:grid;grid-template-columns:124px 1fr;gap:10px;min-height:0;}\n\n  /* 식별 흐름 */\n  .flow{display:flex;flex-direction:column;min-height:0;justify-content:space-between;}\n  .fs{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    text-align:center;font-size:14px;line-height:1.25;color:var(--ink-900);padding:7px 5px;}\n  .fl{align-self:center;width:1.5px;height:9px;background:var(--xg3);}\n  .fend{background:var(--blue-050);border:1px solid var(--blue-300);border-radius:var(--r-xs);\n    text-align:center;font-size:14px;line-height:1.35;color:var(--ink-navy);padding:8px 6px;}\n\n  /* 10대 이해관계자 표 */\n  .tb{display:grid;grid-template-columns:150px 1fr 185px;grid-template-rows:auto repeat(10,1fr);\n    gap:3px;min-height:0;}\n  .th{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;font-size:14px;font-weight:800;\n    display:flex;align-items:center;justify-content:center;border-radius:var(--r-xs);padding:6px 4px;}\n  .tk{background:var(--neutral-200);color:var(--ink-navy);border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;font-weight:800;line-height:1.2;padding:3px 4px;}\n  .tv{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;line-height:1.25;color:var(--ink-900);padding:3px 6px;}\n\n  /* 가치사슬 매핑 */\n  .vc{display:grid;grid-template-columns:88px 1fr 1.18fr;grid-template-rows:auto repeat(4,1fr);\n    gap:3px;min-height:0;}\n  .vh{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;font-size:14px;font-weight:800;\n    display:flex;align-items:center;justify-content:center;text-align:center;\n    border-radius:var(--r-xs);padding:6px 4px;line-height:1.2;}\n  .vk{background:var(--blue-200);border:1px solid var(--blue-400);color:var(--navy-800);\n    border-radius:var(--r-xs);display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;font-weight:800;line-height:1.25;padding:4px 3px;}\n  /* 줄마다 요소로 감싼다. 맨텍스트로 두면 칸이 비어 보인다고 잡힌다 */\n  .vv{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;\n    gap:3px;font-size:14px;line-height:1.3;color:var(--ink-900);padding:5px 7px;}\n  .vv i{display:block;font-style:normal;}\n  .vv.k{background:var(--neutral-050);gap:11px;}",
+    "origin": "22_이해관계자분류소통체계.html"
+  },
+  "patches": {
+    "n.2.0.0.0": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.0.0.1": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.1.0": {
+      "text": {
+        "html": "기관 이해관계자를 사업프로세스와 가치사슬 기준으로 식별·그룹화하고 소통그룹과 연계해 대상별 대응수준과 관리방식을 구체화"
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "02"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "핵심사업 및 이해관계자 진단"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "이해관계자 소통 고도화"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "body2": {
+        "fontSize": 15
+      },
+      "h3": {
+        "fontSize": 16
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T10:35:26.050Z",
+  "updatedAt": "2026-07-27T14:19:26.441Z"
+}

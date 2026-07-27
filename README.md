@@ -6,22 +6,29 @@
 
 ## 현재 상태
 
-편집기와 도구가 모두 동작한다. 계약은 v4.
+편집기와 도구가 모두 동작한다. 계약은 v5.
 화면은 2단 리본 + 좌측 장표 목록 + 우측 4탭 패널(선택·서식·위계·검사) 구성이다.
 
 모양을 손볼 때 건드릴 곳은 `src/app/*.tsx` 와 `src/styles/editor/*.css` 두 곳이다.
 계약·코어·어댑터는 그대로 둔다.
 
+## 설치
+
+```bash
+gh repo clone HwigwanJi/kg-slide-editor && cd kg-slide-editor && node tools/setup.mjs --all
+```
+
+의존성 · 미리보기 브라우저 · 스킬 · 훅 · 편집기 자산 · 도구 번들 · 시작 프로젝트를 한 번에 맞춘다.
+자세한 것은 [INSTALL.md](INSTALL.md).
+
 ## 실행
 
 ```bash
-npm install
-npm run build:audit   # 검사 번들
-npm run build:apply   # 커맨드 적용 번들
 npm run dev
 ```
 
-`http://localhost:5180` 에서 좌측 레일의 샘플 장표를 눌러 시작한다.
+`http://localhost:5180` — 열면 `projects/` 의 시작 프로젝트가 이미 들어 있다.
+다른 폴더를 열려면 좌측 **프로젝트 열기**를 누른다(`.kgproj` 를 눌러도 열린다).
 
 ## 도구
 

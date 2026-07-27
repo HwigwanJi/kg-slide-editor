@@ -1,0 +1,179 @@
+{
+  "v": 5,
+  "id": "438e231c-dd3b-41c4-b65a-076479b5fb71",
+  "title": "미션·비전·핵심가치 구성요소 진단 및 도출",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"미션·비전·핵심가치 구성요소 진단 및 도출\">\n\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"num\">03</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">미션·비전·핵심가치 구성요소 진단 및 도출</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">설립목적·사업범위 기반 가치체계 재정립</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">Ⅰ</span><span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\" data-kg-role=\"label\">사업 수행 방안</span>\n    </div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">설립목적·사업범위를 기반으로 미션을 재정립하고 미래산업 성장과 연계한 비전·JEJU 핵심가치 체계 도출</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"kg-content\">\n      <div class=\"top\">\n\n        <!-- ① 설립목적 및 사업범위 -->\n        <div class=\"bx\">\n          <div class=\"bxh\" data-kg-role=\"h2\">JDC 설립목적 및 사업범위</div>\n          <div class=\"bxb\">\n            <div class=\"sbar\" data-kg-role=\"h3\">설립목적</div>\n            <div class=\"note\" data-kg-role=\"body2\"><u>제주특별법 근거 2002.5 설립</u><br><u>국토부 산하 위탁집행형 준정부기관</u></div>\n            <div class=\"nl\">\n              <div class=\"ni\"><span class=\"nn\" data-kg-role=\"label\">1</span><span data-kg-role=\"body2\">국제자유도시 개발 촉진</span></div>\n              <div class=\"ni\"><span class=\"nn\" data-kg-role=\"label\">2</span><span data-kg-role=\"body2\">국가 차원의 제주 지원</span></div>\n              <div class=\"ni\"><span class=\"nn\" data-kg-role=\"label\">3</span><span data-kg-role=\"body2\"><b>개발이익 지역환원·도민 삶의 질</b></span></div>\n              <div class=\"ni\"><span class=\"nn\" data-kg-role=\"label\">4</span><span data-kg-role=\"body2\">미래산업·지속가능 성장 기여</span></div>\n            </div>\n            <div class=\"sbar\" data-kg-role=\"h3\">사업범위 (제주특별법·정관)</div>\n            <div class=\"nl\">\n              <div class=\"ni\"><span class=\"nn\" data-kg-role=\"label\">1</span><span data-kg-role=\"body2\">국제자유도시 개발사업</span></div>\n              <div class=\"ni\"><span class=\"nn\" data-kg-role=\"label\">2</span><span data-kg-role=\"body2\">투자유치·기업지원(Route330)</span></div>\n              <div class=\"ni\"><span class=\"nn\" data-kg-role=\"label\">3</span><span data-kg-role=\"body2\"><b>지정면세점 운영 (개발재원)</b></span></div>\n            </div>\n            <div class=\"sbar\" data-kg-role=\"h3\">6대 사업분야</div>\n            <div class=\"g2\">\n              <span data-kg-role=\"body2\">첨단산업</span><span data-kg-role=\"body2\">교육</span>\n              <span data-kg-role=\"body2\">의료</span><span data-kg-role=\"body2\">관광</span>\n              <span data-kg-role=\"body2\">주택</span><span data-kg-role=\"body2\">유통</span>\n            </div>\n          </div>\n        </div>\n\n        <!-- ② 기존 미션 구성요소 진단 -->\n        <div class=\"bx\">\n          <div class=\"bxh\" data-kg-role=\"h2\">기존 미션 구성요소 진단</div>\n          <div class=\"bxb\">\n            <div class=\"gbar\" data-kg-role=\"h3\">현행 미션</div>\n            <div class=\"quote\" data-kg-role=\"body2\">“자연을 닮은 미래를 담은 세계로 닿는<br>제주국제자유도시 조성”</div>\n            <div class=\"sbar\" data-kg-role=\"h3\">미션 3요소</div>\n            <div class=\"row3\"><span class=\"rk\" data-kg-role=\"h3\">고객(Who)</span>\n              <span class=\"rv\" data-kg-role=\"body2\">제주도민·국가, 입주기업, 투자자, 관광객, 미래세대</span></div>\n            <div class=\"row3\"><span class=\"rk\" data-kg-role=\"h3\">역할(How)</span>\n              <span class=\"rv\" data-kg-role=\"body2\">면세 재원·개발·투자 유치로 인프라 조성</span></div>\n            <div class=\"row3\"><span class=\"rk\" data-kg-role=\"h3\">기대가치(What)</span>\n              <span class=\"rv\" data-kg-role=\"body2\">지속가능 발전, 도민 환원, 미래산업 전환</span></div>\n            <div class=\"row3\"><span class=\"rk\" data-kg-role=\"h3\">개선 필요사항</span>\n              <span class=\"rv\" data-kg-role=\"body2\">고객 미명시, 개발이익 환원 미션 부재</span></div>\n            <div class=\"concl\" data-kg-role=\"body2\"><b>미션 개선 방향성</b>제주도민·고객 관점과 개발이익 환원을 명확히 반영하고, 지속가능한 미래성장과 측정가능한 성과를 담은 미션으로 재정립</div>\n          </div>\n        </div>\n\n        <!-- ③ 비전 구성요소 (6요소) -->\n        <div class=\"bx\">\n          <div class=\"bxh\" data-kg-role=\"h2\">비전 구성요소 (6요소)</div>\n          <div class=\"bxb\">\n            <div class=\"nl\">\n              <div class=\"ni\"><span class=\"nn\" data-kg-role=\"label\">1</span><span data-kg-role=\"body2\"><b>사업영역</b><i>개발·첨단·교육·의료·관광·면세·미래산업</i></span></div>\n              <div class=\"ni\"><span class=\"nn\" data-kg-role=\"label\">2</span><span data-kg-role=\"body2\"><b>제공가치</b><i>지속가능 성장·도민환원·상생·정주</i></span></div>\n              <div class=\"ni\"><span class=\"nn\" data-kg-role=\"label\">3</span><span data-kg-role=\"body2\"><b>시·공간적 범위</b><i>현재~2031 중장기(종합계획 3단계) / 제주 전역 + 글로벌 네트워크</i></span></div>\n              <div class=\"ni\"><span class=\"nn\" data-kg-role=\"label\">4</span><span data-kg-role=\"body2\"><b>미래이미지</b><i>미래산업·탄소중립 선도 개발 플랫폼 + 개발이익 환원 거버넌스 주체</i></span></div>\n              <div class=\"ni\"><span class=\"nn\" data-kg-role=\"label\">5</span><span data-kg-role=\"body2\"><b>핵심역량</b><i>제도·개발·투자·운영·지역상생·RE100</i></span></div>\n              <div class=\"ni\"><span class=\"nn\" data-kg-role=\"label\">6</span><span data-kg-role=\"body2\"><b>서비스 대상</b><i>도민·기업·투자자·관광객·정부·미래세대</i></span></div>\n            </div>\n            <div class=\"concl\" data-kg-role=\"body2\"><b>비전 종합 · 6요소 종합</b>미래산업·도민환원·지속가능성을 담고 2031년 정량목표와 연계한 비전 재정립</div>\n          </div>\n        </div>\n\n        <!-- ④ 비전 연계 핵심가치 -->\n        <div class=\"bx\">\n          <div class=\"bxh\" data-kg-role=\"h2\">비전 연계 핵심가치 도출·설정</div>\n          <div class=\"bxb\">\n            <div class=\"sbar\" data-kg-role=\"h3\">관점별 핵심가치 도출</div>\n            <div class=\"pv\"><span class=\"pk\" data-kg-role=\"h3\">공공성</span>\n              <span class=\"pvv\" data-kg-role=\"body2\">안전·청렴·환원 기반<br>신뢰 강화</span></div>\n            <div class=\"pv\"><span class=\"pk\" data-kg-role=\"h3\">효율성</span>\n              <span class=\"pvv\" data-kg-role=\"body2\">성과·재무·전문성<br>중심 책임경영</span></div>\n            <div class=\"pv\"><span class=\"pk\" data-kg-role=\"h3\">소통·협력</span>\n              <span class=\"pvv\" data-kg-role=\"body2\">도민·국가·글로벌<br>상생 확대</span></div>\n            <div class=\"pv\"><span class=\"pk\" data-kg-role=\"h3\">내부역량</span>\n              <span class=\"pvv\" data-kg-role=\"body2\">AI·미래산업<br>혁신역량 강화</span></div>\n            <span class=\"down\"></span>\n            <div class=\"gbar\" style=\"background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;\" data-kg-role=\"h3\">핵심가치 개선(안) — JEJU</div>\n            <div class=\"jeju\">\n              <div class=\"jc\"><em>J</em><b data-kg-role=\"body2\">도민상생</b><span data-kg-role=\"label\">Join</span></div>\n              <div class=\"jc\"><em>E</em><b data-kg-role=\"body2\">미래혁신</b><span data-kg-role=\"label\">Eco-Innovation</span></div>\n              <div class=\"jc\"><em>J</em><b data-kg-role=\"body2\">안전청렴</b><span data-kg-role=\"label\">Just</span></div>\n              <div class=\"jc\"><em>U</em><b data-kg-role=\"body2\">신뢰소통</b><span data-kg-role=\"label\">United</span></div>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <!-- 하단 확정 가치체계 -->\n      <div class=\"bot\">\n        <div class=\"both\" data-kg-role=\"h2\">확정 가치체계 — JDC 미션 · 비전 · 핵심가치</div>\n        <div class=\"botb\">\n          <div class=\"mv\">\n            <div class=\"mvl\">\n              <div class=\"mvk\" data-kg-role=\"h3\">MISSION · 미션</div>\n              <div class=\"mvt\" data-kg-role=\"body2\">제주의 지속가능한 미래 성장을 세계로 닿는 국제자유도시 조성</div>\n            </div>\n            <div>\n              <div class=\"mvk\" style=\"text-align:center;\" data-kg-role=\"h3\">CORE VALUES · 핵심가치 JEJU</div>\n              <div class=\"cv\">\n                <div class=\"cvi\"><i>J</i><b data-kg-role=\"body2\">도민상생</b><span data-kg-role=\"label\">Join</span></div>\n                <div class=\"cvi\"><i>E</i><b data-kg-role=\"body2\">미래혁신</b><span data-kg-role=\"label\">Eco-Innovation</span></div>\n                <div class=\"cvi\"><i>J</i><b data-kg-role=\"body2\">안전청렴</b><span data-kg-role=\"label\">Just</span></div>\n                <div class=\"cvi\"><i>U</i><b data-kg-role=\"body2\">신뢰소통</b><span data-kg-role=\"label\">United</span></div>\n              </div>\n            </div>\n          </div>\n          <div class=\"vrow\">\n            <div class=\"mvk\" data-kg-role=\"h3\">VISION · 비전</div>\n            <div class=\"mvt\" data-kg-role=\"body2\">제주 미래산업의 성장과 <b>성과를 도민에게 환원</b>하는 지속가능한 개발 파트너</div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 제주특별법 · JDC 정관 · 제3차 종합계획 · 내부 진단자료</span>\n    <span class=\"kg-footer__page\" data-kg-auto=\"page\" data-kg-role=\"caption\">24</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n\n</section>",
+    "css": ".kg-content{display:flex;flex-direction:column;gap:11px;}\n  .top{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1.26fr 1.02fr 0.95fr;gap:10px;}\n\n  .bx{display:flex;flex-direction:column;min-height:0;border:1px solid var(--neutral-300);\n    border-radius:var(--r-xs);overflow:hidden;background:#fff;}\n  .bxh{flex:0 0 auto;background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;\n    font-size:14px;font-weight:800;text-align:center;padding:6px 8px;line-height:1.2;}\n  .bxb{flex:1;min-height:0;padding:8px;display:flex;flex-direction:column;gap:6px;justify-content:space-between;}\n\n  .sbar{background:var(--blue-200);border:1px solid var(--blue-400);border-radius:var(--r-xs);\n    text-align:center;font-size:14px;font-weight:800;color:var(--navy-800);padding:4px 6px;}\n  .gbar{background:var(--neutral-200);border-radius:var(--r-xs);text-align:center;\n    font-size:14px;font-weight:800;color:var(--ink-navy);padding:4px 6px;}\n  .note{font-size:14px;line-height:1.35;color:var(--ink-900);text-align:center;}\n  .note u{text-decoration-color:var(--red-500);text-underline-offset:3px;}\n\n  .nl{display:flex;flex-direction:column;gap:4px;}\n  .ni{display:flex;gap:6px;align-items:flex-start;font-size:14px;line-height:1.35;color:var(--ink-900);}\n  .nn{flex:0 0 auto;width:17px;height:17px;border-radius:50%;background:var(--navy-800);color:#fff;\n    font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}\n  .ni b{color:var(--navy-800);font-weight:800;}\n  /* 설명도 요소로 감싼다. 맨텍스트로 두면 칸이 비어 보인다고 잡힌다 */\n  .ni i{display:block;font-style:normal;}\n\n  .g2{display:grid;grid-template-columns:1fr 1fr;gap:5px;}\n  .g2 span{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    text-align:center;font-size:14px;font-weight:700;color:var(--ink-navy);padding:6px 4px;}\n\n  /* ② 미션 진단 */\n  .quote{background:var(--blue-050);border:1px solid var(--blue-300);border-radius:var(--r-xs);\n    padding:8px 10px;text-align:center;font-size:14px;font-weight:800;color:var(--navy-800);line-height:1.4;}\n  .row3{display:flex;gap:6px;align-items:stretch;}\n  .rk{flex:0 0 82px;background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;font-weight:800;padding:5px 3px;}\n  .rv{flex:1;background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    display:flex;align-items:center;font-size:14px;line-height:1.35;color:var(--ink-900);padding:6px 8px;}\n  .concl{background:linear-gradient(180deg,#2C5184,#17375E);color:#fff;border-radius:var(--r-xs);\n    padding:8px 10px;text-align:center;font-size:14px;line-height:1.4;}\n  .concl b{display:block;font-weight:800;margin-bottom:3px;color:var(--blue-300);}\n\n  /* ④ 관점별 가치 */\n  .pv{display:flex;gap:5px;align-items:stretch;}\n  .pk{flex:0 0 70px;background:var(--blue-100);border:1px solid var(--blue-300);border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:var(--navy-800);}\n  .pvv{flex:1;background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;line-height:1.28;color:var(--ink-900);padding:4px 5px;}\n  .down{align-self:center;width:0;height:0;border-left:8px solid transparent;\n    border-right:8px solid transparent;border-top:10px solid var(--blue-500);}\n  .jeju{display:grid;grid-template-columns:1fr 1fr;gap:5px;}\n  .jc{background:#fff;border:1px solid var(--blue-400);border-radius:var(--r-xs);\n    padding:5px 3px;text-align:center;display:flex;flex-direction:column;gap:1px;}\n  .jc em{font-style:normal;font-size:18px;font-weight:800;color:var(--navy-800);line-height:1;}\n  .jc b{font-size:14px;font-weight:800;color:var(--ink-navy);}\n  .jc span{font-size:13px;color:var(--ink-500);font-weight:600;}\n\n  /* 하단 확정 가치체계 */\n  .bot{flex:0 0 auto;display:flex;flex-direction:column;border:1px solid var(--navy-800);\n    border-radius:var(--r-xs);overflow:hidden;}\n  .both{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;font-size:15px;font-weight:800;\n    text-align:center;padding:6px 10px;}\n  .botb{background:var(--blue-050);padding:9px 12px;display:flex;flex-direction:column;gap:7px;}\n  .mv{display:grid;grid-template-columns:1fr 1.15fr;gap:14px;align-items:center;}\n  .mvl{text-align:center;}\n  .mvk{font-size:13px;font-weight:800;color:var(--blue-600);margin-bottom:3px;}\n  .mvt{font-size:15px;font-weight:800;color:var(--navy-800);line-height:1.35;}\n  .cv{display:grid;grid-template-columns:1fr 1fr;gap:5px;}\n  .cvi{display:flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--blue-300);\n    border-radius:var(--r-xs);padding:4px 8px;}\n  .cvi i{font-style:normal;width:17px;height:17px;border-radius:50%;background:var(--navy-800);color:#fff;\n    font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}\n  .cvi b{flex:1;font-size:14px;font-weight:800;color:var(--ink-navy);}\n  .cvi span{font-size:13px;font-weight:700;color:var(--blue-600);}\n  .vrow{display:flex;align-items:center;gap:12px;border-top:1px solid var(--blue-300);padding-top:7px;}\n  .vrow .mvk{margin:0;flex:0 0 auto;}\n  .vrow .mvt{flex:1;font-size:15px;}",
+    "origin": "24_미션비전핵심가치진단.html"
+  },
+  "patches": {
+    "n.2.0.0.3.1.1.1": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.0.0.3.1.2.1": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.0.0.3.1.3.1": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.0.0.3.1.4.1": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.0.0.3.1.0": {
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.2.0.1.1.0.0.1": {
+      "style": {
+        "fontSize": 20
+      }
+    },
+    "n.2.0.1.1.0.1.1.0.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.0.1.1.0.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.0.1.1.0.2": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.0.1.1.1.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.0.1.1.1.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.0.1.1.1.2": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.0.1.1.2.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.0.1.1.2.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.0.1.1.2.2": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.0.1.1.3.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.0.1.1.3.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.1.0.1.1.3.2": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "04"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "가치체계 및 전략체계 수립"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "미션 · 비전 · 가치 진단 및 수립방안 도출"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [
+      "n.2.0.0.1.1.7",
+      "n.2.0.0.3.1.7.0.1",
+      "n.2.0.0.3.1.7.1.1",
+      "n.2.0.0.3.1.7.2.1",
+      "n.2.0.0.3.1.7.3.1"
+    ],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h2": {
+        "fontSize": 17
+      },
+      "h3": {
+        "fontSize": 15
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T10:24:09.869Z",
+  "updatedAt": "2026-07-27T14:16:11.503Z"
+}

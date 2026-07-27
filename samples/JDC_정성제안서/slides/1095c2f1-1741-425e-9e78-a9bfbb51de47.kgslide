@@ -1,0 +1,217 @@
+{
+  "v": 5,
+  "id": "1095c2f1-1741-425e-9e78-a9bfbb51de47",
+  "title": "주요사업 우선순위 도출방안",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"주요사업 우선순위 도출방안\">\n\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"num\">03</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">과업의 수행 방법론 — 주요사업 우선순위 도출방안</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">판단기준 수립 · 우선순위 평가 · 주요사업 도출</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">Ⅲ</span><span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\" data-kg-role=\"label\">추진방안 및 관리계획</span>\n    </div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">수행사업과 연관된 전략과제의 경영자원 배분을 위해 핵심사업 우선순위를 도출해 실행력 강화</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"strow\">\n      <div class=\"kg-subtopic\" style=\"margin-bottom:0;border-bottom:none;\" data-kg-role=\"h2\">주요사업 우선순위 도출</div>\n      <span class=\"kg-stamp\" data-kg-role=\"label\">Illustrative</span>\n    </div>\n\n    <div class=\"kg-content cols3\">\n\n      <!-- ===== Step 1 ===== -->\n      <div class=\"stp\">\n        <div class=\"stph\"><b data-kg-role=\"h3\">Step 1</b><span data-kg-role=\"body3\">우선순위 판단기준 수립</span></div>\n        <div class=\"stpb\">\n          <div class=\"grp\">\n            <div class=\"grh\" data-kg-role=\"h3\">1. 사업 경쟁력</div>\n            <div class=\"gri\" data-kg-role=\"body2\">공익성</div>\n            <div class=\"gri\" data-kg-role=\"body2\">역량 보유수준</div>\n            <div class=\"gri\" data-kg-role=\"body2\">예산 수준</div>\n          </div>\n          <span class=\"plus\" data-kg-role=\"label\">+</span>\n          <div class=\"grp\">\n            <div class=\"grh\" data-kg-role=\"h3\">2. 사업 매력도</div>\n            <div class=\"gri\" data-kg-role=\"body2\">전략연계성</div>\n            <div class=\"gri\" data-kg-role=\"body2\">정책연계성</div>\n            <div class=\"gri\" data-kg-role=\"body2\">사회적 가치성</div>\n          </div>\n          <div class=\"sum\" data-kg-role=\"body2\">핵심사업 우선순위를 판단하기 위해<br>평가지표 구체화 및 가중치 부여를 통한<br>종합평가 실시<br>(사업경쟁력 + 사업매력도)</div>\n        </div>\n      </div>\n\n      <!-- ===== Step 2 ===== -->\n      <div class=\"stp\">\n        <div class=\"stph\"><b data-kg-role=\"h3\">Step 2</b><span data-kg-role=\"body3\">주요사업 우선순위 평가</span></div>\n        <div class=\"stpb\">\n          <div class=\"li\" data-kg-role=\"body2\">사업 경쟁력과 매력도의 각 요소에 가중치를 부여하고 5점 척도결과에 따라 16대 핵심사업의 우선순위를 평가</div>\n          <div class=\"li\" data-kg-role=\"body2\">100점 만점 환산점수를 기준으로 3가지 유형으로 구분</div>\n          <div class=\"sl\" data-kg-role=\"body3\">단기과제, 중기과제, 장기과제</div>\n\n          <svg class=\"plot\" viewBox=\"0 0 400 314\" preserveAspectRatio=\"xMidYMid meet\" role=\"img\" aria-label=\"사업경쟁력·사업매력도 우선순위 산점도\">\n            <defs>\n              <marker id=\"p39\" markerWidth=\"7\" markerHeight=\"7\" refX=\"5.5\" refY=\"3\" orient=\"auto\">\n                <path d=\"M0,0 L6,3 L0,6 Z\" fill=\"var(--ink-900)\"></path>\n              </marker>\n              <pattern id=\"h39p\" width=\"8\" height=\"8\" patternUnits=\"userSpaceOnUse\" patternTransform=\"rotate(45)\">\n                <rect width=\"8\" height=\"8\" fill=\"rgba(192,0,0,.05)\"></rect>\n                <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"8\" stroke=\"rgba(192,0,0,.20)\" stroke-width=\"1.1\"></line>\n              </pattern>\n              <pattern id=\"h39y\" width=\"8\" height=\"8\" patternUnits=\"userSpaceOnUse\" patternTransform=\"rotate(45)\">\n                <rect width=\"8\" height=\"8\" fill=\"rgba(201,138,27,.09)\"></rect>\n                <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"8\" stroke=\"rgba(201,138,27,.32)\" stroke-width=\"1.1\"></line>\n              </pattern>\n            </defs>\n\n            <!-- 원점(좌하)을 감싸는 두 경계 곡선이 장기·중기·단기를 가른다 -->\n            <rect x=\"46\" y=\"10\" width=\"340\" height=\"266\" fill=\"url(#h39p)\" stroke=\"none\"></rect>\n            <path d=\"M107,10 C124,110 170,200 386,225 L386,147 C280,124 236,74 218,10 Z\" fill=\"url(#h39y)\"></path>\n            <path d=\"M218,10 C236,74 280,124 386,147 L386,10 Z\" fill=\"rgba(79,129,189,.17)\"></path>\n\n            <g stroke=\"var(--xg2)\" stroke-width=\"1.1\" stroke-dasharray=\"6 5\">\n              <path d=\"M107,10 L107,276\"></path><path d=\"M298,10 L298,276\"></path>\n              <path d=\"M46,76 L386,76\"></path><path d=\"M46,225 L386,225\"></path>\n            </g>\n            <g stroke=\"var(--ink-900)\" stroke-width=\"1.2\">\n              <path d=\"M169,10 L169,276\"></path><path d=\"M46,148 L386,148\"></path>\n            </g>\n            <rect x=\"46\" y=\"10\" width=\"340\" height=\"266\" fill=\"none\" stroke=\"var(--red-500)\" stroke-width=\"1.2\"></rect>\n\n            <path d=\"M107,10 C124,110 170,200 386,225\" fill=\"none\" stroke=\"var(--blue-600)\" stroke-width=\"2\" stroke-dasharray=\"3 3.5\" stroke-linecap=\"round\"></path>\n            <path d=\"M218,10 C236,74 280,124 386,147\" fill=\"none\" stroke=\"var(--blue-600)\" stroke-width=\"2\" stroke-dasharray=\"3 3.5\" stroke-linecap=\"round\"></path>\n\n            <text x=\"75\" y=\"50\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"800\" fill=\"var(--red-600)\">장기과제</text>\n            <text x=\"166\" y=\"50\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"800\" fill=\"var(--red-600)\">중기과제</text>\n            <text x=\"292\" y=\"50\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"800\" fill=\"var(--red-600)\">단기과제</text>\n            <text x=\"122\" y=\"26\" text-anchor=\"middle\" font-size=\"13.5\" font-weight=\"700\" fill=\"var(--blue-600)\">Long Term Initiative</text>\n            <text x=\"348\" y=\"26\" text-anchor=\"middle\" font-size=\"13.5\" font-weight=\"700\" fill=\"var(--blue-600)\">Quick Fix</text>\n            <text x=\"330\" y=\"196\" text-anchor=\"middle\" font-size=\"13.5\" font-weight=\"700\" fill=\"var(--blue-600)\">Minimal Effort</text>\n\n            <g font-size=\"14\" font-weight=\"800\" fill=\"#fff\" text-anchor=\"middle\">\n              <circle cx=\"347\" cy=\"47\" r=\"12.5\" fill=\"var(--navy-800)\"></circle><text x=\"347\" y=\"52\">2</text>\n              <circle cx=\"260\" cy=\"73\" r=\"12.5\" fill=\"var(--navy-800)\"></circle><text x=\"260\" y=\"78\">16</text>\n              <circle cx=\"319\" cy=\"73\" r=\"12.5\" fill=\"var(--navy-800)\"></circle><text x=\"319\" y=\"78\">7</text>\n              <circle cx=\"294\" cy=\"91\" r=\"12.5\" fill=\"var(--navy-800)\"></circle><text x=\"294\" y=\"96\">11</text>\n              <circle cx=\"347\" cy=\"91\" r=\"12.5\" fill=\"var(--navy-800)\"></circle><text x=\"347\" y=\"96\">6</text>\n              <circle cx=\"221\" cy=\"96\" r=\"12.5\" fill=\"var(--navy-800)\"></circle><text x=\"221\" y=\"101\">5</text>\n              <circle cx=\"237\" cy=\"123\" r=\"12.5\" fill=\"var(--navy-800)\"></circle><text x=\"237\" y=\"128\">3</text>\n              <circle cx=\"204\" cy=\"130\" r=\"12.5\" fill=\"var(--navy-800)\"></circle><text x=\"204\" y=\"135\">14</text>\n              <circle cx=\"269\" cy=\"139\" r=\"12.5\" fill=\"var(--navy-800)\"></circle><text x=\"269\" y=\"144\">1</text>\n              <circle cx=\"237\" cy=\"156\" r=\"12.5\" fill=\"var(--navy-800)\"></circle><text x=\"237\" y=\"161\">13</text>\n              <circle cx=\"164\" cy=\"165\" r=\"12.5\" fill=\"var(--navy-800)\"></circle><text x=\"164\" y=\"170\">15</text>\n              <circle cx=\"275\" cy=\"167\" r=\"12.5\" fill=\"var(--navy-800)\"></circle><text x=\"275\" y=\"172\">9</text>\n              <circle cx=\"317\" cy=\"165\" r=\"12.5\" fill=\"var(--navy-800)\"></circle><text x=\"317\" y=\"170\">8</text>\n              <circle cx=\"117\" cy=\"207\" r=\"12.5\" fill=\"var(--navy-800)\"></circle><text x=\"117\" y=\"212\">4</text>\n              <circle cx=\"153\" cy=\"227\" r=\"12.5\" fill=\"var(--navy-800)\"></circle><text x=\"153\" y=\"232\">10</text>\n              <circle cx=\"92\" cy=\"241\" r=\"12.5\" fill=\"var(--navy-800)\"></circle><text x=\"92\" y=\"246\">12</text>\n            </g>\n\n            <path d=\"M42 282 L42 6\" stroke=\"var(--ink-900)\" stroke-width=\"1.5\" marker-end=\"url(#p39)\"></path>\n            <path d=\"M42 282 L392 282\" stroke=\"var(--ink-900)\" stroke-width=\"1.5\" marker-end=\"url(#p39)\"></path>\n            <text x=\"36\" y=\"16\" text-anchor=\"end\" font-size=\"13.5\" font-weight=\"700\" font-style=\"italic\" fill=\"var(--ink-900)\">High</text>\n            <text x=\"36\" y=\"280\" text-anchor=\"end\" font-size=\"13.5\" font-weight=\"700\" font-style=\"italic\" fill=\"var(--ink-900)\">Low</text>\n            <text x=\"14\" y=\"146\" text-anchor=\"middle\" font-size=\"13.5\" font-weight=\"700\" fill=\"var(--ink-navy)\" transform=\"rotate(-90 14 146)\">사업매력도</text>\n            <text x=\"62\" y=\"302\" text-anchor=\"middle\" font-size=\"13.5\" font-weight=\"700\" font-style=\"italic\" fill=\"var(--ink-900)\">Low</text>\n            <text x=\"216\" y=\"302\" text-anchor=\"middle\" font-size=\"13.5\" font-weight=\"700\" fill=\"var(--ink-navy)\">사업경쟁력</text>\n            <text x=\"372\" y=\"302\" text-anchor=\"middle\" font-size=\"13.5\" font-weight=\"700\" font-style=\"italic\" fill=\"var(--ink-900)\">High</text>\n          </svg>\n        </div>\n      </div>\n\n      <!-- ===== Step 3 ===== -->\n      <div class=\"stp\">\n        <div class=\"stph\"><b data-kg-role=\"h3\">Step 3</b><span data-kg-role=\"body3\">주요사업 &amp; 혁신사업 도출</span></div>\n        <div class=\"stpb\">\n          <div class=\"li\" data-kg-role=\"body2\">핵심사업의 실행력 강화를 위해 필요한 주요 사업도출</div>\n          <div class=\"li\" data-kg-role=\"body2\">해당부서와 주요사업 방향성 설정</div>\n          <div class=\"li\" data-kg-role=\"body2\">본부별/기간별 지속사업 운영방안 구체화</div>\n          <div class=\"lh\" data-kg-role=\"h3\">16대 핵심전략사업</div>\n          <div class=\"list\">\n            <div data-kg-role=\"body3\">보건산업 빅데이터 활용 확대</div>\n            <div data-kg-role=\"body3\">미래 신산업 혁신 기반 고도화</div>\n            <div data-kg-role=\"body3\">디지털 융합 보건산업 선도</div>\n            <div data-kg-role=\"body3\">보건산업 글로벌 성장 인재 양성</div>\n            <div data-kg-role=\"body3\">보건의료기술 연구개발 성과확대</div>\n            <div data-kg-role=\"body3\">보건산업 맞춤형 기업지원 확대</div>\n            <div data-kg-role=\"body3\">보건산업 글로벌 역량 강화</div>\n            <div data-kg-role=\"body3\">보건산업 분석 및 정책지원 강화</div>\n            <div data-kg-role=\"body3\">보건산업 거버넌스 및 네트워크 강화</div>\n            <div data-kg-role=\"body3\">현장 중심의 정책개발 강화</div>\n            <div data-kg-role=\"body3\">고령화 시대 대응 및 고령친화 산업 지원</div>\n            <div data-kg-role=\"body3\">국민 눈높이의 윤리경영 실천</div>\n            <div data-kg-role=\"body3\">지속가능 경영체계 확립</div>\n            <div data-kg-role=\"body3\">상생, 협력 조직문화 정착</div>\n            <div data-kg-role=\"body3\">전문성 중심의 인적자원 관리체계 강화</div>\n            <div data-kg-role=\"body3\">투명성 제고 및 윤리경영 강화</div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 사업별 평가지표 · 가중치 산정안 · 내부 진단자료</span>\n    <span class=\"kg-footer__page\" data-kg-auto=\"page\" data-kg-role=\"caption\">39</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n\n</section>",
+    "css": ".strow{display:flex;align-items:center;justify-content:center;gap:14px;}\n  .cols3{grid-template-columns:1fr 1.15fr 1.1fr;gap:14px;}\n\n  .stp{display:flex;flex-direction:column;min-height:0;}\n  .stph{flex:0 0 auto;background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;\n    text-align:center;padding:9px 24px 9px 14px;line-height:1.3;\n    clip-path:polygon(0 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,0 100%);}\n  .stph b{display:block;font-size:16px;font-weight:800;}\n  .stph span{display:block;font-size:15px;font-weight:600;color:var(--blue-300);margin-top:2px;}\n  .stpb{flex:1;min-height:0;border:1px solid var(--neutral-300);border-top:none;background:#fff;\n    padding:11px;display:flex;flex-direction:column;gap:8px;}\n\n  /* Step 1 — 판단기준 */\n  .grp{display:flex;flex-direction:column;gap:5px;}\n  .grh{background:var(--blue-200);border:1px solid var(--blue-400);border-radius:var(--r-xs);\n    text-align:center;font-size:15px;font-weight:800;color:var(--navy-800);padding:7px 6px;}\n  .gri{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    text-align:center;font-size:15px;color:var(--ink-900);padding:6px 6px;}\n  .plus{align-self:center;width:26px;height:26px;border-radius:50%;background:var(--blue-500);\n    color:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;}\n  .sum{margin-top:auto;background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;\n    border-radius:var(--r-xs);text-align:center;padding:11px 10px;font-size:15px;font-weight:700;line-height:1.45;}\n\n  /* Step 2 — 설명 + 산점도 */\n  .li{position:relative;padding-left:14px;font-size:15px;line-height:1.38;color:var(--ink-900);}\n  .li::before{content:\"\";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:1px;background:var(--navy-800);}\n  .sl{position:relative;padding-left:26px;font-size:15px;line-height:1.38;color:var(--ink-700);}\n  .sl::before{content:\"\";position:absolute;left:14px;top:10px;width:7px;height:1.5px;background:var(--ink-500);}\n  /* 그래프가 칸을 꽉 쓰도록 위 설명은 붙여 두고 아래는 전부 그래프에 준다 */\n  .plot{flex:1;min-height:0;width:100%;margin-top:2px;display:block;}\n\n  /* Step 3 — 16대 사업 */\n  .lh{background:var(--blue-200);border:1px solid var(--blue-400);border-radius:var(--r-xs);\n    text-align:center;font-size:15px;font-weight:800;color:var(--navy-800);padding:6px;flex:0 0 auto;}\n  .list{flex:1;min-height:0;display:flex;flex-direction:column;gap:3px;}\n  .list div{flex:1;background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;color:var(--ink-900);line-height:1.2;padding:2px 5px;}",
+    "origin": "39_주요사업우선순위도출.html"
+  },
+  "patches": {
+    "n.2.1.0.0.0": {
+      "style": {
+        "fontSize": 20
+      }
+    },
+    "n.2.1.0.0.1": {
+      "style": {
+        "fontSize": 20
+      }
+    },
+    "n.2.1.1.0.0": {
+      "style": {
+        "fontSize": 20
+      }
+    },
+    "n.2.1.1.0.1": {
+      "style": {
+        "fontSize": 20
+      }
+    },
+    "n.2.1.2.0.0": {
+      "style": {
+        "fontSize": 20
+      }
+    },
+    "n.2.1.2.0.1": {
+      "style": {
+        "fontSize": 20
+      }
+    },
+    "n.2.1.2.1.3": {
+      "style": {
+        "fontSize": 14
+      },
+      "layout": {
+        "mode": "detached",
+        "x": 859,
+        "y": 424,
+        "w": 381,
+        "h": 35,
+        "keepSlot": true
+      }
+    },
+    "n.2.1.2.1.4.0": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.2.1.4.1": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.2.1.4.2": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.2.1.4.3": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.2.1.4.4": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.2.1.4.5": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.2.1.4.6": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.2.1.4.7": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.2.1.4.8": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.2.1.4.9": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.2.1.4.10": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.2.1.4.11": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.2.1.4.12": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.2.1.4.13": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.2.1.4.14": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.2.1.4.15": {
+      "style": {
+        "fontSize": 13
+      }
+    },
+    "n.2.1.2.1.0": {
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.2.1.2.1.1": {
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.2.1.2.1.2": {
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "13"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "과업 수행의 방법론"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "주요사업 우선순위 도출"
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.0": {
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "body2": {
+        "fontSize": 17
+      }
+    }
+  },
+  "stack": [
+    "n.2.1.2.1.3"
+  ],
+  "createdAt": "2026-07-27T11:03:29.696Z",
+  "updatedAt": "2026-07-27T14:16:15.193Z"
+}

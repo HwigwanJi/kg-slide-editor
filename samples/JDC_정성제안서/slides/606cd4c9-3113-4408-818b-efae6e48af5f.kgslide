@@ -1,0 +1,88 @@
+{
+  "v": 5,
+  "id": "606cd4c9-3113-4408-818b-efae6e48af5f",
+  "title": "변화관리 및 성과 모니터링",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"변화관리 및 성과 모니터링\">\n\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"num\">04</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">운용계획 수립 및 실행력 강화</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">변화관리 및 성과 모니터링</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">Ⅳ</span><span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\" data-kg-role=\"label\">운용·실행력</span>\n    </div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">변화 필요성 공유부터 실행·확산·정착까지 단계별 활동을 구조화하고,<br>선·후행 KPI와 PDCA·Cascading을 연계해 변화 성과 상시 점검</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"subrow\">\n      <div class=\"kg-subtopic\" data-kg-role=\"h2\">Kotter 8단계 변화관리</div>\n      <div class=\"kg-subtopic\" data-kg-role=\"h2\">성과 모니터링</div>\n    </div>\n\n    <div class=\"kg-content cols2\">\n\n      <!-- ============ 좌: Kotter 8단계 ============ -->\n      <div class=\"kt\">\n        <div class=\"grp\">\n          <div class=\"grph\" data-kg-role=\"h3\">Melt</div>\n          <div class=\"grpb\">\n            <div class=\"stn\" data-kg-role=\"h3\">1. 변화 필요성 공유</div>\n            <div class=\"stn\" data-kg-role=\"h3\">2. 변화 추진체계 구축</div>\n            <div class=\"std\" data-kg-role=\"body2\">경영평가<br>2년 연속 D등급,<br>면세매출 감소 바탕으로<br>위기의식 형성</div>\n            <div class=\"std\" data-kg-role=\"body2\">경영진·부서장·노조가<br>참여하는<br>변화추진단 구성</div>\n          </div>\n        </div>\n\n        <div class=\"grp\">\n          <div class=\"grph\" data-kg-role=\"h3\">Accelerate</div>\n          <div class=\"grpb\">\n            <div class=\"stn\" data-kg-role=\"h3\">3. 변화 비전 수립</div>\n            <div class=\"stn\" data-kg-role=\"h3\">4. 비전 공유·확산</div>\n            <div class=\"std\" data-kg-role=\"body2\">JEJU 4대 성장방향과<br>중점과제 구체화</div>\n            <div class=\"std\" data-kg-role=\"body2\">전 직원과<br>주요 이해관계자에게<br>변화 방향을<br>일관되게 전달</div>\n          </div>\n        </div>\n\n        <div class=\"grp\">\n          <div class=\"grph\" data-kg-role=\"h3\">Build up</div>\n          <div class=\"grpb\">\n            <div class=\"stn\" data-kg-role=\"h3\">5. 실행 권한 부여</div>\n            <div class=\"stn\" data-kg-role=\"h3\">6. 단기성과 창출</div>\n            <div class=\"std\" data-kg-role=\"body2\">규정 정비와 ADX·ERM<br>기능 강화를 통해<br>실행 장애요인 해소</div>\n            <div class=\"std\" data-kg-role=\"body2\">현안 개선과<br>재원 확보를 통해<br>초기 성과<br>조기에 가시화</div>\n          </div>\n        </div>\n\n        <div class=\"grp\">\n          <div class=\"grph\" data-kg-role=\"h3\">Consolidate</div>\n          <div class=\"grpb\">\n            <div class=\"stn\" data-kg-role=\"h3\">7. 성과 확산</div>\n            <div class=\"stn\" data-kg-role=\"h3\">8. 변화 정착</div>\n            <div class=\"std\" data-kg-role=\"body2\">장애요인 해소<br>우수사례를 성과평가와<br>제도 개선에 반영해<br>조직 전반으로 확대</div>\n            <div class=\"std\" data-kg-role=\"body2\">PDCA·Cascading<br>·인사제도와 연계해<br>변화가 일상 업무로<br>자리 잡도록 관리</div>\n          </div>\n        </div>\n      </div>\n\n      <!-- ============ 우: 성과 모니터링 ============ -->\n      <div class=\"mon\">\n        <div class=\"mbx\">\n          <div class=\"mbh hatch\" data-kg-role=\"h3\">변화관리 KPI(선행·후행)</div>\n          <div class=\"mbb\">\n            <div class=\"ln\" data-kg-role=\"body2\">선행지표 교육 이수율·참여율·소통 도달률로 관리,</div>\n            <div class=\"ln\" data-kg-role=\"body2\">후행지표 변화 인지도·수용도·저항 해소 수준으로 점검</div>\n            <div class=\"ln\" data-kg-role=\"body2\">분기별 변화관리 대시보드 통해 추이 확인 및 개선과제에 반영</div>\n            <div class=\"ln it\" data-kg-role=\"body3\">선행지표와 후행지표를 함께 관리해 변화 정착 여부를 확인</div>\n          </div>\n        </div>\n\n        <div class=\"mbx\">\n          <div class=\"mbh hatch\" data-kg-role=\"h3\">PDCA 운영체계</div>\n          <div class=\"mbb\">\n            <div class=\"ln\" data-kg-role=\"body2\">Plan 실행계획 수립<i class=\"ai\"></i>Do 과제 실행<i class=\"ai\"></i>Check KPI 점검<i class=\"ai\"></i>Act 개선·환류</div>\n            <div class=\"ln\" data-kg-role=\"body2\">월·분기 단위로 실적 점검, 책임부서·담당자 명확히 지정</div>\n            <div class=\"ln it\" data-kg-role=\"body3\">과제별 실행–점검–개선이 반복되는 관리체계 구축</div>\n          </div>\n        </div>\n\n        <div class=\"mbx\">\n          <div class=\"mbh hatch\" data-kg-role=\"h3\">Cascading(전사<i class=\"ai\"></i>개인)</div>\n          <div class=\"mbb\">\n            <div class=\"ln\" data-kg-role=\"body2\">전사 전략 KPI를 본부·팀·개인 목표로 단계적으로 연계</div>\n            <div class=\"ln\" data-kg-role=\"body2\">부서 간 협업과제 공동 KPI로 설정해 책임 회피 방지</div>\n            <div class=\"ln it\" data-kg-role=\"body3\">전략과 개인 성과가 단절되지 않도록 목표체계를<br>일관되게 연결</div>\n          </div>\n        </div>\n\n        <div class=\"mbx\">\n          <div class=\"mbh hatch\" data-kg-role=\"h3\">상시 모니터링 대시보드</div>\n          <div class=\"mbb\">\n            <div class=\"ln\" data-kg-role=\"body2\">KPI 달성도와 KRI 위험신호를 신호등 방식으로 관리</div>\n            <div class=\"ln\" data-kg-role=\"body2\">미흡지표는 원인과 개선조치를 함께 기록하고</div>\n            <div class=\"ln\" data-kg-role=\"body2\">주·월·분기별로 점검</div>\n            <div class=\"ln it\" data-kg-role=\"body3\">PDCA와 Cascading을 연계해 부진지표를 조기에 개선</div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 기관 성과관리 규정 · 공공기관 경영평가 편람 · 내부 진단자료</span>\n    <span class=\"kg-footer__page\" data-kg-auto=\"page\" data-kg-role=\"caption\">31</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n\n</section>",
+    "css": ".subrow{display:grid;grid-template-columns:726px 1fr;gap:16px;}\n  .cols2{grid-template-columns:726px 1fr;gap:16px;}\n  .hatch{background:repeating-linear-gradient(135deg,rgba(96,106,122,.10) 0 1px,transparent 1px 5px);}\n  /* → 글리프는 문구 규칙에서 장식으로 걸린다. 같은 자리에 CSS 삼각형을 둔다 */\n  .ai{display:inline-block;width:0;height:0;vertical-align:middle;margin:0 4px;\n    border-top:4px solid transparent;border-bottom:4px solid transparent;border-left:6px solid var(--blue-500);}\n\n  /* ---- 좌: Kotter 8단계 ---- */\n  .kt{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;\n    border:1px solid var(--neutral-300);border-radius:var(--r-sm);background:#fff;padding:10px;}\n  .grp{display:flex;flex-direction:column;min-height:0;border:1px solid var(--neutral-300);\n    border-radius:var(--r-xs);overflow:hidden;background:var(--neutral-050);}\n  .grph{background:var(--blue-200);color:var(--ink-navy);font-size:15px;font-weight:800;\n    text-align:center;padding:6px 8px;flex:0 0 auto;border-bottom:1px solid var(--blue-300);}\n  /* 칸을 늘리면 글이 가운데 떠서 비어 보인다. 상자는 내용 높이로 두고 남는 만큼 사이를 벌린다 */\n  .grpb{flex:1;min-height:0;padding:8px;display:grid;grid-template-columns:1fr 1fr;\n    grid-template-rows:auto auto;gap:7px;align-content:space-evenly;}\n  .stn{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;font-weight:700;color:var(--ink-navy);padding:7px 5px;line-height:1.2;}\n  .std{background:var(--neutral-100);border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;line-height:1.4;color:var(--ink-700);padding:8px 7px;}\n\n  /* ---- 우: 성과 모니터링 ---- */\n  .mon{flex:1;min-height:0;display:flex;flex-direction:column;gap:9px;}\n  .mbx{flex:1;min-height:0;display:flex;flex-direction:column;border:1px solid var(--neutral-300);\n    border-radius:var(--r-xs);overflow:hidden;background:#fff;}\n  .mbh{background:var(--blue-200);color:var(--ink-navy);font-size:15px;font-weight:800;\n    text-align:center;padding:6px 8px;flex:0 0 auto;border-bottom:1px solid var(--blue-300);}\n  .mbb{flex:1;min-height:0;padding:8px 10px;display:flex;flex-direction:column;\n    gap:3px;justify-content:center;text-align:center;}\n  .ln{font-size:14px;line-height:1.4;color:var(--ink-900);}\n  .ln.it{font-style:italic;color:var(--blue-600);font-weight:600;}",
+    "origin": "31_변화관리성과모니터링.html"
+  },
+  "patches": {
+    "n.1.0": {
+      "text": {
+        "html": "변화 필요성 공유부터 실행·확산·정착까지  구조화하고, 선·후행 KPI와 PDCA·Cascading을 연계해 변화 성과 상시 점검"
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "07"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "운용계획 및 실행력 강화"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "성과 환류 체계 고도화"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h3": {
+        "fontSize": 19
+      },
+      "body2": {
+        "fontSize": 16
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T08:28:41.730Z",
+  "updatedAt": "2026-07-27T14:16:13.253Z"
+}

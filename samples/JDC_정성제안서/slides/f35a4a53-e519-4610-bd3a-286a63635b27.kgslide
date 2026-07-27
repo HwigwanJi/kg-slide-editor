@@ -1,0 +1,159 @@
+{
+  "v": 5,
+  "id": "f35a4a53-e519-4610-bd3a-286a63635b27",
+  "title": "변화관리 및 실행 거버넌스 구축",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"변화관리 및 실행 거버넌스 구축\">\n\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"num\">04</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">운용계획 수립 및 실행력 강화</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">변화관리 및 실행 거버넌스 구축</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">Ⅳ</span><span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\" data-kg-role=\"label\">운용·실행력</span>\n    </div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">사업환경·조직체계·구성원 Mindset을 단계적으로 연계하고<br>스폰서·챔피언·에이전트 중심의 역할체계와 대상별 소통을 통해 변화의 수용과 정착을 지원</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"kg-subtopic\" data-kg-role=\"h2\">변화관리 방안</div>\n\n    <div class=\"kg-content cols2\">\n\n      <!-- ============ 좌: 3단계 전환 ============ -->\n      <div class=\"kg-stackcol\">\n        <div class=\"lft\">\n          <div class=\"stp\">\n            <div class=\"stph\"><span class=\"stpn\" data-kg-role=\"label\">Step.1</span>\n              <span class=\"stpt\" data-kg-role=\"h3\">사업환경 변화</span></div>\n            <div class=\"stpb\">\n              <div class=\"li\"><span class=\"ck\"></span><span data-kg-role=\"body2\"><b>기존 방식</b> : 면세·관광 중심 사업구조</span></div>\n              <div class=\"li to\"><span class=\"arr\"></span><span data-kg-role=\"body2\">미래사업 육성과 개발이익 환원 중심으로 포트폴리오 전환</span></div>\n            </div>\n          </div>\n\n          <div class=\"gapc\"><span class=\"tri\"></span><span data-kg-role=\"label\">부조화 해소</span></div>\n\n          <div class=\"stp\">\n            <div class=\"stph\"><span class=\"stpn\" data-kg-role=\"label\">Step.2</span>\n              <span class=\"stpt\" data-kg-role=\"h3\">조직체계 변화</span></div>\n            <div class=\"stpb\">\n              <div class=\"li\"><span class=\"ck\"></span><span data-kg-role=\"body2\"><b>기존 방식</b> : 관리·지원 중심 조직</span></div>\n              <div class=\"li to\"><span class=\"arr\"></span><span data-kg-role=\"body2\">미래사업 전담기능과 투자심의·ERM·ADX 기능 강화해 실행력 확보</span></div>\n            </div>\n          </div>\n\n          <div class=\"gapc\"><span class=\"tri\"></span><span data-kg-role=\"label\">부조화 해소</span></div>\n\n          <div class=\"stp\">\n            <div class=\"stph\"><span class=\"stpn\" data-kg-role=\"label\">Step.3</span>\n              <span class=\"stpt\" data-kg-role=\"h3\">Mindset·Behavior 변화</span></div>\n            <div class=\"stpb\">\n              <div class=\"li\"><span class=\"ck\"></span><span data-kg-role=\"body2\"><b>기존 방식</b> : 현상유지와 부서 중심 업무방식</span></div>\n              <div class=\"li to\"><span class=\"arr\"></span><span data-kg-role=\"body2\">성과·협력·혁신을 중시하는 실행 중심 문화로 전환</span></div>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"taper\"></div>\n        <div class=\"lnote\" data-kg-role=\"body2\">사업·조직·문화 간 정합성 확보, 개인 차원의 변화를<br>ADKAR, 대상별 소통을 통해 수용·정착 지원</div>\n      </div>\n\n      <!-- ============ 우: 배점 변화 · 역할 · 거버넌스 ============ -->\n      <div class=\"kg-stackcol\">\n\n        <div class=\"tb4\">\n          <div class=\"th\" data-kg-role=\"h3\">평가영역</div>\n          <div class=\"th n\" data-kg-role=\"h3\">배점 변화</div>\n          <div class=\"th n\" data-kg-role=\"h3\">배점 변화</div>\n          <div class=\"th n\" data-kg-role=\"h3\">배점 변화</div>\n\n          <div class=\"rh\" data-kg-role=\"h3\">안전·재난</div>\n          <div class=\"tc hi\" data-kg-role=\"body2\"><span>0.5</span><span class=\"a\"></span><span>2.5</span></div>\n          <div class=\"tc hi\" data-kg-role=\"body2\"><span>0.5</span><span class=\"a\"></span><span>2.5</span></div>\n          <div class=\"tc hi\" data-kg-role=\"body2\"><span>0.5</span><span class=\"a\"></span><span>2.5</span></div>\n\n          <div class=\"rh\" data-kg-role=\"h3\">공공성</div>\n          <div class=\"tc\" data-kg-role=\"body2\"><span>16.5</span><span class=\"a\"></span><span>20.5</span></div>\n          <div class=\"tc\" data-kg-role=\"body2\"><span>16.5</span><span class=\"a\"></span><span>20.5</span></div>\n          <div class=\"tc\" data-kg-role=\"body2\"><span>16.5</span><span class=\"a\"></span><span>20.5</span></div>\n\n          <div class=\"rh\" data-kg-role=\"h3\">주요사업</div>\n          <div class=\"tc\" data-kg-role=\"body2\"><span>45</span><span class=\"a\"></span><span>50</span></div>\n          <div class=\"tc\" data-kg-role=\"body2\"><span>45</span><span class=\"a\"></span><span>50</span></div>\n          <div class=\"tc\" data-kg-role=\"body2\"><span>45</span><span class=\"a\"></span><span>50</span></div>\n\n          <div class=\"rh\" data-kg-role=\"h3\">재무성과</div>\n          <div class=\"tc\" data-kg-role=\"body2\"><span>21</span><span class=\"a\"></span><span>15.5</span></div>\n          <div class=\"tc\" data-kg-role=\"body2\"><span>21</span><span class=\"a\"></span><span>15.5</span></div>\n          <div class=\"tc\" data-kg-role=\"body2\"><span>21</span><span class=\"a\"></span><span>15.5</span></div>\n        </div>\n\n        <div class=\"gv\">\n          <div class=\"gvc\">\n            <div class=\"gvh\" data-kg-role=\"h3\">스폰서(Sponsor)</div>\n            <div class=\"gvb\">\n              <div class=\"gvo\" data-kg-role=\"body2\">이사장, 경영진</div>\n              <div class=\"gvd\" data-kg-role=\"body3\">변화 방향과 우선순위를 제시하고<br>필요한 자원과 메시지를 일관되게 지원</div>\n            </div>\n          </div>\n          <div class=\"gvc\">\n            <div class=\"gvh\" data-kg-role=\"h3\">챔피언(Champion)</div>\n            <div class=\"gvb\">\n              <div class=\"gvo\" data-kg-role=\"body2\">부서장, 핵심리더</div>\n              <div class=\"gvd\" data-kg-role=\"body3\">변화 내용을 부서에 확산하고<br>저항요인을 조기에 파악해 피드백</div>\n            </div>\n          </div>\n          <div class=\"gvc\">\n            <div class=\"gvh\" data-kg-role=\"h3\">에이전트(Agent)</div>\n            <div class=\"gvb\">\n              <div class=\"gvo\" data-kg-role=\"body2\">변화추진단(TF), 컨설턴트</div>\n              <div class=\"gvd\" data-kg-role=\"body3\">현장의 실행을 지원하고<br>진행상황을 점검·모니터링</div>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"gvn\">\n          <div class=\"gvnl\" data-kg-role=\"h3\">변화관리 거버넌스</div>\n          <div class=\"gvnt\" data-kg-role=\"body2\">변화추진단을 중심으로 스폰서–챔피언–에이전트를 연계한 3단계 운영체계 구축</div>\n        </div>\n\n      </div>\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 공공기관 경영평가 편람 · 기관 조직·직제 규정 · 내부 진단자료</span>\n    <span class=\"kg-footer__page\" data-kg-auto=\"page\" data-kg-role=\"caption\">30</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n\n</section>",
+    "css": ".cols2{grid-template-columns:300px 1fr;gap:16px;}\n  .kg-stackcol{gap:10px;}\n\n  /* 공통 표시 — ✓ 와 → 글리프는 문구 규칙에서 장식으로 걸린다. CSS 로 그린다 */\n  .ck{width:13px;height:13px;flex:0 0 auto;margin-top:3px;background:var(--ink-navy);\n    -webkit-mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E\") center/contain no-repeat;\n            mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E\") center/contain no-repeat;}\n  .arr{width:0;height:0;flex:0 0 auto;margin-top:5px;border-top:5px solid transparent;\n    border-bottom:5px solid transparent;border-left:8px solid var(--blue-500);}\n\n  /* ---- 좌: 세로 3단계 전환 ---- */\n  .lft{flex:1;min-height:0;display:flex;flex-direction:column;\n    border:1px solid var(--neutral-300);border-radius:var(--r-sm);background:#fff;padding:9px;gap:0;}\n  .stp{flex:1;display:flex;flex-direction:column;border:1px solid var(--neutral-300);\n    border-radius:var(--r-xs);overflow:hidden;background:#fff;}\n  .stph{display:flex;align-items:stretch;flex:0 0 auto;}\n  .stpn{background:#5B6675;color:#fff;font-size:13px;font-weight:800;padding:5px 11px;\n    display:flex;align-items:center;}\n  .stpt{flex:1;background:var(--blue-200);color:var(--ink-navy);font-size:14px;font-weight:800;\n    display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.2;padding:0 6px;}\n  .stpb{flex:1;padding:8px 10px;display:flex;flex-direction:column;gap:5px;justify-content:center;}\n  .li{display:flex;gap:6px;font-size:14px;line-height:1.35;color:var(--ink-900);}\n  .li b{font-weight:800;color:var(--ink-navy);}\n  .li.to{color:var(--ink-700);}\n  /* 단계 사이 — ▲부조화 해소 */\n  .gapc{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:5px;padding:6px 0;\n    background:repeating-linear-gradient(135deg,rgba(96,106,122,.10) 0 1px,transparent 1px 5px);}\n  .tri{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;\n    border-bottom:8px solid var(--ink-700);}\n  .gapc span{font-size:13px;font-weight:800;color:var(--ink-700);}\n\n  /* 하단 귀결 — 사다리꼴로 잇는다 */\n  .taper{flex:0 0 auto;height:13px;background:var(--neutral-200);\n    clip-path:polygon(0 0,100% 0,86% 100%,14% 100%);}\n  .lnote{flex:0 0 auto;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    background:#fff;padding:9px 11px;font-size:14px;line-height:1.4;color:var(--ink-navy);text-align:center;}\n\n  /* ---- 우: 배점 변화 표 ---- */\n  /* 행이 높으면 숫자 한 쌍만 든 칸이 헐겁게 잡힌다. 높이를 내용에 맞춘다 */\n  .tb4{flex:0 0 208px;display:grid;grid-template-columns:1fr 1.2fr 1.2fr 1.2fr;\n    gap:5px;grid-auto-rows:1fr;}\n  .th{background:var(--neutral-200);color:var(--ink-navy);font-size:14px;font-weight:800;\n    display:flex;align-items:center;justify-content:center;border-radius:var(--r-xs);}\n  .th.n{background:linear-gradient(180deg,#3D6A9E,#2E5D91);color:#fff;}\n  .rh{background:var(--blue-100);border:1px solid var(--blue-300);border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--ink-navy);}\n  .tc{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    display:flex;align-items:center;justify-content:center;gap:6px;font-size:16px;font-weight:800;color:var(--ink-900);}\n  .tc .a{width:0;height:0;border-top:4px solid transparent;border-bottom:4px solid transparent;\n    border-left:7px solid var(--ink-500);}\n  .tc.hi{color:var(--red-600);font-weight:800;}\n  .tc.hi .a{border-left-color:var(--red-500);}\n\n  /* ---- 우: 역할 3단 ---- */\n  .gv{flex:1;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}\n  .gvc{display:flex;flex-direction:column;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    overflow:hidden;background:#fff;}\n  .gvh{background:var(--blue-200);color:var(--ink-navy);font-size:15px;font-weight:800;\n    text-align:center;padding:8px 8px;line-height:1.2;flex:0 0 auto;}\n  .gvb{flex:1;min-height:0;padding:10px;display:flex;flex-direction:column;gap:9px;}\n  .gvo{flex:0 0 auto;background:var(--neutral-100);border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    text-align:center;font-size:14px;font-weight:700;color:var(--ink-navy);padding:9px 5px;line-height:1.25;}\n  /* 설명이 칸 높이를 채우게 둔다. 가운데 띄워 두면 칸이 비어 보인다 */\n  .gvd{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;\n    font-size:14px;line-height:1.5;color:var(--ink-700);padding:4px 6px;}\n\n  /* ---- 우: 하단 거버넌스 띠 ---- */\n  .gvn{flex:0 0 auto;display:flex;align-items:stretch;gap:10px;}\n  .gvnl{flex:0 0 auto;display:flex;align-items:center;background:#5B6675;color:#fff;\n    font-size:14px;font-weight:800;padding:0 14px;border-radius:var(--r-xs);white-space:nowrap;}\n  .gvnt{flex:1;display:flex;align-items:center;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    background:#fff;padding:9px 12px;font-size:14px;line-height:1.35;color:var(--ink-navy);}",
+    "origin": "30_변화관리실행거버넌스.html"
+  },
+  "patches": {
+    "n.1.0": {
+      "text": {
+        "html": "사업환경·조직체계·구성원 Mindset을 연계하고 스폰서·챔피언·에이전트 중심의 역할체계를 통해 변화의 수용과 정착을 지원"
+      }
+    },
+    "n.2.1.0.0.4.1.0.1": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.1.0.0.2.1.0.1": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.1.0.0.0.1.0.1": {
+      "style": {
+        "fontSize": 18
+      }
+    },
+    "n.2.1.0.0.4.1.1.1": {
+      "text": {
+        "html": "성과·협력·혁신을 중시하는 실행 중심"
+      }
+    },
+    "n.2.1.1.1.0.1.1": {
+      "style": {
+        "fontSize": 21
+      },
+      "layout": {
+        "mode": "detached",
+        "x": 355,
+        "y": 584,
+        "w": 273,
+        "h": 208,
+        "keepSlot": true
+      }
+    },
+    "n.2.1.1.1.1.1.1": {
+      "style": {
+        "fontSize": 21
+      },
+      "layout": {
+        "mode": "detached",
+        "x": 661,
+        "y": 584,
+        "w": 273,
+        "h": 208,
+        "keepSlot": true
+      }
+    },
+    "n.2.1.1.1.2.1.1": {
+      "style": {
+        "fontSize": 21
+      },
+      "layout": {
+        "mode": "detached",
+        "x": 968,
+        "y": 584,
+        "w": 273,
+        "h": 208,
+        "keepSlot": true
+      }
+    },
+    "n.2.0": {
+      "style": {
+        "fontSize": 22
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "07"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "운용계획 및 실행력 강화"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "역할체계 기반 변화관리 거버넌스"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h3": {
+        "fontSize": 17
+      },
+      "body2": {
+        "fontSize": 17
+      },
+      "body3": {
+        "fontSize": 17
+      }
+    }
+  },
+  "stack": [
+    "n.2.1.1.1.0.1.1",
+    "n.2.1.1.1.1.1.1",
+    "n.2.1.1.1.2.1.1"
+  ],
+  "createdAt": "2026-07-27T08:22:21.634Z",
+  "updatedAt": "2026-07-27T14:16:12.970Z"
+}

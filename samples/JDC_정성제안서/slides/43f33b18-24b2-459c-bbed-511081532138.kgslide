@@ -1,0 +1,106 @@
+{
+  "v": 5,
+  "id": "43f33b18-24b2-459c-bbed-511081532138",
+  "title": "02 과업 유상·무상 지원계획 — 성과지표 관리 및 평가 보조 방안",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"지표 생애주기형\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\">02</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\">과업 유상·무상 지원계획</div>\n      <div class=\"kg-section-sub\">성과지표 관리 및 평가 보조 방안</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">III</span>\n      <span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\">경영평가 대응력 강화</span>\n    </div>\n  </header>\n  <div class=\"kg-msgband\"><span class=\"kg-msgband__mark\"></span>\n    <p class=\"kg-message\">성과지표를 유형·위계·정밀도로 정비하고 조정·확정 절차를 제도화하여 객관성 확보</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"wrap\">\n\n      <div class=\"ph\">\n        <div class=\"ph__c\"><span class=\"ph__n\" data-kg-role=\"num\">1</span><span class=\"ph__t\" data-kg-role=\"h2\">지표 체계 정비</span></div>\n        <div class=\"ph__c\"><span class=\"ph__n\" data-kg-role=\"num\">2</span><span class=\"ph__t\" data-kg-role=\"h2\">지표 품질 제고</span></div>\n        <div class=\"ph__c\"><span class=\"ph__n\" data-kg-role=\"num\">3</span><span class=\"ph__t\" data-kg-role=\"h2\">목표 설정</span></div>\n        <div class=\"ph__c\"><span class=\"ph__n\" data-kg-role=\"num\">4</span><span class=\"ph__t\" data-kg-role=\"h2\">평가·확정</span></div>\n      </div>\n\n      <div class=\"cols\">\n\n        <!-- 1. 지표 체계 정비 -->\n        <div class=\"cl\">\n          <div class=\"ac\">\n            <div class=\"ac__h\">\n              <span class=\"ac__n\" data-kg-role=\"num\">01</span>\n              <span class=\"ac__t\" data-kg-role=\"h3\">지표 유형 코드화</span>\n            </div>\n            <div class=\"ac__k\" data-kg-role=\"body3\">부서 성과지표를 <b>G(경영평가)·B(사업)·S(전략)·P(프로세스)·C(상시)</b>로 코드화</div>\n            <div class=\"ac__l\">\n              <span data-kg-role=\"caption\">중복 시 G › B › S·P·C 순위로 경영평가 지표 최우선</span>\n              <span data-kg-role=\"caption\">「대외평가연계지표」 신설, 경영평가 담당부서 가점</span>\n            </div>\n            <div class=\"ac__r\">\n              <span class=\"ac__rk\" data-kg-role=\"label\">사례</span>\n              <span class=\"ac__rv\" data-kg-role=\"caption\">동종 유사기관 코드화 운영, 대외평가연계지표 20점</span>\n            </div>\n          </div>\n\n          <div class=\"ac\">\n            <div class=\"ac__h\">\n              <span class=\"ac__n\" data-kg-role=\"num\">02</span>\n              <span class=\"ac__t\" data-kg-role=\"h3\">3축 위계화</span>\n            </div>\n            <div class=\"ac__k\" data-kg-role=\"body3\">전략·경영평가·조직성과를 병렬로 두고 <b>전사–본부–팀–개인</b> 수직 계층 전개</div>\n            <div class=\"ac__l\">\n              <span data-kg-role=\"caption\">12대 전략과제 ↔ 81지표 ↔ 32팀 계층 전개 맵</span>\n              <span data-kg-role=\"caption\">상·하위 지표의 선행–후행 연계 규칙 정의</span>\n            </div>\n            <div class=\"ac__r\">\n              <span class=\"ac__rk\" data-kg-role=\"label\">사례</span>\n              <span class=\"ac__rv\" data-kg-role=\"caption\">동종 유사기관(2022.7) BSC 지표를 MBO에 전부 반영</span>\n            </div>\n          </div>\n        </div>\n\n        <!-- 2. 지표 품질 제고 -->\n        <div class=\"cl\">\n          <div class=\"ac\">\n            <div class=\"ac__h\">\n              <span class=\"ac__n\" data-kg-role=\"num\">03</span>\n              <span class=\"ac__t\" data-kg-role=\"h3\">지표 정밀화</span>\n            </div>\n            <div class=\"ac__k\" data-kg-role=\"body3\">단·중·장기 세분화와 <b>지표관리기간 3년</b>, SMART(통제 30%)·논리모형 3층 심사</div>\n            <div class=\"ac__l\">\n              <span data-kg-role=\"caption\">신규지표 가중심사, 80점 미달 시 반려·10% 감점</span>\n              <span data-kg-role=\"caption\">투입·과정지표를 산출–중간–최종성과로 재배치</span>\n            </div>\n            <div class=\"ac__r\">\n              <span class=\"ac__rk\" data-kg-role=\"label\">사례</span>\n              <span class=\"ac__rv\" data-kg-role=\"caption\">동종 유사기관 대표성 사전심사(교차 80점 반려), 성과지표 위주 4~11개</span>\n            </div>\n          </div>\n\n          <div class=\"ac\">\n            <div class=\"ac__h\">\n              <span class=\"ac__n\" data-kg-role=\"num\">04</span>\n              <span class=\"ac__t\" data-kg-role=\"h3\">일몰·보완·개선</span>\n            </div>\n            <div class=\"ac__k\" data-kg-role=\"body3\">12대 과제·34실행·81지표를 <b>일몰·보완·개선</b> 3분류로 전면 재정비</div>\n            <div class=\"ac__l\">\n              <span data-kg-role=\"caption\">일몰은 폐지, 보완은 산식 수정, 개선은 실행과제 구체화</span>\n              <span data-kg-role=\"caption\">일몰지표는 지표 후보군에 보관 후 재검토</span>\n            </div>\n            <div class=\"ac__r\">\n              <span class=\"ac__rk\" data-kg-role=\"label\">사례</span>\n              <span class=\"ac__rv\" data-kg-role=\"caption\">기획재정부 목표부여 2σ, 통계 극단치 제외, 지표 재배치</span>\n            </div>\n          </div>\n        </div>\n\n        <!-- 3. 목표 설정 -->\n        <div class=\"cl\">\n          <div class=\"ac\">\n            <div class=\"ac__h\">\n              <span class=\"ac__n\" data-kg-role=\"num\">05</span>\n              <span class=\"ac__t\" data-kg-role=\"h3\">목표설정 5유형·순위법</span>\n            </div>\n            <div class=\"ac__k\" data-kg-role=\"body3\">계량 목표설정을 <b>5유형으로 분기</b>하고 가중치는 순위법(서열합)으로 산정</div>\n            <div class=\"ac__l\">\n              <span data-kg-role=\"caption\">전략형·기술분석형1·2·벤치마킹형·현업형 의사결정 트리</span>\n              <span data-kg-role=\"caption\">서열역수 방식의 쏠림을 지양</span>\n            </div>\n            <div class=\"ac__r\">\n              <span class=\"ac__rk\" data-kg-role=\"label\">사례</span>\n              <span class=\"ac__rv\" data-kg-role=\"caption\">동종 유사기관 목표 4종(편차 2σ), 기준치 Max[전년, 3개년], AHP 배점</span>\n            </div>\n          </div>\n\n          <div class=\"ac\">\n            <div class=\"ac__h\">\n              <span class=\"ac__n\" data-kg-role=\"num\">06</span>\n              <span class=\"ac__t\" data-kg-role=\"h3\">목표부여·비계량 평가</span>\n            </div>\n            <div class=\"ac__k\" data-kg-role=\"body3\">목표부여 <b>편차 산식(하이브리드)</b>과 비계량 ADL 3관점·5등급 표준화</div>\n            <div class=\"ac__l\">\n              <span data-kg-role=\"caption\">안정지표는 편차, 신설지표는 목표 대비 실적 방식</span>\n              <span data-kg-role=\"caption\">비계량은 ADL 관점으로 A~D 5등급 척도 적용</span>\n            </div>\n            <div class=\"ac__r\">\n              <span class=\"ac__rk\" data-kg-role=\"label\">사례</span>\n              <span class=\"ac__rv\" data-kg-role=\"caption\">기획재정부 비계량 9등급 교차평정을 기관 규모에 맞춰 5등급으로 경량화</span>\n            </div>\n          </div>\n        </div>\n\n        <!-- 4. 평가·확정 -->\n        <div class=\"cl\">\n          <div class=\"ac\">\n            <div class=\"ac__h\">\n              <span class=\"ac__n\" data-kg-role=\"num\">07</span>\n              <span class=\"ac__t\" data-kg-role=\"h3\">상·하반기 평가·조정</span>\n            </div>\n            <div class=\"ac__k\" data-kg-role=\"body3\">외생변수(운임·금리) 대응 <b>2회 중간평가</b>와 실무협의회 → 성과관리위원회 2단계 심의</div>\n            <div class=\"ac__l\">\n              <span data-kg-role=\"caption\">1~6월 실적 중간평가 후 하반기 목표 재조정</span>\n              <span data-kg-role=\"caption\">조정 사유 명문화, 위원회 의결과 이의신청 절차</span>\n            </div>\n            <div class=\"ac__r\">\n              <span class=\"ac__rk\" data-kg-role=\"label\">사례</span>\n              <span class=\"ac__rv\" data-kg-role=\"caption\">동종 유사기관 목표변경 10.31 사유 제출, 성과평가위 심의, 이의 3일</span>\n            </div>\n          </div>\n\n          <div class=\"ac\">\n            <div class=\"ac__h\">\n              <span class=\"ac__n\" data-kg-role=\"num\">08</span>\n              <span class=\"ac__t\" data-kg-role=\"h3\">확정·추정·사후정산</span>\n            </div>\n            <div class=\"ac__k\" data-kg-role=\"body3\">10~12월 실적을 <b>확정·추정으로 구분</b>하고 익년 초 사후정산으로 시점 모순 해소</div>\n            <div class=\"ac__l\">\n              <span data-kg-role=\"caption\">추정 산정식은 직전 추세와 계약 확정분의 합</span>\n              <span data-kg-role=\"caption\">확정–추정 차이는 사후정산 후 재심의</span>\n            </div>\n            <div class=\"ac__r\">\n              <span class=\"ac__rk\" data-kg-role=\"label\">사례</span>\n              <span class=\"ac__rv\" data-kg-role=\"caption\">동종 유사기관 종료 후 1개월 내 평가·의결, 종료 3개월 내 조정 동결</span>\n            </div>\n          </div>\n        </div>\n\n      </div>\n\n      <div class=\"loop\">\n        <span class=\"loop__k\" data-kg-role=\"label\">연 1회 환류</span>\n        <span class=\"loop__t\" data-kg-role=\"body2\">평가·확정 결과를 지표 체계 정비로 되돌려 일몰·보완·개선 재분류에 반영하는 연 1회 정비 사이클 운영</span>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\">JDC 중장기 경영전략체계 진단 및 수립 — 성과지표 관리체계 및 평가 보조 방안</span>\n    <span class=\"kg-footer__page\">52</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".wrap{flex:1;display:flex;flex-direction:column;min-height:0;gap:9px;margin-top:9px;}\n\n  /* 4단계 위상 헤더 */\n  .ph{flex:0 0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}\n  .ph__c{position:relative;display:flex;align-items:center;gap:8px;padding:6px 12px;\n    background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;border-radius:3px;}\n  .ph__c:not(:last-child)::after{content:\"\";position:absolute;right:-12px;top:50%;\n    transform:translateY(-50%);width:0;height:0;border-top:8px solid transparent;\n    border-bottom:8px solid transparent;border-left:9px solid var(--blue-500);z-index:2;}\n  .ph__n{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;\n    width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.24);\n    font-size:12px;font-weight:800;}\n  .ph__t{flex:1;font-size:15px;font-weight:800;}\n\n  /* 4열 조치 카드 */\n  .cols{flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;min-height:0;}\n  /* min-width:0 이 없으면 긴 글자가 열 최소너비를 밀어 올려 위 헤더와 어긋난다 */\n  .cl{display:flex;flex-direction:column;gap:11px;min-height:0;min-width:0;}\n\n  /* 카드가 칸을 채우고, 남는 높이는 카드 안 블록 사이로 흘린다 */\n  .ac{flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:6px;padding:9px 10px;\n    border:1px solid var(--neutral-300);border-left:3px solid var(--blue-500);\n    border-radius:0 4px 4px 0;background:#fff;min-height:0;}\n  .ac__h{display:flex;align-items:baseline;gap:7px;}\n  .ac__n{flex:0 0 auto;font-size:12px;font-weight:800;color:#fff;background:var(--navy-800);\n    border-radius:2px;padding:1px 6px;}\n  .ac__t{flex:1;font-size:15px;font-weight:800;color:var(--ink-navy);line-height:1.2;}\n  .ac__k{font-size:14px;line-height:1.26;color:var(--ink-900);\n    background:var(--blue-050);border-radius:3px;padding:5px 7px;}\n  .ac__k b{color:var(--navy-800);}\n  .ac__l{display:flex;flex-direction:column;gap:3px;}\n  .ac__l span{display:flex;align-items:flex-start;gap:6px;\n    font-size:13px;line-height:1.24;color:var(--ink-700);}\n  .ac__l span::before{content:\"\";flex:0 0 auto;width:4px;height:4px;margin-top:6px;\n    background:var(--blue-400);border-radius:1px;}\n  .ac__r{display:flex;align-items:flex-start;gap:6px;padding-top:4px;\n    border-top:1px dashed var(--neutral-300);}\n  .ac__rk{flex:0 0 auto;font-size:12px;font-weight:800;color:var(--ink-navy);\n    background:var(--neutral-100);border-radius:2px;padding:1px 6px;}\n  .ac__rv{flex:1;font-size:13px;line-height:1.22;color:var(--ink-500);}\n\n  /* 환류 띠 */\n  .loop{flex:0 0 auto;display:flex;align-items:center;gap:11px;\n    background:var(--neutral-050);border:1px solid var(--neutral-300);border-radius:4px;\n    padding:9px 14px;}\n  .loop__k{flex:0 0 auto;font-size:13px;font-weight:800;color:#fff;\n    background:var(--navy-800);border-radius:3px;padding:3px 10px;}\n  .loop__t{flex:1;font-size:14px;font-weight:700;color:var(--ink-navy);}",
+    "origin": "52_KPI_Management.html"
+  },
+  "patches": {
+    "n.2.0.0.2.1": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.0.3.1": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.0.1.1": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.2.0.0.0.1": {
+      "style": {
+        "fontSize": 17
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "02"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "추가 제안"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "성과관리 및 평가 보완"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅳ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "기타"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          41.1,
+          8,
+          41.1
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "body3": {
+        "fontSize": 16
+      },
+      "caption": {
+        "fontSize": 16
+      },
+      "label": {
+        "fontSize": 14
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T10:48:32.687Z",
+  "updatedAt": "2026-07-27T14:19:27.022Z"
+}

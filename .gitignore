@@ -11,3 +11,7 @@ tools/gen/
 
 # skills/keynes-group-design 에서 만들어 낸다 (npm run setup)
 public/kg/
+
+# 작업본. samples/ 에서 펼쳐 낸다 (npm run setup)
+# 원본은 samples/ 이고 여기는 사람이 고치는 자리라 담지 않는다.
+projects/

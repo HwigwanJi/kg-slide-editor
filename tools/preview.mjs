@@ -22,6 +22,7 @@ import { mkdir, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises'
 import { existsSync } from 'node:fs';
 import { basename, dirname, extname, join, resolve } from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
+import { linkAssets, projectRootOf } from './assets.mjs';
 
 // fileURLToPath 를 쓴다. URL 의 pathname 은 한글과 공백이 퍼센트로 인코딩된 채라
 // 손으로 자르면 경로가 어긋난다 — 폴더 이름이 ASCII 일 때만 우연히 맞는다.
@@ -127,12 +128,12 @@ async function htmlOf(file) {
     const slide = /<section[^>]*class="[^"]*kg-slide[^"]*"[\s\S]*?<\/section>/i.exec(text);
     if (!slide) throw new Error(`KG 장표가 아님 — .kg-slide 를 찾지 못함: ${file}`);
     const css = [...text.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map((m) => m[1]).join('\n');
-    return standalone(slide[0], css);
+    return standalone(slide[0], css, projectRootOf(file));
   }
 
   const doc = JSON.parse(text);
   if (doc?.source?.kind !== 'kg-html') throw new Error(`KG 장표 문서가 아님: ${file}`);
-  return standalone(doc.source.html, doc.source.css ?? '');
+  return standalone(doc.source.html, doc.source.css ?? '', projectRootOf(file));
 }
 
 /**
@@ -141,10 +142,10 @@ async function htmlOf(file) {
  * 편집분(patches)까지 반영하려면 편집기에서 HTML 로 내보낸 뒤 이 도구로 찍는다.
  * 여기서 패치 적용을 다시 구현하면 화면과 미리보기가 갈라지므로 하지 않는다.
  */
-function standalone(slideHtml, slideCss) {
-  // 경로는 전부 KG 폴더 기준 상대경로다. 아래 shoot() 이 그 폴더 안에 임시 파일을 만들어 연다.
-  // 작도 원본은 ../assets/, 적재본은 /kg/assets/ 로 들고 있다. 둘 다 되돌려야 그림이 뜬다.
-  const html = slideHtml.replace(/(?:(?:\.\.\/)+|\/kg\/)assets\//g, 'assets/');
+function standalone(slideHtml, slideCss, assetRoot = null) {
+  // CSS 경로는 KG 폴더 기준 상대경로다. 아래 shoot() 이 그 폴더 안에 임시 파일을 만들어 연다.
+  // 그림만은 프로젝트 것을 봐야 하므로 절대 file: 주소로 돌린다(tools/assets.mjs).
+  const html = linkAssets(slideHtml, assetRoot);
   return `<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">
 <link rel="stylesheet" href="colors_and_type.css">
 <link rel="stylesheet" href="kg-slide.css">

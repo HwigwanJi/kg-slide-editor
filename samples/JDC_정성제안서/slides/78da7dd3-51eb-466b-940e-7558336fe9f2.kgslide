@@ -1,0 +1,143 @@
+{
+  "v": 5,
+  "id": "78da7dd3-51eb-466b-940e-7558336fe9f2",
+  "title": "3. 과업의 수행 방법론 — 리더십 구현체계",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"리더십 구현체계형\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\">03</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\">과업의 수행 방법론</div>\n      <div class=\"kg-section-sub\">리더십 구현체계 · 4개 차원의 역할과 역량</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">III</span>\n      <span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\">추진방안 및 관리계획</span>\n    </div>\n  </header>\n  <div class=\"kg-msgband\"><span class=\"kg-msgband__mark\"></span>\n    <p class=\"kg-message\">리더십을 성과관리·일·사람·변화 4개 차원으로 나누어 역할과 역량을 정의하고 조직성장으로 잇는 구현체계 설계</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"kg-content s-halves\">\n\n      <!-- ================= 좌 ================= -->\n      <div class=\"col\">\n        <div class=\"kg-subtopic\">전략적 리더십의 중요성</div>\n        <div class=\"col__b\">\n\n          <div class=\"card\" style=\"flex:0 0 auto;\">\n            <div class=\"card__h\"><span class=\"card__t\" data-kg-role=\"h2\">전략적 리더십이란</span></div>\n            <div class=\"card__b\">\n              <div class=\"def\" data-kg-role=\"body2\">미래지향성과 전략적 의사결정을 통한 <b>변화 추구</b>, 조직 부문 간 <b>다양성의 통합</b>, 전사 차원의 <b>영향력 행사</b>를 발휘하는 리더십</div>\n              <div class=\"quote\">\n                <div class=\"quote__t\" data-kg-role=\"body3\">“눈앞에 벌어진 미래를 규정하고 준비하는 것은 충분히 가능한 일이다”</div>\n                <div class=\"quote__s\" data-kg-role=\"caption\">P. F. Drucker</div>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"card\">\n            <div class=\"card__h\"><span class=\"card__t\" data-kg-role=\"h2\">리더십과 조직성장 관계</span></div>\n            <div class=\"card__b\">\n              <div class=\"figure\">\n                <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 560 340\" preserveAspectRatio=\"xMidYMid meet\">\n                  <!-- 확산 쐐기 : 조직 내부 변화가 성과로 퍼지는 구간 -->\n                  <polygon points=\"390,84 452,6 452,334 390,176\" fill=\"var(--blue-100)\" opacity=\"0.5\"></polygon>\n\n                  <!-- 연결선 -->\n                  <g stroke=\"var(--blue-500)\" stroke-width=\"1.8\" fill=\"none\">\n                    <path d=\"M134 130 H160\"></path>\n                    <path d=\"M266 130 H280\"></path>\n                    <path d=\"M506 64 V88\"></path>\n                    <path d=\"M506 148 V180\"></path>\n                  </g>\n                  <g fill=\"var(--blue-500)\">\n                    <path d=\"M160 124 L170 130 L160 136 z\"></path>\n                    <path d=\"M280 124 L290 130 L280 136 z\"></path>\n                    <path d=\"M500 88 L506 98 L512 88 z\"></path>\n                    <path d=\"M500 180 L506 190 L512 180 z\"></path>\n                  </g>\n\n                  <!-- 직접 기여 경로 -->\n                  <path d=\"M70 180 V300 H470 V278\" stroke=\"var(--red-500)\" stroke-width=\"1.6\" fill=\"none\" stroke-dasharray=\"7 5\"></path>\n                  <path d=\"M464 280 L470 268 L476 280 z\" fill=\"var(--red-500)\"></path>\n                  <text x=\"262\" y=\"316\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"var(--red-600)\" font-family=\"Pretendard, sans-serif\">전략적 리더십의 직접 기여</text>\n\n                  <!-- 묶음 : 조직 내부 -->\n                  <rect x=\"156\" y=\"80\" width=\"232\" height=\"100\" rx=\"4\" fill=\"var(--neutral-050)\" stroke=\"var(--neutral-300)\"></rect>\n                  <rect x=\"168\" y=\"96\" width=\"98\" height=\"68\" rx=\"3\" fill=\"var(--neutral-100)\" stroke=\"var(--neutral-300)\"></rect>\n                  <text data-slot=\"n1\" x=\"217\" y=\"136\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--ink-navy)\" font-family=\"Pretendard, sans-serif\">조직문화</text>\n                  <rect x=\"290\" y=\"96\" width=\"86\" height=\"68\" rx=\"3\" fill=\"var(--neutral-100)\" stroke=\"var(--neutral-300)\"></rect>\n                  <text data-slot=\"n2a\" x=\"333\" y=\"126\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--ink-navy)\" font-family=\"Pretendard, sans-serif\">직원</text>\n                  <text data-slot=\"n2b\" x=\"333\" y=\"146\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--ink-navy)\" font-family=\"Pretendard, sans-serif\">성과몰입</text>\n\n                  <!-- 출발 : 전략적 리더십 -->\n                  <ellipse cx=\"70\" cy=\"130\" rx=\"64\" ry=\"48\" fill=\"var(--blue-050)\" stroke=\"var(--navy-800)\" stroke-width=\"1.8\"></ellipse>\n                  <text data-slot=\"n0a\" x=\"70\" y=\"124\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"800\" fill=\"var(--navy-800)\" font-family=\"Pretendard, sans-serif\">전략적</text>\n                  <text data-slot=\"n0b\" x=\"70\" y=\"146\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"800\" fill=\"var(--navy-800)\" font-family=\"Pretendard, sans-serif\">리더십</text>\n\n                  <!-- 성과 : 만족 → 성장 -->\n                  <rect x=\"458\" y=\"14\" width=\"96\" height=\"50\" rx=\"3\" fill=\"var(--paper)\" stroke=\"var(--blue-400)\"></rect>\n                  <text data-slot=\"n3\" x=\"506\" y=\"45\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--ink-navy)\" font-family=\"Pretendard, sans-serif\">직원만족</text>\n                  <rect x=\"458\" y=\"98\" width=\"96\" height=\"50\" rx=\"3\" fill=\"var(--paper)\" stroke=\"var(--blue-400)\"></rect>\n                  <text data-slot=\"n4\" x=\"506\" y=\"129\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--ink-navy)\" font-family=\"Pretendard, sans-serif\">고객만족</text>\n                  <ellipse cx=\"506\" cy=\"228\" rx=\"52\" ry=\"38\" fill=\"var(--paper)\" stroke=\"var(--red-500)\" stroke-width=\"1.8\"></ellipse>\n                  <text data-slot=\"n5\" x=\"506\" y=\"234\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"800\" fill=\"var(--navy-800)\" font-family=\"Pretendard, sans-serif\">조직성장</text>\n                </svg>\n              </div>\n            </div>\n          </div>\n\n        </div>\n      </div>\n\n      <!-- ================= 우 ================= -->\n      <div class=\"col\">\n        <div class=\"kg-subtopic\">리더십의 역량 범주</div>\n        <div class=\"col__b\">\n          <div class=\"card\">\n            <div class=\"card__h\"><span class=\"card__t\" data-kg-role=\"h2\">차원별 역할과 역량</span></div>\n            <div class=\"card__b\">\n              <div class=\"figure\">\n                <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 560 440\" preserveAspectRatio=\"xMidYMid meet\">\n                  <!-- 축 화살표 : 네 역할이 중심으로 모인다 -->\n                  <g stroke=\"var(--blue-500)\" stroke-width=\"1.8\" fill=\"none\">\n                    <path d=\"M280 134 V152\"></path>\n                    <path d=\"M280 306 V288\"></path>\n                    <path d=\"M176 220 H182\"></path>\n                    <path d=\"M384 220 H378\"></path>\n                  </g>\n                  <g fill=\"var(--blue-500)\">\n                    <path d=\"M274 152 L280 164 L286 152 z\"></path>\n                    <path d=\"M274 288 L280 276 L286 288 z\"></path>\n                    <path d=\"M182 214 L194 220 L182 226 z\"></path>\n                    <path d=\"M378 214 L366 220 L378 226 z\"></path>\n                  </g>\n\n                  <!-- 네 모서리 : 차원별 역량 -->\n                  <g fill=\"var(--paper)\" stroke=\"var(--neutral-300)\">\n                    <rect x=\"8\" y=\"8\" width=\"182\" height=\"104\" rx=\"4\"></rect>\n                    <rect x=\"370\" y=\"8\" width=\"182\" height=\"104\" rx=\"4\"></rect>\n                    <rect x=\"8\" y=\"328\" width=\"182\" height=\"104\" rx=\"4\"></rect>\n                    <rect x=\"370\" y=\"328\" width=\"182\" height=\"104\" rx=\"4\"></rect>\n                  </g>\n                  <g fill=\"var(--blue-050)\" stroke=\"var(--blue-300)\">\n                    <rect x=\"8\" y=\"8\" width=\"182\" height=\"26\" rx=\"4\"></rect>\n                    <rect x=\"370\" y=\"8\" width=\"182\" height=\"26\" rx=\"4\"></rect>\n                    <rect x=\"8\" y=\"328\" width=\"182\" height=\"26\" rx=\"4\"></rect>\n                    <rect x=\"370\" y=\"328\" width=\"182\" height=\"26\" rx=\"4\"></rect>\n                  </g>\n                  <g font-size=\"14\" font-weight=\"800\" fill=\"var(--navy-800)\" text-anchor=\"middle\" font-family=\"Pretendard, sans-serif\">\n                    <text data-slot=\"dW\" x=\"99\" y=\"27\">변화 차원</text>\n                    <text data-slot=\"dN\" x=\"461\" y=\"27\">성과관리 차원</text>\n                    <text data-slot=\"dS\" x=\"99\" y=\"347\">사람 차원</text>\n                    <text data-slot=\"dE\" x=\"461\" y=\"347\">일 차원</text>\n                  </g>\n                  <g font-size=\"13.5\" fill=\"var(--ink-900)\" font-family=\"Pretendard, sans-serif\">\n                    <text data-slot=\"cW1\" x=\"20\" y=\"55\">· 혁신 주도력</text>\n                    <text data-slot=\"cW2\" x=\"20\" y=\"77\">· 통찰력</text>\n                    <text data-slot=\"cW3\" x=\"20\" y=\"99\">· 변화 대응력</text>\n                    <text data-slot=\"cN1\" x=\"382\" y=\"55\">· 전략적 기획력</text>\n                    <text data-slot=\"cN2\" x=\"382\" y=\"77\">· 목표관리</text>\n                    <text data-slot=\"cN3\" x=\"382\" y=\"99\">· 결단력</text>\n                    <text data-slot=\"cS1\" x=\"20\" y=\"375\">· 신뢰 형성</text>\n                    <text data-slot=\"cS2\" x=\"20\" y=\"397\">· 코칭과 피드백</text>\n                    <text data-slot=\"cS3\" x=\"20\" y=\"419\">· 동기 부여</text>\n                    <text data-slot=\"cE1\" x=\"382\" y=\"375\">· 문제해결</text>\n                    <text data-slot=\"cE2\" x=\"382\" y=\"397\">· 효과적 자원관리</text>\n                    <text data-slot=\"cE3\" x=\"382\" y=\"419\">· 정보 수집과 활용</text>\n                  </g>\n\n                  <!-- 네 축 : 역할 -->\n                  <rect x=\"216\" y=\"86\" width=\"128\" height=\"48\" rx=\"4\" fill=\"var(--paper)\" stroke=\"var(--navy-800)\" stroke-width=\"1.5\"></rect>\n                  <text data-slot=\"rN\" x=\"280\" y=\"116\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--ink-navy)\" font-family=\"Pretendard, sans-serif\">방향 제시</text>\n\n                  <rect x=\"216\" y=\"306\" width=\"128\" height=\"48\" rx=\"4\" fill=\"var(--paper)\" stroke=\"var(--navy-800)\" stroke-width=\"1.5\"></rect>\n                  <text data-slot=\"rS1\" x=\"280\" y=\"326\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--ink-navy)\" font-family=\"Pretendard, sans-serif\">직원</text>\n                  <text data-slot=\"rS2\" x=\"280\" y=\"345\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--ink-navy)\" font-family=\"Pretendard, sans-serif\">관리·육성</text>\n\n                  <rect x=\"44\" y=\"196\" width=\"132\" height=\"48\" rx=\"4\" fill=\"var(--paper)\" stroke=\"var(--navy-800)\" stroke-width=\"1.5\"></rect>\n                  <text data-slot=\"rW1\" x=\"110\" y=\"216\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--ink-navy)\" font-family=\"Pretendard, sans-serif\">환경변화</text>\n                  <text data-slot=\"rW2\" x=\"110\" y=\"235\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--ink-navy)\" font-family=\"Pretendard, sans-serif\">대응</text>\n\n                  <rect x=\"384\" y=\"196\" width=\"132\" height=\"48\" rx=\"4\" fill=\"var(--paper)\" stroke=\"var(--navy-800)\" stroke-width=\"1.5\"></rect>\n                  <text data-slot=\"rE1\" x=\"450\" y=\"216\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--ink-navy)\" font-family=\"Pretendard, sans-serif\">사업·실무</text>\n                  <text data-slot=\"rE2\" x=\"450\" y=\"235\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--ink-navy)\" font-family=\"Pretendard, sans-serif\">전문가</text>\n\n                  <!-- 중심 -->\n                  <ellipse cx=\"280\" cy=\"220\" rx=\"94\" ry=\"60\" fill=\"var(--navy-800)\"></ellipse>\n                  <text data-slot=\"hub1\" x=\"280\" y=\"214\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"800\" fill=\"var(--paper)\" font-family=\"Pretendard, sans-serif\">리더</text>\n                  <text data-slot=\"hub2\" x=\"280\" y=\"238\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"800\" fill=\"var(--paper)\" font-family=\"Pretendard, sans-serif\">역할 및 책임</text>\n                </svg>\n              </div>\n              <div class=\"interp\">\n                <div class=\"interp__r\">\n                  <span class=\"interp__k\" data-kg-role=\"label\">영향</span>\n                  <span class=\"interp__v\" data-kg-role=\"body2\">리더십의 영향은 <b>조직문화</b>와 <b>직원 성과몰입</b>을 거쳐 조직성장까지 이어짐</span>\n                </div>\n                <div class=\"interp__r\">\n                  <span class=\"interp__k\" data-kg-role=\"label\">구성</span>\n                  <span class=\"interp__v\" data-kg-role=\"body2\">리더 역할과 책임을 성과관리·일·사람·변화 <b>4개 차원</b>으로 나누고 차원별 역량을 정의</span>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\">JDC 중장기 경영전략체계 진단 및 수립 — 리더십 구현체계 및 차원별 역량 범주</span>\n    <span class=\"kg-footer__page\">43</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".kg-content{margin-top:12px;}\n  .col{display:flex;flex-direction:column;min-height:0;}\n  .col__b{flex:1;display:flex;flex-direction:column;min-height:0;gap:9px;}\n\n  .card{display:flex;flex-direction:column;border:1px solid var(--neutral-300);\n    border-radius:4px;background:#fff;min-height:0;overflow:hidden;}\n  .card__h{display:flex;align-items:center;gap:7px;padding:5px 10px;\n    background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;}\n  .card__t{font-size:14px;font-weight:700;}\n  .card__b{flex:1;display:flex;flex-direction:column;min-height:0;padding:8px 9px;gap:7px;}\n\n  .def{font-size:14px;line-height:1.32;color:var(--ink-900);}\n  .def b{color:var(--navy-800);}\n  .quote{flex:0 0 auto;border-left:3px solid var(--blue-400);background:var(--blue-050);\n    border-radius:0 3px 3px 0;padding:7px 10px;}\n  .quote__t{font-size:14px;line-height:1.3;color:var(--ink-navy);font-style:italic;}\n  .quote__s{margin-top:4px;font-size:13px;font-weight:700;color:var(--ink-500);}\n\n  .figure{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;}\n  .figure svg{width:100%;height:100%;display:block;}\n\n  /* 도해가 사실이면 이쪽이 \"그래서 무엇인가\" */\n  .interp{flex:0 0 auto;display:flex;flex-direction:column;gap:5px;}\n  .interp__r{display:flex;align-items:flex-start;gap:7px;\n    background:var(--neutral-050);border-left:3px solid var(--blue-400);\n    border-radius:0 3px 3px 0;padding:5px 9px;}\n  .interp__k{flex:0 0 auto;font-size:12px;font-weight:800;color:#fff;background:var(--navy-800);\n    border-radius:3px;padding:2px 7px;}\n  .interp__v{flex:1;font-size:14px;line-height:1.25;color:var(--ink-900);}\n  .interp__v b{color:var(--navy-800);}",
+    "origin": "43_Leadership.html"
+  },
+  "patches": {
+    "n.2.0.1.1.0.1.0.0.s7": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.1.0.1.0.0.s8": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.1.0.1.0.0.s9": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.1.0.1.0.0.s4": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.1.0.1.0.0.s5": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.1.0.1.0.0.s6": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.1.0.1.0.0.s10": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.1.0.1.0.0.s11": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.1.0.1.0.0.s12": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.1.0.1.0.0.s13": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.1.0.1.0.0.s14": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.0.1.1.0.1.0.0.s15": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "14"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "과업 수행의 방법론"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "전략적 리더십 구조화"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h2": {
+        "fontSize": 18
+      },
+      "body2": {
+        "fontSize": 16
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T08:48:54.708Z",
+  "updatedAt": "2026-07-27T14:16:15.919Z"
+}

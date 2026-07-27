@@ -1,0 +1,174 @@
+{
+  "v": 5,
+  "id": "854b0b16-1341-4690-adc8-617452537740",
+  "title": "운용계획 수립 및 실행력 강화",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"운용계획 수립 및 실행력 강화\">\n\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"num\">04</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">운용계획 수립 및 실행력 강화</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">전략 실행체계</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">Ⅳ</span><span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\" data-kg-role=\"label\">운용·실행력</span>\n    </div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">자원배분·조직기능·변화관리·성과평가를 하나의 실행체계로 연계하고,<br>분기별 점검과 내재화 프로그램으로 전략 실행력과 성과 확산 제고</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"subrow\">\n      <div class=\"kg-subtopic\" data-kg-role=\"h2\">과업내용</div>\n      <div class=\"kg-subtopic\" data-kg-role=\"h2\">핵심 진단 — 사업환경·산업구조 / 운영현황·성과 / 이해관계자</div>\n    </div>\n\n    <div class=\"kg-content cols4\">\n\n      <!-- ============ 좌: 과업내용 ============ -->\n      <div class=\"kg-stackcol\">\n        <div class=\"task\"><span class=\"taskn\" data-kg-role=\"label\">과업 1</span>\n          <span class=\"taskt\" data-kg-role=\"body2\">대내·외 경영환경 분석</span></div>\n        <div class=\"task\"><span class=\"taskn\" data-kg-role=\"label\">과업 2</span>\n          <span class=\"taskt\" data-kg-role=\"body2\">사업분석 및 이해관계자 진단</span></div>\n        <div class=\"task\"><span class=\"taskn\" data-kg-role=\"label\">과업 3</span>\n          <span class=\"taskt\" data-kg-role=\"body2\">운용계획 수립 및 실행력 강화</span></div>\n\n        <div class=\"t4\">\n          <div class=\"t4h\" data-kg-role=\"h2\"><em>과업 4</em>운용계획 수립 및 실행력 강화</div>\n          <div class=\"t4b\">\n            <div class=\"sub4\">\n              <div class=\"sub4h\"><span class=\"sub4n\" data-kg-role=\"label\">4-1</span>\n                <span class=\"sub4t\" data-kg-role=\"h3\">전략과제 실행 운영방안 수립</span></div>\n              <ul class=\"sub4l\">\n                <li data-kg-role=\"body3\">자원배분 매트릭스 · 조직개편 · 변화관리</li>\n                <li data-kg-role=\"body3\">부서별 핵심성과지표와 점검주기 연계</li>\n              </ul>\n            </div>\n            <div class=\"sub4\">\n              <div class=\"sub4h\"><span class=\"sub4n\" data-kg-role=\"label\">4-2</span>\n                <span class=\"sub4t\" data-kg-role=\"h3\">내재화 진단·공감·확산</span></div>\n              <ul class=\"sub4l\">\n                <li data-kg-role=\"body3\">인지·공감·행동 3수준 진단</li>\n                <li data-kg-role=\"body3\">문화진단과 대상별 확산 프로그램 운영</li>\n              </ul>\n            </div>\n            <div class=\"sub4\">\n              <div class=\"sub4h\"><span class=\"sub4n\" data-kg-role=\"label\">4-3</span>\n                <span class=\"sub4t\" data-kg-role=\"h3\">경영관리·주요사업 성과 향상</span></div>\n              <ul class=\"sub4l\">\n                <li data-kg-role=\"body3\">국정·환경·사회·투명경영 추진실적 점검</li>\n                <li data-kg-role=\"body3\">우수사례 발굴과 경영평가 지표 연계</li>\n              </ul>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <!-- ============ ① 사업환경·산업구조 ============ -->\n      <div class=\"dcol\">\n        <div class=\"dhd\" data-kg-role=\"h2\">① 주요 사업환경 및 산업구조 분석</div>\n        <div class=\"dbd\">\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">1</span>\n              <span class=\"itt\" data-kg-role=\"h3\">자원배분 원칙 마련</span></div>\n            <div class=\"alloc\">\n              <span data-kg-role=\"label\" style=\"flex:42;background:var(--navy-800);\">미래산업 40~45%</span>\n              <span data-kg-role=\"label\" style=\"flex:18;background:var(--blue-500);\">책임경영</span>\n              <span data-kg-role=\"label\" style=\"flex:13;background:var(--blue-400);color:var(--ink-navy);\">환원</span>\n              <span data-kg-role=\"label\" style=\"flex:10;background:var(--xg2);color:var(--ink-navy);\">혁신</span>\n            </div>\n          </div>\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">2</span>\n              <span class=\"itt\" data-kg-role=\"h3\">영기준(Zero-Base) 배분</span></div>\n            <div class=\"itd\" data-kg-role=\"body3\">기존 배분단위를 답습하지 않고 <b>사업 필요성·성과</b> 기준으로 재배분</div>\n          </div>\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">3</span>\n              <span class=\"itt\" data-kg-role=\"h3\">조직기능 재편</span></div>\n            <div class=\"itd\" data-kg-role=\"body3\">미래산업 전담본부 신설 · 지속가능경영 격상 · 전사위험관리 이사장 직속</div>\n          </div>\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">4</span>\n              <span class=\"itt\" data-kg-role=\"h3\">8단계 변화관리 적용</span></div>\n            <div class=\"k8\">\n              <span class=\"k\" data-kg-role=\"label\">위기감</span><span class=\"k\" data-kg-role=\"label\">추진단</span>\n              <span data-kg-role=\"label\">비전</span><span data-kg-role=\"label\">소통</span>\n              <span data-kg-role=\"label\">장애물 제거</span><span data-kg-role=\"label\">단기성과</span>\n              <span data-kg-role=\"label\">확산</span><span class=\"k\" data-kg-role=\"label\">문화정착</span>\n            </div>\n          </div>\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">5</span>\n              <span class=\"itt\" data-kg-role=\"h3\">저항관리·선도인력 운영</span></div>\n            <div class=\"itd\" data-kg-role=\"body3\">구성원별 저항요인을 진단하고 대상별 소통과 변화 선도인력 운영</div>\n          </div>\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">6</span>\n              <span class=\"itt\" data-kg-role=\"h3\">실행성과 상시관리</span></div>\n            <div class=\"itd\" data-kg-role=\"body3\">주·월·분기 점검체계 + 전사→본부→팀 목표 전개 + 성과 상황판</div>\n          </div>\n        </div>\n      </div>\n\n      <!-- ============ ② 운영현황·성과 ============ -->\n      <div class=\"dcol\">\n        <div class=\"dhd m\" data-kg-role=\"h2\">② 개별사업 운영현황 및 성과 분석</div>\n        <div class=\"dbd\">\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">1</span>\n              <span class=\"itt\" data-kg-role=\"h3\">3수준 진단</span></div>\n            <div class=\"lv\">\n              <div class=\"lvr\"><span class=\"lvk\" data-kg-role=\"label\">인지</span><span class=\"lvb\" style=\"--w:90%\"></span><span class=\"lvv\" data-kg-role=\"num\">90%</span></div>\n              <div class=\"lvr\"><span class=\"lvk\" data-kg-role=\"label\">공감</span><span class=\"lvb\" style=\"--w:75%\"></span><span class=\"lvv\" data-kg-role=\"num\">75%</span></div>\n              <div class=\"lvr\"><span class=\"lvk\" data-kg-role=\"label\">행동</span><span class=\"lvb\" style=\"--w:65%\"></span><span class=\"lvv\" data-kg-role=\"num\">65%</span></div>\n            </div>\n          </div>\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">2</span>\n              <span class=\"itt\" data-kg-role=\"h3\">경쟁가치모형 문화진단</span></div>\n            <div class=\"itd\" data-kg-role=\"body3\">위계↓ 성과↑ 협력↑ 혁신↑ — <b>현재–희망 간 차이</b>와 개선과제 도출</div>\n          </div>\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">3</span>\n              <span class=\"itt\" data-kg-role=\"h3\">성과평가·인사 연계</span></div>\n            <div class=\"itd\" data-kg-role=\"body3\">가치 실천도를 다면평가에 반영(가중치 10~15% 검토) · 채용·교육 연계</div>\n          </div>\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">4</span>\n              <span class=\"itt\" data-kg-role=\"h3\">대상별 공감 프로그램</span></div>\n            <div class=\"itd\" data-kg-role=\"body3\">경영진 워크숍 · 관리자 코칭 · 전 직원 선포 · 신규직원 초기 정착 지원</div>\n          </div>\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">5</span>\n              <span class=\"itt\" data-kg-role=\"h3\">연간 추진 일정</span></div>\n            <div class=\"k8\">\n              <span class=\"k\" data-kg-role=\"label\">1분기 선포</span><span data-kg-role=\"label\">2분기 전 직원</span>\n              <span data-kg-role=\"label\">3분기 우수사례</span><span class=\"k\" data-kg-role=\"label\">4분기 포상</span>\n            </div>\n          </div>\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">6</span>\n              <span class=\"itt\" data-kg-role=\"h3\">내재화 효과 검증</span></div>\n            <div class=\"itd\" data-kg-role=\"body3\">사전(1분기)·사후(4분기) 두 차례 진단으로 개선효과 검증</div>\n          </div>\n        </div>\n      </div>\n\n      <!-- ============ ③ 이해관계자 ============ -->\n      <div class=\"dcol\">\n        <div class=\"dhd l\" data-kg-role=\"h2\">③ 이해관계자 진단 및 의견수렴</div>\n        <div class=\"dbd\">\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">1</span>\n              <span class=\"itt\" data-kg-role=\"h3\">국정·지속가능경영 점검</span></div>\n            <div class=\"itd\" data-kg-role=\"body3\">안전 · 재무 · 환경(RE100) · 사회(개발이익 환원) · 투명(청렴·공시)</div>\n          </div>\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">2</span>\n              <span class=\"itt\" data-kg-role=\"h3\">우수사례 5단계 관리</span></div>\n            <div class=\"k8\">\n              <span class=\"k\" data-kg-role=\"label\">발굴</span><span data-kg-role=\"label\">검증</span>\n              <span data-kg-role=\"label\">사례화</span><span data-kg-role=\"label\">확산</span><span class=\"k\" data-kg-role=\"label\">평가</span>\n            </div>\n          </div>\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">3</span>\n              <span class=\"itt\" data-kg-role=\"h3\">경영평가 배점 매핑</span></div>\n            <div class=\"itd\" data-kg-role=\"body3\">안전 <b>20.5</b> · 재무 <b>15.5</b> · 주요사업 <b>50</b> · 인공지능 가점 1.5</div>\n          </div>\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">4</span>\n              <span class=\"itt\" data-kg-role=\"h3\">중점항목 선제 대응</span></div>\n            <div class=\"itd\" data-kg-role=\"body3\">안전·주요사업 집중 관리 · 재무는 면세 의존도와 부채구조 개선 병행</div>\n          </div>\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">5</span>\n              <span class=\"itt\" data-kg-role=\"h3\">기관장 경영계약 연계</span></div>\n            <div class=\"itd\" data-kg-role=\"body3\">기관장–전략–본부–개인 성과지표의 연계성과 투명성 강화</div>\n          </div>\n          <div class=\"it\">\n            <div class=\"ith\"><span class=\"itn\" data-kg-role=\"label\">6</span>\n              <span class=\"itt\" data-kg-role=\"h3\">분기별 성과관리</span></div>\n            <div class=\"itd\" data-kg-role=\"body3\">미흡지표를 조기에 파악해 개선조치를 실행하고 평가등급 회복 추진</div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 기관 경영공시 · 공공기관 경영평가 편람 · 내부 진단자료</span>\n    <span class=\"kg-footer__page\" data-kg-auto=\"page\" data-kg-role=\"caption\">27</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n\n</section>",
+    "css": "/* ---- 골격: 좌 과업내용 레일 + 우 3분할 진단 ---- */\n  .subrow{display:grid;grid-template-columns:244px 1fr;gap:16px;}\n  .cols4{grid-template-columns:244px repeat(3,1fr);gap:12px;}\n  .kg-stackcol{gap:8px;}\n\n  /* ---- 좌: 과업 목록 ---- */\n  .task{background:#fff;border:1px solid var(--neutral-300);border-left:3px solid var(--blue-500);\n    border-radius:0 var(--r-xs) var(--r-xs) 0;padding:8px 10px;display:flex;gap:8px;align-items:center;flex:0 0 auto;}\n  .taskn{flex:0 0 auto;font-size:12px;font-weight:800;color:var(--blue-600);white-space:nowrap;}\n  .taskt{font-size:14px;font-weight:600;color:var(--ink-900);line-height:1.3;}\n\n  /* ---- 좌: 과업 4 (이번 장표의 주제) ---- */\n  .t4{flex:1;min-height:0;display:flex;flex-direction:column;border:1px solid #16365c;\n    border-radius:var(--r-sm);overflow:hidden;}\n  .t4h{background:linear-gradient(180deg,#2C5184,#17375E);color:#fff;text-align:center;\n    padding:9px 10px;font-size:15px;font-weight:800;line-height:1.3;}\n  .t4h em{display:block;font-style:normal;font-size:12px;font-weight:700;color:var(--blue-300);margin-bottom:2px;}\n  .t4b{flex:1;min-height:0;padding:9px;display:flex;flex-direction:column;gap:8px;\n    background:repeating-linear-gradient(135deg,var(--hatch) 0 1px,transparent 1px 6px),\n      linear-gradient(180deg,#FAFBFC 0%,#EFF1F4 100%);}\n  .sub4{flex:1;background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    padding:8px 9px;display:flex;flex-direction:column;gap:4px;box-shadow:0 1px 2px rgba(23,55,94,.06);}\n  .sub4h{display:flex;gap:7px;align-items:flex-start;}\n  .sub4n{flex:0 0 auto;background:var(--navy-800);color:#fff;font-size:12px;font-weight:800;\n    padding:2px 6px;border-radius:var(--r-xs);line-height:1.3;}\n  .sub4t{font-size:14px;font-weight:800;color:var(--navy-800);line-height:1.25;}\n  .sub4l{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px;}\n  .sub4l li{position:relative;padding-left:11px;font-size:14px;line-height:1.35;color:var(--ink-700);}\n  .sub4l li::before{content:\"\";position:absolute;left:0;top:7px;width:4px;height:4px;border-radius:1px;background:var(--blue-400);}\n\n  /* ---- 우: 진단 3열 ---- */\n  .dcol{display:flex;flex-direction:column;min-height:0;border:1px solid var(--blue-300);\n    border-radius:var(--r-sm);overflow:hidden;background:#fff;}\n  .dhd{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;font-size:15px;font-weight:800;\n    text-align:center;padding:8px 10px;line-height:1.25;}\n  .dhd.m{background:linear-gradient(180deg,#3D6A9E,#2E5D91);}\n  .dhd.l{background:linear-gradient(180deg,#5A86BE,#4F81BD);}\n  .dbd{flex:1;min-height:0;padding:9px;display:flex;flex-direction:column;gap:6px;\n    justify-content:space-between;background:linear-gradient(180deg,#FCFCFD,#F2F4F7);}\n  .it{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    padding:7px 9px 8px;display:flex;flex-direction:column;gap:3px;}\n  .ith{display:flex;gap:7px;align-items:center;}\n  .itn{flex:0 0 auto;width:19px;height:19px;border-radius:50%;background:var(--navy-800);color:#fff;\n    font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}\n  .itt{font-size:14px;font-weight:800;color:var(--ink-navy);line-height:1.2;}\n  .itd{font-size:14px;line-height:1.35;color:var(--ink-700);padding-left:26px;}\n  .itd b{color:var(--navy-800);font-weight:700;}\n\n  /* 8단계 변화관리는 글자 나열 대신 미니 셰브론으로 */\n  .k8{display:flex;flex-wrap:wrap;gap:3px;margin:2px 0 0 26px;}\n  .k8 span{font-size:12px;font-weight:700;color:var(--ink-navy);background:var(--neutral-100);\n    border:1px solid var(--neutral-300);border-radius:2px;padding:2px 5px;line-height:1.2;}\n  .k8 span.k{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border-color:var(--blue-400);color:var(--navy-800);}\n\n  /* 자원배분 비율 — 100% 스택 */\n  .alloc{display:flex;height:17px;border-radius:3px;overflow:hidden;border:1px solid var(--xbd);margin:3px 0 0 26px;}\n  .alloc span{display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;}\n\n  /* 3수준 진단 — 가로 막대 */\n  .lv{display:flex;flex-direction:column;gap:3px;margin:3px 0 0 26px;}\n  .lvr{display:flex;align-items:center;gap:6px;}\n  .lvk{flex:0 0 30px;font-size:12px;font-weight:800;color:var(--ink-navy);}\n  .lvb{flex:1;height:10px;border-radius:3px;background:var(--neutral-200);position:relative;overflow:hidden;}\n  .lvb::after{content:\"\";position:absolute;left:0;top:0;bottom:0;width:var(--w);border-radius:3px;\n    background:linear-gradient(90deg,var(--blue-500),var(--navy-800));}\n  .lvv{flex:0 0 auto;font-size:12px;font-weight:800;color:var(--navy-800);}",
+    "origin": "27_운용계획실행력강화.html"
+  },
+  "patches": {
+    "n.1.0": {
+      "text": {
+        "html": "자원배분·조직기능·변화관리·성과평가를 실행체계로 연계하고 분기별 점검과 내재화 프로그램으로 전략 실행력과 성과 확산 제고"
+      }
+    },
+    "n.2.1.0.3.1.0.1.0": {
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.2.1.0.3.1.0.1.1": {
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.2.1.0.3.1.1.1.0": {
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.2.1.0.3.1.1.1.1": {
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.2.1.0.3.1.2.1.0": {
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.2.1.0.3.1.2.1.1": {
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.2.0.1": {
+      "style": {
+        "fontSize": 22
+      }
+    },
+    "n.2.0.0": {
+      "style": {
+        "fontSize": 22
+      }
+    },
+    "n.2.1.0.3.1.0.0.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.1.0.3.1.1.0.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.1.0.3.1.2.0.1": {
+      "style": {
+        "fontSize": 15
+      }
+    },
+    "n.2.1.1.1.0.1.0": {
+      "style": {
+        "fontSize": 12.2
+      }
+    },
+    "n.2.1.1.1.0.1.1": {
+      "style": {
+        "fontSize": 12.2
+      }
+    },
+    "n.2.1.1.1.0.1.2": {
+      "style": {
+        "fontSize": 12.2
+      }
+    },
+    "n.2.1.1.1.0.1.3": {
+      "style": {
+        "fontSize": 12.2
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "07"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "운용계획 및 실행력 강화"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "전략 실행력 제고 방안 개요"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    },
+    "n.2.1.2.1.5.1": {
+      "text": {
+        "html": "사전·사후 두 차례 진단으로 개선효과 검증"
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h2": {
+        "fontSize": 17
+      },
+      "h3": {
+        "fontSize": 16
+      },
+      "body3": {
+        "fontSize": 15
+      },
+      "label": {
+        "fontSize": 15
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T07:08:32.030Z",
+  "updatedAt": "2026-07-27T14:16:12.237Z"
+}

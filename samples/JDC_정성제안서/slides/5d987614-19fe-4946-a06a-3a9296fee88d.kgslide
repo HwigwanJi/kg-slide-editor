@@ -1,0 +1,83 @@
+{
+  "v": 5,
+  "id": "5d987614-19fe-4946-a06a-3a9296fee88d",
+  "title": "유사 과업 실제 수행 산출물 — 12건",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"실제 수행 산출물\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"message\">02</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">제안사 특징 및 장점</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">유사 과업 실제 수행 산출물</div>\n    </div>\n    <div class=\"kg-chapter-tab\"><span class=\"kg-chapter-tab__roman\" data-kg-role=\"label\">Ⅰ</span><span class=\"kg-chapter-tab__sep\"></span><span class=\"kg-chapter-tag\" data-kg-role=\"label\">제안 개요</span></div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">경영진단 · 환경분석부터 전략방향 수립 · 성과관리체계 재설계까지 <b>전주기 컨설팅 수행</b></p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"wrap\">\n\n      <div class=\"top\">\n        <div class=\"kg-subtopic\" data-kg-role=\"h1\">실제 수행 사례 — 산출물 12건</div>\n      </div>\n\n      <div class=\"flow\">\n        <span data-kg-role=\"label\">환경 · 정책 진단</span>\n        <span data-kg-role=\"label\">전략방향 · 목표 수립</span>\n        <span data-kg-role=\"label\">자원배분 · 조직 재설계</span>\n        <span data-kg-role=\"label\">로드맵 · 기대효과</span>\n      </div>\n\n      <div class=\"grid\">\n        <div class=\"card\">\n          <div class=\"card__t\" data-kg-role=\"h3\">외부 환경 분석 — 동향 · 벤치마킹</div>\n          <div class=\"card__i\"><img src=\"/kg/assets/jdc/p9-01.png\" alt=\"외부 환경 분석 산출물\"></div>\n        </div>\n        <div class=\"card\">\n          <div class=\"card__t\" data-kg-role=\"h3\">정부 정책 분석 — 정부 정책과제</div>\n          <div class=\"card__i\"><img src=\"/kg/assets/jdc/p9-02.png\" alt=\"정부 정책 분석 산출물\"></div>\n        </div>\n        <div class=\"card\">\n          <div class=\"card__t\" data-kg-role=\"h3\">프로세스 · 인력 활용</div>\n          <div class=\"card__i\"><img src=\"/kg/assets/jdc/p9-03.png\" alt=\"프로세스 인력 활용 산출물\"></div>\n        </div>\n        <div class=\"card\">\n          <div class=\"card__t\" data-kg-role=\"h3\">SWOT 분석 기반 전략방향</div>\n          <div class=\"card__i\"><img src=\"/kg/assets/jdc/p9-04.png\" alt=\"SWOT 전략방향 산출물\"></div>\n        </div>\n\n        <div class=\"card\">\n          <div class=\"card__t\" data-kg-role=\"h3\">전략목표 수립</div>\n          <div class=\"card__i\"><img src=\"/kg/assets/jdc/p9-05.png\" alt=\"전략목표 수립 산출물\"></div>\n        </div>\n        <div class=\"card\">\n          <div class=\"card__t\" data-kg-role=\"h3\">ESG경영 수준 진단 — 결과 종합</div>\n          <div class=\"card__i\"><img src=\"/kg/assets/jdc/p9-06.png\" alt=\"ESG경영 수준 진단 산출물\"></div>\n        </div>\n        <div class=\"card\">\n          <div class=\"card__t\" data-kg-role=\"h3\">자원배분 기본원칙</div>\n          <div class=\"card__i\"><img src=\"/kg/assets/jdc/p9-07.png\" alt=\"자원배분 기본원칙 산출물\"></div>\n        </div>\n        <div class=\"card\">\n          <div class=\"card__t\" data-kg-role=\"h3\">조직 재설계 — 조직구조 개선방안</div>\n          <div class=\"card__i\"><img src=\"/kg/assets/jdc/p9-08.png\" alt=\"조직 재설계 방향 산출물\"></div>\n        </div>\n\n        <div class=\"card\">\n          <div class=\"card__t\" data-kg-role=\"h3\">중장기 미래전략 수립 방향</div>\n          <div class=\"card__i\"><img src=\"/kg/assets/jdc/p9-09.png\" alt=\"중장기 미래전략 산출물\"></div>\n        </div>\n        <div class=\"card\">\n          <div class=\"card__t\" data-kg-role=\"h3\">기대효과 및 제언</div>\n          <div class=\"card__i\"><img src=\"/kg/assets/jdc/p9-10.png\" alt=\"기대효과 및 제언 산출물\"></div>\n        </div>\n        <div class=\"card\">\n          <div class=\"card__t\" data-kg-role=\"h3\">핵심사업 추진 로드맵</div>\n          <div class=\"card__i\"><img src=\"/kg/assets/jdc/p9-11.png\" alt=\"핵심사업 추진 로드맵 산출물\"></div>\n        </div>\n        <div class=\"card\">\n          <div class=\"card__t\" data-kg-role=\"h3\">신성장 영역 도출</div>\n          <div class=\"card__i\"><img src=\"/kg/assets/jdc/p9-12.png\" alt=\"신성장 영역 도출 산출물\"></div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 케인즈그룹 실제 수행 산출물 발췌 / 발주처 식별정보는 축약 표기</span>\n    <span class=\"kg-footer__page\" data-kg-role=\"caption\" data-kg-auto=\"page\">–</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".wrap{flex:1;min-height:0;display:grid;grid-template-rows:auto auto 1fr;gap:9px;}\n  .top .kg-subtopic{margin:0;}\n\n  /* 전주기 단계 띠 — 산출물이 어느 단계의 것인지 먼저 보여 준다 */\n  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}\n  .flow span{font-size:14px;font-weight:700;color:#fff;background:var(--blue-400);\n    text-align:center;padding:6px 4px;margin-left:-9px;\n    clip-path:polygon(0 0,calc(100% - 10px) 0,100% 50%,calc(100% - 10px) 100%,0 100%,10px 50%);}\n  .flow span:first-child{margin-left:0;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 50%,calc(100% - 10px) 100%,0 100%);}\n  .flow span:nth-child(2){background:var(--blue-500);}\n  .flow span:nth-child(3){background:var(--blue-600);}\n  .flow span:nth-child(4){background:var(--navy-800);}\n\n  .grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);\n    gap:11px;min-height:0;}\n  .card{background:#fff;border:1px solid var(--line);border-radius:var(--r-xs);\n    display:grid;grid-template-rows:auto 1fr;overflow:hidden;min-height:0;}\n  .card__t{background:var(--blue-200);color:var(--ink-navy);font-size:14px;font-weight:700;\n    text-align:center;padding:4px 7px;line-height:1.25;}\n  .card__i{background:var(--neutral-050);display:flex;align-items:center;justify-content:center;\n    padding:4px;min-height:0;overflow:hidden;}\n  .card__i img{max-width:100%;max-height:100%;object-fit:contain;display:block;\n    border:1px solid var(--neutral-200);}",
+    "origin": "02d_수행산출물.html"
+  },
+  "patches": {
+    "n.0.1": {
+      "text": {
+        "html": "03"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "제안사 특장점"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "전주기 컨설팅"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅱ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "제안사 소개"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          24.4,
+          8,
+          24.4
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "label": {
+        "fontSize": 17
+      },
+      "h3": {
+        "fontSize": 16
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T07:21:00.013Z",
+  "updatedAt": "2026-07-27T14:16:07.509Z"
+}

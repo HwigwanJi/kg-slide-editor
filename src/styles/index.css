@@ -29,4 +29,5 @@
 @import './editor/panel.css';
 @import './editor/menu.css';
 @import './editor/toast.css';
+@import './editor/folder-picker.css';
 @import './editor/inline-text.css';

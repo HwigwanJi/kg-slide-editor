@@ -3,6 +3,7 @@ export * from './import.kghtml';
 export * from './project';
 export * from './handle.store';
 export * from './project.folder';
+export * from './project.localapi';
 export * from './storage';
 export * from './clipboard';
 export * from './snippets.kg';

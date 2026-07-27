@@ -1,0 +1,10 @@
+{
+  "minFontSize": 13,
+  "minBodyFontSize": 14,
+  "minLabelFontSize": 12,
+  "overflowTolerance": 2,
+  "minFillRatio": 0.4,
+  "minBoxAreaForFill": 9000,
+  "minLetterSpacing": -0.04,
+  "minLineHeight": 1.25
+}

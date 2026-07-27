@@ -1,0 +1,83 @@
+{
+  "v": 5,
+  "id": "d17cf0cf-025c-44b0-a45a-ca1f1db07137",
+  "title": "용역의 활용방안 및 기대효과",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"활용방안·기대효과형\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\">03</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\">용역의 활용방안 및 기대효과</div>\n      <div class=\"kg-section-sub\">산출물 활용처 · 전략·재무·조직·대외 4대 효과</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">Ⅰ</span>\n      <span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\">제안 개요</span>\n    </div>\n  </header>\n  <div class=\"kg-msgband\"><span class=\"kg-msgband__mark\"></span>\n    <p class=\"kg-message\">산출물을 전략수립·평가대응·성과관리·조직변화·가치확산에 활용하고 4대 효과로 연결</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"main\">\n\n      <!-- ================= 좌 ================= -->\n      <div class=\"col\">\n        <div class=\"kg-subtopic\">산출물 활용방안</div>\n        <div class=\"col__b\">\n          <div class=\"uses\">\n\n            <div class=\"use\">\n              <div class=\"use__h\">\n                <span class=\"use__n\" data-kg-role=\"num\">1</span>\n                <span class=\"use__t\" data-kg-role=\"h2\">중장기 경영전략 수립·이사회 의결</span>\n              </div>\n              <div class=\"use__b\"><span class=\"use__x\" data-kg-role=\"body3\">2027~2031 전략체계(미션·비전·핵심가치·전략목표·전략과제)의 <b>경영계획 반영 근거</b></span></div>\n            </div>\n\n            <div class=\"use\">\n              <div class=\"use__h\">\n                <span class=\"use__n\" data-kg-role=\"num\">2</span>\n                <span class=\"use__t\" data-kg-role=\"h2\">경영실적평가·정부정책 대응</span>\n              </div>\n              <div class=\"use__b\"><span class=\"use__x\" data-kg-role=\"body3\">경영실적평가 대응논리와 계량·비계량 지표, 국정·제3차 종합계획 <b>이행계획 근거</b></span></div>\n            </div>\n\n            <div class=\"use\">\n              <div class=\"use__h\">\n                <span class=\"use__n\" data-kg-role=\"num\">3</span>\n                <span class=\"use__t\" data-kg-role=\"h2\">성과관리체계 운영</span>\n              </div>\n              <div class=\"use__b\"><span class=\"use__x\" data-kg-role=\"body3\">BSC·KPI·KRI·MBO와 계층 전개 기반 <b>상시 성과관리</b>, 기관장 경영계약 연계</span></div>\n            </div>\n\n            <div class=\"use\">\n              <div class=\"use__h\">\n                <span class=\"use__n\" data-kg-role=\"num\">4</span>\n                <span class=\"use__t\" data-kg-role=\"h2\">조직·변화관리 실행</span>\n              </div>\n              <div class=\"use__b\"><span class=\"use__x\" data-kg-role=\"body3\">자원배분·조직개편·변화관리(Kotter·PDCA) <b>실행 로드맵</b></span></div>\n            </div>\n\n            <div class=\"use\">\n              <div class=\"use__h\">\n                <span class=\"use__n\" data-kg-role=\"num\">5</span>\n                <span class=\"use__t\" data-kg-role=\"h2\">가치 내재화·대내외 소통</span>\n              </div>\n              <div class=\"use__b\"><span class=\"use__x\" data-kg-role=\"body3\">핵심가치(JEJU) 내재화와 공감 확산, <b>도민·이해관계자 신뢰 제고</b></span></div>\n            </div>\n\n          </div>\n        </div>\n      </div>\n\n      <!-- ================= 우 ================= -->\n      <div class=\"col\">\n        <div class=\"kg-subtopic\">전략·재무·조직·대외 4대 기대효과</div>\n        <div class=\"col__b\">\n          <div class=\"eff\">\n\n            <div class=\"ef\">\n              <div class=\"ef__h\">\n                <span class=\"ef__n\" data-kg-role=\"num\">①</span>\n                <span class=\"ef__t\" data-kg-role=\"h2\">전략적 효과</span>\n              </div>\n              <div class=\"ef__b\">\n                <div class=\"ef__l\">\n                  <div class=\"ef__i\" data-kg-role=\"body3\">면세 이후·미래산업 전환 중장기 로드맵 확보</div>\n                  <div class=\"ef__i\" data-kg-role=\"body3\">국정·제3차 종합계획에 정합한 전략체계 정립</div>\n                </div>\n                <div class=\"metric\">\n                  <div class=\"metric__k\" data-kg-role=\"label\">사업 포트폴리오 재균형 — 면세 90%대에서 전환</div>\n                  <div class=\"stack\">\n                    <span class=\"a\" data-kg-role=\"label\">면세 70%대</span>\n                    <span class=\"b\" data-kg-role=\"label\">신성장 30%</span>\n                  </div>\n                </div>\n              </div>\n            </div>\n\n            <div class=\"ef\">\n              <div class=\"ef__h\">\n                <span class=\"ef__n\" data-kg-role=\"num\">②</span>\n                <span class=\"ef__t\" data-kg-role=\"h2\">재무적 효과</span>\n              </div>\n              <div class=\"ef__b\">\n                <div class=\"ef__l\">\n                  <div class=\"ef__i\" data-kg-role=\"body3\">수익 다변화·비면세 수익 확대·재무건전성 개선</div>\n                  <div class=\"ef__i\" data-kg-role=\"body3\">경영실적평가 대응력·설명력 강화</div>\n                </div>\n                <div class=\"metric\">\n                  <div class=\"metric__k\" data-kg-role=\"label\">경영실적평가 등급 상승 기반</div>\n                  <div class=\"steps\">\n                    <span class=\"s0\" data-kg-role=\"label\">D</span>\n                    <span class=\"ar\" data-kg-role=\"label\">›</span>\n                    <span class=\"s1\" data-kg-role=\"label\">C</span>\n                    <span class=\"ar\" data-kg-role=\"label\">›</span>\n                    <span class=\"s2\" data-kg-role=\"label\">B</span>\n                  </div>\n                </div>\n              </div>\n            </div>\n\n            <div class=\"ef\">\n              <div class=\"ef__h\">\n                <span class=\"ef__n\" data-kg-role=\"num\">③</span>\n                <span class=\"ef__t\" data-kg-role=\"h2\">조직·실행 효과</span>\n              </div>\n              <div class=\"ef__b\">\n                <div class=\"ef__l\">\n                  <div class=\"ef__i\" data-kg-role=\"body3\">BSC·KPI·MBO와 계층 전개 기반 성과중심 관리</div>\n                  <div class=\"ef__i\" data-kg-role=\"body3\">변화관리·핵심가치 내재화로 조직역량 제고</div>\n                </div>\n                <div class=\"metric\">\n                  <div class=\"metric__k\" data-kg-role=\"label\">전략–성과–보상 연계</div>\n                  <div class=\"metric__v\" data-kg-role=\"body2\">과제 실행률 제고와 평가 수용도 개선</div>\n                </div>\n              </div>\n            </div>\n\n            <div class=\"ef\">\n              <div class=\"ef__h\">\n                <span class=\"ef__n\" data-kg-role=\"num\">④</span>\n                <span class=\"ef__t\" data-kg-role=\"h2\">대외·공공가치 효과</span>\n              </div>\n              <div class=\"ef__b\">\n                <div class=\"ef__l\">\n                  <div class=\"ef__i\" data-kg-role=\"body3\">개발이익 도민환원·ESG·청정에너지 거버넌스</div>\n                  <div class=\"ef__i\" data-kg-role=\"body3\">이해관계자 공감 확산과 대내외 소통 강화</div>\n                </div>\n                <div class=\"metric\">\n                  <div class=\"metric__k\" data-kg-role=\"label\">도민 신뢰 기반</div>\n                  <div class=\"metric__v\" data-kg-role=\"body2\">공공성·지속가능성 제고와 설명책임 강화</div>\n                </div>\n              </div>\n            </div>\n\n          </div>\n        </div>\n      </div>\n\n    </div>\n\n    <div class=\"sum\">\n      <span class=\"sum__k\" data-kg-role=\"label\">종합 기대효과</span>\n      <span class=\"sum__v\" data-kg-role=\"message\">선언에 그치지 않고 실행되는 중장기 경영전략체계로 경영실적평가 등급을 높이고, 면세 이후 미래산업 전환을 거쳐 도민에게 환원하는 지속가능 성장 실현</span>\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\">자료 : JDC 과업내용서(2026.7) 및 제안 전략체계 기반 (안)</span>\n    <span class=\"kg-footer__page\">44</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".main{flex:1;display:grid;grid-template-columns:1fr 1.65fr;gap:16px;min-height:0;margin-top:10px;}\n  .col{display:flex;flex-direction:column;min-height:0;}\n  .col__b{flex:1;display:flex;flex-direction:column;min-height:0;}\n\n  /* ---- 좌 : 활용방안 5 ---- */\n  .uses{flex:1;display:flex;flex-direction:column;gap:7px;min-height:0;}\n  .use{flex:1;display:flex;flex-direction:column;min-height:0;\n    border:1px solid var(--neutral-300);border-radius:4px;background:#fff;overflow:hidden;}\n  .use__h{display:flex;align-items:center;gap:8px;padding:5px 9px;\n    background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;}\n  .use__n{flex:0 0 auto;font-size:12px;font-weight:800;background:rgba(255,255,255,.2);\n    border-radius:3px;padding:2px 7px;}\n  .use__t{font-size:14px;font-weight:700;line-height:1.2;}\n  /* 글자는 한 덩어리로 둔다 — flex 자식으로 쪼개지면 강조가 따로 떨어져 나간다 */\n  .use__b{flex:1;display:flex;align-items:center;padding:6px 10px;}\n  .use__x{font-size:14px;line-height:1.28;color:var(--ink-900);}\n  .use__x b{color:var(--navy-800);}\n\n  /* ---- 우 : 기대효과 2x2 ---- */\n  .eff{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;\n    gap:10px;min-height:0;}\n  .ef{display:flex;flex-direction:column;min-height:0;border:1px solid var(--blue-300);\n    border-radius:4px;background:#fff;overflow:hidden;}\n  .ef__h{display:flex;align-items:center;gap:8px;padding:5px 10px;\n    background:linear-gradient(180deg,#5A86BE,#4F81BD);color:#fff;}\n  .ef__n{flex:0 0 auto;font-size:18px;font-weight:800;line-height:1;}\n  .ef__t{font-size:14px;font-weight:700;}\n  .ef__b{flex:1;display:flex;flex-direction:column;gap:6px;padding:7px 9px;min-height:0;}\n  .ef__l{flex:1;display:flex;flex-direction:column;gap:5px;min-height:0;}\n  .ef__i{flex:1;display:flex;align-items:center;font-size:14px;line-height:1.22;\n    color:var(--ink-900);background:var(--neutral-050);border-radius:3px;padding:4px 8px;}\n\n  .metric{flex:0 0 auto;border:1px solid var(--blue-300);border-radius:3px;\n    background:var(--blue-050);padding:6px 8px;}\n  .metric__k{font-size:12px;font-weight:800;color:var(--navy-800);margin-bottom:5px;}\n  .metric__v{font-size:14px;font-weight:700;color:var(--navy-800);line-height:1.2;}\n\n  .stack{display:flex;height:24px;border-radius:3px;overflow:hidden;\n    border:1px solid var(--neutral-300);}\n  .stack span{display:flex;align-items:center;justify-content:center;\n    font-size:12px;font-weight:800;line-height:1;}\n  .stack .a{flex:7;background:var(--neutral-200);color:var(--ink-navy);}\n  .stack .b{flex:3;background:var(--navy-800);color:#fff;}\n\n  .steps{display:flex;align-items:center;gap:6px;}\n  .steps span{flex:0 0 auto;font-size:14px;font-weight:800;border-radius:3px;padding:3px 11px;}\n  .steps .s0{background:var(--neutral-200);color:var(--ink-navy);}\n  .steps .s1{background:var(--blue-500);color:#fff;}\n  .steps .s2{background:var(--navy-800);color:#fff;}\n  .steps .ar{font-size:14px;font-weight:800;color:var(--blue-500);padding:0;background:none;}\n\n  /* ---- 종합 띠 ---- */\n  .sum{flex:0 0 auto;display:flex;align-items:center;gap:12px;margin-top:10px;\n    background:linear-gradient(180deg,#2C5184,#17375E);border-radius:4px;padding:10px 16px;}\n  .sum__k{flex:0 0 auto;font-size:14px;font-weight:800;color:var(--navy-800);\n    background:#fff;border-radius:3px;padding:4px 11px;}\n  .sum__v{flex:1;font-size:16px;font-weight:700;color:#fff;line-height:1.28;}",
+    "origin": "44_Utilization_Effects.html"
+  },
+  "patches": {
+    "n.0.1": {
+      "text": {
+        "html": "15"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "과업 기대효과"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "산출물 활용방안"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h2": {
+        "fontSize": 17
+      },
+      "label": {
+        "fontSize": 15
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T08:57:00.825Z",
+  "updatedAt": "2026-07-27T14:16:16.212Z"
+}

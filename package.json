@@ -30,11 +30,13 @@
     "@tiptap/extension-underline": "^3.29.0",
     "@tiptap/extensions": "^3.29.0",
     "@tiptap/pm": "^3.29.0",
+    "pptxgenjs": "^4.0.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@types/node": "^26.1.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.4",

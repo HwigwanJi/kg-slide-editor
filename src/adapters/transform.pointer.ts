@@ -21,7 +21,7 @@
  *
  * 키보드는 여기서 다루지 않는다. 단축키의 진실은 app/actions.ts 한 곳이다.
  */
-import { ANCHOR_ORIGIN, type NodeId, type SlideDoc } from '@contract/index';
+import { ANCHOR_ORIGIN, BACKGROUND_SELECTORS, type NodeId, type SlideDoc } from '@contract/index';
 import {
   byId, canvasRect, closestNode, editable, expandSelection, idOf, isLocked, kindOf,
   type Command, type SlideStore,
@@ -134,17 +134,39 @@ export function createTransform(opts: TransformOptions): TransformController {
   /**
    * 사람이 집는 개체인가.
    *
-   * 묶음 — 칸을 나누기만 하고 제 모습은 없는 껍데기 — 은 배경으로 본다.
-   * 고밀도 장표에서는 이런 껍데기가 화면을 거의 다 덮고 있어서, 집히게 두면
-   * 빈 곳이 남지 않아 영역 드래그를 시작할 자리가 사라진다. 껍데기 자체는 편집할 일도 없다.
+   * 배경 — 장표를 떠받치는 판 — 은 집히지 않는다. 화면을 거의 다 덮고 있어서 집히게 두면
+   * 빈 곳이 남지 않아 영역 드래그를 시작할 자리가 사라진다. 무엇이 배경인지는 이름으로 정한다
+   * (계약 BACKGROUND_SELECTORS).
    *
-   * 다만 떼어냈거나 새로 넣은 것은 껍데기라도 집힌다.
-   * 그러지 않으면 한 번 놓은 뒤로는 다시 만질 방법이 없다.
+   * 그 밖에는 **제 모습이 있으면 집힌다.** 배경색이든 테두리든 제 모습을 가진 것은
+   * 사람 눈에 개체로 보이고, 보이는 것은 집혀야 한다.
+   * 칸만 나누는 투명한 껍데기는 여전히 지나친다 — 잡을 것이 없기 때문이다.
+   *
+   * 떼어냈거나 새로 넣은 것은 무엇이든 집힌다. 그러지 않으면 한 번 놓은 뒤로 만질 방법이 없다.
    */
   function pickable(doc: SlideDoc, el: HTMLElement, id: NodeId): boolean {
     if (doc.patches[id]?.layout?.mode === 'detached') return true;
     if (doc.tree.added[id]) return true;
-    return kindOf(el) !== 'group';
+    if (BACKGROUND_SELECTORS.some((sel) => el.matches(sel))) return false;
+    if (kindOf(el) !== 'group') return true;
+    // 잠긴 껍데기 — 상단 고정 위계 — 는 예전대로 지나친다. 제 모습이야 있지만 옮기지도
+    // 지우지도 못하는 것이라, 집히게 두면 제목 근처를 누를 때마다 띠 전체가 잡힌다.
+    if (isLocked(doc, id)) return false;
+    return hasOwnLook(el);
+  }
+
+  /**
+   * 제 모습이 있는가 — 배경색·배경그림·테두리·잘라내기 중 하나라도.
+   *
+   * kindOf 로는 가릴 수 없다. 그쪽은 글자를 품었는지부터 보기 때문에, 글자가 든 네모박스는
+   * 배경이 있어도 도형이 되지 못한다. 여기서는 담긴 내용을 따지지 않고 겉모습만 본다.
+   */
+  function hasOwnLook(el: HTMLElement): boolean {
+    const cs = getComputedStyle(el);
+    if (cs.backgroundImage !== 'none' || cs.clipPath !== 'none') return true;
+    if (cs.backgroundColor !== 'rgba(0, 0, 0, 0)' && cs.backgroundColor !== 'transparent') return true;
+    return ['borderTopWidth', 'borderRightWidth', 'borderBottomWidth', 'borderLeftWidth']
+      .some((side) => parseFloat(cs[side as 'borderTopWidth']) > 0);
   }
 
   const onPointerDown = (e: PointerEvent) => {

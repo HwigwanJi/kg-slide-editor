@@ -1,0 +1,357 @@
+{
+  "v": 5,
+  "id": "e6d691aa-4935-4b37-a99e-3d6df9ce13aa",
+  "title": "경영환경 변화를 고려한 경영전략 수립",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"경영전략 수립 방안\">\n\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\" data-kg-role=\"num\">03</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\" data-kg-role=\"title\">경영환경 변화를 고려한 경영전략 수립</div>\n      <div class=\"kg-section-sub\" data-kg-role=\"subtitle\">기관 미래상 정립 · 중장기 경영목표 재정립</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">Ⅰ</span><span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\" data-kg-role=\"label\">사업 수행 방안</span>\n    </div>\n  </header>\n\n  <div class=\"kg-msgband\">\n    <p class=\"kg-message\" data-kg-role=\"message\">대내외 환경·벤치마킹·이해관계자 분석을 바탕으로 기관 미래상과 경영목표를 구체화하고,<br>공공성과 효율성을 균형 있게 반영한 4대 전략방향을 도출</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"kg-content cols3\">\n\n      <!-- ================= 좌: 추진방향 · 3C ================= -->\n      <div class=\"kg-stackcol\">\n        <div class=\"kg-gbox kg-gbox--navy hdbox\" data-kg-role=\"h2\">기관 고유의 미래상 정립을 통한<br>중장기 전략 수립</div>\n\n        <div class=\"kg-card\">\n          <div class=\"kg-card__bar kg-card__bar--gray cbar\" data-kg-role=\"h3\">주요 추진방향</div>\n          <div class=\"kg-card__body dirs\">\n            <div class=\"dir\"><span class=\"dnum\" data-kg-role=\"label\">1</span>\n              <span class=\"dtx\" data-kg-role=\"body2\">기관 미래상 설정과 <b>미래성장동력(BHAG)</b> 확보</span></div>\n            <div class=\"dir\"><span class=\"dnum\" data-kg-role=\"label\">2</span>\n              <span class=\"dtx\" data-kg-role=\"body2\">지속가능성 제고를 위한 <b>중장기 경영목표 재정립</b></span></div>\n            <div class=\"dir\"><span class=\"dnum\" data-kg-role=\"label\">3</span>\n              <span class=\"dtx\" data-kg-role=\"body2\">중장기 경영목표 달성을 위한 <b>실행체계 구축</b></span></div>\n          </div>\n        </div>\n\n        <div class=\"kg-card grow\">\n          <div class=\"kg-card__bar cbar\" data-kg-role=\"h3\">사업환경 변화 분석 (3C)</div>\n          <div class=\"kg-card__body\">\n            <div class=\"c3\">\n              <i class=\"ca\"><b>Customer</b><span data-kg-role=\"label\">고객</span></i>\n              <i class=\"cb\"><b>Competition</b><span data-kg-role=\"label\">경쟁</span></i>\n              <i class=\"cc\"><b>Company</b><span data-kg-role=\"label\">자사</span></i>\n            </div>\n            <ul class=\"c3leg\">\n              <li data-kg-role=\"body3\"><em>고객</em>관광객 <b>1,385만 명</b></li>\n              <li data-kg-role=\"body3\"><em>경쟁</em>내국인 면세 수요 위축</li>\n              <li data-kg-role=\"body3\"><em>자사</em>면세 <b>6,585→4,501억 원</b></li>\n            </ul>\n          </div>\n        </div>\n      </div>\n\n      <!-- ================= 중: 분석 입력 → Vision → 전략체계 → 4대 중점방향 ================= -->\n      <div class=\"kg-stackcol\">\n\n        <div class=\"inputs\">\n          <div class=\"kg-card\">\n            <div class=\"kg-card__bar ibar\" data-kg-role=\"h3\">정부정책·경제사회환경 변화</div>\n            <div class=\"ibody\" data-kg-role=\"body3\">대내외 경영환경 분석 및 전략적 방향 도출</div>\n          </div>\n          <span class=\"kg-plus\" data-kg-role=\"label\">+</span>\n          <div class=\"kg-card\">\n            <div class=\"kg-card__bar ibar\" data-kg-role=\"h3\">선진사례 등 벤치마킹 분석</div>\n            <div class=\"ibody\" data-kg-role=\"body3\">국내외 유사·선진기관 비교로 사업영역 정의</div>\n          </div>\n          <span class=\"kg-plus\" data-kg-role=\"label\">+</span>\n          <div class=\"kg-card\">\n            <div class=\"kg-card__bar ibar\" data-kg-role=\"h3\">이해관계자 요구 분석</div>\n            <div class=\"ibody\" data-kg-role=\"body3\">대내외 이해관계자 및 고객 정의·분류 체계화</div>\n          </div>\n        </div>\n\n        <div class=\"kg-gbox kg-gbox--blue vision\">\n          <div class=\"vt\" data-kg-role=\"h3\">Vision · 경영목표–전략과제 연계</div>\n          <div class=\"vs\" data-kg-role=\"h2\">제주 미래산업 성장과 성과를 도민에게 환원하는 지속가능한 개발 파트너</div>\n          <div class=\"vv\" data-kg-role=\"body3\">핵심가치 <b>JEJU</b> · Joint 도민상생 · Eco-Innovation 미래혁신 · Just 안전청렴 · United 신뢰소통</div>\n        </div>\n\n        <div class=\"kg-bgrid strat\">\n          <div class=\"kg-bgrid__h\" data-kg-role=\"h3\">전략방향</div>\n          <div class=\"kg-bgrid__h\" data-kg-role=\"h3\">지향점</div>\n          <div class=\"kg-bgrid__h\" data-kg-role=\"h3\">경영목표(예시)</div>\n\n          <div class=\"kg-bgrid__rh\" data-kg-role=\"h3\">핵심사업</div>\n          <div class=\"kg-bgrid__c aim\" data-kg-role=\"body3\">수혜가치 확대</div>\n          <div class=\"kg-bgrid__c l\">\n            <ul class=\"mgo\">\n              <li data-kg-role=\"body2\">첨단단지·신화역사공원 고도화로 <b>비면세 수익 확대</b></li>\n              <li data-kg-role=\"body2\">딥테크 특구펀드 기반 앵커기업 다변화</li>\n            </ul>\n          </div>\n\n          <div class=\"kg-bgrid__rh\" data-kg-role=\"h3\">미래사업</div>\n          <div class=\"kg-bgrid__c aim\" data-kg-role=\"body3\">사업목적 선명화</div>\n          <div class=\"kg-bgrid__c l\">\n            <ul class=\"mgo\">\n              <li data-kg-role=\"body2\">첨단2단지·데이터센터 기반 <b>미래산업 육성</b></li>\n              <li data-kg-role=\"body2\">인공지능·바이오·그린 분야 투자유치 확대</li>\n            </ul>\n          </div>\n\n          <div class=\"kg-bgrid__rh\" data-kg-role=\"h3\">고객관점</div>\n          <div class=\"kg-bgrid__c aim\" data-kg-role=\"body3\">공적기능 제시</div>\n          <div class=\"kg-bgrid__c l\">\n            <ul class=\"mgo\">\n              <li data-kg-role=\"body2\">개발이익 <b>도민환원 제도화</b> 및 지역상생 강화</li>\n              <li data-kg-role=\"body2\">국정·도정 연계로 공공성과 정책기여 확대</li>\n            </ul>\n          </div>\n\n          <div class=\"kg-bgrid__rh\" data-kg-role=\"h3\">기관운영</div>\n          <div class=\"kg-bgrid__c aim\" data-kg-role=\"body3\">경영체질 강화</div>\n          <div class=\"kg-bgrid__c l\">\n            <ul class=\"mgo\">\n              <li data-kg-role=\"body2\">안전·환경·사회·투명경영(ESG) 기반 <b>책임경영체계</b> 강화</li>\n              <li data-kg-role=\"body2\">투명한 지배구조와 조직 신뢰도 제고</li>\n            </ul>\n          </div>\n        </div>\n\n        <div class=\"focus\">\n          <div class=\"ftitle\" data-kg-role=\"h3\">4대 중점방향 선정</div>\n          <div class=\"fgrid\">\n            <div class=\"fcard\"><span class=\"fl\" data-kg-role=\"label\">R</span>\n              <div class=\"fn\" data-kg-role=\"h3\">Return JDC</div>\n              <div class=\"fd\" data-kg-role=\"body3\">개발이익 환원 · 청정에너지 지속가능 지배구조</div></div>\n            <div class=\"fcard\"><span class=\"fl\" data-kg-role=\"label\">I</span>\n              <div class=\"fn\" data-kg-role=\"h3\">Innovate JDC</div>\n              <div class=\"fd\" data-kg-role=\"body3\">인공지능·데이터센터 등 첨단기술 기반 미래산업 혁신</div></div>\n            <div class=\"fcard\"><span class=\"fl\" data-kg-role=\"label\">S</span>\n              <div class=\"fn\" data-kg-role=\"h3\">Synergize JDC</div>\n              <div class=\"fd\" data-kg-role=\"body3\">국정·도정·국제 협력 네트워크와 산업 연계</div></div>\n            <div class=\"fcard\"><span class=\"fl\" data-kg-role=\"label\">E</span>\n              <div class=\"fn\" data-kg-role=\"h3\">Expand JDC</div>\n              <div class=\"fd\" data-kg-role=\"body3\">면세 의존도 완화 · 비면세 수익 다변화 체계 구축</div></div>\n          </div>\n        </div>\n      </div>\n\n      <!-- ================= 우: 착안사항 · 시사점 · 귀결 ================= -->\n      <div class=\"kg-stackcol\">\n        <div class=\"kg-card__bar kg-card__bar--navy rbar\" data-kg-role=\"h2\">주요 착안 사항</div>\n\n        <div class=\"kg-gbox kg-gbox--blue rbox\">\n          <div class=\"rh\" data-kg-role=\"h3\">전략적 실행력을 담보한 중장기 경영전략체계 수립</div>\n          <ol class=\"rol\">\n            <li data-kg-role=\"body2\">대내외 환경변화에 대응하는 중장기 전략방향 재정립</li>\n            <li data-kg-role=\"body2\">미션·경영목표와 연계한 실행체계 및 역할분담 구체화</li>\n          </ol>\n        </div>\n\n        <div class=\"kg-card__bar kg-card__bar--navy rbar\" data-kg-role=\"h2\">전략 시사점 (심화 연계)</div>\n\n        <div class=\"kg-card qbox\">\n          <div class=\"qh\" data-kg-role=\"h3\">정량진단 (5점 만점)</div>\n          <div class=\"qbars\">\n            <div class=\"qb\"><span class=\"qbl\" data-kg-role=\"label\">내부</span><i style=\"--w:46%\"></i><b data-kg-role=\"num\">2.32</b></div>\n            <div class=\"qb\"><span class=\"qbl\" data-kg-role=\"label\">외부</span><i style=\"--w:42%\"></i><b data-kg-role=\"num\">2.12</b></div>\n          </div>\n          <div class=\"qd\" data-kg-role=\"body2\">선택적 육성과 재원 배분 — <b>면세·재무·경영 위험</b> 선제 관리</div>\n        </div>\n\n        <div class=\"tbox\"><span class=\"tlab\" data-kg-role=\"label\">단기 '26~'27</span>\n          <span class=\"ttx\" data-kg-role=\"body2\">필수과제 우선 실행</span></div>\n        <div class=\"tbox\"><span class=\"tlab\" data-kg-role=\"label\">중장기 '28~'30</span>\n          <span class=\"ttx\" data-kg-role=\"body2\">미래산업·환원 구조 결합</span></div>\n\n        <div class=\"flowdown\">\n          <div class=\"fd1\" data-kg-role=\"body2\">기관 미래상 도출</div>\n          <div class=\"kg-down\"></div>\n          <div class=\"fd1\" data-kg-role=\"body2\">중장기 경영전략 연계</div>\n          <div class=\"kg-down\"></div>\n          <div class=\"fd1 k\" data-kg-role=\"body2\">전략체계 로드맵 구축</div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\" data-kg-role=\"caption\">자료: 기관 경영공시 · 제주 관광통계 · 국내외 유사기관 비교분석</span>\n    <span class=\"kg-footer__page\" data-kg-auto=\"page\" data-kg-role=\"caption\">26</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n\n</section>",
+    "css": "/* ---- 3단 골격 (좌 추진방향·3C / 중 전략체계 / 우 착안사항·시사점) ---- */\n  .cols3{grid-template-columns:232px 1fr 232px;}\n  .kg-stackcol{gap:11px;}\n  /* 우측 레일은 조각이 일곱이라 같은 간격으로는 하단을 넘는다 */\n  .kg-content>.kg-stackcol:nth-child(3){gap:9px;}\n\n  /* ---- 공통 ---- */\n  .cbar{padding:7px 10px;font-size:15px;line-height:1.25;}\n  .grow{flex:1;min-height:0;}\n  .kg-card__body{gap:8px;}\n\n  /* ---- 좌: 상단 네이비 선언 ---- */\n  .hdbox{padding:10px 12px;border-radius:var(--r-sm);font-size:14px;font-weight:700;\n    line-height:1.35;text-align:center;color:#fff;}\n\n  /* ---- 좌: 주요 추진방향 (번호 + 좌측 강조바) ---- */\n  .dirs{justify-content:space-between;padding:8px 9px;gap:6px;}\n  .dir{display:flex;gap:7px;align-items:flex-start;background:var(--neutral-050);\n    border:1px solid var(--neutral-300);border-left:3px solid var(--navy-800);\n    border-radius:0 var(--r-xs) var(--r-xs) 0;padding:6px 8px;}\n  .dnum{flex:0 0 auto;width:18px;height:18px;border-radius:50%;background:var(--navy-800);\n    color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}\n  .dtx{font-size:14px;line-height:1.4;color:var(--ink-900);}\n  .dtx b{color:var(--navy-800);font-weight:700;}\n\n  /* ---- 좌: 3C 벤다이어그램 (3원 — kgx-venn 은 2원 전용이라 이 장표에서 로컬 작도) ---- */\n  .c3{position:relative;height:128px;margin:0 auto 2px;width:176px;flex:0 0 auto;}\n  .c3 i{position:absolute;width:92px;height:92px;border-radius:50%;border:1.5px solid;\n    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;\n    font-style:normal;text-align:center;}\n  .c3 i b{font-size:12px;font-weight:800;letter-spacing:-.03em;line-height:1.1;}\n  .c3 i span{font-size:12px;font-weight:600;color:var(--ink-700);line-height:1.1;}\n  .c3 .ca{left:42px;top:0;background:rgba(31,73,125,.13);border-color:var(--navy-800);}\n  .c3 .ca b{color:var(--navy-800);}\n  .c3 .cb{left:0;top:36px;background:rgba(124,135,148,.13);border-color:var(--xg3);}\n  .c3 .cb b{color:var(--ink-navy);}\n  .c3 .cc{right:0;top:36px;background:rgba(79,129,189,.15);border-color:var(--blue-500);}\n  .c3 .cc b{color:var(--blue-600);}\n\n  /* 범례는 원 밖 — 원 안에 수치를 넣으면 12px 하한을 지킬 폭이 안 나온다 */\n  .c3leg{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;flex:1;justify-content:space-evenly;}\n  .c3leg li{font-size:14px;line-height:1.4;color:var(--ink-900);white-space:nowrap;\n    padding-left:13px;position:relative;}\n  .c3leg li::before{content:\"\";position:absolute;left:0;top:6px;width:7px;height:7px;border-radius:2px;}\n  .c3leg li:nth-child(1)::before{background:var(--navy-800);}\n  .c3leg li:nth-child(2)::before{background:var(--xg3);}\n  .c3leg li:nth-child(3)::before{background:var(--blue-500);}\n  .c3leg em{font-style:normal;font-weight:800;color:var(--navy-800);margin-right:4px;}\n  .c3leg b{color:var(--navy-800);font-weight:700;}\n\n  /* ---- 중: 분석 입력 3종 (+ 연결) ---- */\n  .inputs{display:flex;align-items:stretch;gap:7px;flex:0 0 auto;}\n  .inputs .kg-card{flex:1;}\n  .inputs .kg-plus{align-self:center;width:22px;height:22px;font-size:14px;}\n  .ibar{padding:6px 8px;font-size:14px;font-weight:700;line-height:1.25;text-align:center;}\n  .ibody{padding:8px 10px;font-size:14px;line-height:1.4;color:var(--ink-700);text-align:center;}\n\n  /* ---- 중: Vision 띠 ---- */\n  .vision{padding:9px 14px;display:flex;flex-direction:column;align-items:center;gap:4px;flex:0 0 auto;}\n  .vt{font-size:14px;font-weight:700;font-style:italic;color:var(--blue-600);}\n  .vs{font-size:16px;font-weight:800;color:var(--navy-800);line-height:1.3;text-align:center;}\n  .vv{font-size:14px;color:var(--ink-700);line-height:1.35;text-align:center;}\n  .vv b{color:var(--navy-800);font-weight:800;letter-spacing:.04em;}\n\n  /* ---- 중: 전략방향 × 지향점 × 경영목표 (표 대체 박스그리드) ---- */\n  .strat{--cols:104px 132px 1fr;grid-auto-rows:auto;grid-template-rows:auto repeat(4,1fr);flex:1;min-height:0;}\n  .strat>div{font-size:14px;padding:7px 9px;}\n  .strat .kg-bgrid__h{font-size:14px;padding:6px 8px;}\n  .strat .kg-bgrid__rh{font-weight:800;color:var(--navy-800);}\n  .strat .aim{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border:1px solid var(--blue-400);\n    color:var(--navy-800);font-weight:700;font-style:italic;}\n  .mgo{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px;width:100%;}\n  .mgo li{position:relative;padding-left:12px;font-size:14px;line-height:1.4;color:var(--ink-900);text-align:left;}\n  .mgo li::before{content:\"\";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:1px;background:var(--blue-500);}\n  .mgo li b{color:var(--navy-800);font-weight:700;}\n\n  /* ---- 중: 4대 중점방향 ---- */\n  .focus{flex:0 0 auto;}\n  .ftitle{text-align:center;font-size:15px;font-weight:800;color:var(--ink-navy);\n    padding-bottom:5px;margin-bottom:7px;border-bottom:1px solid var(--neutral-300);}\n  .fgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}\n  .fcard{position:relative;background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-sm);\n    padding:9px 10px 10px;display:flex;flex-direction:column;gap:4px;box-shadow:0 1px 2px rgba(23,55,94,.06);}\n  .fl{position:absolute;left:-1px;top:-1px;min-width:22px;height:22px;padding:0 6px;\n    background:var(--navy-800);color:#fff;font-size:13px;font-weight:800;\n    display:inline-flex;align-items:center;justify-content:center;border-radius:var(--r-xs) 0 var(--r-xs) 0;}\n  .fn{font-size:14px;font-weight:800;color:var(--navy-800);margin-left:26px;line-height:1.2;}\n  .fd{font-size:14px;line-height:1.4;color:var(--ink-700);}\n\n  /* ---- 우: 착안사항 · 시사점 ---- */\n  .rbar{border-radius:var(--r-xs);padding:7px 10px;font-size:15px;flex:0 0 auto;}\n  .rbox{padding:8px 10px;display:flex;flex-direction:column;gap:5px;flex:0 0 auto;}\n  .rh{font-size:14px;font-weight:800;color:var(--navy-800);line-height:1.35;}\n  .rol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;counter-reset:r;}\n  .rol li{position:relative;padding-left:19px;font-size:14px;line-height:1.4;color:var(--ink-900);counter-increment:r;}\n  .rol li::before{content:counter(r) \".\";position:absolute;left:0;top:0;font-weight:800;color:var(--blue-600);font-size:13px;}\n\n  .qbox{border-color:var(--red-500);flex:0 0 auto;}\n  .qh{background:var(--red-050);color:var(--red-600);font-size:14px;font-weight:800;\n    text-align:center;padding:5px 8px;border-bottom:1px solid var(--red-500);}\n  /* 두 진단 점수를 막대로 — 글자만 두면 박스가 헐거워지고 대소 비교도 안 보인다 */\n  .qbars{display:flex;flex-direction:column;gap:6px;padding:9px 10px 3px;}\n  .qb{display:flex;align-items:center;gap:7px;}\n  .qbl{flex:0 0 30px;font-size:12px;font-weight:800;color:var(--ink-navy);}\n  .qb i{flex:1;height:12px;border-radius:3px;background:var(--neutral-200);position:relative;overflow:hidden;}\n  .qb i::after{content:\"\";position:absolute;left:0;top:0;bottom:0;width:var(--w);border-radius:3px;\n    background:linear-gradient(90deg,var(--blue-500),var(--navy-800));}\n  .qb b{flex:0 0 auto;font-size:13px;font-weight:800;color:var(--navy-800);}\n  .qd{padding:6px 10px 9px;font-size:14px;line-height:1.45;color:var(--ink-900);}\n  .qd b{color:var(--navy-800);font-weight:800;}\n\n  .tbox{display:flex;align-items:stretch;gap:0;border:1px solid var(--neutral-300);\n    border-radius:var(--r-xs);overflow:hidden;background:#fff;flex:0 0 auto;}\n  .tlab{flex:0 0 auto;display:flex;align-items:center;background:var(--neutral-200);\n    color:var(--ink-navy);font-size:12px;font-weight:800;padding:0 6px;white-space:nowrap;}\n  .ttx{padding:6px 8px;font-size:14px;line-height:1.35;color:var(--ink-900);}\n\n  .flowdown{margin-top:auto;display:flex;flex-direction:column;flex:0 0 auto;}\n  .flowdown .kg-down{height:13px;}\n  .fd1{background:var(--neutral-050);border:1px solid var(--neutral-300);border-radius:var(--r-xs);\n    text-align:center;padding:6px 9px;font-size:14px;font-weight:700;color:var(--ink-navy);line-height:1.3;}\n  .fd1.k{background:linear-gradient(180deg,#2C5184,#17375E);border-color:#16365c;color:#fff;}",
+    "origin": "26_경영전략수립방안.html"
+  },
+  "patches": {
+    "n.2.0.1.2.12": {
+      "layout": {
+        "mode": "detached",
+        "x": 276,
+        "y": 665,
+        "w": 104,
+        "h": 59,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.1.2.13": {
+      "layout": {
+        "mode": "detached",
+        "x": 385,
+        "y": 665,
+        "w": 132,
+        "h": 59,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.1.2.14.0.1": {
+      "layout": {
+        "mode": "detached",
+        "x": 532,
+        "y": 729,
+        "w": 462,
+        "h": 20,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.1.3.0": {
+      "layout": {
+        "mode": "detached",
+        "x": 276,
+        "y": 702,
+        "w": 728,
+        "h": 33,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.1.3.1.0.0": {
+      "layout": {
+        "mode": "detached",
+        "x": 276,
+        "y": 765,
+        "w": 22,
+        "h": 22,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.1.3.1.0.1": {
+      "layout": {
+        "mode": "detached",
+        "x": 313,
+        "y": 775,
+        "w": 128,
+        "h": 22,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.1.3.1.0.2": {
+      "layout": {
+        "mode": "detached",
+        "x": 287,
+        "y": 800,
+        "w": 154,
+        "h": 67,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.1.3.1.1.0": {
+      "layout": {
+        "mode": "detached",
+        "x": 460,
+        "y": 765,
+        "w": 22,
+        "h": 22,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.1.3.1.1.1": {
+      "layout": {
+        "mode": "detached",
+        "x": 497,
+        "y": 775,
+        "w": 128,
+        "h": 22,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.1.3.1.1.2": {
+      "layout": {
+        "mode": "detached",
+        "x": 471,
+        "y": 800,
+        "w": 154,
+        "h": 67,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.1.3.1.2.0": {
+      "layout": {
+        "mode": "detached",
+        "x": 644,
+        "y": 765,
+        "w": 22,
+        "h": 22,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.1.3.1.2.1": {
+      "layout": {
+        "mode": "detached",
+        "x": 681,
+        "y": 775,
+        "w": 128,
+        "h": 22,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.1.3.1.2.2": {
+      "layout": {
+        "mode": "detached",
+        "x": 655,
+        "y": 800,
+        "w": 154,
+        "h": 45,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.1.3.1.3.0": {
+      "layout": {
+        "mode": "detached",
+        "x": 828,
+        "y": 765,
+        "w": 22,
+        "h": 22,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.1.3.1.3.1": {
+      "layout": {
+        "mode": "detached",
+        "x": 865,
+        "y": 775,
+        "w": 128,
+        "h": 22,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.1.3.1.3.2": {
+      "layout": {
+        "mode": "detached",
+        "x": 839,
+        "y": 800,
+        "w": 154,
+        "h": 67,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.2.4.0": {
+      "style": {
+        "fontSize": 14
+      },
+      "layout": {
+        "mode": "detached",
+        "x": 1021,
+        "y": 631,
+        "w": 104,
+        "h": 31,
+        "keepSlot": true
+      }
+    },
+    "n.1.0": {
+      "text": {
+        "html": "대내외 환경·벤치마킹·이해관계자 분석을 바탕으로 기관 미래상과 경영목표를 구체화하고 4대 전략방향을 도출"
+      }
+    },
+    "n.2.0.2.5.0": {
+      "style": {
+        "fontSize": 14
+      },
+      "layout": {
+        "mode": "detached",
+        "x": 1021,
+        "y": 675,
+        "w": 103,
+        "h": 38,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.0.0": {
+      "style": {
+        "fontSize": 17,
+        "letterSpacing": -0.005
+      }
+    },
+    "n.2.0.2.5.1": {
+      "layout": {
+        "mode": "detached",
+        "x": 1123,
+        "y": 670,
+        "w": 128,
+        "h": 38,
+        "keepSlot": true
+      }
+    },
+    "n.2.0.2.4.1": {
+      "layout": {
+        "mode": "flow",
+        "dx": 13,
+        "dy": 0
+      }
+    },
+    "n.2.0.1.2.5.0.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.2.5.0.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.2.8.0.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.2.8.0.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.2.11.0.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.2.11.0.1": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.2.0.1.2.14.0.0": {
+      "style": {
+        "fontSize": 16
+      }
+    },
+    "n.0.1": {
+      "text": {
+        "html": "06"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "가치체계 및 전략체계 수립"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "대내외 환경변화 기반 전략체계 고도화"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅲ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "과업 수행계획"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          18,
+          8,
+          18
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [
+      "n.2.0.1.1.0",
+      "n.2.0.1.2.14.0.1",
+      "n.2.0.1.3.0"
+    ],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "h3": {
+        "fontSize": 18
+      },
+      "body3": {
+        "fontSize": 16
+      },
+      "h2": {
+        "fontSize": 16
+      }
+    }
+  },
+  "stack": [
+    "n.2.0.1.2.12",
+    "n.2.0.1.2.13",
+    "n.2.0.1.3.1.0.0",
+    "n.2.0.1.3.1.0.1",
+    "n.2.0.1.3.1.0.2",
+    "n.2.0.1.3.1.1.0",
+    "n.2.0.1.3.1.1.1",
+    "n.2.0.1.3.1.1.2",
+    "n.2.0.1.3.1.2.0",
+    "n.2.0.1.3.1.2.1",
+    "n.2.0.1.3.1.2.2",
+    "n.2.0.1.3.1.3.0",
+    "n.2.0.1.3.1.3.1",
+    "n.2.0.1.3.1.3.2",
+    "n.2.0.2.4.0",
+    "n.2.0.2.5.0",
+    "n.2.0.2.5.1"
+  ],
+  "createdAt": "2026-07-27T07:00:13.605Z",
+  "updatedAt": "2026-07-27T14:16:11.986Z"
+}

@@ -92,3 +92,22 @@ export const DECK_FILE_LEGACY = 'deck.json';
 export const SLIDES_DIR = 'slides';
 export const PREVIEW_DIR = 'preview';
 export const LIBRARY_DIR = 'library';
+/**
+ * 프로젝트가 쓰는 그림. pptx 에서 뽑은 캡처처럼 사람이 가져온 것이 여기 온다.
+ *
+ * 프로젝트가 자기 것을 갖는 이유는 예전에 실제로 잃었기 때문이다. 그림이 스킬 소유 폴더
+ * (public/kg/assets)에 얹혀 있었는데, npm run setup 이 그 폴더를 통째로 갈아 끼우면서
+ * 프로젝트 그림이 함께 사라졌다(docs/CONCURRENCY.md, 2026-07-27).
+ *
+ * 장표는 이 폴더를 `assets/…` 상대경로로 가리킨다. 절대경로나 남의 폴더를 가리키지 않으므로
+ * 프로젝트를 통째로 옮기거나 남에게 넘겨도 그림이 따라간다.
+ */
+export const ASSETS_DIR = 'assets';
+/**
+ * 내보낸 것 — 사람이 꺼내 쓰는 자리.
+ *
+ * preview/ 와 헷갈리기 쉬우나 성격이 다르다. preview/ 는 편집기가 좌측 목록 썸네일로 찾는
+ * `<id>.png` 이고, 여기는 사람이 제출·공유하려고 꺼내는 `01_제목.png` 과 덱 한 벌짜리 PDF 다.
+ * 섞어 두면 편집기가 못 알아보는 파일이 preview/ 에 쌓이고, 다시 찍을 때 낡은 것이 남는다.
+ */
+export const EXPORT_DIR = 'export';

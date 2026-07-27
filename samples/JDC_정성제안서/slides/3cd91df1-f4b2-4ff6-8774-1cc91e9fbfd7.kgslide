@@ -1,0 +1,80 @@
+{
+  "v": 5,
+  "id": "3cd91df1-f4b2-4ff6-8774-1cc91e9fbfd7",
+  "title": "04 정성 평가항목별 제안 핵심 요약",
+  "canvas": {
+    "w": 1280,
+    "h": 905
+  },
+  "source": {
+    "kind": "kg-html",
+    "html": "<section class=\"kg-slide kg-root\" data-screen-label=\"평가항목 매핑표형\">\n  <header class=\"kg-header\">\n    <div class=\"kg-header__media\"></div>\n    <div class=\"kg-header__num kg-section-num\">04</div>\n    <div class=\"kg-header__divider\"></div>\n    <div class=\"kg-header__titles\">\n      <div class=\"kg-section-title\">정성 평가항목별 제안 핵심 요약</div>\n      <div class=\"kg-section-sub\">정성 평가 세부 항목과 제안 내용 1:1 매핑</div>\n    </div>\n    <div class=\"kg-chapter-tab\">\n      <span class=\"kg-chapter-tab__roman\">V</span>\n      <span class=\"kg-chapter-tab__sep\"></span>\n      <span class=\"kg-chapter-tag\">제안 요약</span>\n    </div>\n  </header>\n  <div class=\"kg-msgband\"><span class=\"kg-msgband__mark\"></span>\n    <p class=\"kg-message\">과업내용서 정성 평가 세부항목 12개와 제안 내용을 1:1로 대응시켜 정리</p>\n  </div>\n\n  <div class=\"kg-body-area\">\n    <div class=\"tbl\">\n\n      <div class=\"h h--r\" data-kg-role=\"h3\">구분</div>\n      <div class=\"h h--r\" data-kg-role=\"h3\">세부 항목</div>\n      <div class=\"h h--r\" data-kg-role=\"h3\">본 제안의 핵심 내용</div>\n\n      <!-- ① -->\n      <div class=\"g\" style=\"grid-row:2;\"><span class=\"g__x\">\n        <span class=\"g__n\" data-kg-role=\"num\">1</span>\n        <span class=\"g__t\" data-kg-role=\"h3\">과업 수행방향</span>\n      </span></div>\n      <div class=\"s\"><span data-kg-role=\"body3\">기관·과업 목적과 배경, 사업수행 단계 이해도와 착안사항</span></div>\n      <div class=\"v\"><span data-kg-role=\"body3\">면세 <b>90% 편중</b>과 2년 연속 경영평가 D등급의 구조적 위기를, 첨단산업 <b>8.7조</b>·재투자 <b>2.37조</b>의 숨은 자산과 함께 진단하고 3중 정체성과 면세 이후 미래산업 전환에 착안</span></div>\n\n      <!-- ② -->\n      <div class=\"g\" style=\"grid-row:3/7;\"><span class=\"g__x\">\n        <span class=\"g__n\" data-kg-role=\"num\">2</span>\n        <span class=\"g__t\" data-kg-role=\"h3\">과업 수행능력</span>\n      </span></div>\n      <div class=\"s\"><span data-kg-role=\"body3\">프로젝트 관련 전문역량 보유 수준</span></div>\n      <div class=\"v\"><span data-kg-role=\"body3\">전략·인사조직·정책연구·데이터를 아우르는 <b>통합 컨설팅</b> 수행, 한국해양진흥공사·한전KDN·정보통신기획평가원·신용보증기금 등 공공기관 중장기전략·경영평가 다수 수행</span></div>\n\n      <div class=\"s\"><span data-kg-role=\"body3\">제안요청 내용과 제안서 내용의 일치성</span></div>\n      <div class=\"v\"><span data-kg-role=\"body3\">과업내용서 4대 과업·12개 세부항목을 <b>1:1 매핑</b>한 정합성 점검표 운용, 요구 산출물 <b>100% 반영</b>과 요구–제안 추적성 확보</span></div>\n\n      <div class=\"s\"><span data-kg-role=\"body3\">참여인력의 전문성 및 전문인력 보유 수준</span></div>\n      <div class=\"v\"><span data-kg-role=\"body3\">수행책임자 1명·팀리더 5명·실무자 3명에 공인회계사·투자심사역·공인노무사·변호사 참여, 기획재정부 경영평가위원 등 <b>외부 자문위원 16명</b> 확보</span></div>\n\n      <div class=\"s\"><span data-kg-role=\"body3\">투입인력에 대한 관리 운영방안</span></div>\n      <div class=\"v\"><span data-kg-role=\"body3\">절차별 투입인력 매핑과 단계별 투입공수 계획, 수행책임자 중심 <b>핵심인력 상시 투입</b>, 교체 시 보안서약 후 투입</span></div>\n\n      <!-- ③ -->\n      <div class=\"g\" style=\"grid-row:7/11;\"><span class=\"g__x\">\n        <span class=\"g__n\" data-kg-role=\"num\">3</span>\n        <span class=\"g__t\" data-kg-role=\"h3\">과업 수행계획</span>\n      </span></div>\n      <div class=\"s\"><span data-kg-role=\"body3\">프로젝트 접근 및 연구방법의 적정성</span></div>\n      <div class=\"v\"><span data-kg-role=\"body3\">PEST·SWOT/TOWS·3C·사업단위 포트폴리오·BSC·전략동인 나무·계층 전개·논리모형·ADL·변화관리·PDCA 적용, <b>하향 정합과 상향 수용성의 이원 접근</b></span></div>\n\n      <div class=\"s\"><span data-kg-role=\"body3\">과업 수행계획의 구체성</span></div>\n      <div class=\"v\"><span data-kg-role=\"body3\">가치체계 수립 <b>4단계</b>(환경·내부 진단 → 임직원 설문·워크숍 → 선호도 조사 → 확정안), 4대 과업 12개 세부과제와 기관장·경영진 인터뷰로 구체화</span></div>\n\n      <div class=\"s\"><span data-kg-role=\"body3\">과업 수행방안의 합리성</span></div>\n      <div class=\"v\"><span data-kg-role=\"body3\"><b>진단 → 연계 → 검증 → 실행 → 환류</b>의 일관 흐름, 성과평가체계 진단 틀(연계성·합리성·절차·활용), 주요사업 우선순위와 지표 필터링</span></div>\n\n      <div class=\"s\"><span data-kg-role=\"body3\">용역 단계별 일정계획의 적정성</span></div>\n      <div class=\"v\"><span data-kg-role=\"body3\"><b>20주</b>(계약체결일~2026.12.31) 주차별 간트와 주공정·기준선 관리, 일 단위 진척 점검, 착수·중간·최종 보고 마일스톤</span></div>\n\n      <!-- ④ -->\n      <div class=\"g\" style=\"grid-row:11/13;\"><span class=\"g__x\">\n        <span class=\"g__n\" data-kg-role=\"num\">4</span>\n        <span class=\"g__t\" data-kg-role=\"h3\">제안내용 적정성</span>\n      </span></div>\n      <div class=\"s\"><span data-kg-role=\"body3\">제안내용의 구체성·차별성·실현가능성</span></div>\n      <div class=\"v\"><span data-kg-role=\"body3\">관념적 미션을 측정 가능한 가치체계와 행동규범으로 전환, 면세 <b>90 → 70%대</b>·신성장 <b>30%</b> 정량목표, 성과지표·위험지표와 지표 후보군으로 실행력 확보</span></div>\n\n      <div class=\"s\"><span data-kg-role=\"body3\">추가 제안사항의 적정성</span></div>\n      <div class=\"v\"><span data-kg-role=\"body3\">우수사례 발굴과 정부혁신 경진 출품, 인공지능 데이터센터 등 신사업 제안, 전략 컨설팅 도구(대시보드·인력 시뮬레이션) 산출물 제공과 <b>3계층 확산</b></span></div>\n\n      <!-- ⑤ -->\n      <div class=\"g\" style=\"grid-row:13/15;\"><span class=\"g__x\">\n        <span class=\"g__n\" data-kg-role=\"num\">5</span>\n        <span class=\"g__t\" data-kg-role=\"h3\">과업 관리방안</span>\n      </span></div>\n      <div class=\"s\"><span data-kg-role=\"body3\">과업 수행과정에서의 품질관리의 적정성</span></div>\n      <div class=\"v\"><span data-kg-role=\"body3\">산출물 <b>3단 검토</b>(담당 → 모듈 리더 → 수행책임자)와 검토의견서·변경관리, 주간·월간·단계별 정기회의와 착수·중간·최종 공유회, 인적·물리적 이중 보안</span></div>\n\n      <div class=\"s\"><span data-kg-role=\"body3\">사후관리 및 지원계획의 우수성</span></div>\n      <div class=\"v\"><span data-kg-role=\"body3\">종료 후 <b>3개월</b> 전담조직(PMO)과 지원창구 운영, 정부부처 보고·보도자료용 산출물 제공, 이행점검과 경영평가 대응 지속 지원</span></div>\n\n    </div>\n  </div>\n\n  <footer class=\"kg-footer\">\n    <span class=\"kg-footer__src\">자료 : JDC 과업내용서(2026.7)와 본 제안서의 대응 내용 정리</span>\n    <span class=\"kg-footer__page\">55</span>\n    <span class=\"kg-footer__logo\"><img src=\"/kg/assets/keynes-group-logo.png\" alt=\"Keynes Group\"></span>\n  </footer>\n</section>",
+    "css": ".tbl{flex:1;display:grid;grid-template-columns:150px 250px 1fr;\n    grid-auto-rows:1fr;gap:3px;min-height:0;margin-top:10px;}\n\n  .h{display:flex;align-items:center;justify-content:center;text-align:center;\n    background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;border-radius:3px;\n    font-size:15px;font-weight:800;padding:6px 8px;}\n  .h--r{grid-row:1;}\n\n  /* 배지와 이름은 한 덩어리 — 여러 행에 걸쳐도 칸과 따로 논다는 판정을 받지 않는다 */\n  .g{display:flex;align-items:center;justify-content:center;\n    background:linear-gradient(180deg,#EDF3FB,#D6E4F4);border:1px solid var(--blue-300);\n    border-radius:3px;padding:6px 8px;}\n  .g__x{display:flex;flex-direction:column;align-items:center;gap:5px;}\n  .g__n{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;\n    border-radius:50%;background:var(--navy-800);color:#fff;font-size:13px;font-weight:800;}\n  .g__t{font-size:15px;font-weight:800;color:var(--ink-navy);text-align:center;line-height:1.2;}\n\n  .s{display:flex;align-items:center;gap:7px;background:var(--neutral-050);\n    border:1px solid var(--neutral-300);border-radius:3px;padding:6px 10px;}\n  .s::before{content:\"\";flex:0 0 auto;width:5px;height:5px;\n    background:var(--blue-500);border-radius:1px;}\n  .s span{flex:1;font-size:14px;font-weight:700;color:var(--ink-navy);line-height:1.24;}\n\n  .v{display:flex;align-items:center;background:#fff;border:1px solid var(--neutral-300);\n    border-radius:3px;padding:6px 11px;}\n  .v span{font-size:14px;line-height:1.3;color:var(--ink-900);}\n  .v b{font-weight:800;color:var(--navy-800);}",
+    "origin": "55_Eval_Mapping.html"
+  },
+  "patches": {
+    "n.0.1": {
+      "text": {
+        "html": "03"
+      }
+    },
+    "n.0.3.0": {
+      "text": {
+        "html": "요약서"
+      }
+    },
+    "n.0.3.1": {
+      "text": {
+        "html": "평가항목별 제안 요약서"
+      }
+    },
+    "n.0.4.0": {
+      "text": {
+        "html": "Ⅳ"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4.2": {
+      "text": {
+        "html": "기타"
+      },
+      "style": {
+        "fontSize": 14
+      }
+    },
+    "n.0.4": {
+      "style": {
+        "padding": [
+          7,
+          41.1,
+          8,
+          41.1
+        ]
+      }
+    }
+  },
+  "tree": {
+    "removed": [],
+    "added": {},
+    "groups": {},
+    "locked": [
+      "n.0",
+      "n.1",
+      "n.3",
+      "n.0.4"
+    ]
+  },
+  "theme": {
+    "scale": 1,
+    "roles": {
+      "body3": {
+        "fontSize": 14
+      }
+    }
+  },
+  "stack": [],
+  "createdAt": "2026-07-27T11:25:57.108Z",
+  "updatedAt": "2026-07-27T14:16:18.874Z"
+}
