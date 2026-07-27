@@ -102,17 +102,19 @@ export const ACTIONS: ActionDef[] = [
     run: ({ api }) => void api.newSlide() },
   { id: 'deck.duplicate', label: '장표 복제', group: '슬라이드', surfaces: ['toolbar', 'palette'],
     run: ({ api }) => void api.duplicateSlide() },
-  { id: 'deck.delete', label: '장표 삭제', group: '슬라이드', danger: true,
+  // 요소 삭제는 되돌아가고 이것은 되돌아가지 않는다. 같은 단어를 쓰면 사람이 같은 것으로 배운다.
+  { id: 'deck.delete', label: '장표 파일 지우기', group: '슬라이드', danger: true,
     surfaces: ['toolbar', 'context', 'palette'],
-    hint: '파일까지 지웁니다. 요소 삭제와 달리 되돌릴 수 없습니다',
+    hint: '되돌릴 수 없습니다. 요소 삭제(Delete)와 달리 파일이 사라집니다',
     enabled: (c) => c.slideCount > 1,
     run: ({ api, contextSlideId }) => {
       const id = contextSlideId ?? api.currentSlideId();
       const entry = api.deck.get().slides.find((s) => s.id === id);
       const name = entry?.title || '제목 없음';
-      if (window.confirm(`${name}
-
-이 장표를 프로젝트에서 지웁니다. 되돌릴 수 없습니다.`)) {
+      // 되돌릴 수 없는 일에는 제목을 직접 확인시킨다. confirm 은 반사적으로 넘기게 된다.
+      if (window.confirm([`${name}`, '',
+        '이 장표의 파일을 지웁니다. 되돌리기로 복구되지 않습니다.',
+        '요소 삭제(Delete)와 다릅니다 — 그쪽은 Ctrl+Z 로 돌아옵니다.'].join('\n'))) {
         void api.deleteSlides([id]);
       }
     } },

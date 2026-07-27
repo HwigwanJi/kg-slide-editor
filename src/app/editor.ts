@@ -18,8 +18,8 @@ import {
 } from '@contract/index';
 import {
   auditOverflow, byId, canvasRect, createDeckStore, createSlideStore, editable, expandSelection,
-  buildReference, fitFontSize, fixOptions, groupOf, listNodes, isRemoved, neighborsOf,
-  readFormat, render, roleOf,
+  buildReference, fitFontSize, fixOptions, groupOf, listNodes, isLocked, isRemoved, neighborsOf,
+  carryOverlay, readFormat, render, roleOf,
   scopeFormat, placeByOrigin, slideNumber, themeCss, toStandaloneHtml,
   type Command, type DeckStore, type FixOption, type FormatScope, type Neighbor,
   type OverflowIssue, type SlideStore,
@@ -444,7 +444,14 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
         getRoot: () => root,
         getScale: scale,
         store: slides,
-        onSelectionChange: (ids) => selectionListeners.forEach((f) => f(ids)),
+        onSelectionChange: (ids) => {
+          // 단추가 꺼진 까닭을 말해 주지 않으면 고장으로 읽힌다.
+          const doc = slides.get();
+          if (ids.length > 0 && ids.every((id) => isLocked(doc, id))) {
+            status('잠긴 요소입니다 — 상단 위계는 옮기거나 지울 수 없습니다. 글자는 더블클릭으로 고칩니다');
+          }
+          selectionListeners.forEach((f) => f(ids));
+        },
         duplicate: (ids) => api.duplicate(ids),
       });
 
@@ -587,7 +594,7 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
      * 폴더로 옮기면 그때부터 양쪽이 같은 파일을 본다. "폴더 열기" 는 폴더를 갈아 끼울 뿐
      * 갖고 있던 장표를 데려가지 않으므로, 옮기는 통로가 따로 있어야 한다.
      */
-    isDirty: () => savedAt !== '' && slides.get().updatedAt !== savedAt,
+    isDirty: () => savedAt === '' || slides.get().updatedAt !== savedAt,
     needsReload: () => stale,
     onProjectState(fn) { stateListeners.add(fn); return () => stateListeners.delete(fn); },
 
@@ -754,6 +761,7 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
 
       await withBusy(`장표 ${list.length}건 적재 중`, `장표 ${list.length}건 적재함`, async () => {
         let n = 0;
+        let dropped = 0;
         for (const file of list) {
           const prev = known.get(file.name);
           const doc = file.name.endsWith('.json') || file.name.endsWith('.kgslide')
@@ -764,8 +772,25 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
           const at = prev
             ? deck.get().slides.findIndex((s) => s.id === prev.id)
             : placeByOrigin(deck.get().slides, file.name);
-          await adoptSlide(prev ? { ...doc, id: prev.id } : doc, at === undefined || at < 0 ? undefined : at);
+          /*
+           * 이미 있는 장표를 갈아 끼울 때는 디스크의 편집분을 새 원본 위에 옮겨 얹는다.
+           * 그냥 저장하면 방금 읽은 빈 오버레이가 사람이 쌓아 둔 것을 덮는다 —
+           * 명령줄(ingest)은 이미 이렇게 하는데 편집기만 빠져 있었다.
+           */
+          let next = prev ? { ...doc, id: prev.id } : doc;
+          if (prev) {
+            const disk = await project.loadSlide(prev.id).catch(() => null);
+            if (disk) {
+              const { doc: merged, report } = carryOverlay(disk, next);
+              next = merged;
+              dropped += report.dropped.length;
+            }
+          }
+          await adoptSlide(next, at === undefined || at < 0 ? undefined : at);
           status(`적재 ${++n}/${list.length} — ${file.name}`);
+        }
+        if (dropped > 0) {
+          toast('error', `편집분 ${dropped}건을 옮기지 못했습니다 — 원본이 바뀌어 자리를 찾지 못한 것입니다`);
         }
       });
     },
@@ -822,6 +847,15 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       // 것은 어느 편집기에서나 같다. 브라우저 저장소에만 두면 파일이 되지 못해
       // 명령줄도 다른 컴퓨터도 그 장표를 보지 못한다.
       if (!project.isFolder) {
+        // 갑자기 폴더 선택 창이 뜨면 무슨 일인지 알 수 없어 취소하게 된다.
+        // 취소하면 저장이 안 된 채로 남으므로, 무엇을 왜 고르는지 먼저 알린다.
+        const ok = confirm(
+          ['이 프로젝트를 저장할 폴더를 정합니다.', '',
+            '지금은 브라우저 안에만 있어 파일이 아닙니다. 폴더를 정하면 그때부터',
+            '파일탐색기에서 보이고, 명령줄과 다른 컴퓨터도 같은 장표를 봅니다.', '',
+            '다음 창에서 폴더를 고르고 "편집 허용"을 눌러 주세요.'].join('\n'),
+        );
+        if (!ok) { status('저장할 폴더를 정하지 않아 저장하지 않았습니다', true); return; }
         await api.saveToFolder();
         return;
       }
