@@ -103,14 +103,27 @@ try {
 
 /* ---------- 절 번호: 장 안에서 제목이 바뀔 때 올라간다 ---------- */
 
-let lastCh = null;
-let lastTitle = null;
-let sec = 0;
+/*
+ * **같은 제목이면 같은 번호다.**
+ *
+ * 절은 장표가 아니라 주제를 센다. 한 주제를 여러 장에 걸쳐 설명하는 것이 이 덱의 짜임이고,
+ * 그 여러 장은 같은 절에 속한다. 그래서 제목마다 번호를 하나 배정하고, 같은 제목이 다시
+ * 나오면 — 사이에 다른 주제가 끼어 있더라도 — 처음 받은 번호를 그대로 쓴다.
+ *
+ * 앞의 규칙("제목이 바뀔 때마다 +1")은 떨어져 나온 같은 제목에 새 번호를 줬다.
+ * 그러면 목차에 같은 이름이 서로 다른 번호로 두 번 실린다.
+ */
+const seen = new Map();   // 장 → (제목 → 번호)
 for (const r of rows) {
   const ch = chapterOf(r.at);
-  if (ch !== lastCh) { sec = 0; lastTitle = null; lastCh = ch; }
-  if (r.title !== lastTitle) { sec += 1; lastTitle = r.title; }
-  r.want = { roman: ch.roman, tag: ch.name, num: String(sec).padStart(2, '0') };
+  if (!seen.has(ch)) seen.set(ch, new Map());
+  const inChapter = seen.get(ch);
+  if (!inChapter.has(r.title)) inChapter.set(r.title, inChapter.size + 1);
+  r.want = {
+    roman: ch.roman,
+    tag: ch.name,
+    num: String(inChapter.get(r.title)).padStart(2, '0'),
+  };
 }
 
 /* ---------- 무엇이 바뀌는가 ---------- */

@@ -42,6 +42,9 @@
 .kg-msgband{flex:0 0 auto;background:#fff;padding:5px 48px;position:relative;z-index:3;
   box-shadow:0 4px 7px rgba(23,55,94,.09);
   display:flex;align-items:center;justify-content:center;gap:12px;}
+/* 메시지는 <p> 라 브라우저 기본 마진(1em = 24px)이 위아래로 붙는다. 띠 자체 여백은 5px 인데
+   그 마진 때문에 한 줄짜리 띠가 90px 을 차지했다 — 본문에서 48px 을 빼앗는다. */
+.kg-message{margin:0;}
 .kg-msgband--tint{background:var(--blue-050);}
 .kg-msgband--tint .kg-message{color:var(--navy-800);}
 .kg-msgband__mark{display:none;}

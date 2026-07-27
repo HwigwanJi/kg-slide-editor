@@ -7,7 +7,7 @@
       "id": "38caac6b-b9e9-4122-b785-e066a62e3d00",
       "title": "발주기관 이해 — 제주국제자유도시개발센터(JDC)",
       "origin": "00_발주처이해.html",
-      "updatedAt": "2026-07-27T14:36:35.070Z"
+      "updatedAt": "2026-07-27T14:50:07.974Z"
     },
     {
       "id": "29e39044-d773-4bfe-9a77-2e534c0ab7af",
@@ -91,7 +91,7 @@
       "id": "4d0f50d6-cf0e-45d1-a267-3b5c32607f29",
       "title": "전략체계도 및 SWOT 매트릭스",
       "origin": "03h_전략체계SWOT.html",
-      "updatedAt": "2026-07-27T14:26:15.714Z"
+      "updatedAt": "2026-07-27T15:00:23.591Z"
     },
     {
       "id": "f284d978-4775-4cc4-9c3f-87e6581b65bf",
@@ -235,55 +235,55 @@
       "id": "011f1969-5765-478c-adc9-4581c81d50d6",
       "title": "3. 과업의 수행 방법론 — 성과관리 및 지표 필터링",
       "origin": "41_KPI_Filtering.html",
-      "updatedAt": "2026-07-27T14:16:15.437Z"
+      "updatedAt": "2026-07-27T15:00:23.820Z"
     },
     {
       "id": "8f336243-c29e-44ce-834f-5412c09ded33",
       "title": "3. 과업의 수행 방법론 — 비계량 지표 평가관점",
       "origin": "42_ADL_Nonquant.html",
-      "updatedAt": "2026-07-27T14:16:15.672Z"
+      "updatedAt": "2026-07-27T15:00:24.062Z"
     },
     {
       "id": "78da7dd3-51eb-466b-940e-7558336fe9f2",
       "title": "3. 과업의 수행 방법론 — 리더십 구현체계",
       "origin": "43_Leadership.html",
-      "updatedAt": "2026-07-27T14:16:15.919Z"
+      "updatedAt": "2026-07-27T15:00:24.296Z"
     },
     {
       "id": "d17cf0cf-025c-44b0-a45a-ca1f1db07137",
       "title": "용역의 활용방안 및 기대효과",
       "origin": "44_Utilization_Effects.html",
-      "updatedAt": "2026-07-27T14:16:16.212Z"
+      "updatedAt": "2026-07-27T15:00:24.531Z"
     },
     {
       "id": "7db69a4a-45ef-47f8-ac09-298a5c99014d",
       "title": "추진 일정 및 세부 일정",
       "origin": "45_Schedule.html",
-      "updatedAt": "2026-07-27T14:16:16.458Z"
+      "updatedAt": "2026-07-27T15:00:24.758Z"
     },
     {
       "id": "5170072a-58a3-4097-af14-2b909c043f00",
       "title": "2. 과업 관리 방안 — 소통·협력체계를 통한 진행률 관리",
       "origin": "46_Progress_Management.html",
-      "updatedAt": "2026-07-27T14:16:16.692Z"
+      "updatedAt": "2026-07-27T15:00:24.977Z"
     },
     {
       "id": "84d7ca63-4f25-4254-b264-1b774009795f",
       "title": "2. 과업 관리 방안 — 산출물 관리체계",
       "origin": "47_Deliverable_QA.html",
-      "updatedAt": "2026-07-27T14:16:16.936Z"
+      "updatedAt": "2026-07-27T15:00:25.192Z"
     },
     {
       "id": "0ed0f79d-27ad-4234-b1cb-951a3d64e60e",
       "title": "2. 과업 관리 방안 — 규정 개정 지원",
       "origin": "48_Regulation_Revision.html",
-      "updatedAt": "2026-07-27T14:16:17.171Z"
+      "updatedAt": "2026-07-27T15:00:25.408Z"
     },
     {
       "id": "dc1ae02d-fa27-499b-be1e-5883695d0bb3",
       "title": "3. 보안 관리체계",
       "origin": "49_Security.html",
-      "updatedAt": "2026-07-27T14:16:17.415Z"
+      "updatedAt": "2026-07-27T15:00:25.628Z"
     },
     {
       "id": "79714649-5c72-4add-85dd-5764abf0b29c",
@@ -323,5 +323,5 @@
     }
   ],
   "createdAt": "2026-07-27T03:11:24.237Z",
-  "updatedAt": "2026-07-27T14:39:59.567Z"
+  "updatedAt": "2026-07-27T15:02:56.538Z"
 }
