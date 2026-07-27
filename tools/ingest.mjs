@@ -3,7 +3,7 @@
  * 적재 — KG 장표 HTML 을 프로젝트에 넣는다 (워크플로우 3단계).
  *
  * 임포트 규칙(자산 경로 치환·상단 위계 잠금·제목 추출)을 여기 다시 쓰지 않는다.
- * 편집기 어댑터를 그대로 번들해 브라우저에서 돌린다. 사람이 "열기"로 넣은 것과 같은 결과가 나온다.
+ * 편집기 어댑터를 그대로 번들해 브라우저에서 돌린다. 사람이 "적재"로 넣은 것과 같은 결과가 나온다.
  *
  * 사용법
  *   node tools/ingest.mjs <프로젝트폴더> <장표.html>...
@@ -20,6 +20,13 @@ import { pathToFileURL, fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const KG_DIR = join(ROOT, 'public', 'kg');
+
+// public/kg 는 skills/keynes-group-design 에서 만들어 낸다(npm run setup).
+// 없으면 글꼴도 CSS 도 없이 렌더돼 검사·미리보기가 조용히 틀린 값을 낸다. 그래서 먼저 막는다.
+if (!existsSync(KG_DIR)) {
+  console.error('KG 자산이 없습니다. 먼저 npm run setup 을 돌리세요.');
+  process.exit(2);
+}
 const BUNDLE = join(ROOT, 'tools', 'gen', 'audit.iife.js');
 
 const [projectArg, ...fileArgs] = process.argv.slice(2);
@@ -35,8 +42,11 @@ if (!existsSync(BUNDLE)) {
 const project = resolve(projectArg);
 const files = fileArgs.length
   ? fileArgs.map((f) => resolve(f))
+  // 파일 이름이 곧 순서다. readdir 순서는 운영체제가 정하므로 그대로 두면
+  // 컴퓨터마다 덱 순서가 달라진다 — 여러 대에서 나눠 그린 것을 모을 때 반드시 어긋난다.
   : (await readdir(join(project, 'source')).catch(() => []))
       .filter((f) => /\.html?$/i.test(f))
+      .sort((a, b) => a.localeCompare(b, 'ko'))
       .map((f) => join(project, 'source', f));
 
 if (files.length === 0) {
@@ -81,8 +91,16 @@ try {
 
     await writeFile(join(project, 'slides', `${id}.kgslide`), `${JSON.stringify(doc, null, 2)}\n`, 'utf8');
     const entry = { id, title: doc.title, origin, updatedAt: doc.updatedAt };
-    if (existing) Object.assign(existing, entry);
-    else deck.slides.push(entry);
+    if (existing) {
+      Object.assign(existing, entry);
+    } else {
+      const at = await page.evaluate(
+        ([list, o]) => window.KGAudit.placeByOrigin(list, o),
+        [deck.slides, origin],
+      );
+      if (at === undefined) deck.slides.push(entry);
+      else deck.slides.splice(at, 0, entry);
+    }
     console.log(`${existing ? '갱신' : '추가'} — ${doc.title}  (slides/${id}.kgslide)`);
   }
 

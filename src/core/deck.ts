@@ -96,3 +96,18 @@ function normalizeDeck(deck: DeckDoc): DeckDoc {
 export function slideNumber(deck: DeckDoc, id: string): number {
   return deck.slides.findIndex((s) => s.id === id) + 1;
 }
+
+/**
+ * 새로 적재하는 장표가 들어갈 자리.
+ *
+ * 적재에서는 파일 이름이 곧 순서다. 여러 대에서 나눠 그린 장표를 한곳에 모을 때
+ * 이 규칙 하나로만 순서가 정해지므로, 새 장표를 무조건 뒤에 붙이면
+ * 나중에 받은 10번이 20번 뒤에 놓인다.
+ *
+ * 다만 이미 있는 목차를 다시 정렬하지는 않는다. 사람이 편집기에서 손으로 바꾼 순서가
+ * 적재할 때마다 되돌아가면 안 되기 때문이다. 이름이 앞서는 첫 자리에만 끼워 넣는다.
+ */
+export function placeByOrigin(slides: DeckEntry[], origin: string): number | undefined {
+  const at = slides.findIndex((s) => s.origin && s.origin.localeCompare(origin, 'ko') > 0);
+  return at < 0 ? undefined : at;
+}

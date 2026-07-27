@@ -2,7 +2,7 @@
  * 슬라이드 목록 — 프로젝트의 순서를 보여 주고 바꾼다.
  * 순서의 진실은 덱 문서에 있다. 여기서는 끌어 놓은 결과를 커맨드로 넘길 뿐이다.
  */
-import { useState } from 'react';
+import { useState, type DragEvent } from 'react';
 import type { DeckDoc } from '@contract/index';
 import type { EditorApi } from './editor';
 
@@ -21,15 +21,27 @@ export function DeckRail({
   onSlideMenu(id: string, at: { x: number; y: number }): void;
 }) {
   const [dragging, setDragging] = useState<string | null>(null);
-  const [over, setOver] = useState<string | null>(null);
+  /** 끌고 있는 장표가 놓일 자리 — 어느 줄의 위인지 아래인지. */
+  const [mark, setMark] = useState<{ id: string; after: boolean } | null>(null);
 
-  const drop = (targetId: string) => {
-    if (!dragging || dragging === targetId) return;
+  const reset = () => { setDragging(null); setMark(null); };
+
+  /** 커서가 줄의 위쪽 절반이면 그 앞, 아래쪽 절반이면 그 뒤에 놓는다. */
+  const aim = (id: string, e: DragEvent<HTMLLIElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    setMark({ id, after: e.clientY > r.top + r.height / 2 });
+  };
+
+  const drop = () => {
+    if (!dragging || !mark) return reset();
+    // 자리 계산은 끌고 있는 장표를 뺀 목록에서 한다.
+    // 원래 목록의 번호를 그대로 쓰면 아래로 끌 때 한 칸씩 밀린다.
     const ids = deck.slides.map((s) => s.id).filter((id) => id !== dragging);
-    ids.splice(deck.slides.findIndex((s) => s.id === targetId), 0, dragging);
+    const at = ids.indexOf(mark.id);
+    if (at < 0) return reset();
+    ids.splice(at + (mark.after ? 1 : 0), 0, dragging);
     api.reorderSlides(ids);
-    setDragging(null);
-    setOver(null);
+    reset();
   };
 
   return (
@@ -53,19 +65,20 @@ export function DeckRail({
           <li
             key={s.id}
             className="ed-slidelist__row"
+            data-drop={mark?.id === s.id && dragging !== s.id ? (mark.after ? 'after' : 'before') : undefined}
             onContextMenu={(e) => { e.preventDefault(); onSlideMenu(s.id, { x: e.clientX, y: e.clientY }); }}
+            onDragOver={(e) => { e.preventDefault(); aim(s.id, e); }}
+            onDrop={(e) => { e.preventDefault(); drop(); }}
           >
             <button
               className="ed-slide"
               draggable
               aria-current={s.id === currentId}
-              data-over={over === s.id ? '' : undefined}
+              data-dragging={dragging === s.id ? '' : undefined}
+              title="끌어서 순서를 바꿉니다. 순서가 곧 꼬리말 쪽번호입니다"
               onClick={() => void api.openSlide(s.id)}
               onDragStart={() => setDragging(s.id)}
-              onDragOver={(e) => { e.preventDefault(); setOver(s.id); }}
-              onDragLeave={() => setOver((v) => (v === s.id ? null : v))}
-              onDrop={(e) => { e.preventDefault(); drop(s.id); }}
-              onDragEnd={() => { setDragging(null); setOver(null); }}
+              onDragEnd={reset}
             >
               <span className="ed-slide__no">{i + 1}</span>
               <span className="ed-slide__body">

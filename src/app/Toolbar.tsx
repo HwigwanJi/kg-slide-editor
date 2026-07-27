@@ -59,15 +59,20 @@ export function Toolbar({
         </nav>
 
         <div className="ed-group ed-ribbon__quick">
-          <button className="ed-btn" onClick={() => file.current?.click()}>열기</button>
+          <button
+            className="ed-btn"
+            title="장표 HTML 을 프로젝트에 넣습니다. 여러 개를 한 번에 고를 수 있고, 파일 이름순으로 들어갑니다"
+            onClick={() => file.current?.click()}
+          >적재</button>
           <input
             ref={file}
             type="file"
+            multiple
             accept=".html,.htm,.json,.kgslide"
             className="ed-visually-hidden"
             onChange={(e) => {
-              const f = e.target.files?.[0];
-              if (f) void api.importFile(f);
+              const files = [...(e.target.files ?? [])];
+              if (files.length) void api.importFiles(files);
               e.target.value = '';
             }}
           />

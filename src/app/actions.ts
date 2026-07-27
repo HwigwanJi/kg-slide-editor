@@ -60,6 +60,12 @@ export interface ActionDef {
 const hasSelection = (c: ActionCtx) => c.count > 0 && !c.allLocked;
 const hasMulti = (c: ActionCtx) => c.count > 1 && !c.allLocked;
 
+/** 우클릭한 장표가 있으면 그것이 대상이다. 없으면 열려 있는 장표. */
+const targetSlide = (c: ActionCtx) => c.contextSlideId ?? c.api.currentSlideId();
+/** 대상 장표의 자리(1부터). 곧 꼬리말 쪽번호다. */
+const slideAt = (c: ActionCtx) =>
+  c.api.deck.get().slides.findIndex((s) => s.id === targetSlide(c)) + 1;
+
 export const ACTIONS: ActionDef[] = [
   /* ---------------- 파일 ---------------- */
   { id: 'file.save', label: '저장', group: '파일', shortcut: 'Ctrl+S', surfaces: ['toolbar', 'palette'],
@@ -103,11 +109,13 @@ export const ACTIONS: ActionDef[] = [
   { id: 'deck.next', label: '다음 장표', group: '슬라이드', shortcut: 'Ctrl+PageDown', surfaces: ['palette'],
     enabled: (c) => c.slideNumber < c.slideCount, run: ({ api }) => void step(api, 1) },
   { id: 'deck.moveUp', label: '장표 앞으로', group: '슬라이드', shortcut: 'Ctrl+Shift+PageUp',
-    surfaces: ['palette'], enabled: (c) => c.slideNumber > 1,
-    run: ({ api }) => api.moveSlide(api.currentSlideId(), api.currentNumber() - 2) },
+    hint: '순서가 곧 꼬리말 쪽번호입니다', surfaces: ['context', 'palette'],
+    enabled: (c) => slideAt(c) > 1,
+    run: (c) => c.api.moveSlide(targetSlide(c), slideAt(c) - 2) },
   { id: 'deck.moveDown', label: '장표 뒤로', group: '슬라이드', shortcut: 'Ctrl+Shift+PageDown',
-    surfaces: ['palette'], enabled: (c) => c.slideNumber < c.slideCount,
-    run: ({ api }) => api.moveSlide(api.currentSlideId(), api.currentNumber()) },
+    hint: '순서가 곧 꼬리말 쪽번호입니다', surfaces: ['context', 'palette'],
+    enabled: (c) => slideAt(c) > 0 && slideAt(c) < c.slideCount,
+    run: (c) => c.api.moveSlide(targetSlide(c), slideAt(c)) },
 
   /* ---------------- 편집 ---------------- */
   { id: 'edit.undo', label: '되돌리기', group: '편집', shortcut: 'Ctrl+Z', surfaces: ['toolbar', 'palette'],

@@ -25,6 +25,13 @@ import { pathToFileURL } from 'node:url';
 
 const ROOT = resolve(dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')), '..');
 const KG_DIR = join(ROOT, 'public', 'kg');
+
+// public/kg 는 skills/keynes-group-design 에서 만들어 낸다(npm run setup).
+// 없으면 글꼴도 CSS 도 없이 렌더돼 검사·미리보기가 조용히 틀린 값을 낸다. 그래서 먼저 막는다.
+if (!existsSync(KG_DIR)) {
+  console.error('KG 자산이 없습니다. 먼저 npm run setup 을 돌리세요.');
+  process.exit(2);
+}
 const CANVAS = { w: 1280, h: 905 };
 
 const args = parseArgs(process.argv.slice(2));

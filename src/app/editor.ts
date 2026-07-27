@@ -20,7 +20,7 @@ import {
   auditOverflow, byId, canvasRect, createDeckStore, createSlideStore, editable, expandSelection,
   buildReference, fitFontSize, fixOptions, groupOf, listNodes, isRemoved, neighborsOf,
   readFormat, render, roleOf,
-  scopeFormat, slideNumber, themeCss, toStandaloneHtml,
+  scopeFormat, placeByOrigin, slideNumber, themeCss, toStandaloneHtml,
   type Command, type DeckStore, type FixOption, type FormatScope, type Neighbor,
   type OverflowIssue, type SlideStore,
 } from '@core/index';
@@ -69,7 +69,8 @@ export interface EditorApi {
   openSlide(id: string): Promise<void>;
   newSlide(): Promise<void>;
   addFromHtmlUrl(url: string): Promise<void>;
-  importFile(file: File): Promise<void>;
+  /** HTML·kgslide 를 프로젝트에 적재한다. 이름순으로 들어가고, 같은 이름은 그 자리를 갈아 끼운다. */
+  importFiles(files: File[]): Promise<void>;
   duplicateSlide(id?: string): Promise<void>;
   deleteSlides(ids: string[]): Promise<void>;
   reorderSlides(ids: string[]): void;
@@ -193,8 +194,13 @@ export function blankDoc(title = ''): SlideDoc {
   });
 }
 
+// origin(어느 파일에서 왔는지)을 빠뜨리면 같은 장표를 다시 적재할 때 짝을 찾지 못해
+// 자리를 잃고 사본이 하나 더 생긴다. 도구(tools/ingest.mjs)는 이 값을 쓴다.
 const entryOf = (doc: SlideDoc): DeckEntry => ({
-  id: doc.id, title: doc.title, updatedAt: doc.updatedAt,
+  id: doc.id,
+  title: doc.title,
+  updatedAt: doc.updatedAt,
+  ...(doc.source.origin ? { origin: doc.source.origin } : {}),
 });
 
 export function createEditor(initial: ProjectAdapter = localProject): EditorApi {
@@ -209,6 +215,8 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
   let session: TextSession | null = null;
   let slideStyle: HTMLStyleElement | null = null;
   let themeStyle: HTMLStyleElement | null = null;
+  /** 지금 캔버스에 그려져 있는 쪽번호 상태("자리/전체"). 다시 그릴지 판단하는 기준. */
+  let drawnPage = '';
   let zoom: Zoom = 'fit';
   let tokenCache: KgToken[] = [];
   let settings: ProjectSettings = DEFAULT_SETTINGS;
@@ -266,7 +274,22 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       theme.textContent = themeCss(doc.theme);
       theme.disabled = false;
     }
+    drawnPage = pageStamp();
     transform?.refresh();
+  }
+
+  /**
+   * 쪽번호에 영향을 주는 값 — 이 장표의 자리와 전체 장수.
+   * 덱은 이름·미리보기 같은 것도 담고 있어, 바뀌었다고 매번 다시 그리면
+   * 이름을 한 글자 칠 때마다 캔버스가 재생성되고 편집 중인 글자가 끊긴다.
+   *
+   * 비교 기준은 반드시 `drawnPage`(마지막으로 그린 값)여야 한다.
+   * 덱 구독자 안에서만 기억해 두면, 장표를 바꿀 때 덱이 아니라 장표 쪽이 바뀌므로
+   * 기억한 값이 낡아 "바뀌었는데 같아 보이는" 자리가 생긴다.
+   */
+  function pageStamp(): string {
+    const d = deck.get();
+    return `${slideNumber(d, slides.get().id)}/${d.slides.length}`;
   }
 
   function styleTag(kind: 'slide' | 'theme'): HTMLStyleElement {
@@ -383,6 +406,14 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
 
       // 캔버스는 스토어 변경에 동기로 반응한다. React 렌더 주기를 타지 않는다.
       const unsub = slides.subscribe(() => { draw(); applyScale(); });
+
+      // 꼬리말 쪽번호의 진실은 덱 순서다(deck.slides). 순서나 장수가 바뀌면
+      // 캔버스도 따라 그려야 목록의 번호와 장표의 번호가 갈라지지 않는다.
+      const unsubDeck = deck.subscribe(() => {
+        if (pageStamp() === drawnPage) return;
+        draw();
+      });
+
       const ro = new ResizeObserver(() => applyScale());
       if (stage.parentElement) ro.observe(stage.parentElement);
 
@@ -392,6 +423,7 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
 
       return () => {
         unsub();
+        unsubDeck();
         ro.disconnect();
         el.removeEventListener('dblclick', onDouble);
         transform?.destroy();
@@ -469,13 +501,40 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       } catch (e) { status(msg(e), true); }
     },
 
-    async importFile(file) {
-      await withBusy(`${file.name} 불러오는 중`, `${file.name} 추가함`, async () => {
-        const doc = file.name.endsWith('.json') || file.name.endsWith('.kgslide')
-          ? await readDocFile(file)
-          : importKgHtml(await file.text(), { origin: file.name, assetBase: `${KG_BASE}assets/` });
-        await adoptSlide(doc);
-        status(`${file.name} 추가함`);
+    async importFiles(files) {
+      // 파일 이름이 곧 순서다. 여러 대에서 나눠 그린 장표를 모을 때 이 규칙 하나로 순서가 정해진다.
+      const list = [...files].sort((a, b) => a.name.localeCompare(b.name, 'ko'));
+      if (list.length === 0) return;
+
+      // 같은 이름으로 이미 넣은 장표는 자리를 지키고 내용만 갈아 끼운다.
+      // 갈아 끼우면 그 장표에 한 편집은 사라지므로 먼저 알린다.
+      const known = new Map(deck.get().slides.filter((s) => s.origin).map((s) => [s.origin!, s]));
+      const replacing = list.filter((f) => known.has(f.name));
+      if (replacing.length > 0) {
+        const names = replacing.slice(0, 5).map((f) => f.name).join(', ');
+        const more = replacing.length > 5 ? ` 외 ${replacing.length - 5}건` : '';
+        const ok = confirm(
+          `이미 있는 장표 ${replacing.length}건을 새 내용으로 바꿉니다.\n${names}${more}\n\n`
+          + '자리와 쪽번호는 그대로지만, 그 장표에 편집기로 한 수정은 사라집니다.',
+        );
+        if (!ok) return;
+      }
+
+      await withBusy(`장표 ${list.length}건 적재 중`, `장표 ${list.length}건 적재함`, async () => {
+        let n = 0;
+        for (const file of list) {
+          const prev = known.get(file.name);
+          const doc = file.name.endsWith('.json') || file.name.endsWith('.kgslide')
+            ? await readDocFile(file)
+            : importKgHtml(await file.text(), { origin: file.name, assetBase: `${KG_BASE}assets/` });
+          // 기존 id 를 물려받아야 덱의 자리와 미리보기 파일이 그대로 이어진다.
+          // 처음 넣는 것은 파일 이름이 앞서는 자리에 끼워 넣는다 — 뒤에 붙이면 번호가 뒤엉킨다.
+          const at = prev
+            ? deck.get().slides.findIndex((s) => s.id === prev.id)
+            : placeByOrigin(deck.get().slides, file.name);
+          await adoptSlide(prev ? { ...doc, id: prev.id } : doc, at === undefined || at < 0 ? undefined : at);
+          status(`적재 ${++n}/${list.length} — ${file.name}`);
+        }
       });
     },
 

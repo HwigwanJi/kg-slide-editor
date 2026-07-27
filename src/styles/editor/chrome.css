@@ -174,11 +174,26 @@
 
 /* 장표 한 줄 — 본문과 삭제 버튼 */
 .ed-slidelist__row {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: var(--ed-sp-1);
 }
+
+/* 놓을 자리 — 줄 사이에 선을 그어 어디에 들어갈지 먼저 보여 준다 */
+.ed-slidelist__row[data-drop]::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: var(--ed-bw-strong);
+  background: var(--ed-accent);
+  border-radius: var(--ed-r-sm);
+  pointer-events: none;
+}
+.ed-slidelist__row[data-drop='before']::after { top: calc(var(--ed-sp-1) * -0.5); }
+.ed-slidelist__row[data-drop='after']::after { bottom: calc(var(--ed-sp-1) * -0.5); }
 .ed-slide__del {
   width: var(--ed-control-h-sm);
   height: var(--ed-control-h-sm);
@@ -215,7 +230,7 @@
   background: var(--ed-accent-weak);
   border-color: var(--ed-accent);
 }
-.ed-slide[data-over] { border-top-color: var(--ed-accent); border-top-width: var(--ed-bw-strong); }
+.ed-slide[data-dragging] { opacity: 0.45; }
 .ed-slide:active { cursor: grabbing; }
 
 .ed-slide__no {
