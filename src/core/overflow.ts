@@ -15,7 +15,7 @@ import type { NodeId, ProjectSettings, StylePatch } from '@contract/index';
 import { DEFAULT_SETTINGS, floorFor } from '@contract/index';
 import { ID_ATTR, SLOT_ATTR, SLOT_CLASS, TEXT_ATTR, roleOf } from './ids';
 
-export type IssueKind = 'clipped' | 'outside' | 'sparse' | 'tooSmall';
+export type IssueKind = 'clipped' | 'outside' | 'sparse' | 'tooSmall' | 'overlap';
 
 export interface OverflowIssue {
   id: NodeId;
@@ -176,8 +176,100 @@ export function auditOverflow(
       }
     }
   }
+  issues.push(...auditOverlap(root, slideId));
   return issues;
 }
+
+/**
+ * 글자끼리 포개진 자리.
+ *
+ * 이걸 따로 두는 까닭이 있다. 앞의 검사들은 **한 요소가 제 상자 안에 있는가**를 본다.
+ * 그래서 두 덩어리가 같은 자리에 나란히 그려져도 각자는 멀쩡해 아무것도 안 걸린다.
+ * 실제로 한 장표에서 오른쪽 아래 네 덩어리가 통째로 포개져 글자가 뭉개졌는데
+ * 검사는 "이상 없음" 이라고 답했다 — 눈으로 본 장표만 잡히고 나머지는 그대로 나갔다.
+ *
+ * 글자끼리만 본다. 도형·배경이 겹치는 것은 설계이고(셰브론·배지·화살표), 읽는 데
+ * 문제가 되는 것은 글자 위에 글자가 오는 경우뿐이다.
+ */
+export function auditOverlap(root: HTMLElement, slideId?: string): OverflowIssue[] {
+  const runs = [...root.querySelectorAll<HTMLElement>(`[${TEXT_ATTR}]`)]
+    .filter((el) => !el.closest(`.${SLOT_CLASS}`))
+    // 도형 안 글자는 SVG 좌표계라 화면 사각형이 겹쳐 보여도 실제로는 안 겹친다.
+    .filter((el) => !el.hasAttribute(SLOT_ATTR))
+    .filter((el) => (el.textContent ?? '').trim().length > 0)
+    .filter((el) => getComputedStyle(el).visibility !== 'hidden')
+    .map((el) => ({ el, id: el.getAttribute(ID_ATTR)!, rects: glyphRects(el) }))
+    .filter((b) => b.rects.length > 0);
+
+  const issues: OverflowIssue[] = [];
+  const seen = new Set<string>();
+
+  for (let i = 0; i < runs.length; i++) {
+    for (let j = i + 1; j < runs.length; j++) {
+      const a = runs[i]!;
+      const b = runs[j]!;
+      // 조상·자손은 원래 겹친다.
+      if (a.el.contains(b.el) || b.el.contains(a.el)) continue;
+
+      const hit = worstOverlap(a.rects, b.rects);
+      if (!hit) continue;
+
+      const key = `${a.id}|${b.id}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+
+      issues.push({
+        id: a.id,
+        kind: 'overlap',
+        overY: hit.h,
+        overX: hit.w,
+        preview: preview(a.el),
+        detail: `"${preview(b.el)}" 와 겹칩니다 — 가로 ${hit.w}px · 세로 ${hit.h}px.`,
+        ...(slideId ? { slideId } : {}),
+      });
+    }
+  }
+  return issues;
+}
+
+/**
+ * 글자가 실제로 차지하는 자리.
+ *
+ * 요소 사각형으로 재면 안 된다. 가운데 정렬된 제목의 상자는 칸 전체만큼 넓은데,
+ * 모서리에 놓인 번호 배지가 그 상자와 겹친다고 잡힌다 — 눈으로는 닿지도 않은 것들이다.
+ * 실제로 그렇게 재 보니 멀쩡한 배지 다섯 건이 겹침으로 올라왔다.
+ * Range 로 재면 줄마다 글자에 딱 붙은 사각형이 나오므로 그 일이 없다.
+ */
+function glyphRects(el: HTMLElement): DOMRect[] {
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  return [...range.getClientRects()].filter((r) => r.width > 1 && r.height > 1);
+}
+
+/**
+ * 두 글자 덩어리가 가장 크게 물린 자리. 없으면 null.
+ *
+ * 줄상자는 글리프보다 위아래로 크게 잡히므로 붙어 있는 두 줄이 늘 1~2px 물린다.
+ * 그것까지 잡으면 멀쩡한 장표마다 수십 건이 뜬다. 작은 쪽 줄의 넓이를
+ * 4분의 1 넘게 덮었을 때만 포개진 것으로 본다.
+ */
+function worstOverlap(as: DOMRect[], bs: DOMRect[]): { w: number; h: number } | null {
+  let best: { w: number; h: number; area: number } | null = null;
+  for (const a of as) {
+    for (const b of bs) {
+      const w = Math.min(a.right, b.right) - Math.max(a.left, b.left);
+      const h = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+      if (w <= OVERLAP_EPS || h <= OVERLAP_EPS) continue;
+      const area = w * h;
+      if (area < Math.min(a.width * a.height, b.width * b.height) * 0.25) continue;
+      if (!best || area > best.area) best = { w: Math.round(w), h: Math.round(h), area };
+    }
+  }
+  return best ? { w: best.w, h: best.h } : null;
+}
+
+/** 줄상자가 물리는 정도. 이보다 작으면 스친 것이다. */
+const OVERLAP_EPS = 3;
 
 function preview(el: HTMLElement): string {
   const text = (el.textContent ?? '').trim().replace(/\s+/g, ' ');

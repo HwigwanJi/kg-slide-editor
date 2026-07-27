@@ -43,6 +43,7 @@ const KIND_LABEL = {
   outside: '장표 밖으로 벗어남',
   sparse: '박스가 헐거움',
   tooSmall: '글자가 하한보다 작음',
+  overlap: '글자끼리 겹침',
 };
 
 const args = parseArgs(process.argv.slice(2));
