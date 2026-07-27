@@ -1,0 +1,17 @@
+/* ----------------------------------------------------------------------------
+   모션 토큰. 편집 도구는 즉각 반응이 우선이라 값이 짧다.
+   ---------------------------------------------------------------------------- */
+:root {
+  --ed-dur-instant: 60ms;
+  --ed-dur-fast: 120ms;
+  --ed-dur-base: 180ms;
+  --ed-ease: cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ed-dur-instant: 0ms;
+    --ed-dur-fast: 0ms;
+    --ed-dur-base: 0ms;
+  }
+}

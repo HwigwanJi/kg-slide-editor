@@ -1,0 +1,30 @@
+/* ============================================================================
+   편집기 스타일 진입점.
+   이 파일은 순서만 정한다. 규칙(선택자)을 여기에 쓰지 않는다.
+
+   계층 규칙
+     1) tokens/palette.css  원시값. 컴포넌트가 직접 쓰지 않는다.
+     2) tokens/*.css        의미 토큰(--ed-*). 컴포넌트는 여기까지만 안다.
+     3) base.css            리셋과 앱 껍데기 기본값
+     4) editor/*.css        화면 조각. 리터럴 색상·px 금지, var(--ed-*) 만 쓴다.
+
+   KG 브랜드 토큰(--navy-800 등)은 public/kg/colors_and_type.css 가 소유한다.
+   편집기 토큰은 --ed- 접두사를 붙여 절대 섞이지 않게 한다.
+   ============================================================================ */
+
+@import './tokens/palette.css';
+@import './tokens/color.css';
+@import './tokens/type.css';
+@import './tokens/space.css';
+@import './tokens/shape.css';
+@import './tokens/motion.css';
+@import './tokens/layer.css';
+
+@import './base.css';
+
+@import './editor/chrome.css';
+@import './editor/canvas.css';
+@import './editor/selection.css';
+@import './editor/handles.css';
+@import './editor/panel.css';
+@import './editor/inline-text.css';

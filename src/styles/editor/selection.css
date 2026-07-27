@@ -1,0 +1,29 @@
+/* ----------------------------------------------------------------------------
+   선택 표시.
+   오버레이는 배율이 걸리지 않은 층이라 선 굵기가 확대에 따라 변하지 않는다.
+   흐름(flow) 요소와 떼어낸(detached) 요소를 색으로 구분한다 — 지금 무엇을 만지고 있는지가
+   PPT식 편집에서 가장 자주 헷갈리는 지점이다.
+   ---------------------------------------------------------------------------- */
+.ed-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--ed-z-overlay);
+}
+
+.ed-selbox {
+  position: absolute;
+  border: var(--ed-select-bw) solid var(--ed-select-flow);
+  border-radius: var(--ed-r-xs);
+  pointer-events: none;
+}
+
+.ed-selbox[data-mode='flow'] {
+  border-style: dashed;
+  border-color: var(--ed-select-flow);
+}
+
+.ed-selbox[data-mode='detached'] {
+  border-style: solid;
+  border-color: var(--ed-select-detached);
+}

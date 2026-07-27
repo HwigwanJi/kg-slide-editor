@@ -1,0 +1,62 @@
+/* ----------------------------------------------------------------------------
+   리셋과 앱 껍데기 골격.
+   골격은 그리드 영역 이름만 정의한다. 어떤 조각이 어디 들어갈지는 App.tsx 가 정한다.
+   ---------------------------------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--ed-bg);
+  color: var(--ed-fg);
+  font-family: var(--ed-font);
+  font-size: var(--ed-fs-md);
+  line-height: var(--ed-lh-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, select, textarea { font: inherit; color: inherit; }
+
+:focus-visible {
+  outline: var(--ed-bw-strong) solid var(--ed-focus-ring);
+  outline-offset: 1px;
+}
+
+.ed-app {
+  height: 100%;
+  display: grid;
+  grid-template-columns: var(--ed-rail-w) minmax(0, 1fr) var(--ed-panel-w);
+  grid-template-rows: var(--ed-toolbar-h) minmax(0, 1fr) var(--ed-statusbar-h);
+  grid-template-areas:
+    'toolbar toolbar toolbar'
+    'rail    canvas  panel'
+    'status  status  status';
+}
+
+.ed-app > [data-area='toolbar'] { grid-area: toolbar; }
+.ed-app > [data-area='rail']    { grid-area: rail; }
+.ed-app > [data-area='canvas']  { grid-area: canvas; }
+.ed-app > [data-area='panel']   { grid-area: panel; }
+.ed-app > [data-area='status']  { grid-area: status; }
+
+/* 화면이 좁으면 좌측 레일부터 접는다. */
+@media (max-width: 1200px) {
+  .ed-app {
+    grid-template-columns: minmax(0, 1fr) var(--ed-panel-w);
+    grid-template-areas:
+      'toolbar toolbar'
+      'canvas  panel'
+      'status  status';
+  }
+  .ed-app > [data-area='rail'] { display: none; }
+}
+
+.ed-visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}

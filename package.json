@@ -1,0 +1,35 @@
+{
+  "name": "kg-slide-editor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "케인즈그룹 장표(KG HTML)를 불러와 세미 PPT 방식으로 편집하는 에디터 — 코어/계약 레이어",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tiptap/core": "^3.29.0",
+    "@tiptap/extension-bold": "^3.29.0",
+    "@tiptap/extension-document": "^3.29.0",
+    "@tiptap/extension-hard-break": "^3.29.0",
+    "@tiptap/extension-italic": "^3.29.0",
+    "@tiptap/extension-strike": "^3.29.0",
+    "@tiptap/extension-text": "^3.29.0",
+    "@tiptap/extension-underline": "^3.29.0",
+    "@tiptap/extensions": "^3.29.0",
+    "@tiptap/pm": "^3.29.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "typescript": "^5.9.3",
+    "vite": "^8.1.5"
+  }
+}

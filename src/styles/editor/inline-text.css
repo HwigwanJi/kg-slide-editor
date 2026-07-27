@@ -1,0 +1,27 @@
+/* ----------------------------------------------------------------------------
+   인라인 텍스트 편집(tiptap) 표시.
+
+   tiptap 은 대상 요소 안에 자기 div 를 하나 넣는다. 그 div 가 레이아웃에 영향을 주면
+   편집을 열자마자 장표가 움찔한다. 아래 규칙은 그 div 를 부모에 완전히 투명하게 만든다.
+   ---------------------------------------------------------------------------- */
+.ed-paper .ProseMirror {
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-align: inherit;
+  white-space: inherit;
+  word-break: inherit;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ed-paper [data-kg-editing] {
+  outline: var(--ed-select-bw) solid var(--ed-editing);
+  outline-offset: 2px;
+  border-radius: var(--ed-r-xs);
+  cursor: text;
+}

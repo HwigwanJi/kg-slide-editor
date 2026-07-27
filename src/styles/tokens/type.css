@@ -1,0 +1,24 @@
+/* ----------------------------------------------------------------------------
+   타이포 토큰 — 편집기 UI 전용.
+   장표 안쪽 글자는 KG 토큰(--fs-body 등)이 지배한다. 여기 값이 장표에 닿으면 안 된다.
+   ---------------------------------------------------------------------------- */
+:root {
+  --ed-font: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+  --ed-font-mono: 'JetBrains Mono', 'Cascadia Mono', Consolas, monospace;
+
+  --ed-fs-xs: 11px;
+  --ed-fs-sm: 12px;
+  --ed-fs-md: 13px;
+  --ed-fs-lg: 15px;
+  --ed-fs-xl: 18px;
+
+  --ed-fw-regular: 400;
+  --ed-fw-medium: 500;
+  --ed-fw-semibold: 600;
+  --ed-fw-bold: 700;
+
+  --ed-lh-tight: 1.25;
+  --ed-lh-body: 1.5;
+
+  --ed-tracking-label: 0.02em;
+}

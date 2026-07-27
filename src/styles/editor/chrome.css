@@ -1,0 +1,139 @@
+/* ----------------------------------------------------------------------------
+   껍데기 — 툴바 / 좌측 레일 / 상태바 / 기본 컨트롤.
+   여기 있는 규칙은 전부 토큰 참조다. 리터럴 색상·px 를 넣지 않는다.
+   ---------------------------------------------------------------------------- */
+.ed-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--ed-sp-2);
+  padding: 0 var(--ed-sp-3);
+  background: var(--ed-surface);
+  border-bottom: var(--ed-bw) solid var(--ed-border);
+  z-index: var(--ed-z-chrome);
+  overflow-x: auto;
+}
+
+.ed-group {
+  display: flex;
+  align-items: center;
+  gap: var(--ed-sp-1);
+}
+
+.ed-sep {
+  width: var(--ed-bw);
+  height: var(--ed-sp-5);
+  background: var(--ed-border);
+  margin-inline: var(--ed-sp-1);
+  flex: 0 0 auto;
+}
+
+.ed-title {
+  font-size: var(--ed-fs-lg);
+  font-weight: var(--ed-fw-semibold);
+  color: var(--ed-fg-strong);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 26ch;
+}
+
+.ed-label {
+  font-size: var(--ed-fs-xs);
+  font-weight: var(--ed-fw-semibold);
+  letter-spacing: var(--ed-tracking-label);
+  color: var(--ed-fg-muted);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ed-btn {
+  height: var(--ed-control-h);
+  min-width: var(--ed-control-h);
+  padding-inline: var(--ed-sp-2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ed-sp-1);
+  background: transparent;
+  color: var(--ed-fg);
+  border: var(--ed-bw) solid transparent;
+  border-radius: var(--ed-r-sm);
+  font-size: var(--ed-fs-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--ed-dur-fast) var(--ed-ease);
+}
+.ed-btn:hover:not(:disabled) { background: var(--ed-hover); }
+.ed-btn:active:not(:disabled) { background: var(--ed-active); }
+.ed-btn:disabled { opacity: 0.38; cursor: default; }
+.ed-btn[aria-pressed='true'] {
+  background: var(--ed-accent-weak);
+  border-color: var(--ed-accent);
+  color: var(--ed-fg-strong);
+}
+.ed-btn--primary {
+  background: var(--ed-accent);
+  color: var(--ed-fg-on-accent);
+  font-weight: var(--ed-fw-semibold);
+}
+.ed-btn--primary:hover:not(:disabled) { background: var(--ed-accent-hover); }
+.ed-btn--danger { color: var(--ed-danger); }
+
+.ed-input,
+.ed-select {
+  height: var(--ed-control-h);
+  padding-inline: var(--ed-sp-2);
+  background: var(--ed-surface-sunken);
+  border: var(--ed-bw) solid var(--ed-border);
+  border-radius: var(--ed-r-sm);
+  font-size: var(--ed-fs-sm);
+  min-width: 0;
+}
+.ed-input--num { width: 6ch; text-align: right; font-variant-numeric: tabular-nums; }
+
+/* 좌측 레일 — 문서 목록 */
+.ed-rail {
+  background: var(--ed-surface);
+  border-right: var(--ed-bw) solid var(--ed-border);
+  overflow-y: auto;
+  padding: var(--ed-sp-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ed-sp-1);
+}
+.ed-rail__item {
+  text-align: left;
+  padding: var(--ed-sp-2);
+  border-radius: var(--ed-r-sm);
+  border: var(--ed-bw) solid transparent;
+  background: transparent;
+  cursor: pointer;
+  font-size: var(--ed-fs-sm);
+  color: var(--ed-fg);
+}
+.ed-rail__item:hover { background: var(--ed-hover); }
+.ed-rail__item[aria-current='true'] {
+  background: var(--ed-accent-weak);
+  border-color: var(--ed-accent);
+}
+.ed-rail__meta {
+  display: block;
+  font-size: var(--ed-fs-xs);
+  color: var(--ed-fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 상태바 */
+.ed-statusbar {
+  display: flex;
+  align-items: center;
+  gap: var(--ed-sp-3);
+  padding-inline: var(--ed-sp-3);
+  background: var(--ed-surface);
+  border-top: var(--ed-bw) solid var(--ed-border);
+  font-size: var(--ed-fs-xs);
+  color: var(--ed-fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+.ed-statusbar__spacer { margin-left: auto; }
+.ed-statusbar__error { color: var(--ed-danger); }

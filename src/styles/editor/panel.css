@@ -1,0 +1,66 @@
+/* ----------------------------------------------------------------------------
+   속성 패널 — 색상·타이포·배치.
+   실제 컨트롤 구성은 나중에 프론트에서 채운다. 여기서는 자리와 리듬만 고정한다.
+   ---------------------------------------------------------------------------- */
+.ed-panel {
+  background: var(--ed-surface);
+  border-left: var(--ed-bw) solid var(--ed-border);
+  overflow-y: auto;
+  z-index: var(--ed-z-panel);
+  display: flex;
+  flex-direction: column;
+}
+
+.ed-section {
+  padding: var(--ed-sp-3);
+  border-bottom: var(--ed-bw) solid var(--ed-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ed-sp-2);
+}
+.ed-section__title {
+  font-size: var(--ed-fs-xs);
+  font-weight: var(--ed-fw-bold);
+  letter-spacing: var(--ed-tracking-label);
+  color: var(--ed-fg-muted);
+  text-transform: uppercase;
+}
+
+.ed-field {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: var(--ed-sp-2);
+}
+.ed-field__label {
+  font-size: var(--ed-fs-sm);
+  color: var(--ed-fg-muted);
+}
+.ed-field__control { display: flex; align-items: center; gap: var(--ed-sp-1); min-width: 0; }
+
+/* 브랜드 토큰 스와치 — 목록은 contract/tokens.ts 가 KG CSS에서 읽어 온다 */
+.ed-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--ed-swatch));
+  gap: var(--ed-sp-1);
+}
+.ed-swatch {
+  width: var(--ed-swatch);
+  height: var(--ed-swatch);
+  padding: 0;
+  border: var(--ed-bw) solid var(--ed-border-strong);
+  border-radius: var(--ed-r-xs);
+  cursor: pointer;
+  background-color: var(--ed-swatch-color, transparent);
+}
+.ed-swatch[aria-pressed='true'] {
+  outline: var(--ed-bw-strong) solid var(--ed-accent);
+  outline-offset: 1px;
+}
+
+.ed-empty {
+  padding: var(--ed-sp-4);
+  color: var(--ed-fg-muted);
+  font-size: var(--ed-fs-sm);
+  line-height: var(--ed-lh-body);
+}

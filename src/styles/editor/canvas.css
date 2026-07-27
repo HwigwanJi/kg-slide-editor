@@ -1,0 +1,50 @@
+/* ----------------------------------------------------------------------------
+   캔버스 — 장표 종이와 배율.
+
+   --ed-scale / --ed-slide-w / --ed-slide-h 는 JS가 문서(doc.canvas)에서 읽어 넣는다.
+   치수의 진실은 저장계약이므로 여기에는 폴백만 둔다.
+   ---------------------------------------------------------------------------- */
+.ed-canvas {
+  background: var(--ed-stage);
+  overflow: auto;
+  display: grid;
+  place-items: center;
+  padding: var(--ed-canvas-gutter);
+  z-index: var(--ed-z-canvas);
+}
+
+/* 배율이 반영된 크기를 갖는 기준 상자. 선택 오버레이가 여기에 붙는다. */
+.ed-stage {
+  position: relative;
+  width: calc(var(--ed-slide-w, 1280px) * var(--ed-scale, 1));
+  height: calc(var(--ed-slide-h, 905px) * var(--ed-scale, 1));
+  flex: 0 0 auto;
+  touch-action: none;
+}
+
+/* 실제 1280×905 종이. 안쪽은 KG CSS가 지배한다. */
+.ed-paper {
+  width: var(--ed-slide-w, 1280px);
+  height: var(--ed-slide-h, 905px);
+  transform: scale(var(--ed-scale, 1));
+  transform-origin: top left;
+  background: var(--ed-paper);
+  box-shadow: var(--ed-shadow-paper);
+}
+
+/* 편집 중에는 장표 안의 글자 선택을 끈다. 드래그가 글자 선택으로 새는 것을 막는다. */
+.ed-paper .kg-slide { user-select: none; }
+.ed-paper [data-kg-editing] { user-select: text; }
+
+/* 편집 대상 힌트 */
+.ed-paper[data-hint='on'] [data-kg-text]:hover {
+  outline: var(--ed-bw) dashed var(--ed-select-flow);
+  outline-offset: 1px;
+}
+
+.ed-canvas__empty {
+  color: var(--ed-fg-muted);
+  font-size: var(--ed-fs-md);
+  text-align: center;
+  line-height: var(--ed-lh-body);
+}

@@ -1,0 +1,24 @@
+/* ----------------------------------------------------------------------------
+   리사이즈 핸들 — 8방향.
+   위치는 CSS가 정한다. transform.pointer.ts 는 방향 이름(data-handle)만 붙인다.
+   ---------------------------------------------------------------------------- */
+.ed-handle {
+  position: absolute;
+  width: var(--ed-handle-size);
+  height: var(--ed-handle-size);
+  background: var(--ed-handle-fill);
+  border: var(--ed-bw) solid var(--ed-handle-stroke);
+  border-radius: var(--ed-r-xs);
+  box-shadow: var(--ed-shadow-sm);
+  pointer-events: auto;
+  touch-action: none;
+}
+
+.ed-handle[data-handle='nw'] { top: 0; left: 0; transform: translate(-50%, -50%); cursor: nwse-resize; }
+.ed-handle[data-handle='n']  { top: 0; left: 50%; transform: translate(-50%, -50%); cursor: ns-resize; }
+.ed-handle[data-handle='ne'] { top: 0; left: 100%; transform: translate(-50%, -50%); cursor: nesw-resize; }
+.ed-handle[data-handle='e']  { top: 50%; left: 100%; transform: translate(-50%, -50%); cursor: ew-resize; }
+.ed-handle[data-handle='se'] { top: 100%; left: 100%; transform: translate(-50%, -50%); cursor: nwse-resize; }
+.ed-handle[data-handle='s']  { top: 100%; left: 50%; transform: translate(-50%, -50%); cursor: ns-resize; }
+.ed-handle[data-handle='sw'] { top: 100%; left: 0; transform: translate(-50%, -50%); cursor: nesw-resize; }
+.ed-handle[data-handle='w']  { top: 50%; left: 0; transform: translate(-50%, -50%); cursor: ew-resize; }
