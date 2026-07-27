@@ -14,6 +14,7 @@ import {
   parseSettings, parseSlideDoc,
   type DeckDoc, type ProjectSettings, type SlideDoc,
 } from '@contract/index';
+import { mergeForSave } from '@core/merge';
 
 /** 브라우저 저장소로 시작할 때의 이름. 폴더로 옮기면 폴더 이름으로 바뀐다. */
 export const DEFAULT_PROJECT_NAME = '기본 프로젝트';
@@ -75,7 +76,11 @@ export const localProject: ProjectAdapter = {
   },
 
   async saveSlide(doc) {
-    localStorage.setItem(SLIDE_PREFIX + doc.id, JSON.stringify(assertSlideDoc(doc)));
+    const raw = localStorage.getItem(SLIDE_PREFIX + doc.id);
+    let disk: SlideDoc | null = null;
+    try { disk = raw ? parseSlideDoc(JSON.parse(raw)) : null; } catch { disk = null; }
+    const { doc: merged } = mergeForSave(doc, disk);
+    localStorage.setItem(SLIDE_PREFIX + doc.id, JSON.stringify(assertSlideDoc(merged)));
   },
 
   async deleteSlide(id) {

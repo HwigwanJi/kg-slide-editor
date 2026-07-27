@@ -93,6 +93,28 @@ export function carryOverlay(prev: SlideDoc, next: SlideDoc): { doc: SlideDoc; r
   };
 }
 
+/**
+ * 저장 직전 병합 — 어느 저장소든 여기를 지난다.
+ *
+ * 메모리의 원본은 장표를 연 시점의 것이다. 그 사이 명령줄이 새로 그렸다면 그대로 쓰면 덮어 버린다.
+ * 그래서 디스크의 원본을 가져다 붙이고, 내 오버레이는 경로가 아직 맞는지 확인한 뒤 얹는다.
+ *
+ * 적재 쪽(carryOverlay)과 같은 규칙이다. 저장과 적재가 다른 규칙을 쓰면
+ * 어느 쪽을 지났느냐에 따라 결과가 달라진다.
+ *
+ * @param memory 편집기가 들고 있는 문서
+ * @param disk   지금 저장소에 있는 문서. 없으면 첫 저장이다.
+ */
+export function mergeForSave(
+  memory: SlideDoc,
+  disk: SlideDoc | null,
+): { doc: SlideDoc; report: CarryReport | null } {
+  if (!disk || disk.source.html === memory.source.html) return { doc: memory, report: null };
+  const rebased: SlideDoc = { ...memory, source: disk.source, canvas: disk.canvas };
+  const { doc, report } = carryOverlay(memory, rebased);
+  return { doc: { ...doc, updatedAt: memory.updatedAt }, report };
+}
+
 /** 보고문. 조용히 버리지 않기 위한 것이다. */
 export function formatCarry(report: CarryReport): string {
   if (report.dropped.length === 0) return `편집분 ${report.carried}건을 그대로 이었습니다`;

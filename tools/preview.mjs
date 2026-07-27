@@ -140,7 +140,8 @@ async function htmlOf(file) {
  */
 function standalone(slideHtml, slideCss) {
   // 경로는 전부 KG 폴더 기준 상대경로다. 아래 shoot() 이 그 폴더 안에 임시 파일을 만들어 연다.
-  const html = slideHtml.replace(/(?:\.\.\/)*assets\//g, 'assets/');
+  // 작도 원본은 ../assets/, 적재본은 /kg/assets/ 로 들고 있다. 둘 다 되돌려야 그림이 뜬다.
+  const html = slideHtml.replace(/(?:(?:\.\.\/)+|\/kg\/)assets\//g, 'assets/');
   return `<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">
 <link rel="stylesheet" href="colors_and_type.css">
 <link rel="stylesheet" href="kg-slide.css">

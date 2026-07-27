@@ -207,7 +207,7 @@ async function assemble(file) {
 <link rel="stylesheet" href="kg-slide.css">
 <style>html,body{margin:0;background:#fff;}
 .kg-detached-layer{position:absolute;inset:0;pointer-events:none;}
-${slideCss}</style></head><body>${slideHtml.replace(/(?:\.\.\/)*assets\//g, 'assets/')}</body></html>`;
+${slideCss}</style></head><body>${slideHtml.replace(/(?:(?:\.\.\/)+|\/kg\/)assets\//g, 'assets/')}</body></html>`;
 }
 
 /* ------------------------------------------------------------------ */

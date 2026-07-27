@@ -9,10 +9,11 @@
 import {
   DECK_FILE, DEFAULT_SETTINGS, PREVIEW_DIR, SETTINGS_FILE, SLIDES_DIR, SLIDE_EXT, assertSlideDoc,
   createDeck, parseDeck, parseSettings, parseSlideDoc, previewFileName, slideFileName,
-  type DeckEntry,
+  type DeckEntry, type SlideDoc,
 } from '@contract/index';
 import { rememberFolder, recallFolder } from './handle.store';
 import { reconcileSlides } from '@core/deck';
+import { mergeForSave } from '@core/merge';
 import { projectNameFrom, type ProjectAdapter } from './project';
 
 /** lib.dom 에 아직 없는 부분만 좁게 선언한다. */
@@ -331,17 +332,10 @@ export function folderProject(root: FileSystemDirectoryHandle): ProjectAdapter {
     async saveSlide(doc) {
       const slides = await dirWrite(SLIDES_DIR);
       const raw = await readText(slides, slideFileName(doc.id));
-      let merged = doc;
-      if (raw) {
-        try {
-          const disk = parseSlideDoc(JSON.parse(raw));
-          if (disk.source.html !== doc.source.html) {
-            merged = { ...doc, source: disk.source, canvas: disk.canvas };
-          }
-        } catch {
-          // 읽을 수 없으면 우리 것을 쓴다. 저장을 막는 편이 더 나쁘다.
-        }
-      }
+      // 읽을 수 없으면 우리 것을 쓴다. 저장을 막는 편이 더 나쁘다.
+      let disk: SlideDoc | null = null;
+      try { disk = raw ? parseSlideDoc(JSON.parse(raw)) : null; } catch { disk = null; }
+      const { doc: merged } = mergeForSave(doc, disk);
       await writeFile(slides, slideFileName(doc.id), JSON.stringify(assertSlideDoc(merged), null, 2));
     },
 

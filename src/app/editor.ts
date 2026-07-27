@@ -762,6 +762,13 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
 
     /* 저장·내보내기 */
     async save() {
+      // 저장은 하나다. 아직 자리가 없으면 이번에 정한다 — 처음 저장할 때 어디에 둘지 묻는
+      // 것은 어느 편집기에서나 같다. 브라우저 저장소에만 두면 파일이 되지 못해
+      // 명령줄도 다른 컴퓨터도 그 장표를 보지 못한다.
+      if (!project.isFolder) {
+        await api.saveToFolder();
+        return;
+      }
       await withBusy('저장하는 중', `저장 완료 — ${project.location}`, async () => {
         const doc = slides.get();
         if (!deck.get().slides.some((s) => s.id === doc.id)) {
