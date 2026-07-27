@@ -14,6 +14,7 @@
  *
  * 몇 번을 돌려도 결과가 같다. 이미 있는 설정은 덮어쓰지 않고 필요한 항목만 더한다.
  */
+import { createHash } from 'node:crypto';
 import { cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { homedir } from 'node:os';
@@ -49,42 +50,51 @@ const log = (mark, msg) => console.log(`${mark} ${msg}`);
 await mkdir(join(HOME, 'skills'), { recursive: true });
 
 /**
- * 설치본이 저장소본과 다른 파일 목록.
+ * 사람이 설치본을 직접 고쳤는가.
  *
  * ~/.claude/skills 는 저장소에서 만들어 내는 파생물이지만, 사람이 거기를 직접 고치는 일이 실제로 생긴다.
  * 그대로 덮으면 그 수정이 소리 없이 사라진다 — 이 도구가 막으려는 바로 그 종류의 사고다.
+ *
+ * 저장소본과 그냥 대조하면 안 된다. 저장소를 고쳐도 "다르다" 가 되어 갱신할 때마다 걸린다.
+ * 그러면 사람은 늘 --force 를 붙이게 되고 장치는 없느니만 못해진다.
+ * 그래서 지난번에 무엇을 깔았는지 적어 두고, 설치본이 그때 그대로인지만 본다.
  */
+const LEDGER = join(HOME, 'skills', '.kg-install.json');
 const norm = (buf) => buf.toString('utf8').replace(/\r\n/g, '\n');
+const digest = (buf) => createHash('sha256').update(norm(buf)).digest('hex').slice(0, 16);
 
-async function drifted(src, dst, base = '') {
-  const out = [];
-  for (const e of await readdir(src, { withFileTypes: true })) {
-    const rel = base ? `${base}/${e.name}` : e.name;
-    const [a, b] = [join(src, e.name), join(dst, e.name)];
-    if (e.isDirectory()) {
-      if (existsSync(b)) out.push(...await drifted(a, b, rel));
-      continue;
-    }
-    if (!existsSync(b)) continue;
-    const [x, y] = await Promise.all([readFile(a), readFile(b)]);
-    if (x.equals(y)) continue;
-    // 줄 끝 차이는 수정이 아니다. 받은 컴퓨터가 CRLF 로 풀어 놓으면 내용이 같아도 바이트가 달라진다.
-    if (norm(x) === norm(y)) continue;
-    out.push(rel);
+/** 폴더 안 모든 파일의 지문. 키는 스킬 이름부터 시작하는 상대 경로. */
+async function fingerprint(dir, base) {
+  const out = {};
+  for (const e of await readdir(dir, { withFileTypes: true })) {
+    const rel = `${base}/${e.name}`;
+    const p = join(dir, e.name);
+    if (e.isDirectory()) Object.assign(out, await fingerprint(p, rel));
+    else out[rel] = digest(await readFile(p));
   }
   return out;
 }
 
 const force = process.argv.includes('--force');
-const changed = [];
-for (const name of await readdir(join(ROOT, 'skills'))) {
-  const dst = join(HOME, 'skills', name);
-  if (existsSync(dst)) changed.push(...(await drifted(join(ROOT, 'skills', name), dst)).map((f) => `${name}/${f}`));
+const past = existsSync(LEDGER) ? JSON.parse(await readFile(LEDGER, 'utf8')) : null;
+const touched = [];
+
+if (past) {
+  for (const name of await readdir(join(ROOT, 'skills'))) {
+    const dst = join(HOME, 'skills', name);
+    if (!existsSync(dst)) continue;
+    const now = await fingerprint(dst, name);
+    for (const [rel, sum] of Object.entries(now)) {
+      // 깔 때 없던 파일은 사람이 넣은 것이고, 지문이 달라진 것은 사람이 고친 것이다.
+      if (past[rel] !== sum) touched.push(rel);
+    }
+  }
 }
 
-if (changed.length > 0 && !force) {
-  console.error('✕ 설치본이 저장소본과 다릅니다. 덮어쓰면 그 수정이 사라집니다.\n');
-  for (const f of changed) console.error(`    ~/.claude/skills/${f}`);
+if (touched.length > 0 && !force) {
+  console.error('✕ 설치본을 누군가 직접 고쳤습니다. 덮어쓰면 그 수정이 사라집니다.\n');
+  for (const f of touched.slice(0, 20)) console.error(`    ~/.claude/skills/${f}`);
+  if (touched.length > 20) console.error(`    … 외 ${touched.length - 20}건`);
   console.error(`
 고칠 곳은 저장소의 skills/ 입니다. ~/.claude/skills 는 거기서 만들어 냅니다.
   · 저 수정을 살리려면  → 저장소 skills/ 로 옮긴 뒤 다시 실행
@@ -92,13 +102,18 @@ if (changed.length > 0 && !force) {
   process.exit(1);
 }
 
+const ledger = {};
 for (const name of await readdir(join(ROOT, 'skills'))) {
   const dst = join(HOME, 'skills', name);
   // 통째로 갈아 끼운다. 남은 옛 파일이 새 규칙과 섞이면 무엇이 적용됐는지 알 수 없게 된다.
   await rm(dst, { recursive: true, force: true });
   await cp(join(ROOT, 'skills', name), dst, { recursive: true });
+  Object.assign(ledger, await fingerprint(dst, name));
   log('•', `스킬 ${name}`);
 }
+// 다음 설치가 "사람이 고쳤는지" 를 가릴 기준이다.
+await writeFile(LEDGER, `${JSON.stringify(ledger, null, 2)}
+`, 'utf8');
 
 /* ---------- 2. 훅 ---------- */
 
