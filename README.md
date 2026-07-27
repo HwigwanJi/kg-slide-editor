@@ -6,18 +6,34 @@
 
 ## 현재 상태
 
-배선과 기반이 완성된 단계다. **UI/UX는 아직 만들지 않았다** — 툴바·패널은 동작을 확인하기 위한
-최소 형태이며, 프론트 단계에서 교체할 자리다. 교체할 때 건드릴 곳은 `src/app/*.tsx` 와
-`src/styles/editor/*.css` 두 곳뿐이다. 계약·코어·어댑터는 그대로 둔다.
+편집기와 도구가 모두 동작한다. 계약은 v4.
+화면은 2단 리본 + 좌측 장표 목록 + 우측 4탭 패널(선택·서식·위계·검사) 구성이다.
+
+모양을 손볼 때 건드릴 곳은 `src/app/*.tsx` 와 `src/styles/editor/*.css` 두 곳이다.
+계약·코어·어댑터는 그대로 둔다.
 
 ## 실행
 
 ```bash
 npm install
+npm run build:audit   # 검사 번들
+npm run build:apply   # 커맨드 적용 번들
 npm run dev
 ```
 
 `http://localhost:5180` 에서 좌측 레일의 샘플 장표를 눌러 시작한다.
+
+## 도구
+
+```bash
+node tools/ingest.mjs  <프로젝트폴더>          # 장표 HTML → slides/*.kgslide + deck.json
+node tools/lint.mjs    <입력>                  # 위계·글자 하한·넘침·이탈·빈 박스·문구
+node tools/preview.mjs <입력> [-o 출력.png]    # 1280×905 스크린샷
+node tools/apply.mjs   <slide.kgslide> --cmds  # 커맨드로 문서 고치기 (--vocab 로 목록)
+```
+
+작업 순서와 사람이 확인해야 넘어가는 지점은
+`keynes-group-design` 스킬의 `WORKFLOW.md` 에 있다.
 
 ## 조작
 
