@@ -19,7 +19,7 @@ const TAB_GROUPS: Record<RibbonTab, ActionGroup[]> = {
   삽입: ['삽입', '글자'],
   배치: ['배치', '정렬', '순서'],
   서식: ['서식'],
-  검사: ['검사', '위계', '보기'],
+  검사: ['선택', '검사', '위계', '보기'],
 };
 
 const TABS = Object.keys(TAB_GROUPS) as RibbonTab[];

@@ -17,7 +17,7 @@ export type Surface = 'toolbar' | 'context' | 'bubble' | 'palette';
 
 export type ActionGroup =
   | '파일' | '슬라이드' | '편집' | '삽입' | '글자' | '서식' | '배치' | '정렬' | '순서'
-  | '보기' | '검사' | '위계';
+  | '보기' | '선택' | '검사' | '위계';
 
 export interface ActionCtx {
   api: EditorApi;
@@ -286,6 +286,16 @@ export const ACTIONS: ActionDef[] = [
     run: ({ api }) => api.setZoom(clampZoom(currentZoom(api) * 1.15)) },
   { id: 'view.zoomOut', label: '축소', group: '보기', shortcut: 'Ctrl+-', surfaces: ['palette'],
     run: ({ api }) => api.setZoom(clampZoom(currentZoom(api) / 1.15)) },
+
+  /* ---------------- 선택 ---------------- */
+  { id: 'marquee.cross', label: '교차 선택', group: '선택',
+    hint: '빈 곳을 끌면 조금이라도 걸친 개체가 모두 선택됩니다 (파워포인트 방식)',
+    surfaces: ['toolbar', 'palette'],
+    run: ({ api }) => api.setMarqueeMode('cross') },
+  { id: 'marquee.contain', label: '포함 선택', group: '선택',
+    hint: '빈 곳을 끌면 상자가 통째로 들어온 개체만 선택됩니다 (포토샵 방식)',
+    surfaces: ['toolbar', 'palette'],
+    run: ({ api }) => api.setMarqueeMode('contain') },
 
   /* ---------------- 검사 ---------------- */
   { id: 'audit.fixAll', label: '넘침 일괄 보정', group: '검사', surfaces: ['toolbar', 'palette'],

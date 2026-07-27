@@ -11,7 +11,8 @@
  *
  * 여러 개를 골랐을 때의 규칙
  *  1. 클릭한 순서가 아니라 장표 안 순서로 늘어놓는다. 같은 선택이면 항상 같은 쪽지가 나온다.
- *  2. 부모와 그 하위를 함께 골랐으면 부모만 적는다. 하위는 "하위 포함"으로 줄인다.
+ *  2. `nodes` 에는 고른 것을 **하나도 빼지 않고** 적는다. 받는 쪽이 범위를 다시 손볼 수 있어야 한다.
+ *     부모와 하위를 함께 골랐다는 사실은 note 로 알리되, id 를 지우지는 않는다.
  *  3. 미리보기는 8줄까지만. 나머지는 개수로 줄인다. 쪽지가 길면 붙여 넣지 않게 된다.
  */
 import { ROLE_TOKENS, type NodeId, type Role, type SlideDoc } from '@contract/index';
@@ -58,22 +59,23 @@ export function buildReference({ doc, projectName, ids, root }: ReferenceInput):
   if (ids.length === 0) return '';
 
   const { kept, folded } = collapseSelection(ids);
+  const all = inDocumentOrder(ids, root);
   const ordered = inDocumentOrder(kept, root);
   const title = doc.title || '제목 없음';
 
   const lines = [
     `@kg 장표 "${title}" (${projectName})`,
     `   slide: ${doc.id}`,
-    `   nodes: ${ordered.join(', ')}`,
+    `   nodes: ${all.join(', ')}`,
   ];
 
-  const groups = new Set(ordered.map((id) => groupOf(doc, id)).filter(Boolean));
+  const groups = new Set(all.map((id) => groupOf(doc, id)).filter(Boolean));
   const notes: string[] = [];
-  if (folded > 0) notes.push(`하위 ${folded}개 포함`);
+  if (folded > 0) notes.push(`부모와 하위 ${folded}개가 함께 선택됨`);
   if (groups.size > 0) notes.push(`그룹 ${groups.size}개`);
   if (notes.length) lines.push(`   note: ${notes.join(' · ')}`);
 
-  lines.push('   ── 고른 것 ──');
+  lines.push(`   ── 고른 것 ${all.length}개 ──`);
   for (const id of ordered.slice(0, PREVIEW_LIMIT)) {
     const el = root?.querySelector<HTMLElement>(`[${ID_ATTR}="${CSS.escape(id)}"]`) ?? null;
     lines.push(`   [${label(roleOf(el), el)}] ${describe(el)}`);

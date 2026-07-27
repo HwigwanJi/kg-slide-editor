@@ -28,7 +28,7 @@ import {
   SNIPPETS, clipboard, cloneNodeSnapshot, createTransform, downloadDoc, downloadText,
   editText, importKgHtml, importKgHtmlFrom, localProject, pickProjectFolder, readDocFile,
   snippetNode,
-  type ProjectAdapter, type TextSession, type TransformController,
+  type MarqueeMode, type ProjectAdapter, type TextSession, type TransformController,
 } from '@adapters/index';
 
 /** KG 공통 CSS·자산이 서비스되는 위치. index.html 의 <link> 와 같아야 한다. */
@@ -139,6 +139,9 @@ export interface EditorApi {
   neighbors(): Neighbor[];
   /** 고정점을 붙박은 채 확대·축소 */
   scaleSelected(factor: number, anchor: Anchor): void;
+  /** 빈 곳을 끌어 여러 개를 고를 때의 판정 방식 */
+  marqueeMode(): MarqueeMode;
+  setMarqueeMode(mode: MarqueeMode): void;
   /**
    * 지금 고른 것을 가리키는 쪽지를 클립보드에 담는다.
    * 채팅창에 붙여 넣으면 AI 가 어느 장표의 어느 노드인지 정확히 안다.
@@ -833,6 +836,14 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       status(clamped
         ? `안쪽 글자 조정 — ${clamped}개는 프로젝트 하한(${settings.minFontSize}px)에서 멈췄습니다`
         : '안쪽 글자 조정함');
+    },
+
+    marqueeMode: () => transform?.marqueeMode() ?? 'cross',
+    setMarqueeMode(mode) {
+      transform?.setMarqueeMode(mode);
+      status(mode === 'contain'
+        ? '포함 선택 — 상자가 통째로 들어온 것만 고릅니다'
+        : '교차 선택 — 조금이라도 걸치면 고릅니다');
     },
 
     scaleSelected(factor, anchor) {

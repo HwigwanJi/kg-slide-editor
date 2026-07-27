@@ -11,6 +11,7 @@
  *   Shift+핸들          가로세로 비율 유지
  *   Ctrl+핸들 (다중)    합집합이 아니라 개체마다 제자리에서 각각 조절
  *   Alt                 격자 스냅 해제
+ *   빈 곳 드래그        영역 선택 (포함/교차 두 방식, Shift 뒤집기·Ctrl 더하기·Alt 빼기)
  *
  * 끄는 동안에는 커맨드를 보내지 않는다. 미리보기는 인라인 스타일로 그리고,
  * 손을 뗄 때 한 번만 보낸다. 이력이 드래그 한 번당 한 칸으로 남는다.
@@ -27,6 +28,13 @@ import {
 const SNAP = 4;
 const DRAG_THRESHOLD = 3;
 const MIN_SIZE = 8;
+
+/**
+ * 영역 드래그 방식. CAD 관습을 그대로 쓴다.
+ *  contain  포함 선택 — 상자가 통째로 들어온 것만. 실선으로 그린다.
+ *  cross    교차 선택 — 조금이라도 걸치면. 점선으로 그린다.
+ */
+export type MarqueeMode = 'contain' | 'cross';
 
 export type Handle = 'nw' | 'n' | 'ne' | 'e' | 'se' | 's' | 'sw' | 'w';
 const HANDLES: Handle[] = ['nw', 'n', 'ne', 'e', 'se', 's', 'sw', 'w'];
@@ -53,7 +61,20 @@ export interface TransformController {
   select(ids: NodeId[]): void;
   selection(): NodeId[];
   refresh(): void;
+  setMarqueeMode(mode: MarqueeMode): void;
+  marqueeMode(): MarqueeMode;
   destroy(): void;
+}
+
+interface MarqueeState {
+  originX: number;
+  originY: number;
+  x: number;
+  y: number;
+  /** 시작할 때 눌려 있던 수식어로 정한 합치는 방식 */
+  merge: 'replace' | 'add' | 'subtract' | 'toggle';
+  box: HTMLElement;
+  moved: boolean;
 }
 
 interface Target {
@@ -82,6 +103,8 @@ export function createTransform(opts: TransformOptions): TransformController {
 
   let selection: NodeId[] = [];
   let drag: DragState | null = null;
+  let marquee: MarqueeState | null = null;
+  let marqueeMode: MarqueeMode = 'cross';
 
   const setSelection = (ids: NodeId[]) => {
     selection = expandSelection(store.get(), [...new Set(ids)]);
@@ -110,7 +133,7 @@ export function createTransform(opts: TransformOptions): TransformController {
     const node = closestNode(e.target);
     const id = idOf(node);
     if (!id || !node || node === root) {
-      setSelection([]);
+      beginMarquee(e);
       return;
     }
 
@@ -194,6 +217,15 @@ export function createTransform(opts: TransformOptions): TransformController {
   }
 
   const onPointerMove = (e: PointerEvent) => {
+    if (marquee) {
+      marquee.x = e.clientX;
+      marquee.y = e.clientY;
+      if (Math.hypot(marquee.x - marquee.originX, marquee.y - marquee.originY) >= DRAG_THRESHOLD) {
+        marquee.moved = true;
+      }
+      paintMarquee();
+      return;
+    }
     if (!drag) return;
     const scale = opts.getScale() || 1;
     const rawX = (e.clientX - drag.originX) / scale;
@@ -211,6 +243,17 @@ export function createTransform(opts: TransformOptions): TransformController {
   };
 
   const onPointerUp = (e: PointerEvent) => {
+    if (marquee) {
+      const m = marquee;
+      marquee = null;
+      capture(e.pointerId, false);
+      m.box.remove();
+      // 끌지 않고 눌렀다 뗀 것은 빈 곳을 클릭한 것이다 — 선택을 푼다.
+      if (!m.moved) setSelection([]);
+      else setSelection(mergeSelection(selection, hitsIn(m), m.merge));
+      return;
+    }
+
     const d = drag;
     drag = null;
     if (!d) return;
@@ -314,6 +357,95 @@ export function createTransform(opts: TransformOptions): TransformController {
     };
   }
 
+  /* ---------- 영역 드래그 ---------- */
+
+  /**
+   * 빈 곳에서 시작한 드래그는 영역 선택이다.
+   *
+   * 수식어는 그림 도구들의 관습을 따른다.
+   *   없음   새로 고른다
+   *   Shift  뒤집는다 — 이미 고른 것은 풀고, 안 고른 것은 고른다
+   *   Ctrl   더한다
+   *   Alt    뺀다
+   */
+  function beginMarquee(e: PointerEvent) {
+    const box = document.createElement('div');
+    box.className = 'ed-marquee';
+    box.dataset['mode'] = marqueeMode;
+    layer.appendChild(box);
+
+    marquee = {
+      originX: e.clientX, originY: e.clientY, x: e.clientX, y: e.clientY,
+      merge: e.shiftKey ? 'toggle' : e.ctrlKey || e.metaKey ? 'add' : e.altKey ? 'subtract' : 'replace',
+      box, moved: false,
+    };
+    capture(e.pointerId, true);
+    e.preventDefault();
+  }
+
+  function marqueeRect(m: MarqueeState): DOMRect {
+    const left = Math.min(m.originX, m.x);
+    const top = Math.min(m.originY, m.y);
+    return new DOMRect(left, top, Math.abs(m.x - m.originX), Math.abs(m.y - m.originY));
+  }
+
+  function paintMarquee() {
+    if (!marquee) return;
+    const base = stage.getBoundingClientRect();
+    const r = marqueeRect(marquee);
+    marquee.box.style.left = `${r.left - base.left}px`;
+    marquee.box.style.top = `${r.top - base.top}px`;
+    marquee.box.style.width = `${r.width}px`;
+    marquee.box.style.height = `${r.height}px`;
+  }
+
+  /**
+   * 영역에 걸린 개체들.
+   *
+   * 묶음(그리드 칸·열)까지 잡으면 끌 때마다 장표 절반이 선택된다.
+   * 그래서 사람이 개체로 여기는 것만 후보로 둔다 — 글자 덩어리, 떼어낸 것, 넣은 것,
+   * 그리고 더 안쪽이 없는 말단 요소.
+   */
+  function hitsIn(m: MarqueeState): NodeId[] {
+    const root = opts.getRoot();
+    if (!root) return [];
+    const doc = store.get();
+    const area = marqueeRect(m);
+    const found: NodeId[] = [];
+
+    for (const el of root.querySelectorAll<HTMLElement>(`[${'data-kg-id'}]`)) {
+      const id = el.getAttribute('data-kg-id');
+      if (!id || id === 'n' || el.closest('.kg-slot')) continue;
+      if (isLocked(doc, id)) continue;
+
+      const isObject = el.hasAttribute('data-kg-text')
+        || doc.patches[id]?.layout?.mode === 'detached'
+        || el.children.length === 0;
+      if (!isObject) continue;
+
+      const r = el.getBoundingClientRect();
+      if (r.width === 0 || r.height === 0) continue;
+
+      const hit = marqueeMode === 'contain'
+        ? r.left >= area.left && r.right <= area.right && r.top >= area.top && r.bottom <= area.bottom
+        : r.left < area.right && area.left < r.right && r.top < area.bottom && area.top < r.bottom;
+      if (hit) found.push(id);
+    }
+    return found;
+  }
+
+  function mergeSelection(current: NodeId[], hits: NodeId[], how: MarqueeState['merge']): NodeId[] {
+    switch (how) {
+      case 'replace': return hits;
+      case 'add': return [...new Set([...current, ...hits])];
+      case 'subtract': return current.filter((id) => !hits.includes(id));
+      case 'toggle': return [
+        ...current.filter((id) => !hits.includes(id)),
+        ...hits.filter((id) => !current.includes(id)),
+      ];
+    }
+  }
+
   /* ---------- 오버레이 ---------- */
 
   function paint() {
@@ -382,6 +514,8 @@ export function createTransform(opts: TransformOptions): TransformController {
     select: setSelection,
     selection: () => selection,
     refresh: paint,
+    setMarqueeMode: (mode) => { marqueeMode = mode; },
+    marqueeMode: () => marqueeMode,
     destroy() {
       stage.removeEventListener('pointerdown', onPointerDown);
       stage.removeEventListener('pointermove', onPointerMove);
