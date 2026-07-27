@@ -1,22 +1,23 @@
 /**
- * 선택·이동·리사이즈 — 포인터 이벤트만 쓴다.
+ * 선택·이동·크기 조절 — 포인터 이벤트만 쓴다.
  *
  * 드래그 라이브러리를 넣지 않은 이유: 필요한 동작이 "누르고, 끌고, 놓는다" 세 가지뿐이고
  * 좌표 변환(캔버스 배율)은 어차피 직접 해야 해서 라이브러리를 붙여도 줄어드는 코드가 없다.
  *
- * PPT 관습
- *  - 드래그          : 이동. 흐름 요소는 미세 이동, 떼어낸 요소는 좌표 이동.
- *  - Ctrl+드래그     : 복사하며 이동.
- *  - 핸들 드래그     : 크기 조절. 흐름 요소는 그 순간 자동으로 떼어낸다.
- *  - Shift+클릭      : 선택 추가.
- *  - Alt             : 격자 스냅 해제.
+ * 디자인 도구 관습을 그대로 따른다
+ *   드래그              이동
+ *   Ctrl+드래그         복사하며 이동
+ *   핸들 드래그         크기 조절. 여러 개를 골랐으면 합집합 사각형이 통째로 변형된다
+ *   Shift+핸들          가로세로 비율 유지
+ *   Ctrl+핸들 (다중)    합집합이 아니라 개체마다 제자리에서 각각 조절
+ *   Alt                 격자 스냅 해제
  *
  * 끄는 동안에는 커맨드를 보내지 않는다. 미리보기는 인라인 스타일로 그리고,
  * 손을 뗄 때 한 번만 보낸다. 이력이 드래그 한 번당 한 칸으로 남는다.
  *
  * 키보드는 여기서 다루지 않는다. 단축키의 진실은 app/actions.ts 한 곳이다.
  */
-import type { NodeId } from '@contract/index';
+import { ANCHOR_ORIGIN, type NodeId } from '@contract/index';
 import {
   byId, canvasRect, closestNode, editable, expandSelection, idOf, isLocked,
   type Command, type SlideStore,
@@ -25,9 +26,17 @@ import {
 /** 격자 스냅 단위(px). KG 간격 토큰 --sp-1 과 같다. Alt 를 누르면 해제된다. */
 const SNAP = 4;
 const DRAG_THRESHOLD = 3;
+const MIN_SIZE = 8;
 
 export type Handle = 'nw' | 'n' | 'ne' | 'e' | 'se' | 's' | 'sw' | 'w';
 const HANDLES: Handle[] = ['nw', 'n', 'ne', 'e', 'se', 's', 'sw', 'w'];
+
+/** 핸들의 반대편 — 크기를 바꿀 때 붙박아 둘 지점 */
+const OPPOSITE: Record<Handle, keyof typeof ANCHOR_ORIGIN> = {
+  nw: 'se', n: 's', ne: 'sw', e: 'w', se: 'nw', s: 'n', sw: 'ne', w: 'e',
+};
+
+interface Rect { x: number; y: number; w: number; h: number }
 
 export interface TransformOptions {
   /** 배율이 걸리지 않은 기준 컨테이너. 선택 오버레이가 여기 붙는다. */
@@ -43,7 +52,6 @@ export interface TransformOptions {
 export interface TransformController {
   select(ids: NodeId[]): void;
   selection(): NodeId[];
-  /** 캔버스를 다시 그린 뒤 호출한다. 오버레이 위치를 맞춘다. */
   refresh(): void;
   destroy(): void;
 }
@@ -51,13 +59,15 @@ export interface TransformController {
 interface Target {
   id: NodeId;
   el: HTMLElement;
-  start: { x: number; y: number; w: number; h: number };
+  start: Rect;
   detached: boolean;
 }
 
 interface DragState {
   targets: Target[];
   handle: Handle | null;
+  /** 크기 조절 시작 시점의 합집합 사각형 */
+  union: Rect;
   originX: number;
   originY: number;
   moved: boolean;
@@ -90,8 +100,10 @@ export function createTransform(opts: TransformOptions): TransformController {
 
     const handleEl = (e.target as Element | null)?.closest<HTMLElement>('.ed-handle');
     if (handleEl) {
-      const id = handleEl.dataset['for'];
-      if (id) beginDrag(e, [id], handleEl.dataset['handle'] as Handle);
+      // 여러 개를 고른 상태의 핸들은 선택 전체를 대상으로 한다.
+      const only = handleEl.dataset['for'];
+      const ids = only && selection.length <= 1 ? [only] : selection;
+      beginDrag(e, ids, handleEl.dataset['handle'] as Handle);
       return;
     }
 
@@ -127,16 +139,19 @@ export function createTransform(opts: TransformOptions): TransformController {
       }
     }
 
-    // 핸들을 잡았는데 아직 흐름 안에 있으면, 지금 떼어낸다.
+    // 크기를 바꾸려면 좌표가 있어야 한다. 자동 배치 상태면 그 순간 떼어낸다.
     if (handle) {
-      const id = targetIds[0]!;
-      if (doc.patches[id]?.layout?.mode !== 'detached') {
-        const el = byId(opts.getRoot() ?? root, id);
-        if (!el) return;
-        store.dispatch({ type: 'detach', id, rect: canvasRect(root, el, opts.getScale()) });
+      const scale = opts.getScale();
+      const detachCmds: Command[] = [];
+      for (const id of targetIds) {
+        if (doc.patches[id]?.layout?.mode === 'detached') continue;
+        const el = byId(root, id);
+        if (el) detachCmds.push({ type: 'detach', id, rect: canvasRect(root, el, scale) });
+      }
+      if (detachCmds.length) {
+        store.batch(detachCmds);
         doc = store.get();
       }
-      targetIds = [id];
     }
 
     const liveRoot = opts.getRoot();
@@ -156,7 +171,14 @@ export function createTransform(opts: TransformOptions): TransformController {
     }
     if (targets.length === 0) return;
 
-    drag = { targets, handle, originX: e.clientX, originY: e.clientY, moved: false };
+    drag = {
+      targets,
+      handle,
+      union: unionOf(targets.map((t) => t.start)),
+      originX: e.clientX,
+      originY: e.clientY,
+      moved: false,
+    };
     capture(e.pointerId, true);
     e.preventDefault();
   }
@@ -183,7 +205,7 @@ export function createTransform(opts: TransformOptions): TransformController {
     const dx = snap(rawX);
     const dy = snap(rawY);
 
-    if (drag.handle) previewResize(drag.targets[0]!, drag.handle, dx, dy);
+    if (drag.handle) previewResize(drag, drag.handle, dx, dy, e);
     else for (const t of drag.targets) previewMove(t, dx, dy);
     paint();
   };
@@ -200,8 +222,9 @@ export function createTransform(opts: TransformOptions): TransformController {
     const scale = opts.getScale();
 
     if (d.handle) {
-      const t = d.targets[0]!;
-      store.dispatch({ type: 'setRect', id: t.id, rect: canvasRect(root, t.el, scale) });
+      store.batch(d.targets.map((t) => ({
+        type: 'setRect' as const, id: t.id, rect: canvasRect(root, t.el, scale),
+      })));
       return;
     }
 
@@ -234,17 +257,61 @@ export function createTransform(opts: TransformOptions): TransformController {
     }
   }
 
-  function previewResize(t: Target, handle: Handle, dx: number, dy: number) {
-    const s = t.start;
+  /**
+   * 크기 조절.
+   *
+   * 먼저 합집합 사각형을 새로 구하고, 그 변형 비율을 개체들에 옮긴다.
+   * 기본은 합집합 안에서의 상대 위치까지 함께 늘어난다(여러 개를 한 덩어리로 키우는 동작).
+   * Ctrl 을 누르면 위치는 그대로 두고 개체마다 제자리에서 각각 커진다.
+   */
+  function previewResize(d: DragState, handle: Handle, dx: number, dy: number, e: PointerEvent) {
+    const next = resizeRect(d.union, handle, dx, dy, e.shiftKey);
+    const sx = d.union.w === 0 ? 1 : next.w / d.union.w;
+    const sy = d.union.h === 0 ? 1 : next.h / d.union.h;
+    const individually = (e.ctrlKey || e.metaKey) && d.targets.length > 1;
+    const [ox, oy] = ANCHOR_ORIGIN[OPPOSITE[handle]];
+
+    for (const t of d.targets) {
+      const w = Math.max(MIN_SIZE, Math.round(t.start.w * sx));
+      const h = Math.max(MIN_SIZE, Math.round(t.start.h * sy));
+      const x = individually
+        ? Math.round(t.start.x + (t.start.w - w) * ox)
+        : Math.round(next.x + (t.start.x - d.union.x) * sx);
+      const y = individually
+        ? Math.round(t.start.y + (t.start.h - h) * oy)
+        : Math.round(next.y + (t.start.y - d.union.y) * sy);
+
+      t.el.style.left = `${x}px`;
+      t.el.style.top = `${y}px`;
+      t.el.style.width = `${w}px`;
+      t.el.style.height = `${h}px`;
+    }
+  }
+
+  /** 핸들을 끈 만큼 사각형을 다시 계산한다. keepRatio 면 큰 쪽 변화에 맞춰 비율을 지킨다. */
+  function resizeRect(r: Rect, handle: Handle, dx: number, dy: number, keepRatio: boolean): Rect {
     const west = handle.includes('w');
     const east = handle.includes('e');
     const north = handle.startsWith('n');
     const south = handle.startsWith('s');
 
-    t.el.style.left = `${west ? s.x + dx : s.x}px`;
-    t.el.style.top = `${north ? s.y + dy : s.y}px`;
-    t.el.style.width = `${Math.max(8, east ? s.w + dx : west ? s.w - dx : s.w)}px`;
-    t.el.style.height = `${Math.max(8, south ? s.h + dy : north ? s.h - dy : s.h)}px`;
+    let w = Math.max(MIN_SIZE, east ? r.w + dx : west ? r.w - dx : r.w);
+    let h = Math.max(MIN_SIZE, south ? r.h + dy : north ? r.h - dy : r.h);
+
+    if (keepRatio && r.w > 0 && r.h > 0) {
+      // 모서리 핸들은 더 많이 움직인 축을 따르고, 변 핸들은 그 축만 보고 나머지를 맞춘다.
+      const ratio = r.h / r.w;
+      const byWidth = (east || west) && (!(north || south) || Math.abs(w / r.w - 1) >= Math.abs(h / r.h - 1));
+      if (byWidth) h = Math.max(MIN_SIZE, Math.round(w * ratio));
+      else w = Math.max(MIN_SIZE, Math.round(h / ratio));
+    }
+
+    return {
+      x: west ? r.x + (r.w - w) : r.x,
+      y: north ? r.y + (r.h - h) : r.y,
+      w,
+      h,
+    };
   }
 
   /* ---------- 오버레이 ---------- */
@@ -256,31 +323,53 @@ export function createTransform(opts: TransformOptions): TransformController {
 
     const base = stage.getBoundingClientRect();
     const doc = store.get();
-    const single = selection.length === 1;
+    const boxes: DOMRect[] = [];
+    let anyEditable = false;
 
     for (const id of selection) {
       const el = byId(root, id);
       if (!el) continue;
       const r = el.getBoundingClientRect();
+      boxes.push(r);
+      if (!isLocked(doc, id)) anyEditable = true;
+
       const box = document.createElement('div');
       box.className = 'ed-selbox';
       box.dataset['mode'] = doc.patches[id]?.layout?.mode === 'detached' ? 'detached' : 'flow';
       if (isLocked(doc, id)) box.dataset['locked'] = '';
-      box.style.left = `${r.left - base.left}px`;
-      box.style.top = `${r.top - base.top}px`;
-      box.style.width = `${r.width}px`;
-      box.style.height = `${r.height}px`;
+      place(box, r, base);
 
-      if (single && !isLocked(doc, id)) {
-        for (const h of HANDLES) {
-          const dot = document.createElement('div');
-          dot.className = 'ed-handle';
-          dot.dataset['handle'] = h;
-          dot.dataset['for'] = id;
-          box.appendChild(dot);
-        }
-      }
+      // 하나만 골랐을 때는 그 상자에 바로 핸들을 붙인다.
+      if (selection.length === 1 && !isLocked(doc, id)) addHandles(box, id);
       layer.appendChild(box);
+    }
+
+    // 여러 개를 골랐으면 합집합 사각형에 핸들을 붙인다. 한 덩어리로 다루기 위한 것.
+    if (boxes.length > 1 && anyEditable) {
+      const hull = document.createElement('div');
+      hull.className = 'ed-selbox ed-selbox--group';
+      place(hull, unionRect(boxes), base);
+      addHandles(hull, '');
+      layer.appendChild(hull);
+    }
+  }
+
+  function place(box: HTMLElement, r: DOMRect | Rect, base: DOMRect) {
+    const left = 'left' in r ? r.left : r.x;
+    const top = 'top' in r ? r.top : r.y;
+    box.style.left = `${left - base.left}px`;
+    box.style.top = `${top - base.top}px`;
+    box.style.width = `${'width' in r ? r.width : r.w}px`;
+    box.style.height = `${'height' in r ? r.height : r.h}px`;
+  }
+
+  function addHandles(box: HTMLElement, forId: string) {
+    for (const h of HANDLES) {
+      const dot = document.createElement('div');
+      dot.className = 'ed-handle';
+      dot.dataset['handle'] = h;
+      if (forId) dot.dataset['for'] = forId;
+      box.appendChild(dot);
     }
   }
 
@@ -301,6 +390,22 @@ export function createTransform(opts: TransformOptions): TransformController {
       layer.remove();
     },
   };
+}
+
+function unionOf(rects: Rect[]): Rect {
+  const x = Math.min(...rects.map((r) => r.x));
+  const y = Math.min(...rects.map((r) => r.y));
+  const right = Math.max(...rects.map((r) => r.x + r.w));
+  const bottom = Math.max(...rects.map((r) => r.y + r.h));
+  return { x, y, w: right - x, h: bottom - y };
+}
+
+function unionRect(rects: DOMRect[]): Rect {
+  const x = Math.min(...rects.map((r) => r.left));
+  const y = Math.min(...rects.map((r) => r.top));
+  const right = Math.max(...rects.map((r) => r.right));
+  const bottom = Math.max(...rects.map((r) => r.bottom));
+  return { x, y, w: right - x, h: bottom - y };
 }
 
 function toggle(list: NodeId[], id: NodeId): NodeId[] {

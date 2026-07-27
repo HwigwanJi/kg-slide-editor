@@ -35,6 +35,11 @@ export interface ActionCtx {
   /** 프로젝트의 장표 수와 지금 장표의 자리(1부터) */
   slideCount: number;
   slideNumber: number;
+  /**
+   * 우클릭한 장표. 목록에서 다른 장표를 우클릭했을 때, 열려 있는 장표가 아니라
+   * 그 장표를 대상으로 삼기 위한 것. 없으면 열려 있는 장표를 쓴다.
+   */
+  contextSlideId?: string;
 }
 
 export interface ActionDef {
@@ -77,14 +82,22 @@ export const ACTIONS: ActionDef[] = [
     run: ({ api }) => void api.newSlide() },
   { id: 'deck.duplicate', label: '장표 복제', group: '슬라이드', surfaces: ['toolbar', 'palette'],
     run: ({ api }) => void api.duplicateSlide() },
-  { id: 'deck.delete', label: '이 장표 삭제', group: '슬라이드', danger: true, surfaces: ['palette'],
+  { id: 'deck.delete', label: '장표 삭제', group: '슬라이드', danger: true,
+    surfaces: ['toolbar', 'context', 'palette'],
     hint: '파일까지 지웁니다. 요소 삭제와 달리 되돌릴 수 없습니다',
     enabled: (c) => c.slideCount > 1,
-    run: ({ api }) => {
-      if (window.confirm('이 장표를 프로젝트에서 지웁니다. 되돌릴 수 없습니다.')) {
-        void api.deleteSlides([api.currentSlideId()]);
+    run: ({ api, contextSlideId }) => {
+      const id = contextSlideId ?? api.currentSlideId();
+      const entry = api.deck.get().slides.find((s) => s.id === id);
+      const name = entry?.title || '제목 없음';
+      if (window.confirm(`${name}
+
+이 장표를 프로젝트에서 지웁니다. 되돌릴 수 없습니다.`)) {
+        void api.deleteSlides([id]);
       }
     } },
+  { id: 'deck.duplicateHere', label: '장표 복제', group: '슬라이드', surfaces: ['context'],
+    run: ({ api, contextSlideId }) => void api.duplicateSlide(contextSlideId) },
   { id: 'deck.prev', label: '이전 장표', group: '슬라이드', shortcut: 'Ctrl+PageUp', surfaces: ['palette'],
     enabled: (c) => c.slideNumber > 1, run: ({ api }) => void step(api, -1) },
   { id: 'deck.next', label: '다음 장표', group: '슬라이드', shortcut: 'Ctrl+PageDown', surfaces: ['palette'],
@@ -177,11 +190,12 @@ export const ACTIONS: ActionDef[] = [
     enabled: hasSelection, run: ({ api }) => api.run({ type: 'setHidden', ids: api.selection(), hidden: false }) },
 
   /* ---------------- 배치 ---------------- */
-  { id: 'layout.detach', label: '떼어내기', group: '배치',
-    hint: '흐름에서 떼어내 자유롭게 옮깁니다. 원래 자리는 그대로 비워 둡니다',
+  { id: 'layout.detach', label: '자유 배치', group: '배치',
+    hint: '원하는 자리에 고정합니다. 원래 자리는 그대로 비워 두어 주변이 밀리지 않습니다',
     surfaces: ['toolbar', 'context', 'palette'], enabled: hasSelection, covers: ['detach'],
     run: ({ api }) => api.detachSelected() },
-  { id: 'layout.reflow', label: '흐름 복귀', group: '배치', surfaces: ['toolbar', 'context', 'palette'],
+  { id: 'layout.reflow', label: '자동 배치', group: '배치',
+    hint: 'KG 레이아웃이 위치와 크기를 정하도록 되돌립니다', surfaces: ['toolbar', 'context', 'palette'],
     enabled: (c) => c.hasDetached, covers: ['reflow'], run: ({ api }) => api.reflowSelected() },
   { id: 'layout.group', label: '그룹', group: '배치', shortcut: 'Ctrl+G',
     surfaces: ['toolbar', 'context', 'palette'], enabled: hasMulti, covers: ['group'],

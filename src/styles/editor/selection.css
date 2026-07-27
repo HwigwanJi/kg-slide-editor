@@ -33,3 +33,10 @@
   border-style: dotted;
   border-color: var(--ed-fg-muted);
 }
+
+/* 여러 개를 골랐을 때의 합집합 상자 — 한 덩어리로 다룬다는 표시 */
+.ed-selbox--group {
+  border-style: solid;
+  border-color: var(--ed-accent);
+  background: color-mix(in srgb, var(--ed-accent) 6%, transparent);
+}

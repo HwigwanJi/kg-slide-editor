@@ -11,7 +11,15 @@ const FIXTURES: [string, string][] = [
   ['/fixtures/07_Matrix.html', '샘플 · 매트릭스형'],
 ];
 
-export function DeckRail({ api, deck, currentId }: { api: EditorApi; deck: DeckDoc; currentId: string }) {
+export function DeckRail({
+  api, deck, currentId, onSlideMenu,
+}: {
+  api: EditorApi;
+  deck: DeckDoc;
+  currentId: string;
+  /** 장표를 우클릭했을 때. 어느 장표인지와 어디서 눌렀는지를 올려 보낸다. */
+  onSlideMenu(id: string, at: { x: number; y: number }): void;
+}) {
   const [dragging, setDragging] = useState<string | null>(null);
   const [over, setOver] = useState<string | null>(null);
 
@@ -42,7 +50,11 @@ export function DeckRail({ api, deck, currentId }: { api: EditorApi; deck: DeckD
       <span className="ed-label">슬라이드 {deck.slides.length}</span>
       <ol className="ed-slidelist">
         {deck.slides.map((s, i) => (
-          <li key={s.id} className="ed-slidelist__row">
+          <li
+            key={s.id}
+            className="ed-slidelist__row"
+            onContextMenu={(e) => { e.preventDefault(); onSlideMenu(s.id, { x: e.clientX, y: e.clientY }); }}
+          >
             <button
               className="ed-slide"
               draggable

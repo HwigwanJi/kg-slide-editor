@@ -2,16 +2,55 @@
    껍데기 — 툴바 / 좌측 레일 / 상태바 / 기본 컨트롤.
    여기 있는 규칙은 전부 토큰 참조다. 리터럴 색상·px 를 넣지 않는다.
    ---------------------------------------------------------------------------- */
-.ed-toolbar {
+/* 리본 — 위 줄에서 고르고 아래 줄에서 쓴다 */
+.ed-ribbon {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  background: var(--ed-surface);
+  border-bottom: var(--ed-bw) solid var(--ed-border);
+  z-index: var(--ed-z-chrome);
+  min-width: 0;
+}
+
+.ed-ribbon__top {
+  display: flex;
+  align-items: center;
+  gap: var(--ed-sp-3);
+  padding: 0 var(--ed-sp-3);
+  border-bottom: var(--ed-bw) solid var(--ed-border);
+  min-width: 0;
+}
+
+.ed-ribbon__tabs { display: flex; gap: 0; min-width: 0; overflow-x: auto; }
+.ed-ribbon__tab {
+  height: var(--ed-toolbar-h);
+  padding-inline: var(--ed-sp-3);
+  background: transparent;
+  border: 0;
+  border-bottom: var(--ed-bw-strong) solid transparent;
+  color: var(--ed-fg-muted);
+  font-size: var(--ed-fs-md);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.ed-ribbon__tab:hover { background: var(--ed-hover); }
+.ed-ribbon__tab[aria-selected='true'] {
+  color: var(--ed-fg-strong);
+  border-bottom-color: var(--ed-accent);
+  font-weight: var(--ed-fw-semibold);
+}
+
+.ed-ribbon__quick { margin-left: auto; flex: 0 0 auto; }
+
+.ed-ribbon__body {
   display: flex;
   align-items: center;
   gap: var(--ed-sp-2);
   padding: 0 var(--ed-sp-3);
-  background: var(--ed-surface);
-  border-bottom: var(--ed-bw) solid var(--ed-border);
-  z-index: var(--ed-z-chrome);
   overflow-x: auto;
+  min-width: 0;
 }
+.ed-ribbon__group { display: flex; align-items: center; gap: var(--ed-sp-1); flex: 0 0 auto; }
 
 .ed-group {
   display: flex;

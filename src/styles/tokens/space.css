@@ -13,7 +13,9 @@
   --ed-sp-8: 32px;
 
   /* 껍데기 치수 */
-  --ed-toolbar-h: 48px;
+  --ed-toolbar-h: 38px;
+  /* 리본은 2단이다 — 탭 줄 + 도구 줄 */
+  --ed-ribbon-h: calc(var(--ed-toolbar-h) * 2);
   --ed-statusbar-h: 26px;
   --ed-panel-w: 268px;
   --ed-rail-w: 176px;

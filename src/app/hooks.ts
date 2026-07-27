@@ -52,6 +52,7 @@ export function useActionCtx(
   doc: SlideDoc,
   deck: DeckDoc,
   selection: NodeId[],
+  contextSlideId?: string,
 ): ActionCtx {
   const clip = useClipboard();
   return useMemo(() => ({
@@ -65,7 +66,8 @@ export function useActionCtx(
     removedCount: doc.tree.removed.length,
     slideCount: deck.slides.length,
     slideNumber: deck.slides.findIndex((s) => s.id === doc.id) + 1,
-  }), [api, doc, deck, selection, clip.nodes, clip.format]);
+    ...(contextSlideId ? { contextSlideId } : {}),
+  }), [api, doc, deck, selection, clip.nodes, clip.format, contextSlideId]);
 }
 
 /**

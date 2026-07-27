@@ -29,7 +29,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   height: 100%;
   display: grid;
   grid-template-columns: var(--ed-rail-w) minmax(0, 1fr) var(--ed-panel-w);
-  grid-template-rows: var(--ed-toolbar-h) minmax(0, 1fr) var(--ed-statusbar-h);
+  grid-template-rows: var(--ed-ribbon-h) minmax(0, 1fr) var(--ed-statusbar-h);
   grid-template-areas:
     'toolbar toolbar toolbar'
     'rail    canvas  panel'

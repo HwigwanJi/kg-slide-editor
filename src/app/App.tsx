@@ -13,6 +13,7 @@ import { StatusBar } from './StatusBar';
 import { Toasts } from './Toast';
 import { Toolbar } from './Toolbar';
 import { Panel, type TabId } from './panels/Panel';
+import type { RibbonTab } from './Toolbar';
 import { BubbleToolbar, CommandPalette, ContextMenu, type MenuPoint } from './menus';
 import { installShortcuts } from './shortcuts';
 import {
@@ -25,12 +26,14 @@ export default function App() {
   const deck = useDeck(api);
   const selection = useSelection(api);
   const status = useStatus(api);
-  const ctx = useActionCtx(api, doc, deck, selection);
+  const [menuSlide, setMenuSlide] = useState<string | undefined>(undefined);
+  const ctx = useActionCtx(api, doc, deck, selection, menuSlide);
 
   const revision = `${doc.id}|${doc.updatedAt}|${status.message}`;
   const tokens = useTokens(api, revision);
 
   const [tab, setTab] = useState<TabId>('selection');
+  const [ribbon, setRibbon] = useState<RibbonTab>('홈');
   const [scope, setScope] = useState<'slide' | 'deck'>('slide');
   const [menuAt, setMenuAt] = useState<MenuPoint | null>(null);
   const [anchor, setAnchor] = useState<DOMRect | null>(null);
@@ -58,12 +61,15 @@ export default function App() {
 
   return (
     <div className="ed-app">
-      <Toolbar api={api} title={doc.title} ctx={ctx} />
-      <DeckRail api={api} deck={deck} currentId={doc.id} />
+      <Toolbar api={api} title={doc.title} ctx={ctx} tab={ribbon} onTab={setRibbon} />
+      <DeckRail
+        api={api} deck={deck} currentId={doc.id}
+        onSlideMenu={useCallback((id: string, at: MenuPoint) => { setMenuSlide(id); setMenuAt(at); }, [])}
+      />
       <SlideCanvas
         api={api}
         selection={selection}
-        onContextMenu={setMenuAt}
+        onContextMenu={useCallback((at: MenuPoint) => { setMenuSlide(undefined); setMenuAt(at); }, [])}
         onAnchor={useCallback((r: DOMRect | null) => setAnchor(r), [])}
       />
       <Panel
@@ -77,7 +83,7 @@ export default function App() {
       />
       <StatusBar doc={doc} deck={deck} status={status} selected={selection.length} issues={issues.length} />
 
-      <ContextMenu at={menuAt} ctx={ctx} onClose={useCallback(() => setMenuAt(null), [])} />
+      <ContextMenu at={menuAt} ctx={ctx} onClose={useCallback(() => { setMenuAt(null); setMenuSlide(undefined); }, [])} />
       <BubbleToolbar anchor={anchor} ctx={ctx} />
       <CommandPalette open={paletteOpen} ctx={ctx} onClose={useCallback(() => setPaletteOpen(false), [])} />
       <Toasts api={api} />
