@@ -9,5 +9,6 @@ export * from './store';
 export * from './render';
 export * from './overflow';
 export * from './neighbors';
+export * from './reference';
 export * from './format';
 export * from './serialize';

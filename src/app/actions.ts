@@ -145,6 +145,11 @@ export const ACTIONS: ActionDef[] = [
   { id: 'insert.box', label: '박스', group: '삽입', shortcut: 'Ctrl+Shift+B',
     surfaces: ['toolbar', 'context', 'palette'], run: ({ api }) => api.insert('box') },
 
+  { id: 'select.copyRef', label: '참조 복사', group: '편집', shortcut: 'Ctrl+Shift+R',
+    hint: '고른 것을 가리키는 쪽지를 복사합니다. 채팅창에 붙여 넣으면 AI 가 어디를 고칠지 정확히 압니다',
+    surfaces: ['bubble', 'context', 'toolbar', 'palette'],
+    enabled: (c) => c.count > 0, run: ({ api }) => void api.copyReference() },
+
   /* ---------------- 글자 ---------------- */
   { id: 'text.edit', label: '글자 편집', group: '글자', shortcut: 'F2',
     hint: '더블클릭해도 열립니다', surfaces: ['context', 'bubble', 'palette'],

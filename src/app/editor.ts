@@ -18,7 +18,8 @@ import {
 } from '@contract/index';
 import {
   auditOverflow, byId, canvasRect, createDeckStore, createSlideStore, editable, expandSelection,
-  fitFontSize, fixOptions, groupOf, listNodes, isRemoved, neighborsOf, readFormat, render, roleOf,
+  buildReference, fitFontSize, fixOptions, groupOf, listNodes, isRemoved, neighborsOf,
+  readFormat, render, roleOf,
   scopeFormat, slideNumber, themeCss, toStandaloneHtml,
   type Command, type DeckStore, type FixOption, type FormatScope, type Neighbor,
   type OverflowIssue, type SlideStore,
@@ -138,6 +139,11 @@ export interface EditorApi {
   neighbors(): Neighbor[];
   /** 고정점을 붙박은 채 확대·축소 */
   scaleSelected(factor: number, anchor: Anchor): void;
+  /**
+   * 지금 고른 것을 가리키는 쪽지를 클립보드에 담는다.
+   * 채팅창에 붙여 넣으면 AI 가 어느 장표의 어느 노드인지 정확히 안다.
+   */
+  copyReference(): Promise<void>;
   /**
    * 선택 요소 '안에 있는 글자 전체'의 크기를 배율로 조정한다.
    *
@@ -756,6 +762,31 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       const id = api.selection()[0];
       const el = id ? elementOf(id) : null;
       return root && el ? neighborsOf(root, el, scale()) : [];
+    },
+
+    async copyReference() {
+      const ids = api.selection();
+      if (ids.length === 0) {
+        status('먼저 요소를 고르세요', true);
+        return;
+      }
+      const text = buildReference({
+        doc: slides.get(), projectName: api.projectName(), ids, root,
+      });
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        // 권한이 막히거나 안전하지 않은 출처면 옛 방식으로 물러난다.
+        const box = document.createElement('textarea');
+        box.value = text;
+        box.style.cssText = 'position:fixed;left:-9999px;';
+        document.body.appendChild(box);
+        box.select();
+        document.execCommand('copy');
+        box.remove();
+      }
+      status(`참조 복사함 — ${ids.length}개. 채팅창에 붙여 넣으세요`);
+      toast('ok', `참조 복사함 — ${ids.length}개`);
     },
 
     scaleTextInside(factor, growBox) {
