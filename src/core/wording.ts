@@ -102,6 +102,33 @@ const RULES: Rule[] = [
  */
 const MSGBAND_MAX = 70;
 
+/**
+ * 세부주제는 "무엇을 한다" 를 말해야 한다.
+ *
+ * 실제로 겪은 일이다. 원본의 `ADL 기반 비계량 평가 고도화` 가 옮겨지면서
+ * `비계량 지표 평가관점 · 접근방법–실행–학습과 혁신` 이 되었다. 틀린 말은 없지만
+ * 무엇을 하겠다는 주장이 사라지고 구성요소 나열만 남았다. 한 덱에서 13장이 그랬다.
+ *
+ * 아래 말 하나라도 있으면 주장이 서 있다고 본다. 정확한 판정은 사람이 하고,
+ * 여기서는 "행위어가 아예 없고 가운뎃점으로만 이어 붙인" 명백한 자리만 짚는다.
+ */
+/*
+ * **끝을 본다.** 한국어는 행위어가 맨 뒤에 온다 — "비계량 평가 고도화".
+ * 어디든 들어 있기만 하면 되는 것으로 잡으면 `평가관점` 같은 명사에 걸려 검사가 헐거워진다.
+ */
+const ACTION_TAIL = new RegExp(
+  '(고도화|구축|재구축|재설계|재정립|정립|도출|수립|재수립|강화|확대|축소|전환|개선|정비'
+  + '|연계|체계화|내재화|확산|정착|이행|점검|진단|설계|재편|추진|마련|가시화|표준화|일원화'
+  + '|제시|분석|평가|관리|운영|배분|매핑|선정|발굴|해소|보완|정리|통합|분리|승계|설정|지원'
+  + '|검토|의견수렴|구조화|확보|제고|방안|계획|개요|로드맵|프로세스|체계|기준|모델)$',
+);
+
+/**
+ * 나열 기호. 가운뎃점·슬래시에 더해 붙임표(–)도 센다.
+ * `접근방법–실행–학습과 혁신` 처럼 붙임표로만 이어 붙인 자리가 실제로 있었다.
+ */
+const LIST_MARK = /[·/–]/g;
+
 /** 장표 안 글자를 훑어 규칙에 걸리는 대목을 찾는다. */
 export function auditWording(root: HTMLElement, slideId?: string): WordingIssue[] {
   const issues: WordingIssue[] = [];
@@ -115,6 +142,26 @@ export function auditWording(root: HTMLElement, slideId?: string): WordingIssue[
       hit: `${message.length}자`,
       preview: `${message.slice(0, 40)}…`,
       detail: `헤더 메시지는 공백 포함 ${MSGBAND_MAX}자 안에서 한 줄로 끝낸다. ${message.length - MSGBAND_MAX}자 줄여야 한다.`,
+      ...(slideId ? { slideId } : {}),
+    });
+  }
+
+  const sub = root.querySelector('.kg-section-sub');
+  const subText = (sub?.textContent ?? '').trim().replace(/\s+/g, ' ');
+  /*
+   * 둘을 함께 본다. 나열 기호가 둘 이상이면서 행위어로 끝나지 않을 때만 짚는다.
+   * 하나만 보면 헐거워진다 — 나열만 보면 `규정 제·개정 지원` 이 걸리고,
+   * 끝만 보면 `핵심과제 우선순위 설정` 이 걸린다. 둘 다 멀쩡한 문구다.
+   */
+  const marks = (subText.match(LIST_MARK) ?? []).length;
+  if (subText.length >= 10 && marks >= 2 && !ACTION_TAIL.test(subText)) {
+    issues.push({
+      id: sub?.getAttribute(ID_ATTR) ?? 'n',
+      rule: '세부주제 — 무엇을 하는지가 없음',
+      hit: `나열 ${marks}개 · 끝말 "${subText.split(/[·/–\s]/).filter(Boolean).pop() ?? ''}"`,
+      preview: subText.length > 40 ? `${subText.slice(0, 40)}…` : subText,
+      detail: '구성요소를 이어 붙였을 뿐 무엇을 하는지가 없다. '
+        + '"…고도화" "…구축" "…재설계" 처럼 이 장이 무엇을 하는 장인지가 끝에 오게 고쳐 쓴다.',
       ...(slideId ? { slideId } : {}),
     });
   }
