@@ -3,20 +3,22 @@
  *
  * render(mount, doc) 는 순수하다: 같은 문서를 넣으면 항상 같은 DOM이 나온다.
  * 부분 갱신을 하지 않는 이유는 상태가 DOM에 남아 진실이 둘이 되는 것을 막기 위해서다.
- * (장표 한 장은 노드 수백 개 규모라 통째로 다시 그려도 부담이 없다)
  *
- * React는 이 DOM을 건드리지 않는다. 캔버스는 여기가, 편집기 껍데기는 React가 소유한다.
+ * 레이아웃이 흔들리지 않게 하는 세 가지 장치가 여기 있다.
+ *  1. 떼어낼 때 원래 자리에 같은 크기의 빈 자리를 남긴다 → 주변 요소가 밀리지 않는다.
+ *  2. 미세 이동은 transform 으로만 한다 → 리플로가 일어나지 않는다.
+ *  3. 선택 표시는 DOM 바깥 오버레이가 그린다 → 장표 안 박스 크기에 영향이 없다.
  */
 import type { LayoutPatch, SlideDoc, StylePatch } from '@contract/index';
-import { toCssColor } from '@contract/index';
-import { ID_ATTR, byId, stampIds } from './ids';
+import { isAdded, toCssColor } from '@contract/index';
+import { ID_ATTR, SLOT_CLASS, byId, stampIds } from './ids';
 import { sanitizeInline } from './sanitize';
+import { isRemoved } from './tree';
 
 /** 흐름에서 떼어낸 요소가 모이는 층. 슬라이드 루트의 직계 자식이라 좌표계가 캔버스와 같다. */
 export const DETACHED_LAYER_CLASS = 'kg-detached-layer';
 
 export interface RenderResult {
-  /** 렌더된 .kg-slide 요소 */
   root: HTMLElement;
 }
 
@@ -26,44 +28,75 @@ export function render(mount: HTMLElement, doc: SlideDoc): RenderResult {
   if (!root) throw new Error('원본 HTML에 .kg-slide 요소가 없음');
 
   stampIds(root);
-  applyPatches(root, doc);
+  removeTombstoned(root, doc);
+  const layer = materializeAdded(root, doc);
+  applyAppearance(root, doc);
+  placeDetached(root, doc, layer);
   return { root };
 }
 
-function applyPatches(root: HTMLElement, doc: SlideDoc): void {
-  // 1) 텍스트·서식 — 제자리에서 적용
+/* ------------------------------------------------------------------ */
+/* 1. 존재 — 지워진 것과 추가된 것                                       */
+/* ------------------------------------------------------------------ */
+
+function removeTombstoned(root: HTMLElement, doc: SlideDoc): void {
+  for (const id of doc.tree.removed) byId(root, id)?.remove();
+}
+
+function ensureLayer(root: HTMLElement): HTMLElement {
+  const existing = root.querySelector<HTMLElement>(`.${DETACHED_LAYER_CLASS}`);
+  if (existing) return existing;
+  const layer = document.createElement('div');
+  layer.className = DETACHED_LAYER_CLASS;
+  root.appendChild(layer);
+  return layer;
+}
+
+/** 추가 노드(삽입·복제)를 실제 요소로 만든다. 항상 떼어낸 층에 놓인다. */
+function materializeAdded(root: HTMLElement, doc: SlideDoc): HTMLElement | null {
+  const entries = Object.entries(doc.tree.added);
+  if (entries.length === 0 && doc.stack.length === 0) return null;
+  const layer = ensureLayer(root);
+
+  for (const [id, node] of entries) {
+    const tpl = document.createElement('template');
+    tpl.innerHTML = node.html.trim();
+    const el = tpl.content.firstElementChild;
+    if (!(el instanceof HTMLElement)) continue;
+    el.removeAttribute('style');
+    stampIds(el, id);
+    layer.appendChild(el);
+  }
+  return layer;
+}
+
+/* ------------------------------------------------------------------ */
+/* 2. 모양 — 글자와 서식                                                */
+/* ------------------------------------------------------------------ */
+
+function applyAppearance(root: HTMLElement, doc: SlideDoc): void {
   for (const [id, patch] of Object.entries(doc.patches)) {
+    if (isRemoved(doc, id)) continue;
     const el = byId(root, id);
     if (!el) continue;
     if (patch.hidden) {
-      el.style.display = 'none';
+      el.style.visibility = 'hidden';
       continue;
     }
     if (patch.text) el.innerHTML = sanitizeInline(patch.text.html);
     if (patch.style) applyStyle(el, patch.style);
     if (patch.layout?.mode === 'flow') applyFlowOffset(el, patch.layout);
   }
-
-  // 2) 배치 — 떼어낸 요소를 전용 층으로 옮긴다. stack 순서대로 옮겨야 쌓임이 맞는다.
-  const detached = doc.stack.filter((id) => doc.patches[id]?.layout?.mode === 'detached');
-  if (detached.length === 0) return;
-
-  const layer = document.createElement('div');
-  layer.className = DETACHED_LAYER_CLASS;
-  root.appendChild(layer);
-
-  detached.forEach((id, index) => {
-    const el = byId(root, id);
-    const layout = doc.patches[id]?.layout;
-    if (!el || !layout) return;
-    applyDetached(el, layout, index);
-    layer.appendChild(el);
-  });
 }
 
 function applyStyle(el: HTMLElement, s: StylePatch): void {
   if (s.color) el.style.color = toCssColor(s.color);
-  if (s.background) el.style.background = toCssColor(s.background);
+  if (s.gradient) {
+    const g = s.gradient;
+    el.style.background = `linear-gradient(${g.angle}deg, ${toCssColor(g.from)}, ${toCssColor(g.to)})`;
+  } else if (s.background) {
+    el.style.background = toCssColor(s.background);
+  }
   if (s.borderColor) {
     el.style.borderColor = toCssColor(s.borderColor);
     if (!el.style.borderStyle) el.style.borderStyle = 'solid';
@@ -90,8 +123,43 @@ function applyFlowOffset(el: HTMLElement, l: LayoutPatch): void {
   el.style.transform = `translate(${dx}px, ${dy}px)`;
 }
 
+/* ------------------------------------------------------------------ */
+/* 3. 배치 — 떼어낸 요소                                                */
+/* ------------------------------------------------------------------ */
+
+function placeDetached(root: HTMLElement, doc: SlideDoc, layerHint: HTMLElement | null): void {
+  const detached = doc.stack.filter((id) => doc.patches[id]?.layout?.mode === 'detached');
+  if (detached.length === 0) return;
+  const layer = layerHint ?? ensureLayer(root);
+
+  detached.forEach((id, index) => {
+    const el = byId(root, id);
+    const layout = doc.patches[id]?.layout;
+    if (!el || !layout) return;
+
+    // 원본 노드를 떼어낼 때는 원래 자리에 같은 크기의 빈 자리를 남긴다.
+    // 이것이 없으면 형제들이 즉시 위로 밀려 올라가 장표가 통째로 흔들린다.
+    if (!isAdded(id) && layout.keepSlot !== false && el.parentElement !== layer) {
+      el.insertAdjacentElement('beforebegin', makeSlot(el));
+    }
+    applyDetachedBox(el, layout, index);
+    layer.appendChild(el);
+  });
+}
+
+/** 같은 자리를 차지하는 투명한 사본. 클릭도 받지 않는다. */
+function makeSlot(el: HTMLElement): HTMLElement {
+  const slot = el.cloneNode(true) as HTMLElement;
+  slot.className = `${el.className} ${SLOT_CLASS}`.trim();
+  slot.removeAttribute(ID_ATTR);
+  for (const child of slot.querySelectorAll(`[${ID_ATTR}]`)) child.removeAttribute(ID_ATTR);
+  slot.style.visibility = 'hidden';
+  slot.style.pointerEvents = 'none';
+  return slot;
+}
+
 /** 캔버스 절대좌표 고정. 좌표계는 .kg-slide 기준(1280×905)이다. */
-function applyDetached(el: HTMLElement, l: LayoutPatch, stackIndex: number): void {
+function applyDetachedBox(el: HTMLElement, l: LayoutPatch, stackIndex: number): void {
   el.style.position = 'absolute';
   el.style.margin = '0';
   el.style.left = `${l.x ?? 0}px`;
@@ -102,8 +170,10 @@ function applyDetached(el: HTMLElement, l: LayoutPatch, stackIndex: number): voi
   el.style.transform = '';
 }
 
+/* ------------------------------------------------------------------ */
+
 /**
- * 요소의 현재 캔버스 좌표. 떼어내기(detach) 시 시작 사각형을 잡을 때 쓴다.
+ * 요소의 현재 캔버스 좌표. 떼어내기 시 시작 사각형을 잡을 때 쓴다.
  * scale 은 캔버스 래퍼에 걸린 CSS 배율이다.
  */
 export function canvasRect(
@@ -121,7 +191,9 @@ export function canvasRect(
   };
 }
 
-/** 캔버스 안에서 ID가 찍힌 요소를 모두 나열한다. 선택 UI가 목록을 만들 때 쓴다. */
+/** 캔버스 안에서 ID가 찍힌 요소를 모두 나열한다. 개요·검사 화면이 쓴다. */
 export function listNodes(root: HTMLElement): HTMLElement[] {
-  return [...root.querySelectorAll<HTMLElement>(`[${ID_ATTR}]`)];
+  return [...root.querySelectorAll<HTMLElement>(`[${ID_ATTR}]`)].filter(
+    (el) => !el.closest(`.${SLOT_CLASS}`),
+  );
 }

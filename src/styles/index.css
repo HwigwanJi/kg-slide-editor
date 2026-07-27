@@ -27,4 +27,5 @@
 @import './editor/selection.css';
 @import './editor/handles.css';
 @import './editor/panel.css';
+@import './editor/menu.css';
 @import './editor/inline-text.css';

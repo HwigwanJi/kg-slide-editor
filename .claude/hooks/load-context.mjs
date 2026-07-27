@@ -53,6 +53,24 @@ if (existsSync(contractDir)) {
   }
 }
 
+/* R8 — 화면에 노출되지 않은 커맨드가 있는가 */
+const commandsFile = join(ROOT, 'src', 'core', 'commands.ts');
+const actionsFile = join(ROOT, 'src', 'app', 'actions.ts');
+if (existsSync(commandsFile) && existsSync(actionsFile)) {
+  const commandsText = readFileSync(commandsFile, 'utf8');
+  const union = /export type Command =([\s\S]*?);\n/.exec(commandsText)?.[1] ?? '';
+  const declared = [...union.matchAll(/type:\s*'([a-zA-Z]+)'/g)].map((m) => m[1]);
+  const actionsText = readFileSync(actionsFile, 'utf8');
+  const covered = new Set(
+    [...actionsText.matchAll(/covers:\s*\[([^\]]*)\]/g)]
+      .flatMap((m) => [...m[1].matchAll(/'([a-zA-Z]+)'/g)].map((x) => x[1])),
+  );
+  const missing = [...new Set(declared)].filter((c) => !covered.has(c));
+  if (missing.length) {
+    problems.push(`R8 확인 필요 — 액션에 covers 로 표시되지 않은 커맨드: ${missing.join(', ')}`);
+  }
+}
+
 if (problems.length) {
   out.push(`\n### 점검 결과 (${problems.length}건)\n` + problems.map((p) => `- ${p}`).join('\n'));
 }

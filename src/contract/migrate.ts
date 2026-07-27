@@ -4,13 +4,15 @@
  * 규칙은 "버전 n 문서를 n+1 문서로 바꾸는 순수 함수"다.
  */
 import { CONTRACT_VERSION } from './schema';
+import { EMPTY_TREE } from './tree';
+import { DEFAULT_THEME } from './typography';
 
 type RawDoc = Record<string, unknown>;
 
 /** key = 출발 버전. MIGRATIONS[1] 은 v1 → v2 변환이다. */
 const MIGRATIONS: Record<number, (doc: RawDoc) => RawDoc> = {
-  // 예시)
-  // 1: (d) => ({ ...d, v: 2, notes: [] }),
+  /** v1 → v2 : 구조 오버레이(tree)와 위계 전역값(theme) 도입. 기존 문서는 둘 다 비어 있다. */
+  1: (d) => ({ ...d, v: 2, tree: { ...EMPTY_TREE }, theme: { ...DEFAULT_THEME, roles: {} } }),
 };
 
 export class ContractVersionError extends Error {

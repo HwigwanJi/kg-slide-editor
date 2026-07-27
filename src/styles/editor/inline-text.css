@@ -19,9 +19,24 @@
   min-width: 0;
 }
 
+/* 인라인 요소(span·b 등) 안에서는 블록 div 가 되면 줄바꿈이 달라져 장표가 움찔한다.
+   호스트가 인라인이면 편집기 div 도 인라인으로 흐르게 한다. */
+.ed-paper :is(span, b, strong, i, em, u, s, a, small, label)[data-kg-editing] > .ProseMirror {
+  display: inline;
+  flex: none;
+}
+
+/* 선택·편집 표시는 outline 만 쓴다. border/padding 은 상자 크기를 바꿔 주변을 밀어낸다. */
 .ed-paper [data-kg-editing] {
   outline: var(--ed-select-bw) solid var(--ed-editing);
   outline-offset: 2px;
   border-radius: var(--ed-r-xs);
   cursor: text;
 }
+
+/* 떼어낸 자리에 남는 빈 자리 — 크기만 차지하고 아무것도 하지 않는다. */
+.ed-paper .kg-slot { visibility: hidden !important; pointer-events: none !important; }
+
+/* 떼어낸 요소가 모이는 층 */
+.ed-paper .kg-detached-layer { position: absolute; inset: 0; pointer-events: none; }
+.ed-paper .kg-detached-layer > * { pointer-events: auto; }

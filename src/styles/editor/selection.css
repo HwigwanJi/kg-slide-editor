@@ -27,3 +27,9 @@
   border-style: solid;
   border-color: var(--ed-select-detached);
 }
+
+/* 잠긴 요소 — 선택은 되지만 옮기거나 지울 수 없다. 핸들도 나오지 않는다. */
+.ed-selbox[data-locked] {
+  border-style: dotted;
+  border-color: var(--ed-fg-muted);
+}

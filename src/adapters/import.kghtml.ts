@@ -3,13 +3,15 @@
  *
  * 원본은 손대지 않고 그대로 source.html 에 넣는다. 유일한 예외가 자산 경로 치환인데,
  * 이는 원본 파일 위치(slides/)와 편집기 위치가 달라 이미지가 깨지기 때문이다.
+ *
+ * 임포트 시점에 상단 고정 위계를 잠근다. 헤더·메시지띠·꼬리말은 KG 장표의 정체성이라
+ * 실수로 끌어 옮기거나 지우면 장표 전체가 무너진다. 필요하면 사용자가 잠금을 푼다.
  */
-import { createSlideDoc, type SlideDoc } from '@contract/index';
+import { LOCKED_BY_DEFAULT, createSlideDoc, type SlideDoc } from '@contract/index';
+import { ID_ATTR, stampIds } from '@core/index';
 
 export interface ImportOptions {
-  /** 원본 파일명·경로 (추적용) */
   origin?: string;
-  /** KG 자산이 서비스되는 기준 경로 */
   assetBase?: string;
   id?: string;
   now?: string;
@@ -21,7 +23,7 @@ export function importKgHtml(html: string, opts: ImportOptions = {}): SlideDoc {
   const assetBase = opts.assetBase ?? '/kg/assets/';
   const parsed = new DOMParser().parseFromString(html, 'text/html');
 
-  const slide = parsed.querySelector('section.kg-slide');
+  const slide = parsed.querySelector<HTMLElement>('section.kg-slide');
   if (!slide) {
     throw new Error('KG 장표가 아님 — <section class="kg-slide"> 를 찾지 못했습니다.');
   }
@@ -44,6 +46,7 @@ export function importKgHtml(html: string, opts: ImportOptions = {}): SlideDoc {
     id: opts.id ?? crypto.randomUUID(),
     title,
     now: opts.now ?? new Date().toISOString(),
+    locked: lockedIds(slide),
     source: {
       kind: 'kg-html',
       html: slide.outerHTML,
@@ -51,6 +54,24 @@ export function importKgHtml(html: string, opts: ImportOptions = {}): SlideDoc {
       ...(opts.origin ? { origin: opts.origin } : {}),
     },
   });
+}
+
+/**
+ * 잠글 노드의 id 를 미리 계산한다.
+ * 사본에 ID를 찍어 조회한 뒤 버린다 — 원본 HTML에는 편집기 흔적이 남지 않는다.
+ * 스탬핑이 결정적이므로 렌더할 때 같은 id 가 다시 나온다.
+ */
+function lockedIds(slide: HTMLElement): string[] {
+  const probe = slide.cloneNode(true) as HTMLElement;
+  stampIds(probe);
+  const ids: string[] = [];
+  for (const selector of LOCKED_BY_DEFAULT) {
+    for (const el of probe.querySelectorAll(selector)) {
+      const id = el.getAttribute(ID_ATTR);
+      if (id) ids.push(id);
+    }
+  }
+  return [...new Set(ids)];
 }
 
 /** 경로에서 바로 불러오기. 개발 중 fixtures 를 띄울 때 쓴다. */

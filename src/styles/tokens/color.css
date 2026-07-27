@@ -36,6 +36,9 @@
   --ed-handle-stroke: var(--ed-c-blue-500);
   --ed-editing: var(--ed-c-green-500);
 
+  /* 겹침 배경 */
+  --ed-scrim: color-mix(in srgb, var(--ed-c-slate-950) 55%, transparent);
+
   /* 신호 */
   --ed-danger: var(--ed-c-red-500);
   --ed-warn: var(--ed-c-amber-500);

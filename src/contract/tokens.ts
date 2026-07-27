@@ -5,7 +5,7 @@
  * 여기에 팔레트를 복사해 두면 진실이 둘이 되므로, 실행 시점에 그 CSS를 읽어 목록을 만든다.
  * 색상 선택 UI는 이 목록만 보고 그린다. (하드코딩 hex 금지)
  */
-import type { ColorRef } from './schema';
+import type { ColorRef } from './style';
 
 export interface KgToken {
   /** CSS 변수명에서 `--` 를 뗀 이름. 예: navy-800 */
