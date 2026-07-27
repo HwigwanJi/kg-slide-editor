@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Slides" name="목차 (TOC)" subtitle="로마숫자 2단 목차 (세로 레일, 하단 채움)" viewport="1280x905" -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>목차 — Table of Contents</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="../kg-slide.css">
+<link rel="stylesheet" href="kg-standalone.css">
+<style>
+  .toc{background:linear-gradient(160deg,#1F497D 0%,#17375E 60%,#102544 100%);padding:50px 64px 46px;display:flex;flex-direction:column;}
+  .toc__logo{position:absolute;top:40px;right:56px;height:28px;opacity:.92;}
+  .toc__head{font-family:var(--font-serif);font-size:36px;font-weight:700;color:#fff;
+    letter-spacing:.01em;display:inline-block;padding-bottom:9px;
+    border-bottom:3px solid var(--blue-500);margin-bottom:34px;}
+  .toc__grid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1px 1fr;column-gap:54px;}
+  .toc__rule{background:repeating-linear-gradient(to bottom,rgba(255,255,255,.28) 0 6px,transparent 6px 12px);}
+  .toc__col{position:relative;display:flex;flex-direction:column;justify-content:space-between;}
+  .toc__col::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;
+    background:repeating-linear-gradient(to bottom,rgba(149,179,215,.4) 0 5px,transparent 5px 11px);}
+  .toc__blk{position:relative;padding:0 0 0 20px;border-left:3px solid var(--blue-500);background:linear-gradient(90deg,rgba(79,129,189,.12),transparent 60%);}
+  .toc__chap{display:flex;gap:16px;align-items:baseline;}
+  .toc__roman{font-family:var(--font-serif);font-weight:700;font-size:30px;color:var(--blue-400);
+    min-width:48px;line-height:1;}
+  .toc__chaptitle{font-size:23px;font-weight:700;color:#fff;letter-spacing:-.01em;}
+  .toc__desc{font-size:12px;color:var(--blue-300);font-weight:500;margin:7px 0 0 64px;}
+  .toc__items{margin:11px 0 0 64px;display:flex;flex-direction:column;gap:8px;}
+  .toc__item{display:flex;gap:11px;font-size:14.5px;color:var(--blue-200);font-weight:500;align-items:center;}
+  .toc__item .n{color:var(--blue-400);font-weight:700;min-width:14px;}
+  .toc__item::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.08);}
+</style>
+</head>
+<body>
+<section class="kg-slide toc kg-root" data-screen-label="목차">
+  <img class="toc__logo" src="../assets/keynes-group-logo-shadow.png" alt="Keynes Group">
+  <div class="toc__head">Table of Contents</div>
+  <div class="toc__grid">
+    <div class="toc__col">
+      <div class="toc__blk">
+        <div class="toc__chap"><span class="toc__roman">I.</span><span class="toc__chaptitle">사업 개요</span></div>
+        <div class="toc__desc">과업의 배경·목적과 추진 방향 정의</div>
+        <div class="toc__items">
+          <div class="toc__item"><span class="n">1.</span>과업 배경 및 목적</div>
+          <div class="toc__item"><span class="n">2.</span>과업 범위 및 추진 방향</div>
+        </div>
+      </div>
+      <div class="toc__blk">
+        <div class="toc__chap"><span class="toc__roman">II.</span><span class="toc__chaptitle">제도·환경 분석</span></div>
+        <div class="toc__desc">현행 조세지원 제도 진단과 국내외 비교</div>
+        <div class="toc__items">
+          <div class="toc__item"><span class="n">1.</span>조세지원 제도 현황 및 실효성 제약</div>
+          <div class="toc__item"><span class="n">2.</span>국내외 제도 비교 분석</div>
+        </div>
+      </div>
+    </div>
+    <div class="toc__rule"></div>
+    <div class="toc__col">
+      <div class="toc__blk">
+        <div class="toc__chap"><span class="toc__roman">III.</span><span class="toc__chaptitle">사업 수행 방안</span></div>
+        <div class="toc__desc">조사·분석 설계부터 개선방안·이행전략 도출</div>
+        <div class="toc__items">
+          <div class="toc__item"><span class="n">1.</span>수혜기업 심층조사(FGI) 설계</div>
+          <div class="toc__item"><span class="n">2.</span>제도개선 시나리오 파급효과 분석</div>
+          <div class="toc__item"><span class="n">3.</span>조세지원 체계 개선방안 도출</div>
+          <div class="toc__item"><span class="n">4.</span>단계별 이행전략</div>
+        </div>
+      </div>
+      <div class="toc__blk">
+        <div class="toc__chap"><span class="toc__roman">IV.</span><span class="toc__chaptitle">과업 추진 일정</span></div>
+        <div class="toc__desc">추진 체계와 단계별 마일스톤</div>
+        <div class="toc__items">
+          <div class="toc__item"><span class="n">1.</span>추진 체계 및 마일스톤</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="kg-fit.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Slides" name="A. 변화 흐름형" subtitle="x: 스택바·flow·막대·도넛 / 연결: 삼각·타임라인레일 / 라벨: kg-cornern 없음" viewport="1280x905" -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>A. 변화 흐름형 — Change Flow</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="../kg-slide.css">
+<link rel="stylesheet" href="kg-standalone.css">
+<style>
+  /* ── 시선강탈형: 중앙 대형 계단 hero (62%) + 우측 위성(38%) ── */
+  .hero{flex:1;min-height:0;display:grid;grid-template-columns:1fr 340px;gap:18px;}
+
+  /* 계단형 발전 경로 — 하나의 큰 도해 */
+  .stair{position:relative;background:var(--neutral-050);border:1px solid var(--neutral-200);border-radius:6px;
+    padding:16px 16px 52px;display:flex;align-items:flex-end;gap:0;min-height:0;}
+  .stair__cap{position:absolute;left:16px;top:12px;font-size:13px;font-weight:700;color:var(--ink-500);letter-spacing:.02em;}
+  .step{position:relative;flex:1;display:flex;flex-direction:column;background:#fff;border:1px solid var(--neutral-300);
+    border-radius:5px;overflow:hidden;box-shadow:0 1px 2px rgba(23,55,94,.07);margin-left:-1px;}
+  /* 상승 위계: step은 .stair의 자식 2~5 (자식1=cap, 자식6=rail) */
+  .step:nth-child(2){margin-left:0;min-height:58%;}
+  .step:nth-child(3){min-height:70%;}
+  .step:nth-child(4){min-height:82%;}
+  .step:nth-child(5){min-height:96%;}
+  .step__hd{display:flex;align-items:center;gap:8px;background:var(--navy-800);color:#fff;padding:7px 10px;}
+  .step__era{font-size:13px;font-weight:800;letter-spacing:.01em;}
+  .step__hd small{font-size:13px;font-weight:600;color:#fff;opacity:.72;}
+  .step:nth-child(5) .step__hd{background:var(--red-600);}
+  .step__ttl{font-size:14px;font-weight:700;color:var(--ink-navy);line-height:1.28;padding:10px 10px 6px;}
+  .step__bd{flex:1;padding:0 10px 12px;display:flex;flex-direction:column;gap:8px;justify-content:flex-start;}
+  .metric{background:var(--neutral-050);border:1px solid var(--neutral-200);border-radius:4px;padding:7px 9px;text-align:center;}
+  .metric b{display:block;font-size:20px;font-weight:800;color:var(--navy-800);line-height:1.05;}
+  .step:nth-child(5) .metric b{color:var(--red-600);}
+  .metric span{font-size:13px;color:var(--ink-700);font-weight:600;}
+  .step__note{font-size:13px;color:var(--ink-700);line-height:1.45;}
+  .step__note b{color:var(--navy-800);}
+  /* 계단 사이 상승 화살표 */
+  .step:not(:last-child)::after{content:"";position:absolute;right:-7px;bottom:14px;z-index:5;width:0;height:0;
+    border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:9px solid var(--blue-500);}
+  /* 하단 진행 레일 */
+  .stair__rail{position:absolute;left:16px;right:16px;bottom:16px;height:24px;border-radius:12px;
+    background:linear-gradient(90deg,var(--neutral-200),var(--blue-200) 62%,#F4D9D4 62%);
+    display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:13px;font-weight:700;color:var(--ink-navy);}
+  .stair__rail .end{color:var(--red-600);}
+
+  /* ── 우측 위성 ── */
+  .sat{display:flex;flex-direction:column;gap:12px;min-height:0;}
+  .sat__card{background:#fff;border:1px solid var(--neutral-300);border-radius:6px;padding:13px 14px;display:flex;flex-direction:column;}
+  .sat__card--fill{flex:1;justify-content:center;}
+  .sat__ttl{font-size:13px;font-weight:700;color:var(--ink-500);margin-bottom:10px;letter-spacing:.02em;}
+  .donutrow{display:flex;align-items:center;gap:16px;}
+  .bigdonut{width:118px;height:118px;flex:0 0 auto;}
+  .bigdonut .kgx-donut__v b{font-size:30px;}
+  .bigdonut .kgx-donut__v span{font-size:13px;margin-top:3px;}
+  .donutleg{font-size:13px;color:var(--ink-700);line-height:1.9;}
+  .donutleg i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:7px;vertical-align:middle;}
+  .donutleg b{color:var(--navy-800);}
+  .sat__note{font-size:13px;color:var(--ink-700);line-height:1.5;border-top:1px dashed var(--neutral-300);margin-top:11px;padding-top:9px;}
+  .sat__note b{color:var(--navy-800);}
+  /* red 결론 (단 1곳) */
+  .concl{background:linear-gradient(180deg,#FBECEA,#F7E0DB);border:1px solid #E2A99F;border-left:4px solid var(--red-600);
+    border-radius:6px;padding:13px 15px;display:flex;flex-direction:column;gap:6px;}
+  .concl__k{font-size:13px;font-weight:800;color:var(--red-600);letter-spacing:.02em;}
+  .concl__b{font-size:14px;color:var(--ink-900);font-weight:600;line-height:1.5;}
+  .concl__b b{color:var(--red-600);}
+</style>
+</head>
+<body>
+<section class="kg-slide kg-root" data-screen-label="변화 흐름형">
+  <header class="kg-header">
+    <div class="kg-header__media"></div>
+    <div class="kg-header__num kg-section-num">01</div>
+    <div class="kg-header__divider"></div>
+    <div class="kg-header__titles">
+      <div class="kg-section-title">조세지원 정책 환경의 변화</div>
+      <div class="kg-section-sub">정책 변화 관점 · 단계적 발전 경로</div>
+    </div>
+    <div class="kg-chapter-tab"><span class="kg-chapter-tab__roman">II</span><span class="kg-chapter-tab__sep"></span><span class="kg-chapter-tag">제도·환경 분석</span></div>
+  </header>
+  <div class="kg-msgband"><p class="kg-message">공제율 확대 기조에도 환급 실효성 한계가 부각 — 정책 초점이 ‘지원 규모’에서 ‘환급 구조’로 전환되는 국면</p></div>
+  <div class="kg-body-area">
+    <div class="kg-area-title"><span class="kg-area-title__bar"></span>
+      <span class="kg-body-title">제작비 세액공제 정책의 단계적 전개와 전환 국면</span>
+      <span class="kg-caption">자료: 기재부 세제개편안 · 조특법 개정 연혁</span>
+    </div>
+
+    <div class="hero">
+      <!-- 중심 오브젝트: 계단형 발전 경로 (하나의 큰 도해) -->
+      <div class="stair">
+        <div class="stair__cap">제작비 세액공제 정책의 단계적 전개 · 규모 확대에서 구조 전환으로</div>
+        <div class="step">
+          <div class="step__hd"><span class="step__era">2017–21</span><small>도입·정착</small></div>
+          <div class="step__ttl">기본 세액공제 도입</div>
+          <div class="step__bd">
+            <div class="metric kg-kw"><b>3–10%</b><span>규모별 기본공제율</span></div>
+            <div class="step__note">§25의6 <b>제도 신설</b> — 지원 체계의 출발점</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__hd"><span class="step__era">2022–24</span><small>대상 확대</small></div>
+          <div class="step__ttl">공제 대상·요건 정비</div>
+          <div class="step__bd">
+            <div class="metric kg-kw"><b>+OTT·온라인</b><span>공제 대상 확대</span></div>
+            <div class="step__note">기본+<b>추가공제</b> 체계, 국내 지출요건 가산</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__hd"><span class="step__era">2025</span><small>공제율 상향</small></div>
+          <div class="step__ttl">세제개편 — 공제율 확대</div>
+          <div class="step__bd">
+            <div class="metric kg-kw"><b>5→10%</b><span>대기업 · 웹툰 최대 15%</span></div>
+            <div class="step__note">적용기한 <b>2028년</b>까지 연장, 지원 규모 확대</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__hd"><span class="step__era">현재~</span><small>전환 검토</small></div>
+          <div class="step__ttl">환급 실효성·구조 전환</div>
+          <div class="step__bd">
+            <div class="metric kg-kw"><b>38%</b><span>당기 미실현분</span></div>
+            <div class="step__note">해외 <b>환급형(payable)</b> 비교, 최저한세·이월 재검토</div>
+          </div>
+        </div>
+        <div class="stair__rail"><span>제도 도입 · 지원 규모 확대</span><span class="end">◆ 현 시점 — 구조 전환 분기</span></div>
+      </div>
+
+      <!-- 위성 콜아웃 -->
+      <aside class="sat">
+        <div class="sat__card sat__card--fill">
+          <div class="sat__ttl">공제 실현율의 한계</div>
+          <div class="donutrow">
+            <div class="kgx-donut bigdonut" style="--p:62;"><div class="kgx-donut__v"><b>62%</b><span>당기 실현</span></div></div>
+            <div class="donutleg"><div><i style="background:var(--xa)"></i><b>당기 실현 62%</b></div><div><i style="background:var(--xg1)"></i>이연·소멸 38%</div></div>
+          </div>
+          <div class="sat__note">공제를 받아도 <b>최저한세·이월</b>로 38%가 당기 미실현 — 규모 확대만으로 환급 유인이 확보되지 않음</div>
+        </div>
+        <div class="concl">
+          <div class="concl__k">전환 함의</div>
+          <div class="concl__b">지원 ‘규모 확대’만으로는 영세·결손 기업의 재투자 유인 확보가 어려움 — <b>환급 구조 전환</b>이 다음 단계 핵심 정책과제</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <footer class="kg-footer">
+    <span class="kg-footer__src">자료: 기획재정부 2025 세제개편안, 조특법(§25의6) 개정 연혁</span>
+    <span class="kg-footer__page">4</span>
+    <span class="kg-footer__logo"><img src="../assets/keynes-group-logo.png" alt="Keynes Group"></span>
+  </footer>
+</section>
+<script src="kg-fit.js"></script>
+</body>
+</html>

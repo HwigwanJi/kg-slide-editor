@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Slides" name="B. 근거 병렬형" subtitle="x: 도넛·혼합(막대+선)·100%스택 / 연결: 사다리꼴 그라데 / box-in-box" viewport="1280x905" -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>B. 근거 병렬형 — Parallel Evidence</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="../kg-slide.css">
+<link rel="stylesheet" href="kg-standalone.css">
+<style>
+  .wrap{flex:1;min-height:0;display:grid;grid-template-columns:1fr 66px 286px;margin-top:6px;}
+  .subtop{display:grid;grid-template-columns:1fr 66px 286px;margin-top:4px;}
+  .subtop .kg-subtopic{margin-bottom:4px;}
+  .cap-line{text-align:right;margin-bottom:8px;}
+  .evi3{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;min-height:0;}
+  /* 외곽 카드 (무채색) — 안에 차트박스/그룹박스를 중첩 (box-in-box) */
+  .ecol{display:flex;flex-direction:column;gap:7px;background:var(--neutral-100);
+    border:1px solid var(--neutral-300);border-radius:6px;padding:7px;min-height:0;}
+  .ehead{position:relative;background:var(--neutral-200);border-radius:4px;padding:7px 8px;text-align:center;
+    font-weight:700;font-size:12.5px;color:var(--ink-navy);}
+  .ehead .nm{position:absolute;left:6px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;
+    background:var(--navy-800);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+  /* 차트 박스 (흰색 내부 박스) */
+  .chbox{background:#fff;border:1px solid var(--neutral-300);border-radius:4px;padding:9px 10px;
+    display:flex;flex-direction:column;gap:6px;flex:0 0 auto;}
+  .chttl{font-size:13px;font-weight:700;color:var(--ink-navy);letter-spacing:.01em;}
+  .donut{width:88px;height:88px;border-radius:50%;flex:0 0 auto;position:relative;}
+  .donut::after{content:"";position:absolute;inset:15px;background:#fff;border-radius:50%;}
+  .donut .dc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;line-height:1;}
+  .donut .dc .v{font-size:20px;font-weight:800;color:var(--navy-800);}
+  .donut .dc .u{font-size:12px;color:var(--ink-500);font-weight:600;margin-top:2px;}
+  .chrow{display:flex;align-items:center;gap:11px;}
+  .legend{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--ink-700);}
+  .legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;vertical-align:middle;}
+  /* 100% 스택 바 */
+  .stack{display:flex;height:26px;border-radius:3px;overflow:hidden;width:100%;}
+  .stack span{display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;}
+  /* 그룹 박스 (흰색 내부 박스) — 유목화 */
+  .grps{flex:1;display:flex;flex-direction:column;gap:7px;min-height:0;}
+  .grpbox{flex:1;background:#fff;border:1px solid var(--neutral-300);border-radius:4px;padding:11px 12px;
+    display:flex;flex-direction:column;justify-content:center;gap:5px;}
+  /* 사다리꼴 (도착폭 넓게) */
+  .conn{position:relative;}
+  .conn .trap{position:absolute;inset:0;background:linear-gradient(90deg,rgba(110,120,135,.42) 0%,rgba(79,129,189,.30) 55%,rgba(79,129,189,0) 100%);
+    clip-path:polygon(0 4%,100% 13%,100% 87%,0 96%);}
+  .impl{display:flex;flex-direction:column;justify-content:space-between;gap:7px;}
+  .impl__h{font-size:13px;font-weight:700;color:#fff;text-align:center;padding:8px;border-radius:var(--r-xs);background:linear-gradient(180deg,#2C5184,#1F497D);}
+  .ibox{flex:1;background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-sm);padding:11px 12px;display:flex;flex-direction:column;justify-content:center;}
+  .ibox .it{font-size:13.5px;font-weight:700;color:var(--ink-navy);line-height:1.3;}
+  .ibox .id{font-size:12px;color:var(--ink-700);line-height:1.4;margin-top:4px;}
+  .ibox.key{background:linear-gradient(180deg,#27517F,#17375E);border-color:#16365c;}
+  .ibox.key .it{color:#fff;}.ibox.key .id{color:var(--blue-200);}
+  .kg-grp{margin:0;}
+  .kg-grp__c li{font-size:12.5px;}
+</style>
+</head>
+<body>
+<section class="kg-slide kg-root" data-screen-label="근거 병렬형">
+  <header class="kg-header">
+    <div class="kg-header__media"></div>
+    <div class="kg-header__num kg-section-num">01</div>
+    <div class="kg-header__divider"></div>
+    <div class="kg-header__titles">
+      <div class="kg-section-title">조세지원 제도 현황 및 실효성 제약</div>
+      <div class="kg-section-sub">제도 적용 관점 · 환급 실효성 진단</div>
+    </div>
+    <div class="kg-chapter-tab"><span class="kg-chapter-tab__roman">II</span><span class="kg-chapter-tab__sep"></span><span class="kg-chapter-tag">제도·환경 분석</span></div>
+  </header>
+  <div class="kg-msgband"><p class="kg-message">현행 제작비 세액공제는 최저한세·비환급·영세구조가 중첩되어 실제 환급 실효성이 제약 — 환급형 전환 검토 필요</p></div>
+  <div class="kg-body-area">
+    <div class="subtop">
+      <div class="kg-subtopic">환급 실효성을 제약하는 3대 구조적 요인</div>
+      <div></div>
+      <div class="kg-subtopic">시사점</div>
+    </div>
+    <div class="cap-line"><span class="kg-caption">단위: 제도 적용 기준 / 자료: 조특법·국세통계·콘텐츠산업조사</span></div>
+
+    <div class="wrap">
+      <div class="evi3">
+        <!-- 근거 1 : 도넛 -->
+        <div class="ecol">
+          <div class="ehead"><span class="nm">1</span>최저한세 적용</div>
+          <div class="chbox">
+            <div class="chttl">공제 실현율 (도넛)</div>
+            <div class="chrow">
+              <div class="donut" style="background:conic-gradient(var(--navy-800) 0 62%,var(--neutral-200) 62% 100%);"><div class="dc"><span class="v">62%</span><span class="u">실현</span></div></div>
+              <div class="legend"><span><i style="background:var(--navy-800)"></i>당기 실현 62%</span><span><i style="background:var(--neutral-300)"></i>미실현·이연 38%</span><span style="color:var(--ink-500);margin-top:2px;">중소 최저한세율 7%</span></div>
+            </div>
+          </div>
+          <div class="grps">
+            <div class="grpbox"><div class="kg-grp"><div class="kg-grp__k">최저한세 잠식</div><ul class="kg-grp__c"><li>공제 후에도 <strong>최소 세부담</strong> 유지</li><li>농어촌특별세 <strong>20%</strong> 추가 차감</li></ul></div></div>
+            <div class="grpbox"><div class="kg-grp"><div class="kg-grp__k kg-grp__k--gray">농특세 부담</div><ul class="kg-grp__c"><li>공제 감면분에 <strong>20% 과세</strong></li><li>실질 공제효과 추가 잠식</li></ul></div></div>
+            <div class="grpbox"><div class="kg-grp"><div class="kg-grp__k">한도·이연</div><ul class="kg-grp__c"><li>한도 도달분 <strong>차기 이월</strong></li><li>기한 내 미사용분 <strong>소멸</strong></li></ul></div></div>
+          </div>
+        </div>
+        <!-- 근거 2 : 혼합형(막대+추세선) -->
+        <div class="ecol">
+          <div class="ehead"><span class="nm">2</span>비환급·이월 구조</div>
+          <div class="chbox">
+            <div class="chttl">공제 100 → 실현 흐름 (혼합형)</div>
+            <svg viewBox="0 0 250 96" style="width:100%;height:84px;">
+              <line x1="20" y1="84" x2="240" y2="84" stroke="#CED3DA"/>
+              <rect x="34" y="20" width="40" height="64" fill="#1F497D"/>
+              <rect x="106" y="44" width="40" height="40" fill="#95B3D7"/>
+              <rect x="178" y="60" width="40" height="24" fill="#C0392B"/>
+              <text x="54" y="14" font-size="12" font-weight="700" fill="#17375E" text-anchor="middle">100</text>
+              <text x="126" y="38" font-size="12" font-weight="700" fill="#17375E" text-anchor="middle">62</text>
+              <text x="198" y="54" font-size="12" font-weight="700" fill="#C0392B" text-anchor="middle">38</text>
+              <polyline points="54,20 126,44 198,60" fill="none" stroke="#C98A1B" stroke-width="2"/>
+              <circle cx="54" cy="20" r="3" fill="#C98A1B"/><circle cx="126" cy="44" r="3" fill="#C98A1B"/><circle cx="198" cy="60" r="3" fill="#C98A1B"/>
+              <text x="54" y="94" font-size="9" fill="#6B7280" text-anchor="middle">공제 인정</text>
+              <text x="126" y="94" font-size="9" fill="#6B7280" text-anchor="middle">당기 실현</text>
+              <text x="198" y="94" font-size="9" fill="#6B7280" text-anchor="middle">이월·소멸</text>
+            </svg>
+          </div>
+          <div class="grps">
+            <div class="grpbox"><div class="kg-grp"><div class="kg-grp__k">즉시환급 불가</div><ul class="kg-grp__c"><li>납부세액 없으면 <strong>환급 불가</strong></li><li>결손·저세율 기업 <strong>사각</strong></li></ul></div></div>
+            <div class="grpbox"><div class="kg-grp"><div class="kg-grp__k kg-grp__k--gray">현금흐름 제약</div><ul class="kg-grp__c"><li>지원 시점이 <strong>납세 이후로 후행</strong></li><li>재투자 유인 약화</li></ul></div></div>
+            <div class="grpbox"><div class="kg-grp"><div class="kg-grp__k">효과 이연</div><ul class="kg-grp__c"><li>이월공제로 재투자 <strong>후행</strong></li><li>미사용 공제액 일부 <strong>소멸</strong></li></ul></div></div>
+          </div>
+        </div>
+        <!-- 근거 3 : 100% 스택 바 -->
+        <div class="ecol">
+          <div class="ehead"><span class="nm">3</span>영세 산업구조</div>
+          <div class="chbox">
+            <div class="chttl">기업 규모 분포 (100% 스택)</div>
+            <div class="stack"><span style="width:88.6%;background:var(--neutral-400,#9aa3b0);">영세 88.6%</span><span style="width:11.4%;background:var(--navy-800);">대형</span></div>
+            <div class="legend" style="flex-direction:row;gap:12px;"><span><i style="background:#9aa3b0"></i>영세·중소</span><span><i style="background:var(--navy-800)"></i>대형 11.4%</span></div>
+          </div>
+          <div class="grps">
+            <div class="grpbox"><div class="kg-grp"><div class="kg-grp__k">활용 제약</div><ul class="kg-grp__c"><li>과세소득 부족 → <strong>공제 미활용</strong></li><li>현금흐름 제약 상존</li></ul></div></div>
+            <div class="grpbox"><div class="kg-grp"><div class="kg-grp__k kg-grp__k--gray">지원 사각</div><ul class="kg-grp__c"><li>결손·저세율 기업 <strong>공제 실현 곤란</strong></li><li>지원 체감도 저하</li></ul></div></div>
+            <div class="grpbox"><div class="kg-grp"><div class="kg-grp__k">수혜 비대칭</div><ul class="kg-grp__c"><li>혜택 <strong>대형사 집중</strong></li><li>재투자 환류 효과 <strong>제한</strong></li></ul></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="conn"><div class="trap"></div></div>
+
+      <div class="impl">
+        <div class="impl__h">시사점 — 환급 실효성 제약</div>
+        <div class="ibox"><div class="it">명목–실현 공제액 괴리</div><div class="id">지원율과 실현율 간 구조적 격차 — 제도 설계 보완</div></div>
+        <div class="ibox"><div class="it">지원 시점 후행</div><div class="id">현금흐름 제약 기업 효과 이연 — 재투자 유인 약화</div></div>
+        <div class="ibox"><div class="it">영세 수혜 사각</div><div class="id">대형 집중·영세 미활용 — 환류 고리 단절</div></div>
+        <div class="ibox key"><div class="it">→ 환급형(payable) 전환 검토</div><div class="id">최저한세 배제·환급 도입을 단계적으로 검토</div></div>
+      </div>
+    </div>
+  </div>
+  <footer class="kg-footer">
+    <span class="kg-footer__src">자료: 국가법령정보센터(조특법 §25의6·§132), 국세통계연보, 콘텐츠산업조사</span>
+    <span class="kg-footer__page">5</span>
+    <span class="kg-footer__logo"><img src="../assets/keynes-group-logo.png" alt="Keynes Group"></span>
+  </footer>
+</section>
+<script src="kg-fit.js"></script>
+</body>
+</html>

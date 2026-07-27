@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Slides" name="과업 추진 일정 (Gantt)" subtitle="x: 간트 박스그리드·마일스톤·100%스택 / RFP 박스" viewport="1280x905" -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>과업 추진 일정 — Schedule</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="../kg-slide.css">
+<link rel="stylesheet" href="kg-standalone.css">
+<style>
+  .sched{flex:1;min-height:0;display:flex;flex-direction:column;gap:11px;margin-top:11px;}
+  /* 간트 (박스 그리드) */
+  .gantt{border:1px solid var(--neutral-300);border-radius:var(--r-xs);overflow:hidden;}
+  .grow{display:grid;grid-template-columns:148px 1fr;align-items:stretch;border-bottom:1px solid var(--neutral-300);}
+  .grow:last-child{border-bottom:none;}
+  .grow.head{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;}
+  .grow.phase .lcell{background:var(--neutral-200);color:var(--ink-navy);font-weight:700;}
+  .lcell{padding:6px 11px;font-size:12.5px;color:var(--ink-900);border-right:1px solid var(--neutral-300);display:flex;align-items:center;line-height:1.25;}
+  .grow.head .lcell{color:#fff;font-weight:700;border-right-color:rgba(255,255,255,.2);}
+  .months{display:grid;grid-template-columns:repeat(8,1fr);position:relative;}
+  .grow.head .months>div{padding:6px 0;text-align:center;font-size:12px;font-weight:700;border-right:1px solid rgba(255,255,255,.18);}
+  .grow.head .months>div:last-child{border-right:none;}
+  .track{position:relative;height:27px;}
+  .track .cellgrid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(8,1fr);}
+  .track .cellgrid>div{border-right:1px solid var(--neutral-100);}
+  .bar{position:absolute;top:6px;height:15px;border-radius:7px;background:linear-gradient(90deg,#5A86BE,#1F497D);
+    display:flex;align-items:center;padding:0 8px;color:#fff;font-size:12px;font-weight:700;white-space:nowrap;z-index:2;}
+  .bar.gray{background:linear-gradient(90deg,#B7BFC9,#8B95A3);color:#fff;}
+  /* 하단 영역: 보고시점 + RFP */
+  .below{flex:1;min-height:0;display:grid;grid-template-columns:300px 1fr;gap:11px;}
+  .panel{border:1px solid var(--neutral-300);border-radius:var(--r-sm);background:var(--neutral-050);display:flex;flex-direction:column;overflow:hidden;}
+  .panel__h{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;font-size:12.5px;font-weight:700;padding:6px 11px;}
+  .panel__b{flex:1;padding:9px;display:flex;flex-direction:column;gap:7px;min-height:0;}
+  /* 보고 시점 카드 */
+  .ms3{display:flex;flex-direction:column;gap:7px;flex:1;}
+  .mscard{flex:1;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);padding:7px 10px;}
+  .mscard .dot{width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--red-500);flex:0 0 auto;}
+  .mscard .mt{font-size:12px;font-weight:700;color:var(--ink-navy);}
+  .mscard .md{font-size:12px;color:var(--ink-700);margin-top:1px;}
+  .mscard .when{margin-left:auto;font-size:12px;font-weight:700;color:var(--red-600);white-space:nowrap;}
+  /* RFP 박스 그리드 */
+  .rfpgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;flex:1;}
+  .rfpbox{position:relative;background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);padding:8px 10px 8px;}
+  .rfpbox .nm{position:absolute;left:-1px;top:-1px;width:19px;height:19px;background:var(--navy-800);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;border-radius:var(--r-xs) 0 var(--r-xs) 0;}
+  .rfpbox .rt{font-size:12.5px;font-weight:700;color:var(--ink-navy);margin:0 0 3px 22px;}
+  .rfpbox .rd{font-size:12px;color:var(--ink-700);line-height:1.35;}
+  .scorebar{display:flex;height:30px;border-radius:4px;overflow:hidden;border:1px solid var(--neutral-300);}
+  .scorebar span{display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700;line-height:1.1;border-right:1px solid rgba(255,255,255,.3);}
+  .scorebar span:last-child{border-right:none;}
+  .scorebar b{font-size:13px;}
+</style>
+</head>
+<body>
+<section class="kg-slide kg-root" data-screen-label="과업 추진 일정">
+  <header class="kg-header">
+    <div class="kg-header__media"></div>
+    <div class="kg-header__num kg-section-num">01</div>
+    <div class="kg-header__divider"></div>
+    <div class="kg-header__titles">
+      <div class="kg-section-title">과업 추진 일정</div>
+      <div class="kg-section-sub">추진 체계 · 단계별 마일스톤</div>
+    </div>
+    <div class="kg-chapter-tab"><span class="kg-chapter-tab__roman">IV</span><span class="kg-chapter-tab__sep"></span><span class="kg-chapter-tag">과업 추진 일정</span></div>
+  </header>
+  <div class="kg-msgband"><p class="kg-message">착수–중간–최종 보고를 기준으로 조사·분석·개선방안 도출을 단계적으로 연계하여 2026. 12월 내 완수</p></div>
+  <div class="kg-body-area">
+    <div class="kg-area-title"><span class="kg-area-title__bar"></span>
+      <span class="kg-body-title">단계별 추진 일정 (계약일 ~ 2026. 12. 18.)</span>
+      <span class="kg-caption" style="margin-left:auto;white-space:nowrap;">제한경쟁입찰 · 협상에 의한 계약(총액)</span>
+    </div>
+
+    <div class="sched">
+      <!-- 간트 -->
+      <div class="gantt">
+        <div class="grow head">
+          <div class="lcell">추진 단계 / 과업</div>
+          <div class="months"><div>1월차</div><div>2월차</div><div>3월차</div><div>4월차</div><div>5월차</div><div>6월차</div><div>7월차</div><div>8월차</div></div>
+        </div>
+        <div class="grow phase"><div class="lcell">1. 착수 · 설계</div><div class="track"><div class="cellgrid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div class="bar" style="left:0;width:12.5%;">조사·분석 설계</div></div></div>
+        <div class="grow"><div class="lcell">2. 제도 비교분석</div><div class="track"><div class="cellgrid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div class="bar gray" style="left:0;width:37.5%;">국내외 조세지원 제도 비교</div></div></div>
+        <div class="grow"><div class="lcell">3. FGI 심층조사</div><div class="track"><div class="cellgrid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div class="bar" style="left:12.5%;width:50%;">수혜기업 30건+ 면접·코딩</div></div></div>
+        <div class="grow"><div class="lcell">4. 파급효과 분석</div><div class="track"><div class="cellgrid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div class="bar" style="left:37.5%;width:50%;">시나리오별 경제효과 계량분석</div></div></div>
+        <div class="grow"><div class="lcell">5. 개선방안·이행</div><div class="track"><div class="cellgrid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div class="bar gray" style="left:62.5%;width:25%;">개선방안·단계별 전략</div></div></div>
+        <div class="grow phase"><div class="lcell">6. 보고서 · 검수</div><div class="track"><div class="cellgrid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div class="bar" style="left:75%;width:25%;">결과보고서 집필·검수·납품</div></div></div>
+      </div>
+
+      <!-- 하단: 보고시점(별도) + RFP 상세 박스 -->
+      <div class="below">
+        <div class="panel">
+          <div class="panel__h">주요 보고 시점</div>
+          <div class="panel__b"><div class="ms3">
+            <div class="mscard"><span class="dot"></span><div><div class="mt">착수보고</div><div class="md">조사·분석 설계 확정</div></div><span class="when">D+1개월</span></div>
+            <div class="mscard"><span class="dot"></span><div><div class="mt">중간보고</div><div class="md">FGI·시나리오 중간 결과</div></div><span class="when">D+4개월</span></div>
+            <div class="mscard"><span class="dot"></span><div><div class="mt">최종보고</div><div class="md">개선방안·결과보고서 납품</div></div><span class="when">D+8개월</span></div>
+          </div></div>
+        </div>
+        <div class="panel">
+          <div class="panel__h">RFP 4대 연구내용 · 기술평가 배점 (총 100점)</div>
+          <div class="panel__b">
+            <div class="rfpgrid">
+              <div class="rfpbox"><span class="nm">1</span><div class="rt">제도 비교분석</div><div class="rd">국내 최저한세 / 해외 환급형 운영사례 중점 검토</div></div>
+              <div class="rfpbox"><span class="nm">2</span><div class="rt">수혜기업 FGI</div><div class="rd">제작비 세액공제 활용기업 <strong>30건 이상</strong> 심층조사</div></div>
+              <div class="rfpbox"><span class="nm">3</span><div class="rt">파급효과 분석</div><div class="rd">최저한세 제외+환급형 도입 <strong>통계학적</strong> 경제효과</div></div>
+              <div class="rfpbox"><span class="nm">4</span><div class="rt">개선방안 도출</div><div class="rd">영세구조 고려 우선순위·단계별 이행전략</div></div>
+            </div>
+            <div class="scorebar">
+              <span style="width:20%;background:linear-gradient(180deg,#7E9BC4,#5A86BE);">이해도<b>20</b></span>
+              <span style="width:30%;background:linear-gradient(180deg,#3F6BA0,#2C5184);">수행계획<b>30</b></span>
+              <span style="width:30%;background:linear-gradient(180deg,#27517F,#1F497D);">수행체계<b>30</b></span>
+              <span style="width:20%;background:linear-gradient(180deg,#7E9BC4,#5A86BE);">수행능력<b>20</b></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="kg-footer">
+    <span class="kg-footer__src">기간: 계약일 ~ 2026.12.18 / 기술 80% + 가격 20%, 기술 배점한도 85% 미만 탈락</span>
+    <span class="kg-footer__page">24</span>
+    <span class="kg-footer__logo"><img src="../assets/keynes-group-logo.png" alt="Keynes Group"></span>
+  </footer>
+</section>
+<script src="kg-fit.js"></script>
+</body>
+</html>

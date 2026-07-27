@@ -5,6 +5,7 @@
   "type": "module",
   "description": "케인즈그룹 장표(KG HTML)를 불러와 세미 PPT 방식으로 편집하는 에디터 — 코어/계약 레이어",
   "scripts": {
+    "setup": "node tools/setup.mjs",
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",

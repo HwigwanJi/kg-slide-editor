@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Slides" name="G. 관계 매핑형" subtitle="x: box-in-box 동인·카테고리 / 연결: mesh 가는선 / 소주제" viewport="1280x905" -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>관계 매핑 — Driver · Category · Implication</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="../kg-slide.css">
+<link rel="stylesheet" href="kg-standalone.css">
+<style>
+  .rel{display:grid;grid-template-columns:196px 60px 1fr 236px;gap:0;position:relative;flex:1;min-height:0;margin-top:13px;}
+  .zonehd{font-size:12px;font-weight:700;color:#fff;text-align:center;padding:6px 8px;border-radius:var(--r-xs) var(--r-xs) 0 0;
+    background:linear-gradient(180deg,#2C5184,#1F497D);margin-bottom:0;}
+  .zonehd.mid{background:linear-gradient(180deg,#5A86BE,#4F81BD);}
+  /* 좌: box-in-box 동인 컨테이너 */
+  .drivers{display:flex;flex-direction:column;}
+  .drivers .kg-cat{flex:1;}
+  .kg-cat__bd{justify-content:space-between;}
+  /* 가운데 연결선 */
+  .conn{position:relative;}
+  .conn svg{position:absolute;inset:0;width:100%;height:100%;}
+  /* 카테고리 */
+  .cats{display:flex;flex-direction:column;gap:9px;padding:0 14px;}
+  .cats .kg-relcat{flex:1;}
+  .kg-relcat__body{align-items:flex-start!important;}
+  .kg-relcat__body .kg-list{gap:6px;}
+  .kg-relcat__body .kg-list>li{font-size:12.5px;line-height:1.4;}
+  .kg-relcat__body .kg-list>li::before{top:6px;}
+  /* 우: 시사점 */
+  .outs{display:flex;flex-direction:column;gap:9px;position:relative;}
+  .outs .kg-relout{flex:1;position:relative;}
+  .outs .kg-relout::before{content:"";position:absolute;left:-16px;top:50%;transform:translateY(-50%);
+    width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:11px solid var(--blue-500);}
+</style>
+</head>
+<body>
+<section class="kg-slide kg-root" data-screen-label="관계 매핑">
+  <header class="kg-header">
+    <div class="kg-header__media"></div>
+    <div class="kg-header__num kg-section-num">01</div>
+    <div class="kg-header__divider"></div>
+    <div class="kg-header__titles">
+      <div class="kg-section-title">제도개선 시나리오 파급효과 분석</div>
+      <div class="kg-section-sub">분석 설계 · 동인–분석과제–시사점 연계</div>
+    </div>
+    <div class="kg-chapter-tab">
+      <span class="kg-chapter-tab__roman">III</span>
+      <span class="kg-chapter-tab__sep"></span>
+      <span class="kg-chapter-tag">사업 수행 방안</span>
+    </div>
+  </header>
+  <div class="kg-msgband">
+    <p class="kg-message">제도적 제약요인을 분석과제로 구조화하고, 각 과제가 도출할 정책 시사점으로 연계하여 분석 설계의 정합성 확보</p>
+  </div>
+  <div class="kg-body-area">
+    <div class="kg-area-title"><span class="kg-area-title__bar"></span>
+      <span class="kg-body-title">분석 설계 구조 — 제약요인(동인)을 분석과제·시사점으로 연계</span>
+    </div>
+
+    <div class="rel">
+      <!-- 좌: 동인 box-in-box -->
+      <div class="drivers">
+        <div class="kg-cat">
+          <div class="zonehd">제도적 제약요인 (동인)</div>
+          <div class="kg-cat__bd">
+            <div class="kg-sub"><span class="kg-sub__n">1</span><div class="kg-sub__t">최저한세·비환급 구조</div><div class="kg-sub__d">공제 실현율 하락 — 지원 효과 이연·소멸</div></div>
+            <div class="kg-sub"><span class="kg-sub__n">2</span><div class="kg-sub__t">영세 산업구조</div><div class="kg-sub__d">납부세액 부족 — 공제 활용 제약·수혜 비대칭</div></div>
+            <div class="kg-sub"><span class="kg-sub__n">3</span><div class="kg-sub__t">해외 환급형 확산</div><div class="kg-sub__d">주요국 payable·transferable 구조 일반화</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 연결선 -->
+      <div class="conn">
+        <svg viewBox="0 0 60 100" preserveAspectRatio="none">
+          <g fill="none" stroke-width="1.4">
+            <path d="M0,17 C30,17 30,12 60,12" stroke="#1F497D"/>
+            <path d="M0,17 C30,17 30,38 60,38" stroke="#7FA3CC"/>
+            <path d="M0,50 C30,50 30,38 60,38" stroke="#1F497D"/>
+            <path d="M0,50 C30,50 30,63 60,63" stroke="#7FA3CC"/>
+            <path d="M0,83 C30,83 30,63 60,63" stroke="#1F497D"/>
+            <path d="M0,83 C30,83 30,88 60,88" stroke="#C0392B"/>
+            <path d="M0,50 C30,50 30,88 60,88" stroke="#7FA3CC"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- 가운데: 분석과제 카테고리 -->
+      <div class="cats">
+        <div class="zonehd mid" style="margin:0 -14px 0;">분석과제 (조사·분석 설계)</div>
+        <div class="kg-relcat">
+          <div class="kg-relcat__key"><div class="kg-relcat__t">공제 실현율 진단</div><div class="kg-relcat__tag">정량분석 · 국세통계</div></div>
+          <div class="kg-relcat__body"><ul class="kg-list"><li>명목 공제액 대비 <strong>당기 실현·이월·소멸</strong> 규모 추정</li><li>최저한세·농특세 잠식분 분해</li></ul></div>
+        </div>
+        <div class="kg-relcat">
+          <div class="kg-relcat__key"><div class="kg-relcat__t">수혜 분포 분석</div><div class="kg-relcat__tag">기업규모별 · 행정자료</div></div>
+          <div class="kg-relcat__body"><ul class="kg-list"><li>규모별 <strong>공제 활용률·사각지대</strong> 식별</li><li>대형 집중도와 영세 미활용 구조 분석</li></ul></div>
+        </div>
+        <div class="kg-relcat">
+          <div class="kg-relcat__key"><div class="kg-relcat__t">현장 실질한계</div><div class="kg-relcat__tag">FGI · 심층조사 30건+</div></div>
+          <div class="kg-relcat__body"><ul class="kg-list"><li>현금흐름 제약·<strong>재투자 의사결정</strong> 경로</li><li>환급 수요 및 제도 체감 한계</li></ul></div>
+        </div>
+        <div class="kg-relcat">
+          <div class="kg-relcat__key"><div class="kg-relcat__t">환급형 시나리오</div><div class="kg-relcat__tag">계량분석 · 산업연관</div></div>
+          <div class="kg-relcat__body"><ul class="kg-list"><li>최저한세 배제·환급 도입 시 <strong>경제효과</strong> 시산</li><li>세수영향과 재투자 유발효과 비교</li></ul></div>
+        </div>
+      </div>
+
+      <!-- 우: 기대 시사점 -->
+      <div class="outs">
+        <div class="zonehd">기대 시사점</div>
+        <div class="kg-relout"><span>제도 실효성 제약의 <b>계량적 근거</b> 확보</span></div>
+        <div class="kg-relout"><span>환급형 <b>우선 적용대상</b> 도출 — 영세구조 정합</span></div>
+        <div class="kg-relout"><span>현장 기반 <b>개선 우선순위</b> 도출</span></div>
+        <div class="kg-relout"><span>재정중립적 <b>단계 이행안</b>의 정량 근거</span></div>
+      </div>
+    </div>
+  </div>
+  <footer class="kg-footer">
+    <span class="kg-footer__src">자료: 국세통계연보·조세지출예산서, 산업연관표 / FGI 30건+ — 1차자료 재확정 예정</span>
+    <span class="kg-footer__page">9</span>
+    <span class="kg-footer__logo"><img src="../assets/keynes-group-logo.png" alt="Keynes Group"></span>
+  </footer>
+</section>
+<script src="kg-fit.js"></script>
+</body>
+</html>

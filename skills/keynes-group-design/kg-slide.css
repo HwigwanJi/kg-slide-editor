@@ -1,0 +1,541 @@
+/* ============================================================================
+   케인즈그룹 장표 — Component layer (kg-slide.css)
+   상단 위계는 고정, 본문은 반프리폼. 아래 블록을 조합해 장표를 구성한다.
+   Requires colors_and_type.css.
+   ============================================================================ */
+
+/* ---------- Slide frame (A4 가로 캔버스 297:210 ≈ 1.414) ---------- */
+.kg-slide,.kg-slide *,.kg-slide *::before,.kg-slide *::after{box-sizing:border-box;}
+.kg-slide{position:relative;width:1280px;height:905px;background:var(--paper);
+  font-family:var(--font-sans);color:var(--ink-900);overflow:hidden;
+  display:flex;flex-direction:column;word-break:keep-all;line-break:strict;}
+
+/* =====================================================================
+   1. 상단 헤더 (고정 위계 시스템)
+   [섹션번호 | 섹션제목 / 세부주제]  ............  [챕터 탭]
+   ===================================================================== */
+.kg-header{position:relative;height:96px;flex:0 0 96px;background:var(--navy-900);
+  display:flex;align-items:center;padding:0 26px;overflow:hidden;}
+.kg-header__media{position:absolute;inset:0 0 0 42%;background-size:cover;background-position:center;
+  background-image:
+    linear-gradient(115deg,rgba(15,33,56,0) 0%,rgba(31,73,125,.5) 52%,rgba(79,129,189,.42) 100%),
+    repeating-linear-gradient(125deg,rgba(255,255,255,.06) 0 2px,transparent 2px 17px);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 40%);
+          mask-image:linear-gradient(90deg,transparent,#000 40%);}
+.kg-header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:var(--blue-500);}
+.kg-header__num{position:relative;z-index:2;}
+.kg-header__divider{position:relative;z-index:2;width:1px;height:52px;
+  background:rgba(255,255,255,.32);margin:0 18px;}
+.kg-header__titles{position:relative;z-index:2;display:flex;flex-direction:column;gap:5px;}
+
+/* 챕터 탭 — 헤더 하단에 붙는 index형 탭 (위쪽만 라운드) */
+.kg-chapter-tab{position:absolute;z-index:4;right:26px;bottom:0;
+  background:#fff;border-radius:var(--r-sm) var(--r-sm) 0 0;padding:7px 16px 8px;display:flex;
+  align-items:center;gap:9px;box-shadow:0 -2px 5px rgba(8,18,34,.18);white-space:nowrap;}
+.kg-chapter-tab__roman{font-weight:var(--fw-extrabold);color:var(--blue-500);font-size:13px;}
+.kg-chapter-tab__sep{width:1px;height:14px;background:var(--gray-300);}
+
+/* =====================================================================
+   2. 헤더 메시지 띠 (장표의 핵심 주장 한 문장)
+   ===================================================================== */
+.kg-msgband{flex:0 0 auto;background:#fff;padding:5px 48px;position:relative;z-index:3;
+  box-shadow:0 4px 7px rgba(23,55,94,.09);
+  display:flex;align-items:center;justify-content:center;gap:12px;}
+.kg-msgband--tint{background:var(--blue-050);}
+.kg-msgband--tint .kg-message{color:var(--navy-800);}
+.kg-msgband__mark{display:none;}
+
+/* =====================================================================
+   3. 본문 영역
+   ===================================================================== */
+.kg-body-area{position:relative;flex:1 1 auto;padding:18px var(--slide-pad) 16px;
+  display:flex;flex-direction:column;min-height:0;background:#F8F9FB;}
+
+/* 본문 영역 제목 = 단일 소주제 (가운데정렬 + 얇은 밑줄) */
+.kg-area-title{position:relative;display:block;text-align:center;
+  border-bottom:1px solid var(--neutral-300);padding-bottom:7px;margin-bottom:13px;}
+.kg-area-title__bar{display:none;}
+.kg-area-title .kg-body-title{display:inline;font-size:var(--fs-subtopic);color:var(--ink-navy);white-space:normal;}
+.kg-area-title .kg-caption{position:absolute;right:0;bottom:8px;font-weight:var(--fw-regular);}
+.kg-area-title.is-center{border-bottom:none;}
+
+/* =====================================================================
+   4. 박스 / 카드 시스템
+   ===================================================================== */
+/* 흰 박스 + 색상 제목바 (가장 기본) */
+.kg-card{background:#fff;border:var(--bw-hair) solid var(--line);border-radius:var(--r-xs);
+  overflow:hidden;display:flex;flex-direction:column;}
+.kg-card__bar{padding:8px 12px;background:var(--blue-200);color:var(--ink-navy);
+  font-size:var(--fs-box-title);font-weight:var(--fw-bold);line-height:1.25;
+  text-align:center;}
+.kg-card__bar--navy{background:var(--navy-800);color:#fff;}
+.kg-card__bar--mid{background:var(--blue-500);color:#fff;}
+.kg-card__bar--gray{background:var(--neutral-200);color:var(--ink-navy);}
+.kg-card__bar--line{background:#fff;color:var(--ink-navy);border-bottom:2px solid var(--navy-800);}
+.kg-card__body{padding:11px 13px;display:flex;flex-direction:column;gap:6px;}
+
+/* 네이비 솔리드 박스 (강조 결론·핵심) */
+.kg-box-navy{background:var(--navy-800);color:#fff;border-radius:var(--r-xs);
+  padding:11px 14px;}
+.kg-box-navy .kg-box-h{font-weight:var(--fw-bold);font-size:var(--fs-box-title);
+  margin-bottom:6px;}
+
+/* 연한 영역 박스 */
+.kg-box-tint{background:var(--blue-050);border:var(--bw-hair) solid var(--line);
+  border-radius:var(--r-xs);padding:11px 13px;}
+.kg-box-soft{background:var(--gray-150);border-radius:var(--r-xs);padding:10px 12px;}
+/* 박스 스타일 변주 — 그냥/아웃라인/패턴/그림자 (다채로움) */
+.kg-box-outline{background:transparent;border:1.5px solid var(--navy-800);border-radius:var(--r-xs);padding:11px 13px;}
+.kg-box-pattern{background:repeating-linear-gradient(135deg,var(--hatch) 0 1px,transparent 1px 6px),#fff;
+  border:1px solid var(--neutral-300);border-radius:var(--r-xs);padding:11px 13px;}
+.kg-box-shadow{background:#fff;border:1px solid var(--neutral-200);border-radius:var(--r-sm);
+  box-shadow:var(--sh-float);padding:11px 13px;}
+
+/* 점선 강조 박스 (검토사항·이슈) */
+.kg-box-dashed{background:#fff;border:1.5px dashed var(--blue-500);border-radius:var(--r-sm);
+  padding:11px 13px;}
+.kg-box-dashed--red{border-color:var(--red-500);}
+
+/* 해석 박스 (근거 아래 시사점) — 무채색 박스 (좌측 컬러바 트로프 미사용) */
+.kg-interp{background:var(--neutral-050);border:var(--bw-hair) solid var(--neutral-300);
+  border-radius:var(--r-xs);padding:9px 12px;}
+
+/* =====================================================================
+   5. 번호 라벨 / 단계 라벨
+   ===================================================================== */
+.kg-numdot{display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:var(--r-pill);background:var(--blue-500);
+  color:#fff;font-weight:var(--fw-extrabold);font-size:13px;flex:0 0 auto;}
+.kg-numdot--navy{background:var(--navy-800);}
+.kg-numdot--outline{background:#fff;border:2px solid var(--blue-500);color:var(--blue-500);}
+.kg-numdot--gray{background:var(--neutral-200);color:var(--ink-700);}
+.kg-numdot--sm{width:19px;height:19px;font-size:11px;}
+
+/* 컬럼 헤더 (근거 병렬형) — 점선 박스 + 가운데 번호 */
+.kg-colhead{position:relative;text-align:center;background:var(--blue-100);
+  border:1.5px dashed var(--blue-400);border-radius:var(--r-sm);
+  padding:10px 12px 9px;font-weight:var(--fw-bold);color:var(--ink-navy);
+  font-size:15px;}
+.kg-colhead .kg-numdot{position:absolute;top:-10px;left:-10px;transform:none;}
+
+/* 단계 라벨 (프로세스) */
+.kg-step-label{background:var(--blue-600);color:#fff;font-weight:var(--fw-bold);
+  font-size:var(--fs-box-title);padding:7px 12px;border-radius:var(--r-xs) var(--r-xs) 0 0;
+  text-align:center;}
+.kg-step-label--navy{background:var(--navy-800);}
+.kg-step-label--gray{background:var(--neutral-200);color:var(--ink-navy);}
+/* 좌측 부착형 단계 라벨 (세로 바) */
+.kg-steptab{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;
+  background:var(--navy-800);color:#fff;font-weight:var(--fw-bold);font-size:12px;
+  padding:0 12px;border-radius:var(--r-xs) 0 0 var(--r-xs);white-space:nowrap;}
+.kg-steptab--blue{background:var(--blue-500);}
+.kg-steptab--gray{background:var(--neutral-200);color:var(--ink-navy);}
+
+/* 리본/스탬프 강조 (Illustrative 등) */
+.kg-stamp{display:inline-block;color:var(--red-600);border:1.5px solid var(--red-600);
+  font-style:italic;font-weight:var(--fw-bold);font-size:12px;padding:2px 9px;
+  border-radius:var(--r-xs);letter-spacing:.02em;}
+
+/* =====================================================================
+   6. 화살표 / 연결선
+   ===================================================================== */
+.kg-arrow{display:inline-flex;align-items:center;justify-content:center;
+  color:var(--blue-500);font-size:20px;font-weight:var(--fw-bold);line-height:1;}
+.kg-arrow--navy{color:var(--navy-800);}
+.kg-plus{display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:var(--r-pill);background:var(--blue-200);
+  color:var(--navy-800);font-weight:var(--fw-extrabold);font-size:16px;flex:0 0 auto;}
+/* 세로 흐름 셰브론 (프로세스) */
+.kg-chevron{position:relative;background:var(--blue-300);color:var(--ink-navy);
+  font-weight:var(--fw-bold);font-size:var(--fs-box-title);text-align:center;
+  padding:11px 10px;clip-path:polygon(0 0,100% 0,100% 72%,50% 100%,0 72%);}
+
+/* =====================================================================
+   7. 표 (매트릭스 / 일정)
+   ===================================================================== */
+.kg-table{width:100%;border-collapse:collapse;font-size:var(--fs-small);
+  color:var(--ink-900);}
+.kg-table th{background:var(--navy-800);color:#fff;font-weight:var(--fw-bold);
+  padding:8px 10px;text-align:center;border:var(--bw-hair) solid #fff;line-height:1.3;}
+.kg-table td{padding:7px 10px;border:var(--bw-hair) solid var(--line);
+  vertical-align:middle;line-height:1.4;}
+.kg-table tbody tr:nth-child(even){background:var(--blue-050);}
+.kg-table .kg-rowhead{background:var(--blue-200);color:var(--ink-navy);
+  font-weight:var(--fw-bold);text-align:center;}
+.kg-table .is-hi{background:var(--blue-100)!important;color:var(--ink-navy);font-weight:var(--fw-semibold);}
+.kg-table .is-num{text-align:right;font-variant-numeric:tabular-nums;}
+.kg-table .is-center{text-align:center;}
+
+/* =====================================================================
+   8. 불릿 리스트 (밀도형)
+   ===================================================================== */
+.kg-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;}
+.kg-list>li{position:relative;padding-left:13px;font-size:var(--fs-body);
+  line-height:1.45;color:var(--ink-900);}
+.kg-list>li::before{content:"";position:absolute;left:0;top:8px;width:4px;height:4px;
+  border-radius:50%;background:var(--blue-500);}
+.kg-list--dash>li::before{content:"";top:10px;width:7px;height:1.5px;border-radius:0;
+  background:var(--ink-500);}
+.kg-list--check>li{padding-left:18px;}
+.kg-list--check>li::before{content:"";top:4px;left:0;width:11px;height:11px;border-radius:0;
+  background:var(--navy-800);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center/contain no-repeat;}
+/* 동그라미(링) 말머리표 */
+.kg-list--circle>li{padding-left:15px;}
+.kg-list--circle>li::before{content:"";top:5px;left:0;width:8px;height:8px;border-radius:50%;
+  border:1.5px solid var(--blue-500);background:#fff;}
+/* 사각 말머리표 (▪) */
+.kg-list--sq>li::before{content:"";top:6px;width:6px;height:6px;border-radius:1px;background:var(--navy-800);}
+
+/* =====================================================================
+   9. 칩 / 태그 / 단위 라벨
+   ===================================================================== */
+.kg-chip{display:inline-flex;align-items:center;gap:5px;background:var(--blue-100);
+  color:var(--navy-800);font-size:11px;font-weight:var(--fw-semibold);
+  padding:3px 9px;border-radius:var(--r-pill);white-space:nowrap;}
+.kg-chip--navy{background:var(--navy-800);color:#fff;}
+.kg-chip--red{background:var(--red-050);color:var(--red-600);}
+.kg-chip--green{background:var(--green-050);color:var(--green-600);}
+.kg-unit{font-size:var(--fs-caption);color:var(--ink-500);font-weight:var(--fw-regular);}
+
+/* =====================================================================
+   10. 푸터 (출처·페이지·발주처 로고 슬롯)
+   ===================================================================== */
+.kg-footer{position:relative;flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;
+  padding:6px var(--slide-pad);border-top:var(--bw-hair) solid var(--gray-300);
+  background:#fff;}
+.kg-footer__src{font-size:var(--fs-caption);color:var(--ink-500);}
+.kg-footer__page{position:absolute;left:50%;transform:translateX(-50%);
+  font-size:var(--fs-caption);color:var(--ink-500);font-weight:var(--fw-semibold);}
+.kg-footer__logo{display:flex;align-items:center;gap:8px;}
+.kg-footer__logo img{height:20px;display:block;}
+.kg-footer__client{font-size:11px;font-weight:var(--fw-semibold);color:var(--ink-700);}
+
+/* 브랜드 로고 헬퍼 — 밝은 배경엔 컬러, 네이비 배경엔 음영(반전) 버전 */
+.kg-logo{display:block;height:auto;}
+.kg-logo--footer{height:20px;}
+.kg-logo--sm{height:28px;}
+.kg-logo--md{height:44px;}
+.kg-logo--lg{height:72px;}
+
+/* 아이콘 자리 (회색 정사각) */
+.kg-iconbox{display:inline-flex;align-items:center;justify-content:center;
+  background:var(--gray-200);border-radius:var(--r-sm);color:var(--blue-600);}
+
+/* =====================================================================
+   11. 고밀도 박스 구조 (handcraft) — Box-in-box · 연쇄 · 관계 매핑
+   컨설팅 장표 밀도의 핵심. 표 대신 박스로 손맛(handcraft)을 낸다.
+   ===================================================================== */
+
+/* 부드러운 그라데이션 박스 (handcraft 톤의 기본 단위) — 기본은 무채색(휴식) */
+.kg-gbox{background:linear-gradient(180deg,#FCFCFD 0%,#ECEEF1 100%);
+  border:1px solid var(--neutral-300);border-radius:var(--r-sm);
+  box-shadow:0 1px 2px rgba(23,55,94,.05);}
+.kg-gbox--blue{background:linear-gradient(180deg,#EAF1FB 0%,#D6E4F4 100%);border-color:var(--blue-400);}
+.kg-gbox--navy{background:linear-gradient(180deg,#2C5184 0%,#17375E 100%);border-color:#16365c;color:#fff;}
+
+/* 박스헤더 (그라데이션 네이비 바) */
+.kg-ghd{background:linear-gradient(180deg,#2C5184 0%,#1F497D 100%);color:#fff;
+  font-weight:var(--fw-bold);font-size:var(--fs-box-title);text-align:center;
+  padding:9px 12px;border-radius:var(--r-sm) var(--r-sm) 0 0;line-height:1.25;}
+.kg-ghd--mid{background:linear-gradient(180deg,#5A86BE 0%,#4F81BD 100%);}
+
+/* --- Box-in-box: 카테고리 컨테이너 + 번호 하위 박스 --- */
+.kg-cat{border:1px solid var(--blue-300);border-radius:var(--r-sm);overflow:hidden;
+  display:flex;flex-direction:column;background:#fff;}
+.kg-cat__bd{flex:1;padding:12px 12px;display:flex;flex-direction:column;gap:11px;
+  background:
+    repeating-linear-gradient(135deg, var(--hatch) 0 1px, transparent 1px 6px),
+    linear-gradient(180deg,#FAFBFC 0%,#EFF1F4 100%);}
+/* 번호 하위 박스 — 키타이틀 + 명사형 설명 */
+.kg-sub{position:relative;background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);
+  padding:10px 12px 11px;box-shadow:0 1px 2px rgba(23,55,94,.07);text-align:center;}
+.kg-sub__n{position:absolute;left:9px;top:9px;display:inline-flex;align-items:center;justify-content:center;
+  width:21px;height:21px;border-radius:50%;background:var(--navy-800);color:#fff;font-weight:var(--fw-extrabold);font-size:12px;}
+.kg-sub__t{font-weight:var(--fw-bold);color:var(--ink-navy);font-size:13.5px;line-height:1.25;margin:0 14px;}
+.kg-sub__d{font-size:11px;color:var(--ink-700);margin-top:5px;line-height:1.45;}
+.kg-sub--left{text-align:left;}
+.kg-sub--left .kg-sub__t{margin:0 0 0 27px;}
+.kg-sub--left .kg-sub__d{margin-left:0;}
+
+/* --- 연쇄 연결: 화살표 --- */
+.kg-down{display:flex;align-items:center;justify-content:center;height:20px;}      /* 세로 흐름 */
+.kg-down::after{content:"";width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;
+  border-top:11px solid var(--blue-500);}
+.kg-down--grad{height:26px;}
+.kg-down--grad::after{border-top-color:var(--blue-600);filter:drop-shadow(0 1px 0 rgba(255,255,255,.4));}
+.kg-right{display:flex;align-items:center;justify-content:center;width:26px;flex:0 0 auto;}  /* 가로 흐름 */
+.kg-right::after{content:"";width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;
+  border-left:11px solid var(--blue-500);}
+.kg-right--navy::after{border-left-color:var(--navy-800);}
+.kg-right--red::after{border-left-color:var(--red-500);}
+/* 두꺼운 그라데이션 셰브론(블록형) — 단계 전환 강조 */
+.kg-chevblock{background:linear-gradient(90deg,var(--blue-400),var(--blue-600));color:#fff;
+  font-weight:var(--fw-bold);font-size:12px;padding:8px 18px 8px 14px;
+  clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%, 13px 50%);}
+
+/* --- 단계 탭 on 수직 라인 (AS-IS / 도입 / TO-BE) --- */
+.kg-railv{position:relative;}
+.kg-railv::before{content:"";position:absolute;left:50%;top:6px;bottom:6px;width:2px;
+  background:var(--blue-400);transform:translateX(-50%);}
+.kg-stagetab{position:relative;z-index:2;display:inline-flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,#2C5184,#17375E);color:#fff;font-weight:var(--fw-bold);font-size:12px;
+  padding:6px 0;width:64px;border-radius:var(--r-md);box-shadow:var(--sh-tab);letter-spacing:.02em;}
+.kg-stagetab--mid{background:linear-gradient(180deg,#5A86BE,#4F81BD);}
+
+/* --- 관계 매핑(3-zone): 동인 → 카테고리 → 시사점 --- */
+.kg-relcat{display:flex;align-items:stretch;gap:0;background:linear-gradient(180deg,#FCFCFD,#EFF1F4);
+  border:1px solid var(--neutral-300);border-radius:var(--r-sm);overflow:hidden;box-shadow:0 1px 2px rgba(23,55,94,.05);}
+.kg-relcat__key{flex:0 0 39%;padding:9px 12px;display:flex;flex-direction:column;justify-content:center;
+  border-right:1px solid var(--neutral-200);}
+.kg-relcat__t{font-weight:var(--fw-bold);color:var(--ink-navy);font-size:14px;line-height:1.25;}
+.kg-relcat__tag{font-size:10.5px;color:var(--blue-600);font-weight:var(--fw-semibold);margin-top:7px;
+  padding-top:6px;border-top:1.5px solid var(--blue-300);align-self:flex-start;}
+.kg-relcat__body{flex:1;padding:9px 12px;display:flex;align-items:center;}
+.kg-relout{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border:1px solid var(--blue-400);
+  border-radius:var(--r-sm);padding:9px 12px;font-size:11.5px;line-height:1.45;color:var(--ink-900);
+  display:flex;align-items:center;}
+.kg-relout b{color:var(--navy-800);font-weight:var(--fw-bold);}
+/* 관계선 SVG 오버레이 컨테이너 */
+.kg-maplines{position:absolute;inset:0;pointer-events:none;z-index:1;}
+
+/* --- 유목화 텍스트: 핵심키워드(sub-head) → 하위 내용 --- */
+.kg-grp{margin-bottom:8px;}
+.kg-grp:last-child{margin-bottom:0;}
+.kg-grp__k{display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:var(--fw-bold);
+  color:var(--ink-navy);margin-bottom:4px;line-height:1.25;}
+.kg-grp__k::before{content:"";width:6px;height:6px;background:var(--blue-500);border-radius:1px;flex:0 0 auto;}
+.kg-grp__k--gray::before{background:var(--neutral-300);}
+.kg-grp__c{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px;}
+.kg-grp__c li{font-size:12.5px;color:var(--ink-700);line-height:1.4;position:relative;padding-left:11px;}
+.kg-grp__c li::before{content:"–";position:absolute;left:0;color:var(--ink-500);}
+.kg-grp__c li strong{color:var(--ink-navy);font-weight:var(--fw-semibold);}
+
+/* --- 키워드 박스 (keyword chips for mini-diagrams) --- */
+.kg-kw{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-xs);
+  padding:7px 6px;text-align:center;font-size:12px;font-weight:var(--fw-bold);color:var(--ink-900);
+  box-shadow:0 1px 1px rgba(23,55,94,.06);line-height:1.2;display:flex;align-items:center;justify-content:center;}
+.kg-kw--gray{background:linear-gradient(180deg,#EDEFF2,#DCE0E6);border-color:var(--neutral-300);color:var(--ink-navy);}
+.kg-kw--gray2{background:linear-gradient(180deg,#D5DAE1,#C2C9D2);border-color:#AEB6C0;color:var(--ink-navy);}
+.kg-kw--gray3{background:linear-gradient(180deg,#AEB6C0,#949DAA);border-color:#7C8794;color:#fff;}
+.kg-kw--navy{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;border-color:#1a3f6c;}
+.kg-kw--blue{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border-color:var(--blue-400);color:var(--ink-navy);}
+.kg-kw--ghost{background:rgba(255,255,255,.55);border-style:dashed;color:var(--ink-500);}
+.kg-kw--out{background:#fff;border:1.5px solid var(--navy-800);color:var(--navy-800);}
+
+/* 미니 다이어그램 행 라벨 (좌측 세로 라벨) */
+.kg-rowlab{writing-mode:vertical-rl;text-orientation:upright;background:var(--blue-200);
+  color:var(--ink-navy);font-weight:var(--fw-bold);font-size:11px;border-radius:var(--r-xs);
+  padding:6px 3px;display:flex;align-items:center;justify-content:center;letter-spacing:.04em;white-space:nowrap;}
+
+/* --- 4분면 프레임워크: 번호 헤더 컨테이너 --- */
+.kg-quad{border:1px solid var(--blue-300);border-radius:var(--r-sm);overflow:hidden;display:flex;flex-direction:column;background:#fff;}
+.kg-quad__hd{display:flex;align-items:center;gap:9px;padding:7px 11px;
+  background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;}
+.kg-quad__n{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;
+  border-radius:var(--r-xs);background:rgba(255,255,255,.16);color:#fff;font-weight:var(--fw-extrabold);font-size:13px;}
+.kg-quad__t{font-size:12px;font-weight:var(--fw-bold);line-height:1.25;}
+.kg-quad__bd{flex:1;padding:11px;display:flex;flex-direction:column;justify-content:center;gap:8px;
+  background:
+    repeating-linear-gradient(135deg, var(--hatch) 0 1px, transparent 1px 6px),
+    linear-gradient(180deg,#FAFBFC 0%,#EEF0F3 100%);}
+
+/* 블록 셰브론 화살표 (단계 전환 강조, 큰 화살표) */
+.kg-blockarrow{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:var(--fw-bold);
+  font-size:11px;background:linear-gradient(90deg,#9FBBDD,#6E97C6);
+  clip-path:polygon(0 18%, calc(100% - 16px) 18%, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, calc(100% - 16px) 82%, 0 82%);}
+.kg-blockarrow.down{clip-path:polygon(18% 0, 18% calc(100% - 16px), 0 calc(100% - 16px), 50% 100%, 100% calc(100% - 16px), 82% calc(100% - 16px), 82% 0);
+  background:linear-gradient(180deg,#9FBBDD,#6E97C6);}
+/* 단계 전환용 대형 블록 화살표 (라벨 수용) */
+.kg-blockarrow--lg{font-size:12px;padding:0 22px;
+  clip-path:polygon(0 12%, calc(100% - 22px) 12%, calc(100% - 22px) 0, 100% 50%, calc(100% - 22px) 100%, calc(100% - 22px) 88%, 0 88%);}
+
+/* 사다리꼴 그라데이션 커넥터 (출발 불투명 → 도착 투명) */
+.kg-trapez{background:linear-gradient(90deg,rgba(79,129,189,.92) 0%,rgba(79,129,189,0) 100%);clip-path:polygon(0 0,100% 20%,100% 80%,0 100%);}
+.kg-trapez--rev{clip-path:polygon(0 20%,100% 0,100% 100%,0 80%);}
+.kg-trapez--gray{background:linear-gradient(90deg,rgba(120,130,145,.82) 0%,rgba(120,130,145,0) 100%);}
+
+/* 박스 좌상단 모서리에 겹치는 번호/단계 라벨 (높이 ~1/4) */
+.kg-cornern{position:absolute;left:-1px;top:-1px;z-index:2;display:inline-flex;align-items:center;justify-content:center;
+  min-width:22px;height:22px;padding:0 7px;background:var(--navy-800);color:#fff;font-weight:var(--fw-extrabold);
+  font-size:12px;border-radius:var(--r-xs) 0 var(--r-xs) 0;}
+.kg-cornern--gray{background:var(--neutral-300);color:var(--ink-900);}
+.kg-cornern--blue{background:var(--blue-500);}
+.kg-cornern--circle{left:-9px;top:-9px;width:23px;height:23px;min-width:0;padding:0;border-radius:50%;}
+
+/* =====================================================================
+   12. 마스터 그리드 — 본문 영역 spacing·컬럼 분할 정규화
+   ===================================================================== */
+:root{
+  --grid-pad-top:16px;   /* 헤더 메시지 ↓ ~ 영역제목 */
+  --grid-title-gap:13px; /* 영역제목 ↓ ~ 본문 컨텐츠 */
+  --grid-col-gap:16px;   /* 컬럼 간 */
+  --grid-row-gap:12px;   /* 행 간 */
+  --grid-bottom:0px;     /* 본문은 하단 마진까지 가득 (footer가 경계) */
+}
+/* 본문 컨텐츠 래퍼 — 영역제목 아래 정규 간격으로 시작, 하단까지 채움 */
+.kg-content{flex:1;min-height:0;margin-top:var(--grid-title-gap);
+  display:grid;gap:var(--grid-col-gap);}
+/* 컬럼 분할 (1:3 / 2:2 / 3:1 / 균등) — 다채로운 비율 */
+.kg-content.s-1-3{grid-template-columns:1fr 3fr;}
+.kg-content.s-1-2{grid-template-columns:1fr 2fr;}
+.kg-content.s-2-2,.kg-content.s-halves{grid-template-columns:1fr 1fr;}
+.kg-content.s-2-1{grid-template-columns:2fr 1fr;}
+.kg-content.s-3-1{grid-template-columns:3fr 1fr;}
+.kg-content.s-5-3{grid-template-columns:5fr 3fr;}      /* ≈ 본문 + 시사점 레일 */
+.kg-content.s-3{grid-template-columns:repeat(3,1fr);}
+.kg-content.s-4{grid-template-columns:repeat(4,1fr);}
+.kg-content.s-rows{grid-auto-flow:row;grid-template-columns:1fr;row-gap:var(--grid-row-gap);}
+/* 한 칸을 다시 세로로 쌓을 때 */
+.kg-stackcol{display:flex;flex-direction:column;gap:var(--grid-row-gap);min-height:0;}
+
+/* 소주제 — 가운데정렬 텍스트 + 아래 줄 (영역 안 구획 라벨) */
+.kg-subtopic{text-align:center;font-size:var(--fs-subtopic);font-weight:var(--fw-bold);color:var(--ink-navy);
+  padding-bottom:7px;margin-bottom:11px;border-bottom:1px solid var(--neutral-300);}
+.kg-subtopic--gray{border-bottom-color:var(--neutral-300);}
+.kg-subtopic--sm{font-size:15px;padding-bottom:5px;margin-bottom:8px;}
+/* 소주제 행을 1:3 / 2:2 / 3:1로 나눌 때 각 구획 */
+.kg-subgrid{display:grid;gap:var(--grid-col-gap);}
+.kg-subgrid.s-1-3{grid-template-columns:1fr 3fr;}
+.kg-subgrid.s-2-2{grid-template-columns:1fr 1fr;}
+.kg-subgrid.s-3-1{grid-template-columns:3fr 1fr;}
+
+/* =====================================================================
+   13. x 모듈 레이어 (.kgx-*) — box-in-x 의 'x' 재사용 컴포넌트
+   정합 규칙: 선 1.5px / 박스 1px·3r / 그레이 3단계 + 네이비 1액센트.
+   토큰: --xa 액센트 / --xg1~3 그레이 / --xbd 테두리 / --xink 텍스트
+   ===================================================================== */
+:root{
+  --xa:#1F497D; --xg1:#DCE0E6; --xg2:#AEB6C0; --xg3:#7C8794;
+  --xbd:#CED3DA; --xink:#17375E;
+}
+/* 도넛 (비율 1개 강조) — --p 로 퍼센트, ::after 안 텍스트 */
+.kgx-donut{position:relative;border-radius:50%;flex:0 0 auto;
+  background:conic-gradient(var(--xa) 0 calc(var(--p,62)*1%), var(--xg1) 0 100%);}
+.kgx-donut::after{content:"";position:absolute;inset:24%;background:#fff;border-radius:50%;}
+.kgx-donut__v{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;line-height:1;}
+.kgx-donut__v b{font-size:18px;font-weight:800;color:var(--xink);}
+.kgx-donut__v span{font-size:8px;color:var(--ink-500);font-weight:600;margin-top:2px;}
+/* 반원 게이지 */
+.kgx-gauge{position:relative;overflow:hidden;flex:0 0 auto;}
+.kgx-gauge__arc{width:100%;border-radius:999px 999px 0 0;
+  background:conic-gradient(from 270deg, var(--xa) 0 calc(var(--p,50)*.5%), var(--xg1) 0 50%, transparent 0);}
+/* 막대 (비교) */
+.kgx-bars{display:flex;align-items:flex-end;gap:8px;}
+.kgx-bars .b{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px;height:100%;}
+.kgx-bars .b i{width:62%;background:var(--xg2);border-radius:3px 3px 0 0;}
+.kgx-bars .b.k i{background:var(--xa);}
+.kgx-bars .b.r i{background:var(--red-500);}
+.kgx-bars .b em{font-size:10px;font-weight:700;color:var(--xink);font-style:normal;}
+.kgx-bars .b small{font-size:8.5px;color:var(--ink-500);font-weight:600;}
+/* 100% 스택 바 */
+.kgx-stack{display:flex;height:24px;border-radius:3px;overflow:hidden;border:1px solid var(--xbd);}
+.kgx-stack span{display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:#fff;}
+/* 미니 flowchart (노드 › 노드 › 노드) */
+.kgx-flow{display:flex;align-items:center;gap:4px;}
+.kgx-flow .n{flex:1;text-align:center;font-size:10px;font-weight:700;color:var(--xink);
+  background:var(--neutral-050);border:1px solid var(--xbd);border-radius:3px;padding:6px 5px;line-height:1.2;}
+.kgx-flow .n.k{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border-color:var(--blue-400);color:var(--navy-800);}
+.kgx-flow .a{flex:0 0 auto;color:var(--xa);font-weight:800;font-size:13px;}
+/* 벤다이어그램 (2원 결합) */
+.kgx-venn{position:relative;}
+.kgx-venn i{position:absolute;top:50%;transform:translateY(-50%);border-radius:50%;border:1.5px solid;
+  display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;text-align:center;color:var(--xink);}
+.kgx-venn i.a{left:0;background:rgba(31,73,125,.14);border-color:var(--xa);}
+.kgx-venn i.b{right:0;background:rgba(124,135,148,.14);border-color:var(--xg3);}
+.kgx-venn__mid{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;font-size:9px;font-weight:800;color:var(--navy-800);background:rgba(255,255,255,.75);padding:1px 4px;border-radius:3px;}
+/* 허브-스포크 */
+.kgx-hub{position:relative;}
+.kgx-hub__c{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;
+  background:var(--xa);color:#fff;border-radius:4px;padding:6px 9px;font-size:10px;font-weight:700;text-align:center;}
+.kgx-hub__n{position:absolute;background:#fff;border:1px solid var(--xbd);border-radius:3px;padding:4px 7px;font-size:9px;font-weight:600;color:var(--xink);}
+.kgx-hub svg{position:absolute;inset:0;width:100%;height:100%;}
+.kgx-hub svg line{stroke:var(--xg2);stroke-width:1.5px;}
+/* 셰브론 단계 (가로) */
+.kgx-chev{display:flex;}
+.kgx-chev span{flex:1;font-size:10px;font-weight:700;color:#fff;background:var(--xg2);padding:8px 4px;text-align:center;margin-left:-7px;
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 50%,calc(100% - 8px) 100%,0 100%,8px 50%);}
+.kgx-chev span:first-child{margin-left:0;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 50%,calc(100% - 8px) 100%,0 100%);}
+.kgx-chev span.k{background:var(--xa);}
+.kgx-chev span.mid{background:var(--xg3);}
+/* 3D 셰브론 스택 (세로 누적) */
+.kgx-vstack{display:flex;flex-direction:column;gap:-4px;}
+.kgx-vstack span{font-size:10px;font-weight:700;color:#fff;text-align:center;padding:7px 4px;margin-bottom:-6px;
+  clip-path:polygon(0 0,100% 0,100% 72%,50% 100%,0 72%);}
+.kgx-vstack span:nth-child(1){background:var(--xg1);color:var(--xink);}
+.kgx-vstack span:nth-child(2){background:var(--xg2);}
+.kgx-vstack span:nth-child(3){background:var(--xg3);}
+.kgx-vstack span:nth-child(4){background:var(--xa);}
+/* 벤토 그리드 */
+.kgx-bento{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:1fr 1fr;gap:5px;}
+.kgx-bento .cell{background:#fff;border:1px solid var(--xbd);border-radius:3px;padding:7px 9px;display:flex;flex-direction:column;justify-content:center;}
+.kgx-bento .cell.big{grid-row:1/3;align-items:center;text-align:center;gap:3px;background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border-color:var(--blue-400);}
+.kgx-bento .cell.big b{font-size:24px;font-weight:800;color:var(--navy-800);line-height:1;}
+/* 2x2 매트릭스 */
+.kgx-matrix{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:5px;}
+.kgx-matrix .q{border:1px solid var(--xbd);border-radius:3px;background:var(--neutral-050);padding:7px 9px;font-size:10px;font-weight:600;color:var(--xink);}
+.kgx-matrix .q.k{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border-color:var(--blue-400);font-weight:700;color:var(--navy-800);}
+/* 주고받음(교환) */
+.kgx-exch{display:flex;align-items:center;gap:8px;}
+.kgx-exch__svg{flex:1;height:30px;}
+.kgx-exch__svg line{stroke-width:1.5px;}
+/* As-is → To-be (입체 바) */
+.kgx-aistobe{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.kgx-aistobe .bar{width:100%;text-align:center;font-size:10px;font-weight:800;color:#fff;padding:7px 0;border-radius:3px;box-shadow:0 2px 0 rgba(23,55,94,.22);}
+.kgx-aistobe .bar.a{background:var(--xg3);}
+.kgx-aistobe .bar.b{background:var(--xa);}
+.kgx-aistobe .ar{color:var(--xa);font-size:13px;font-weight:800;line-height:.7;}
+/* 사다리꼴 그라데이션 (불투명→투명) */
+.kgx-trapez{background:linear-gradient(90deg,rgba(31,73,125,.85),rgba(31,73,125,0));
+  clip-path:polygon(0 4%,100% 22%,100% 78%,0 96%);}
+.kgx-trapez--gray{background:linear-gradient(90deg,rgba(124,135,148,.7),rgba(124,135,148,0));}
+/* 스펙트럼 축 (양극 사이 위치) */
+.kgx-spectrum{position:relative;}
+.kgx-spectrum__ax{height:7px;border-radius:4px;background:linear-gradient(90deg,var(--xg1),var(--xg2),var(--xa));}
+.kgx-spectrum__p{position:absolute;top:-4px;width:13px;height:13px;border-radius:50%;background:#fff;border:2.5px solid var(--xa);transform:translateX(-50%);}
+.kgx-spectrum__p.r{border-color:var(--red-500);}
+.kgx-spectrum__p b{position:absolute;left:50%;top:-19px;transform:translateX(-50%);white-space:nowrap;font-size:10px;font-weight:700;color:var(--xink);}
+/* 타임라인 (세로 라인 + dot) */
+.kgx-timeline{position:relative;padding-left:4px;}
+.kgx-timeline__row{display:flex;align-items:center;gap:9px;}
+.kgx-timeline__row .yr{flex:0 0 32px;text-align:right;font-size:11px;font-weight:800;color:var(--navy-800);}
+.kgx-timeline__row .dot{flex:0 0 auto;width:10px;height:10px;border-radius:50%;background:#fff;border:2.5px solid var(--xa);z-index:2;}
+.kgx-timeline__row .dot.r{border-color:var(--red-500);}
+.kgx-timeline__row .tx{font-size:10.5px;color:var(--ink-900);line-height:1.3;}
+.kgx-timeline__row .tx b{color:var(--xink);}
+/* 콜아웃 / 인용 */
+.kgx-callout{position:relative;background:var(--neutral-050);border:1px solid var(--xbd);border-radius:5px;padding:9px 11px;font-size:11px;color:var(--xink);line-height:1.4;}
+.kgx-callout::after{content:"";position:absolute;left:18px;bottom:-7px;border-left:7px solid transparent;border-right:7px solid transparent;border-top:7px solid var(--xbd);}
+.kgx-callout__q{font-style:italic;}
+
+/* =====================================================================
+   14. 정식 복합 컴포넌트 — IPO 흐름 · Step 카드 · 박스그리드(표 대체)
+   ===================================================================== */
+/* Input→Process→Output 흐름 (5칸: end · 화살표 · steps · 화살표 · end) */
+.kgx-ipo{display:grid;grid-template-columns:0.7fr 30px 2.2fr 30px 0.8fr;align-items:stretch;}
+.kgx-ipo__cap{display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--blue-400);font-weight:var(--fw-extrabold);}
+.kgx-end{background:var(--neutral-050);border:1px solid var(--neutral-300);border-radius:var(--r-xs);display:flex;flex-direction:column;}
+.kgx-end__h{background:var(--navy-800);color:#fff;font-weight:var(--fw-bold);font-size:var(--fs-box-title);text-align:center;padding:9px;border-radius:var(--r-xs) var(--r-xs) 0 0;}
+.kgx-end--in .kgx-end__h{background:var(--blue-600);}
+.kgx-end__b{padding:13px 12px;display:flex;flex-direction:column;gap:9px;flex:1;justify-content:center;font-size:var(--fs-body);}
+.kgx-steps{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;}
+.kgx-step{position:relative;padding:0 9px;display:flex;flex-direction:column;}
+.kgx-step:not(:last-child)::after{content:"›";position:absolute;right:-7px;top:8px;font-size:22px;color:var(--blue-400);font-weight:var(--fw-extrabold);z-index:3;}
+.kgx-step__label{background:var(--blue-500);color:#fff;font-weight:var(--fw-bold);font-size:var(--fs-box-title);text-align:center;padding:9px;border-radius:var(--r-xs) var(--r-xs) 0 0;}
+.kgx-step__box{background:#fff;border:1px solid var(--neutral-300);border-top:none;border-radius:0 0 var(--r-xs) var(--r-xs);padding:13px 12px;flex:1;display:flex;flex-direction:column;gap:9px;font-size:var(--fs-body);}
+.kgx-step__meta{display:flex;flex-direction:column;gap:4px;margin-top:auto;border-top:1px dashed var(--neutral-300);padding-top:8px;}
+.kgx-step__meta .row{display:flex;gap:7px;font-size:var(--fs-small);line-height:1.35;}
+.kgx-step__meta .row .k{color:var(--blue-500);font-weight:var(--fw-bold);flex:0 0 46px;}
+.kgx-step__meta .row .v{color:var(--ink-700);}
+
+/* 박스 그리드 (표 대체) — --cols 로 컬럼 지정 */
+.kg-bgrid{display:grid;grid-template-columns:var(--cols,repeat(4,1fr));gap:5px;grid-auto-rows:1fr;}
+.kg-bgrid>div{display:flex;align-items:center;justify-content:center;text-align:center;font-size:var(--fs-small);border-radius:4px;padding:8px 10px;line-height:1.3;}
+.kg-bgrid__h{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;font-weight:var(--fw-bold);}
+.kg-bgrid__rh{background:var(--neutral-200);color:var(--ink-navy);font-weight:var(--fw-bold);}
+.kg-bgrid__c{background:#fff;border:1px solid var(--neutral-300);color:var(--ink-900);}
+.kg-bgrid__c.l{justify-content:flex-start;text-align:left;}
+.kg-bgrid__c.k{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border-color:var(--blue-400);color:var(--navy-800);font-weight:var(--fw-extrabold);}
+

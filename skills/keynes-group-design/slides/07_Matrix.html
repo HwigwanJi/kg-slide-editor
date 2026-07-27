@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Slides" name="E. 매트릭스·비교형" subtitle="x: 스펙트럼축·박스그리드(O/X) / 연결: 곡선 / 소주제 3:1" viewport="1280x905" -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>E. 매트릭스·비교형 — Comparison (박스 그리드)</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="../kg-slide.css">
+<link rel="stylesheet" href="kg-standalone.css">
+<style>
+  .wrap{flex:1;min-height:0;display:grid;grid-template-columns:1fr 46px 300px;margin-top:6px;}
+  .subtop{display:grid;grid-template-columns:1fr 46px 300px;margin-top:4px;}
+  .subtop .kg-subtopic{margin-bottom:4px;}
+  .cap-line{text-align:right;margin-bottom:8px;}
+  .left{display:flex;flex-direction:column;gap:13px;min-height:0;}
+  /* 스펙트럼 축 */
+  .spec{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-sm);padding:12px 16px 14px;}
+  .spec__t{font-size:12px;font-weight:700;color:var(--ink-navy);margin-bottom:14px;display:flex;align-items:center;gap:7px;}
+  .spec__t .b{width:5px;height:14px;background:var(--navy-800);border-radius:1px;}
+  .axis{position:relative;height:8px;border-radius:4px;
+    background:linear-gradient(90deg,#C0392B 0%,#C98A1B 50%,#1E7A46 100%);margin:0 6px 6px;}
+  .axis .ends{display:flex;justify-content:space-between;margin-top:9px;font-size:12px;color:var(--ink-500);font-weight:600;}
+  .pin{position:absolute;top:50%;transform:translate(-50%,-50%);}
+  .pin .dot{width:13px;height:13px;border-radius:50%;background:#fff;border:3px solid var(--navy-800);margin:0 auto;}
+  .pin .lb{position:absolute;left:50%;transform:translateX(-50%);bottom:16px;white-space:nowrap;
+    font-size:12px;font-weight:700;color:var(--ink-navy);background:#fff;padding:1px 6px;border:1px solid var(--neutral-300);border-radius:var(--r-pill);}
+  .pin.kr .dot{border-color:var(--red-600);}.pin.kr .lb{color:var(--red-600);border-color:#E2A99F;}
+  /* 박스 그리드 (테이블 대체) */
+  .bgrid{flex:1;display:grid;grid-template-columns:96px repeat(5,1fr);grid-auto-rows:1fr;gap:5px;}
+  .bgrid>div{display:flex;align-items:center;justify-content:center;text-align:center;font-size:12px;
+    border-radius:3px;padding:5px 6px;line-height:1.25;}
+  .rh{background:var(--neutral-200);color:var(--ink-navy);font-weight:700;}
+  .ch{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;font-weight:700;font-size:12px;}
+  .ch.kr{background:linear-gradient(180deg,#B5403A,#9A2E2A);}
+  .cell{background:#fff;border:1px solid var(--neutral-300);color:var(--ink-900);font-weight:600;}
+  .cell.kr{background:var(--red-050);border-color:#E7C9C4;}
+  .yes{color:var(--green-600);font-weight:800;font-size:15px;}
+  .no{color:var(--red-600);font-weight:800;font-size:15px;}
+  .conn{position:relative;}
+  .conn svg{position:absolute;inset:0;width:100%;height:100%;}
+  .impl{display:flex;flex-direction:column;justify-content:space-between;gap:8px;}
+  .impl__h{font-size:12px;font-weight:700;color:#fff;text-align:center;padding:6px;border-radius:var(--r-xs);background:linear-gradient(180deg,#2C5184,#1F497D);}
+  .ibox{flex:1;background:linear-gradient(180deg,#FCFCFD,#EFF2F5);border:1px solid var(--neutral-300);border-radius:var(--r-sm);padding:9px 11px;display:flex;flex-direction:column;justify-content:center;}
+  .ibox .it{font-size:12.5px;font-weight:700;color:var(--ink-navy);line-height:1.3;}
+  .ibox .id{font-size:12px;color:var(--ink-700);line-height:1.35;margin-top:3px;}
+  .ibox.key{background:linear-gradient(180deg,#27517F,#17375E);border-color:#16365c;}
+  .ibox.key .it{color:#fff;}.ibox.key .id{color:var(--blue-200);}
+</style>
+</head>
+<body>
+<section class="kg-slide kg-root" data-screen-label="매트릭스 비교형">
+  <header class="kg-header">
+    <div class="kg-header__media"></div>
+    <div class="kg-header__num kg-section-num">02</div>
+    <div class="kg-header__divider"></div>
+    <div class="kg-header__titles">
+      <div class="kg-section-title">국내외 조세지원 제도 비교 분석</div>
+      <div class="kg-section-sub">제도 유형 비교 · 환급 방식 중심</div>
+    </div>
+    <div class="kg-chapter-tab"><span class="kg-chapter-tab__roman">II</span><span class="kg-chapter-tab__sep"></span><span class="kg-chapter-tag">제도·환경 분석</span></div>
+  </header>
+  <div class="kg-msgband"><p class="kg-message">주요국은 납부세액과 무관하게 현금을 지급하는 환급형(payable) 구조 — 국내 비환급 구조와 근본적 차이</p></div>
+  <div class="kg-body-area">
+    <div class="subtop">
+      <div class="kg-subtopic">제도 유형별 핵심 비교 — 한국(현행) vs 주요국</div>
+      <div></div>
+      <div class="kg-subtopic">비교의 시사점</div>
+    </div>
+    <div class="cap-line"><span class="kg-caption">* 해외 지원율·요건은 1차자료(BFI·CRA·CNC 등) 재확정 필요</span></div>
+
+    <div class="wrap">
+      <div class="left">
+        <!-- 스펙트럼 시각화 -->
+        <div class="spec">
+          <div class="spec__t"><span class="b"></span>지원 구조 스펙트럼 — 비환급 ↔ 환급형</div>
+          <div class="axis">
+            <div class="pin kr" style="left:6%;"><div class="lb">한국</div><div class="dot"></div></div>
+            <div class="pin" style="left:48%;"><div class="lb">미국</div><div class="dot"></div></div>
+            <div class="pin" style="left:78%;"><div class="lb">캐나다</div><div class="dot"></div></div>
+            <div class="pin" style="left:92%;"><div class="lb">영국·프랑스</div><div class="dot"></div></div>
+          </div>
+          <div class="ends"><span>비환급 (납부세액 한정)</span><span>조건부·이전형</span><span>환급형 (현금 지급)</span></div>
+        </div>
+        <!-- 박스 그리드 비교 (테이블 대체) -->
+        <div class="bgrid">
+          <div class="rh" style="background:transparent;"></div>
+          <div class="ch kr">대한민국<br>(현행)</div><div class="ch">영국</div><div class="ch">캐나다</div><div class="ch">미국</div><div class="ch">프랑스</div>
+
+          <div class="rh">지원 방식</div>
+          <div class="cell kr">세액공제</div><div class="cell">환급형 공제</div><div class="cell">환급형 공제</div><div class="cell">공제+이전형</div><div class="cell">환급형 공제</div>
+
+          <div class="rh">현금 환급</div>
+          <div class="cell kr"><span class="no">✕</span></div><div class="cell"><span class="yes">✓</span></div><div class="cell"><span class="yes">✓</span></div><div class="cell"><span class="yes">✓*</span></div><div class="cell"><span class="yes">✓</span></div>
+
+          <div class="rh">최저한세 관계</div>
+          <div class="cell kr">적용 (제약)</div><div class="cell">무관</div><div class="cell">무관</div><div class="cell">조건부</div><div class="cell">무관</div>
+
+          <div class="rh">지원율(예시)</div>
+          <div class="cell kr">3~10%<br>(웹툰~15%)</div><div class="cell">~25%*</div><div class="cell">연방+주*</div><div class="cell">주별 상이*</div><div class="cell">~30%*</div>
+        </div>
+      </div>
+
+      <div class="conn">
+        <svg viewBox="0 0 46 100" preserveAspectRatio="none"><g fill="none" stroke-width="1.1">
+          <path d="M0,30 C24,30 22,16 46,16" stroke="#C0392B"/>
+          <path d="M0,55 C24,55 22,40 46,40" stroke="#1F497D"/>
+          <path d="M0,55 C24,55 22,64 46,64" stroke="#AEB8C6"/>
+          <path d="M0,80 C24,80 22,88 46,88" stroke="#1F497D"/>
+        </g></svg>
+      </div>
+
+      <div class="impl">
+        <div class="impl__h">비교의 결론·시사점</div>
+        <div class="ibox"><div class="it">환급 가능 여부의 분기</div><div class="id">주요국은 ‘현금 환급’에서 국내와 구조적으로 구분</div></div>
+        <div class="ibox"><div class="it">최저한세 무관 운영</div><div class="id">해외는 지원 실효성을 제도적으로 보장</div></div>
+        <div class="ibox"><div class="it">국내 = 비환급 한계</div><div class="id">영세기업 수혜 비대칭의 핵심 원인</div></div>
+        <div class="ibox key"><div class="it">→ 환급형 설계 시 적용범위·한도·일몰</div><div class="id">최저한세 배제는 단기 보완책으로 우선 검토</div></div>
+      </div>
+    </div>
+  </div>
+  <footer class="kg-footer">
+    <span class="kg-footer__src">자료: BFI(영), CRA(캐), Georgia DOR·§181(미), CNC(프) — 1차자료 재확정 예정</span>
+    <span class="kg-footer__page">8</span>
+    <span class="kg-footer__logo"><img src="../assets/keynes-group-logo.png" alt="Keynes Group"></span>
+  </footer>
+</section>
+<script src="kg-fit.js"></script>
+</body>
+</html>

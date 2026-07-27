@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Slides" name="표지 (Cover)" subtitle="네이비 표지 + 반전 로고 (추상 배경)" viewport="1280x905" -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>표지 — Cover</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="../kg-slide.css">
+<link rel="stylesheet" href="kg-standalone.css">
+<style>
+  .cover{overflow:hidden;
+    background:
+      radial-gradient(1100px 620px at 82% -12%, rgba(79,129,189,.30), transparent 62%),
+      linear-gradient(142deg,#0E2138 0%,#173a61 52%,#0B1A2E 100%);}
+  /* 추상 컨설팅 배경 레이어 */
+  .cover__abs{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+  .cover__grid{position:absolute;inset:0;opacity:.5;
+    background-image:
+      linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size:54px 54px;
+    -webkit-mask-image:radial-gradient(120% 120% at 80% 0%,#000,transparent 75%);
+            mask-image:radial-gradient(120% 120% at 80% 0%,#000,transparent 75%);}
+  .cover__glow{position:absolute;right:-160px;top:-200px;width:680px;height:680px;border-radius:50%;
+    background:radial-gradient(circle,rgba(79,129,189,.30),rgba(79,129,189,0) 68%);}
+
+  .cover__inner{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;padding:56px 64px;}
+  .cover__logo{align-self:flex-start;height:40px;width:auto;}
+  .cover__accent{width:62px;height:5px;background:var(--blue-500);margin-top:auto;}
+  .cover__eyebrow{margin-top:22px;font-family:var(--font-serif);font-size:17px;font-weight:600;
+    letter-spacing:.34em;color:var(--blue-300);text-transform:uppercase;}
+  .cover__eyebrow .ko{font-family:var(--font-sans);font-weight:600;letter-spacing:.08em;color:var(--blue-400);
+    margin-left:14px;font-size:14px;}
+  .cover__title{margin-top:18px;font-size:46px;font-weight:800;line-height:1.26;color:#fff;letter-spacing:-.02em;}
+  .cover__title .hl{color:var(--blue-300);}
+  .cover__sub{margin-top:16px;font-size:17px;font-weight:500;color:var(--blue-200);letter-spacing:-.01em;}
+  .cover__meta{margin-top:auto;display:flex;border-top:1px solid rgba(255,255,255,.16);padding-top:18px;}
+  .cover__meta div{padding-right:36px;margin-right:36px;border-right:1px solid rgba(255,255,255,.14);}
+  .cover__meta div:last-child{border-right:none;}
+  .cover__meta .k{font-size:12px;color:var(--blue-400);font-weight:600;letter-spacing:.06em;margin-bottom:6px;}
+  .cover__meta .v{font-size:15px;color:#fff;font-weight:600;}
+</style>
+</head>
+<body>
+<section class="kg-slide cover kg-root" data-screen-label="표지">
+  <div class="cover__abs">
+    <div class="cover__grid"></div>
+    <div class="cover__glow"></div>
+  </div>
+  <div class="cover__inner">
+    <img class="cover__logo" src="../assets/keynes-group-logo-shadow.png" alt="Keynes Group">
+    <div class="cover__accent"></div>
+    <div class="cover__eyebrow">Kick-off Report<span class="ko">착수보고서</span></div>
+    <h1 class="cover__title">콘텐츠산업 재투자 활성화를 위한<br><span class="hl">조세지원 실효성 제고</span> 방안 연구</h1>
+    <p class="cover__sub">영상콘텐츠 제작비 세액공제의 환급 구조 전환 및 단계적 개선전략 수립</p>
+    <div class="cover__meta">
+      <div><div class="k">발주처</div><div class="v">문화체육관광부</div></div>
+      <div><div class="k">수행기관</div><div class="v">케인즈그룹 (Keynes Group)</div></div>
+      <div><div class="k">제출일</div><div class="v">2026. 05. 14.</div></div>
+    </div>
+  </div>
+</section>
+<script src="kg-fit.js"></script>
+</body>
+</html>

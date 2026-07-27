@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Slides" name="간지 (Divider)" subtitle="섹션 간지 (대형 로마숫자 + 서브)" viewport="1280x905" -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>간지 — Section Divider</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="../kg-slide.css">
+<link rel="stylesheet" href="kg-standalone.css">
+<style>
+  .divider{background:linear-gradient(115deg,#102544 0%,#17375E 48%,#1F497D 100%);
+    display:grid;grid-template-columns:1.05fr .95fr;}
+  .divider__left{padding:64px;display:flex;flex-direction:column;justify-content:center;position:relative;}
+  .divider__bignum{font-family:var(--font-serif);font-size:200px;font-weight:700;line-height:.8;
+    color:rgba(149,179,215,.16);position:absolute;top:40px;left:54px;}
+  .divider__chip{font-size:13px;font-weight:600;letter-spacing:.22em;color:var(--blue-400);
+    text-transform:uppercase;margin-bottom:16px;position:relative;}
+  .divider__title{font-size:44px;font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1.18;
+    position:relative;}
+  .divider__bar{width:56px;height:5px;background:var(--blue-500);margin:26px 0 0;position:relative;}
+  .divider__right{background:rgba(8,18,34,.34);padding:64px 56px;display:flex;flex-direction:column;
+    justify-content:center;gap:0;border-left:1px solid rgba(255,255,255,.12);}
+  .divider__sub{display:flex;gap:16px;align-items:flex-start;padding:18px 0;
+    border-bottom:1px solid rgba(255,255,255,.12);}
+  .divider__sub:first-child{padding-top:0;}
+  .divider__sub:last-child{border-bottom:none;padding-bottom:0;}
+  .divider__subnum{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;
+    border-radius:50%;border:1.5px solid var(--blue-400);color:var(--blue-300);font-weight:700;
+    font-size:14px;flex:0 0 auto;}
+  .divider__subt{color:#fff;font-size:17px;font-weight:600;line-height:1.3;}
+  .divider__subd{color:var(--blue-300);font-size:13px;font-weight:400;margin-top:3px;line-height:1.4;}
+  .divider__logo{position:absolute;bottom:42px;left:64px;height:24px;opacity:.85;}
+</style>
+</head>
+<body>
+<section class="kg-slide divider kg-root" data-screen-label="간지">
+  <div class="divider__left">
+    <div class="divider__bignum">III</div>
+    <div class="divider__chip">Part III · 사업 수행 방안</div>
+    <h1 class="divider__title">조세지원 체계<br>개선방안 도출</h1>
+    <div class="divider__bar"></div>
+    <img class="divider__logo" src="../assets/keynes-group-logo-shadow.png" alt="Keynes Group">
+  </div>
+  <div class="divider__right">
+    <div class="divider__sub">
+      <span class="divider__subnum">1</span>
+      <div><div class="divider__subt">수혜기업 심층조사(FGI) 설계</div>
+        <div class="divider__subd">제작비 세액공제 활용기업 30건 이상 현장 실질한계 수집</div></div>
+    </div>
+    <div class="divider__sub">
+      <span class="divider__subnum">2</span>
+      <div><div class="divider__subt">제도개선 시나리오 파급효과 분석</div>
+        <div class="divider__subd">최저한세 제외 + 환급형 도입 시 경제효과 계량 분석</div></div>
+    </div>
+    <div class="divider__sub">
+      <span class="divider__subnum">3</span>
+      <div><div class="divider__subt">조세지원 체계 개선방안 도출</div>
+        <div class="divider__subd">영세 산업구조를 고려한 우선순위 및 단계별 이행전략</div></div>
+    </div>
+    <div class="divider__sub">
+      <span class="divider__subnum">4</span>
+      <div><div class="divider__subt">단계별 이행전략</div>
+        <div class="divider__subd">단기 보완 → 중기 환급형 전환 → 상시 운영체계 정비</div></div>
+    </div>
+  </div>
+</section>
+<script src="kg-fit.js"></script>
+</body>
+</html>

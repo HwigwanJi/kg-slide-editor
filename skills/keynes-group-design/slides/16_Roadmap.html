@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Slides" name="로드맵형 (셰브론)" subtitle="x: 가치사슬 환류·셰브론 매트릭스 / 연결: 환류 loop" viewport="1280x905" -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>로드맵형 — Chevron Roadmap</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="../kg-slide.css">
+<link rel="stylesheet" href="kg-standalone.css">
+<style>
+  .rm{flex:1;min-height:0;display:flex;flex-direction:column;gap:13px;margin-top:11px;}
+  /* 상단 환류 value-chain */
+  .vc{background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-sm);padding:11px 12px 12px;position:relative;}
+  .vc__t{font-size:13px;font-weight:700;color:var(--ink-500);text-transform:uppercase;letter-spacing:.03em;margin-bottom:9px;}
+  .vc__loop{position:absolute;right:18px;top:9px;font-size:13px;font-weight:700;color:var(--blue-600);background:var(--blue-050);border:1px solid var(--blue-300);border-radius:var(--r-pill);padding:2px 10px;}
+  .chain{display:flex;align-items:stretch;gap:0;}
+  .cnode{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;font-size:13px;font-weight:700;
+    color:var(--ink-navy);background:var(--neutral-100);border:1px solid var(--neutral-300);border-radius:4px;padding:9px 6px;line-height:1.25;}
+  .cnode.hl{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border-color:var(--blue-400);color:var(--navy-800);}
+  .cnode.key{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;border-color:#16365c;}
+  .carr{flex:0 0 26px;display:flex;align-items:center;justify-content:center;color:var(--blue-500);font-weight:800;font-size:16px;}
+  /* 셰브론 단계 매트릭스 */
+  .rmx{flex:1;min-height:0;display:grid;grid-template-columns:78px repeat(4,1fr);grid-template-rows:auto 1fr 1fr;gap:7px;}
+  .rlab{display:flex;align-items:center;justify-content:center;text-align:center;background:var(--neutral-200);
+    color:var(--ink-navy);font-weight:700;font-size:13px;border-radius:4px;}
+  .stagehd{background:linear-gradient(180deg,#2C5184,#1F497D);color:#fff;font-weight:700;font-size:13px;
+    display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 8px;
+    clip-path:polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%, 15px 50%);}
+  .stagehd:first-of-type{clip-path:polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%);}
+  .stagehd .n{width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);font-size:13px;display:flex;align-items:center;justify-content:center;}
+  .mcell{background:#fff;border:1px solid var(--neutral-300);border-radius:4px;padding:9px 11px;display:flex;flex-direction:column;justify-content:center;gap:6px;}
+  .mcell.dir{background:var(--neutral-050);}
+  .mcell .kg-grp__k{font-size:13px;}
+  .mcell .kg-grp__c li{font-size:13px;}
+  .mcell .tag{align-self:flex-start;font-size:13px;font-weight:800;color:#fff;background:var(--red-500);padding:1px 6px;border-radius:3px;}
+  .mcell.dir .tag{background:var(--blue-500);}
+  .mtxt{font-size:13px;color:var(--ink-700);line-height:1.4;}
+  .mtxt b{color:var(--ink-navy);}
+  .mcell.dir .mtxt b{color:var(--navy-800);}
+  .mfn{margin-top:6px;padding-top:6px;border-top:1px dashed var(--neutral-300);font-size:13px;color:var(--ink-500);line-height:1.35;}
+</style>
+</head>
+<body>
+<section class="kg-slide kg-root" data-screen-label="로드맵형">
+  <header class="kg-header">
+    <div class="kg-header__media"></div>
+    <div class="kg-header__num kg-section-num">04</div>
+    <div class="kg-header__divider"></div>
+    <div class="kg-header__titles">
+      <div class="kg-section-title">단계별 이행 로드맵</div>
+      <div class="kg-section-sub">가치사슬 · 단계별 개선요인·개선방향</div>
+    </div>
+    <div class="kg-chapter-tab"><span class="kg-chapter-tab__roman">III</span><span class="kg-chapter-tab__sep"></span><span class="kg-chapter-tag">사업 수행 방안</span></div>
+  </header>
+  <div class="kg-msgband"><p class="kg-message">조세지원의 가치사슬 단계별로 개선요인을 진단하고 개선방향을 매핑하여 재투자 환류 효과를 단계적으로 확보</p></div>
+  <div class="kg-body-area">
+    <div class="kg-area-title"><span class="kg-area-title__bar"></span>
+      <span class="kg-body-title">조세지원 가치사슬 및 단계별 개선 로드맵</span>
+    </div>
+
+    <div class="rm">
+      <!-- 상단 환류 value-chain -->
+      <div class="vc">
+        <div class="vc__t">재투자 환류 가치사슬</div>
+        <div class="vc__loop">↺ 환류·점검</div>
+        <div class="chain kgx-flow">
+          <div class="cnode">세액공제 지원</div><div class="carr">›</div>
+          <div class="cnode hl">제작 재투자</div><div class="carr">›</div>
+          <div class="cnode hl">산업 성과 발생</div><div class="carr">›</div>
+          <div class="cnode">세원·고용 확대</div><div class="carr">›</div>
+          <div class="cnode key">재투자 환류 강화</div>
+        </div>
+      </div>
+
+      <!-- 셰브론 단계 매트릭스 -->
+      <div class="rmx">
+        <div class="rlab" style="background:transparent;"></div>
+        <div class="stagehd kg-chevblock"><span class="n">1</span>투입</div>
+        <div class="stagehd kg-chevblock"><span class="n">2</span>과정</div>
+        <div class="stagehd kg-chevblock"><span class="n">3</span>성과</div>
+        <div class="stagehd kg-chevblock"><span class="n">4</span>파급효과</div>
+
+        <div class="rlab">개선<br>요인</div>
+        <div class="mcell kg-gbox"><span class="tag">현 문제</span><div class="mtxt">복잡한 공제 <b>신청·행정 절차</b> — 영세기업 접근성 저하</div><div class="mfn">서류·산정 부담으로 소규모 제작사 활용 저조</div></div>
+        <div class="mcell kg-gbox"><span class="tag">현 문제</span><div class="mtxt">최저한세·농특세로 <b>공제 실현율 저하</b></div><div class="mfn">공제 인정액의 일부만 당기 실현 — 효과 이연</div></div>
+        <div class="mcell kg-gbox"><span class="tag">현 문제</span><div class="mtxt">영세기업 <b>환급 사각</b> · 재투자 시점 후행</div><div class="mfn">결손·저세율 기업은 즉시 환급 불가</div></div>
+        <div class="mcell kg-gbox"><span class="tag">현 문제</span><div class="mtxt">재투자 환류·<b>지역 확산 효과 제한</b></div><div class="mfn">수혜 대형 집중으로 산업 전반 파급 약화</div></div>
+
+        <div class="rlab" style="background:var(--blue-200);">개선<br>방향</div>
+        <div class="mcell dir kg-gbox"><span class="tag">개선</span><div class="mtxt">신청·산정 <b>절차 간소화</b> 및 안내 강화</div><div class="mfn">표준 산정서식·사전안내로 활용률 제고</div></div>
+        <div class="mcell dir kg-gbox"><span class="tag">개선</span><div class="mtxt"><b>최저한세 배제</b>·농특세·이월 보완</div><div class="mfn">당기 실현율을 높여 지원 즉시성 강화</div></div>
+        <div class="mcell dir kg-gbox"><span class="tag">개선</span><div class="mtxt"><b>환급형(payable) 도입</b> — 즉시성 확보</div><div class="mfn">납부세액 무관 현금 환급으로 사각 해소</div></div>
+        <div class="mcell dir kg-gbox"><span class="tag">개선</span><div class="mtxt">재투자·고용 <b>유발효과 계량</b>·확산</div><div class="mfn">성과지표 모니터링으로 환류 고리 강화</div></div>
+      </div>
+    </div>
+  </div>
+  <footer class="kg-footer">
+    <span class="kg-footer__src">RFP 연구내용 ④ 조세지원 체계 개선방안 — 단계별 이행전략</span>
+    <span class="kg-footer__page">18</span>
+    <span class="kg-footer__logo"><img src="../assets/keynes-group-logo.png" alt="Keynes Group"></span>
+  </footer>
+</section>
+<script src="kg-fit.js"></script>
+</body>
+</html>

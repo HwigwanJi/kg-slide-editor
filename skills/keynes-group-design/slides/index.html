@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Slides" name="샘플 덱 (전체)" subtitle="17장 샘플 덱 — II→III→IV 순" viewport="1280x905" -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>케인즈그룹 장표 템플릿 — 샘플 덱</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;height:100%;background:#0B1626;font-family:var(--font-sans);overflow:hidden;}
+  .stagewrap{position:fixed;inset:0 0 64px 0;display:flex;align-items:center;justify-content:center;}
+  .stage{width:1280px;height:905px;flex:0 0 auto;transform-origin:center center;
+    box-shadow:0 12px 50px rgba(0,0,0,.5);background:#fff;}
+  .stage iframe{width:1280px;height:905px;border:0;display:block;}
+  .bar{position:fixed;left:0;right:0;bottom:0;height:64px;background:#0E1C30;border-top:1px solid rgba(255,255,255,.1);
+    display:flex;align-items:center;gap:14px;padding:0 20px;color:#cfe;}
+  .bar img{height:22px;}
+  .nav{display:flex;align-items:center;gap:8px;margin-left:auto;}
+  .btn{width:38px;height:38px;border-radius:8px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);
+    color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+  .btn:hover{background:rgba(255,255,255,.14);}
+  .count{font-size:13px;color:#9fb6d4;min-width:54px;text-align:center;font-variant-numeric:tabular-nums;}
+  .title{font-size:13px;color:#fff;font-weight:600;}
+  .tag{font-size:11px;color:#7fa8d8;font-weight:600;letter-spacing:.04em;}
+  .rail{display:flex;gap:6px;overflow-x:auto;max-width:46vw;padding:4px;}
+  .dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.22);cursor:pointer;flex:0 0 auto;}
+  .dot.on{background:var(--blue-500);}
+</style>
+</head>
+<body>
+<div class="stagewrap"><div class="stage"><iframe id="frame" src="00_Cover.html"></iframe></div></div>
+<div class="bar">
+  <img src="../assets/keynes-group-logo-shadow.png" alt="Keynes Group">
+  <div><div class="title" id="t">표지</div><div class="tag" id="g">Cover</div></div>
+  <div class="rail" id="rail"></div>
+  <div class="nav">
+    <button class="btn" id="prev">‹</button>
+    <span class="count" id="c">1 / 11</span>
+    <button class="btn" id="next">›</button>
+  </div>
+</div>
+<script>
+  const slides=[
+    ["00_Cover.html","표지","Cover"],
+    ["01_TOC.html","목차","Table of Contents"],
+    ["02_SectionDivider.html","간지","Section Divider"],
+    ["03_ChangeFlow.html","변화 흐름형","Layout A · Change Flow"],
+    ["15_StatsTimeline.html","통계·연혁·사례형","Stats · Timeline · Examples"],
+    ["04_ParallelEvidence.html","근거 병렬형","Layout B · Parallel Evidence"],
+    ["07_Matrix.html","매트릭스·비교형","Layout E · Comparison Matrix"],
+    ["12_Relational.html","관계 매핑형","Layout G · Driver→Category→Implication"],
+    ["14_Framework.html","2×2 프레임워크 (복합)","Compound · 2×2 Methodology"],
+    ["06_ProcessSystem.html","프로세스·운영체계형","Layout D · Process / IPO"],
+    ["13_Convergence.html","3:1 수렴형 (복합)","Compound · 3 Pillars → 1 Synthesis"],
+    ["05_DiagnosisReview.html","진단·검토형","Layout C · Diagnosis & Review"],
+    ["11_ChainedFlow.html","연쇄 박스 구조","Layout H · Chained / AS-IS→TO-BE"],
+    ["16_Roadmap.html","로드맵형 (셰브론)","Roadmap · Chevron stages"],
+    ["08_Ecosystem.html","구조도·생태계형","Layout F · Ecosystem"],
+    ["09_Schedule.html","과업 추진 일정","Schedule · Gantt"],
+    ["10_Closing.html","마무리","Closing"]
+  ];
+  let i=parseInt(new URLSearchParams(location.search).get("s")||"0",10);
+  const frame=document.getElementById("frame"),c=document.getElementById("c"),
+    t=document.getElementById("t"),g=document.getElementById("g"),rail=document.getElementById("rail");
+  slides.forEach((s,idx)=>{const d=document.createElement("div");d.className="dot";d.onclick=()=>go(idx);rail.appendChild(d);});
+  function go(n){i=(n+slides.length)%slides.length;frame.src=slides[i][0];t.textContent=slides[i][1];
+    g.textContent=slides[i][2];c.textContent=(i+1)+" / "+slides.length;
+    [...rail.children].forEach((d,x)=>d.classList.toggle("on",x===i));
+    history.replaceState(null,"","?s="+i);}
+  function fit(){const s=Math.min((innerWidth-40)/1280,(innerHeight-64-40)/905);
+    document.querySelector(".stage").style.transform="scale("+s+")";}
+  document.getElementById("prev").onclick=()=>go(i-1);
+  document.getElementById("next").onclick=()=>go(i+1);
+  addEventListener("keydown",e=>{if(e.key==="ArrowRight")go(i+1);if(e.key==="ArrowLeft")go(i-1);});
+  addEventListener("resize",fit);go(i);fit();
+</script>
+</body>
+</html>

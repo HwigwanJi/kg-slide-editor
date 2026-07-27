@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Slides" name="H. 연쇄 박스 (AS-IS→TO-BE)" subtitle="x: 세로연쇄·단계레일(AS-IS/도입/TO-BE) / 라벨: kg-steptab" viewport="1280x905" -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>연쇄 박스 구조 — Chained / AS-IS·TO-BE</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="../kg-slide.css">
+<link rel="stylesheet" href="kg-standalone.css">
+<style>
+  .wrap{margin-top:14px;display:grid;grid-template-columns:288px 1fr;gap:22px;flex:1;min-height:0;}
+  /* 좌: 환급형 운영 메커니즘 세로 연쇄 */
+  .mech{display:flex;flex-direction:column;}
+  .mech__hd{margin-bottom:9px;}
+  .mech__hd .t{font-size:13px;font-weight:700;color:var(--ink-navy);display:flex;align-items:center;gap:8px;}
+  .mech__hd .t .b{width:5px;height:15px;background:var(--navy-800);border-radius:1px;}
+  .mflow{display:flex;flex-direction:column;flex:1;}
+  .mbox{padding:11px 12px;text-align:center;}
+  .mbox .mt{font-size:13.5px;font-weight:700;color:var(--ink-navy);}
+  .mbox .md{font-size:13px;color:var(--ink-700);margin-top:4px;line-height:1.4;}
+  .mbox .step{font-size:13px;font-weight:700;color:var(--blue-600);letter-spacing:.04em;}
+  .kg-stagetab{font-size:13px;}
+  /* 우: 단계 전환 레일 */
+  .stages{display:grid;grid-template-columns:74px 1fr;column-gap:0;row-gap:11px;position:relative;flex:1;align-content:stretch;}
+  .stages::before{content:"";position:absolute;left:37px;top:14px;bottom:14px;width:2px;background:var(--blue-400);transform:translateX(-50%);z-index:0;}
+  .tabcell{display:flex;align-items:center;justify-content:center;position:relative;z-index:2;}
+  .msgcell{display:flex;flex-direction:column;gap:7px;justify-content:center;padding-left:14px;position:relative;}
+  .msgcell::before{content:"";position:absolute;left:0;top:50%;width:14px;height:2px;background:var(--blue-400);transform:translateY(-50%);}
+  .msg{padding:9px 13px;display:flex;align-items:flex-start;gap:9px;}
+  .msg .mk{flex:1;font-size:13px;color:var(--ink-900);line-height:1.4;}
+  .msg .mk b{color:var(--navy-800);font-weight:700;}
+  .msg.warn{background:linear-gradient(180deg,#FBEEEC,#F6DDD9);border-color:#E2A99F;}
+  .msg.good{background:linear-gradient(180deg,#EAF5EF,#D8ECE1);border-color:#A6CDB6;}
+  .badge{flex:0 0 auto;font-size:13px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap;}
+  .badge.r{background:var(--red-600);color:#fff;}.badge.b{background:var(--blue-500);color:#fff;}.badge.g{background:var(--green-600);color:#fff;}
+  .princ{margin-top:12px;}
+  .princ .kg-ghd{font-size:13px;}
+  .princ__bd{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--blue-300);border-top:none;border-radius:0 0 var(--r-sm) var(--r-sm);background:#fff;}
+  .princ__cell{padding:9px 13px;border-right:1px solid var(--blue-200);}
+  .princ__cell:last-child{border-right:none;}
+  .princ__cell .pt{font-size:13px;font-weight:700;color:var(--ink-navy);margin-bottom:3px;}
+  .princ__cell .pd{font-size:13px;color:var(--ink-700);line-height:1.4;}
+</style>
+</head>
+<body>
+<section class="kg-slide kg-root" data-screen-label="연쇄 박스 구조">
+  <header class="kg-header">
+    <div class="kg-header__media"></div>
+    <div class="kg-header__num kg-section-num">04</div>
+    <div class="kg-header__divider"></div>
+    <div class="kg-header__titles">
+      <div class="kg-section-title">단계별 이행전략</div>
+      <div class="kg-section-sub">이행 체계 · AS-IS → 도입 → TO-BE</div>
+    </div>
+    <div class="kg-chapter-tab">
+      <span class="kg-chapter-tab__roman">III</span>
+      <span class="kg-chapter-tab__sep"></span>
+      <span class="kg-chapter-tag">사업 수행 방안</span>
+    </div>
+  </header>
+  <div class="kg-msgband"><span class="kg-msgband__mark"></span>
+    <p class="kg-message">비환급·이월 구조를 단기 보완(최저한세 배제) → 중기 환급형 도입으로 단계 전환하여 재투자 즉시성 확보 필요</p>
+  </div>
+  <div class="kg-body-area">
+    <div class="kg-area-title"><span class="kg-area-title__bar"></span>
+      <span class="kg-body-title">환급형 전환 이행체계 — 운영 메커니즘과 단계 전환</span>
+    </div>
+
+    <div class="wrap">
+      <!-- 좌: 세로 연쇄 메커니즘 -->
+      <div class="mech">
+        <div class="mech__hd"><div class="t"><span class="b"></span>환급형 운영 메커니즘</div></div>
+        <div class="mflow">
+          <div class="kg-gbox mbox"><div class="step">STEP 1</div><div class="mt">적용대상·요건 정의</div><div class="md">제작비 세액공제 활용기업 중 환급 대상 범위·요건 설정</div></div>
+          <div class="kg-down kg-down--grad"></div>
+          <div class="kg-gbox mbox"><div class="step">STEP 2</div><div class="mt">공제 → 환급 전환 산정</div><div class="md">최저한세 배제 후 미실현 공제액을 환급액으로 전환 산정</div></div>
+          <div class="kg-down kg-down--grad"></div>
+          <div class="kg-gbox--navy kg-gbox mbox" style="border-radius:var(--r-sm);"><div class="step" style="color:var(--blue-300)">STEP 3</div><div class="mt" style="color:#fff;">환급 지급·사후 정산</div><div class="md" style="color:#dbe6f4;">현금 지급 후 요건 미충족분 환수 — 재정중립 관리</div></div>
+        </div>
+      </div>
+
+      <!-- 우: 단계 전환 레일 -->
+      <div class="stages">
+        <div class="tabcell"><span class="kg-stagetab">AS-IS</span></div>
+        <div class="msgcell">
+          <div class="kg-gbox msg warn"><span class="badge r">현행</span><span class="mk">납부세액 부족 시 <b>당기 환급 불가</b> — 영세·결손 기업 지원 후행</span></div>
+          <div class="kg-gbox msg warn"><span class="badge r">한계</span><span class="mk">명목 지원율과 <b>실현율 간 괴리</b> 상존 — 재투자 유인 약화</span></div>
+        </div>
+
+        <div class="tabcell"><span class="kg-stagetab kg-stagetab--mid">도입</span></div>
+        <div class="msgcell">
+          <div class="kg-gbox--blue kg-gbox msg" style="border-radius:var(--r-sm);"><span class="badge b">전환</span><span class="mk"><b>최저한세 적용배제</b> + 농특세·이월 보완 → <b>환급형(payable) 단계 도입</b></span></div>
+        </div>
+
+        <div class="tabcell"><span class="kg-stagetab">TO-BE</span></div>
+        <div class="msgcell">
+          <div class="kg-gbox msg good"><span class="badge g">목표</span><span class="mk">납부세액과 무관한 <b>현금 환급</b>으로 재투자 즉시성 확보</span></div>
+          <div class="kg-gbox msg good"><span class="badge g">효과</span><span class="mk">영세구조 <b>수혜 비대칭 해소</b> — 재투자 환류 고리 복원</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="princ">
+      <div class="kg-ghd">단계적 이행 원칙</div>
+      <div class="princ__bd">
+        <div class="princ__cell"><div class="pt">재정중립 우선</div><div class="pd">적용범위·한도·일몰을 설정해 세수영향을 통제하며 단계 적용</div></div>
+        <div class="princ__cell"><div class="pt">영세구조 우선 배려</div><div class="pd">결손·저세율 기업의 환급 수요를 우선 반영해 사각 해소</div></div>
+        <div class="princ__cell"><div class="pt">행정 정합성 확보</div><div class="pd">사후 정산·환수 체계로 부정수급 방지 및 운영 신뢰도 제고</div></div>
+      </div>
+    </div>
+  </div>
+  <footer class="kg-footer">
+    <span class="kg-footer__src">자료: 조특법 §25의6·§132 / 해외 환급형 제도 운영사례 분석</span>
+    <span class="kg-footer__page">16</span>
+    <span class="kg-footer__logo"><img src="../assets/keynes-group-logo.png" alt="Keynes Group"></span>
+  </footer>
+</section>
+<script src="kg-fit.js"></script>
+</body>
+</html>

@@ -8,3 +8,6 @@ Thumbs.db
 tools/gen/
 
 tools/gen/
+
+# skills/keynes-group-design 에서 만들어 낸다 (npm run setup)
+public/kg/

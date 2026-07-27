@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Slides" name="C. 진단·검토형" subtitle="x: 세로 누수흐름·셰브론·도넛·꺾은선 / 연결: mesh·사다리꼴 그라데 / 라벨: kg-cornern" viewport="1280x905" -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>C. 진단·검토형 — Diagnosis & Review</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="../kg-slide.css">
+<link rel="stylesheet" href="kg-standalone.css">
+<style>
+  .grid{display:grid;grid-template-columns:1fr 74px 1.12fr;gap:0;margin-top:6px;flex:1;min-height:0;}
+  .grid>div{display:flex;flex-direction:column;min-height:0;}
+  .subtop{display:grid;grid-template-columns:1fr 74px 1.12fr;margin-top:4px;margin-bottom:8px;}
+  .subtop .kg-subtopic{margin-bottom:0;}
+  /* 좌: 세로 누수 흐름 (node + 꺾은선 누수 라벨) */
+  .stack{display:flex;flex-direction:column;align-items:stretch;gap:0;flex:1;justify-content:space-between;}
+  .node{position:relative;background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-sm);padding:13px 15px;}
+  .node .nt{font-size:15px;font-weight:700;color:var(--ink-navy);}
+  .node .nd{font-size:14.5px;color:var(--ink-700);margin-top:3px;line-height:1.45;}
+  .node.start{background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border-color:var(--blue-400);}
+  .node.end{background:linear-gradient(180deg,#27517F,#17375E);border-color:#16365c;}
+  .node.end .nt,.node.end .nd{color:#fff;}
+  .node.end .nt b{color:var(--blue-300);}
+  /* 꺾은선 누수 커넥터 (수직선 + 우측 분기 화살표 + 손실 라벨) */
+  .down{position:relative;height:40px;flex:0 0 auto;}
+  .down::before{content:"";position:absolute;left:50%;top:2px;bottom:11px;width:3px;background:var(--xa);border-radius:2px;transform:translateX(-50%);}
+  .down::after{content:"";position:absolute;left:50%;bottom:0;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:11px solid var(--xa);transform:translateX(-50%);}
+  .leak{position:absolute;left:calc(50% + 8px);top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:6px;
+    background:#FBECEA;border:1px solid #E2A99F;border-radius:var(--r-pill);padding:3px 10px 3px 8px;white-space:nowrap;}
+  .leak .ld{width:14px;height:14px;border-radius:50%;background:var(--red-500);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+  .leak .lb{font-size:13px;color:var(--red-600);font-weight:700;}
+  .kpi-strip{margin-top:8px;display:flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-sm);padding:8px 11px;flex:0 0 auto;}
+  .kpi-strip .kgx-donut{width:58px;height:58px;flex:0 0 auto;}
+  .kpi-strip .kgx-donut__v b{font-size:15px;}
+  .kpi-strip .kt{font-size:14px;color:var(--ink-700);line-height:1.5;}
+  .kpi-strip .kt b{color:var(--navy-800);}
+  /* 가운데: mesh 연결 (누수→검토 매핑) */
+  .bridge{position:relative;}
+  .bridge svg{position:absolute;inset:0;width:100%;height:100%;}
+  .bridge .cap{position:absolute;left:50%;top:8px;transform:translateX(-50%);font-size:12px;font-weight:700;color:var(--blue-600);background:#F8F9FB;padding:2px 6px;white-space:nowrap;}
+  /* 우: 검토사항 (번호 코너 + 타이밍 셰브론 + 내용) */
+  .reviews{display:flex;flex-direction:column;gap:9px;flex:1;justify-content:space-between;}
+  .rev{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px;
+    background:#fff;border:1.5px dashed var(--blue-500);border-radius:var(--r-sm);padding:11px 14px 11px 15px;}
+  .rev.warn{border-color:var(--red-500);background:#FEFAF9;}
+  .rev .rhead{display:flex;align-items:center;gap:9px;}
+  .rev .rt{font-size:15px;font-weight:700;color:var(--ink-navy);}
+  .rev .rd{font-size:14px;color:var(--ink-700);line-height:1.5;padding-left:29px;}
+  .rev .rd b{color:var(--navy-800);}
+  /* 타이밍 셰브론 (단기›중기›상시) */
+  .tchev{display:inline-flex;margin-left:auto;flex:0 0 auto;}
+  .tchev span{font-size:12.5px;font-weight:800;color:#fff;background:var(--xg2);padding:4px 10px 4px 13px;margin-left:-6px;
+    clip-path:polygon(0 0,calc(100% - 6px) 0,100% 50%,calc(100% - 6px) 100%,0 100%,6px 50%);}
+  .tchev span:first-child{margin-left:0;clip-path:polygon(0 0,calc(100% - 6px) 0,100% 50%,calc(100% - 6px) 100%,0 100%);}
+  .tchev span.on{background:var(--xa);}
+  .tchev.warn span.on{background:var(--red-600);}
+  /* 하단: 사다리꼴 그라데 수렴 → 결론 */
+  .concl{margin-top:11px;display:grid;grid-template-columns:1fr 60px auto;align-items:stretch;gap:0;flex:0 0 auto;}
+  .concl__path{position:relative;}
+  .concl__path .kgx-trapez{position:absolute;inset:6px 0;}
+  .concl__box{display:flex;align-items:center;gap:14px;background:linear-gradient(180deg,#EAF1FB,#D9E6F5);border:1px solid var(--blue-400);border-radius:var(--r-sm);padding:12px 16px;}
+  .concl__lab{flex:0 0 auto;background:var(--navy-800);color:#fff;font-weight:800;font-size:13px;padding:6px 14px;border-radius:var(--r-pill);white-space:nowrap;}
+  .concl__tx{color:var(--ink-navy);font-size:15.5px;font-weight:600;line-height:1.45;}
+  .concl__2step{display:flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--neutral-300);border-radius:var(--r-sm);padding:0 16px;justify-content:center;}
+  .concl__2step .kgx-flow{gap:5px;}
+  .concl__2step .kgx-flow .n{font-size:13.5px;padding:8px 11px;white-space:nowrap;}
+</style>
+</head>
+<body>
+<section class="kg-slide kg-root" data-screen-label="진단·검토형">
+  <header class="kg-header">
+    <div class="kg-header__media"></div>
+    <div class="kg-header__num kg-section-num">03</div>
+    <div class="kg-header__divider"></div>
+    <div class="kg-header__titles">
+      <div class="kg-section-title">조세지원 체계 개선방안 도출</div>
+      <div class="kg-section-sub">현행 체계 진단 · 개선 검토사항</div>
+    </div>
+    <div class="kg-chapter-tab"><span class="kg-chapter-tab__roman">III</span><span class="kg-chapter-tab__sep"></span><span class="kg-chapter-tag">사업 수행 방안</span></div>
+  </header>
+  <div class="kg-msgband"><p class="kg-message">공제 → 최저한세 → 농특세 → 이월 단계마다 지원 효과가 누수되는 구조 — 단계별 배제·환급 설계로 보완 필요</p></div>
+  <div class="kg-body-area">
+    <div class="subtop">
+      <div class="kg-subtopic">현행 지원 실현 구조 — 누수 지점</div>
+      <div></div>
+      <div class="kg-subtopic">단계별 개선 검토사항</div>
+    </div>
+
+    <div class="grid">
+      <!-- 좌: 세로 누수 흐름 -->
+      <div>
+        <div class="stack">
+          <div class="node start"><div class="nt">① 제작비 세액공제 산정</div><div class="nd">공제율 적용 — 명목 지원액 <b>100</b> 확정</div></div>
+          <div class="down"><span class="leak"><span class="ld">−</span><span class="lb">최저한세로 일부 차단</span></span></div>
+          <div class="node"><div class="nt">② 최저한세 적용 (§132)</div><div class="nd">최소 세부담 유지 — 공제 실현율 하락</div></div>
+          <div class="down"><span class="leak"><span class="ld">−</span><span class="lb">감면분 20% 추가 잠식</span></span></div>
+          <div class="node"><div class="nt">③ 농어촌특별세 부과</div><div class="nd">공제 감면분에 20% 과세</div></div>
+          <div class="down"><span class="leak"><span class="ld">−</span><span class="lb">결손 시 즉시환급 불가</span></span></div>
+          <div class="node end"><div class="nt">④ 잔여 공제 = <b>이월 또는 소멸</b></div><div class="nd">재투자 유인 후행 — 영세·결손 기업 사각</div></div>
+        </div>
+        <div class="kpi-strip">
+          <div class="kgx-donut" style="--p:62;"><div class="kgx-donut__v"><b>62%</b><span>실현</span></div></div>
+          <div class="kt">명목 공제 100 중 <b>당기 실현 62</b> — 나머지 <b>38</b>은 이연·소멸로 누수</div>
+        </div>
+      </div>
+
+      <!-- 가운데: mesh (누수 단계 → 검토사항 매핑) -->
+      <div class="bridge">
+        <span class="cap">누수 → 검토 매핑</span>
+        <svg viewBox="0 0 74 100" preserveAspectRatio="none">
+          <defs><marker id="ah" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#4F81BD"/></marker></defs>
+          <g fill="none" stroke="#95B3D7" stroke-width="1.2">
+            <path d="M0,26 C40,26 34,20 74,20" marker-end="url(#ah)"/>
+            <path d="M0,26 C40,26 34,44 74,44" marker-end="url(#ah)"/>
+            <path d="M0,52 C40,52 34,44 74,44" marker-end="url(#ah)"/>
+            <path d="M0,52 C40,52 34,66 74,66" marker-end="url(#ah)"/>
+            <path d="M0,78 C40,78 34,66 74,66" marker-end="url(#ah)"/>
+            <path d="M0,78 C40,78 34,90 74,90" stroke="#C0392B" marker-end="url(#ah)"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- 우: 검토사항 -->
+      <div>
+        <div class="reviews">
+          <div class="rev"><span class="kg-cornern">1</span>
+            <div class="rhead"><span class="rt">최저한세 적용배제</span>
+              <span class="tchev"><span class="on">단기</span><span>중기</span><span>상시</span></span></div>
+            <div class="rd">제작비 세액공제를 최저한세 대상에서 <b>한시적 배제</b> — 당기 실현율 제고</div></div>
+          <div class="rev"><span class="kg-cornern">2</span>
+            <div class="rhead"><span class="rt">농특세·이월 구조 보완</span>
+              <span class="tchev"><span class="on">단기</span><span>중기</span><span>상시</span></span></div>
+            <div class="rd">농특세 비과세 또는 <b>이월공제 기간 확대</b>로 공제 잠식분 완화</div></div>
+          <div class="rev"><span class="kg-cornern kg-cornern--blue">3</span>
+            <div class="rhead"><span class="rt">환급형(payable) 도입</span>
+              <span class="tchev"><span>단기</span><span class="on">중기</span><span>상시</span></span></div>
+            <div class="rd">납부세액 없는 기업도 <b>현금 환급</b> — 영세구조 수혜 비대칭 해소</div></div>
+          <div class="rev warn"><span class="kg-cornern" style="background:var(--red-600);">!</span>
+            <div class="rhead"><span class="rt">세수영향·재정중립 병행</span>
+              <span class="tchev warn"><span>단기</span><span>중기</span><span class="on">상시</span></span></div>
+            <div class="rd">세수 결손 기조 고려 — <b>적용범위·한도·일몰</b>을 단계적으로 설계</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 하단: 사다리꼴 그라데 수렴 → 결론 + 2단계 경로 -->
+    <div class="concl">
+      <div class="concl__box">
+        <span class="concl__lab">종합 결론</span>
+        <span class="concl__tx">단계별 누수를 <strong>단기 보완 + 중기 환급형 전환</strong>의 2단계로 설계하면 실효성·재정중립을 동시에 확보</span>
+      </div>
+      <div class="concl__path"><div class="kgx-trapez"></div></div>
+      <div class="concl__2step">
+        <div class="kgx-flow"><span class="n">단기 배제·보완</span><span class="a">›</span><span class="n k">중기 환급형</span></div>
+      </div>
+    </div>
+  </div>
+  <footer class="kg-footer">
+    <span class="kg-footer__src">자료: 조특법 §25의6·§132, 농어촌특별세법 / 해외 환급형 제도 비교</span>
+    <span class="kg-footer__page">12</span>
+    <span class="kg-footer__logo"><img src="../assets/keynes-group-logo.png" alt="Keynes Group"></span>
+  </footer>
+</section>
+<script src="kg-fit.js"></script>
+</body>
+</html>

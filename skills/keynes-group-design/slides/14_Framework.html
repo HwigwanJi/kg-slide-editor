@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Slides" name="복합 · 2×2 프레임워크" subtitle="x: 2×2 quad·키워드 flow·매트릭스 / 연결: fan+블록화살표" viewport="1280x905" -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>분석 프레임워크 — 2×2 Methodology (고밀도)</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="../kg-slide.css">
+<link rel="stylesheet" href="kg-standalone.css">
+<style>
+  .proc-desc{font-size:12.5px;color:var(--ink-700);margin:-5px 0 10px;line-height:1.4;}
+  .frame{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;
+    gap:30px;flex:1;min-height:0;}
+  .kg-quad__bd{gap:8px;padding:10px 11px;justify-content:center;}
+  /* 키워드 박스 — 고밀도 축소 */
+  .frame .kg-kw{font-size:12px;padding:5px 4px;min-height:23px;border-radius:3px;}
+  .rl{flex:0 0 30px;font-size:12px;font-weight:700;color:var(--ink-navy);background:var(--blue-100);
+    border-radius:3px;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.15;padding:3px;}
+  .g4{flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:5px;}
+  .g3{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:5px;}
+  .col{display:flex;flex-direction:column;gap:5px;}
+  .inrow{display:flex;align-items:stretch;gap:6px;}
+  .fan{flex:0 0 26px;align-self:stretch;}
+  .fan svg{width:100%;height:100%;display:block;}
+  .keynode{flex:0 0 64px;display:flex;align-items:center;}
+  .keynode .kg-kw{height:100%;}
+  /* 사분면 흐름 행 */
+  .flowrow{display:flex;align-items:center;gap:7px;}
+  /* block arrows */
+  .ba{position:absolute;z-index:3;}
+  .ba.rt{top:25%;left:50%;transform:translate(-50%,-50%);width:32px;height:26px;}
+  .ba.rb{top:75%;left:50%;transform:translate(-50%,-50%);width:32px;height:26px;}
+  .ba.dl{left:25%;top:50%;transform:translate(-50%,-50%);width:26px;height:32px;}
+  .ba.dr{left:75%;top:50%;transform:translate(-50%,-50%);width:26px;height:32px;}
+  .ba .lab{font-size:12px;}
+</style>
+</head>
+<body>
+<section class="kg-slide kg-root" data-screen-label="분석 프레임워크">
+  <header class="kg-header">
+    <div class="kg-header__media"></div>
+    <div class="kg-header__num kg-section-num">02</div>
+    <div class="kg-header__divider"></div>
+    <div class="kg-header__titles">
+      <div class="kg-section-title">조세지원 실효성 분석 방법론</div>
+      <div class="kg-section-sub">과업수행 방법론 · 분석 프레임워크</div>
+    </div>
+    <div class="kg-chapter-tab">
+      <span class="kg-chapter-tab__roman">III</span>
+      <span class="kg-chapter-tab__sep"></span>
+      <span class="kg-chapter-tag">사업 수행 방안</span>
+    </div>
+  </header>
+  <div class="kg-msgband kg-msgband--tint"><span class="kg-msgband__mark"></span>
+    <p class="kg-message">제도 구조 분해 → 근거·변수 매핑 → 시나리오 설계 → 전략과제 도출의 4단계로 실효성을 계량적으로 규명하고자 함</p>
+  </div>
+  <div class="kg-body-area">
+    <div class="kg-area-title"><span class="kg-area-title__bar"></span>
+      <span class="kg-body-title">⊙ 조세지원 실효성 분석 프로세스</span>
+    </div>
+    <div class="proc-desc">‘명목 지원’과 ‘실현 효과’의 괴리를 구성요소로 분해해 규명하고, 제약요인별 개선과제와의 연계성을 제시하고자 함</div>
+
+    <div class="frame">
+      <!-- ===== Q1 : 제도 분해 (입력 가로행 → 산출 세로) ===== -->
+      <div class="kg-quad">
+        <div class="kg-quad__hd"><span class="kg-quad__n">1</span><span class="kg-quad__t">현행 제도를 구성·차감 요소로 분해하여 실효성 제약요인 도출</span></div>
+        <div class="kg-quad__bd">
+          <div class="flowrow">
+            <div class="col" style="flex:1;gap:7px;">
+              <div class="inrow"><span class="rl">공제<br>구성</span><div class="g4"><span class="kg-kw">기본공제</span><span class="kg-kw">추가공제</span><span class="kg-kw">웹툰특례</span><span class="kg-kw">OTT특례</span></div></div>
+              <div class="inrow"><span class="rl">차감<br>구조</span><div class="g4"><span class="kg-kw">최저한세</span><span class="kg-kw">농특세</span><span class="kg-kw">이월공제</span><span class="kg-kw">비환급</span></div></div>
+            </div>
+            <div class="kg-right kg-right--navy"></div>
+            <div class="col" style="flex:0 0 96px;">
+              <span class="kg-kw kg-kw--blue">실현율 ↓</span>
+              <span class="kg-kw kg-kw--blue">수혜 비대칭</span>
+              <span class="kg-kw kg-kw--blue">효과 이연·소멸</span>
+            </div>
+            <div class="kg-right"></div>
+            <div class="keynode"><span class="kg-kw kg-kw--navy">실효성<br>제약요인</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Q2 : 근거→변수 (스택 → fan → 스택 → key) ===== -->
+      <div class="kg-quad">
+        <div class="kg-quad__hd"><span class="kg-quad__n">2</span><span class="kg-quad__t">분석 근거(자료)와 분석변수를 매핑하여 측정 대상 구체화</span></div>
+        <div class="kg-quad__bd">
+          <div class="flowrow">
+            <div class="col" style="flex:1;">
+              <span class="kg-kw">국세통계연보</span>
+              <span class="kg-kw">조세지출예산서</span>
+              <span class="kg-kw">콘텐츠산업조사</span>
+              <span class="kg-kw">FGI 30건+</span>
+              <span class="kg-kw">해외 운영사례</span>
+            </div>
+            <div class="fan"><svg viewBox="0 0 26 100" preserveAspectRatio="none"><g stroke="#95B3D7" stroke-width="0.7" fill="none">
+              <path d="M0,10 L26,12.5"/><path d="M0,30 L26,12.5"/><path d="M0,30 L26,37.5"/><path d="M0,50 L26,37.5"/><path d="M0,50 L26,62.5"/><path d="M0,70 L26,62.5"/><path d="M0,70 L26,87.5"/><path d="M0,90 L26,87.5"/><path d="M0,50 L26,87.5"/></g></svg></div>
+            <div class="col" style="flex:0 0 92px;">
+              <span class="kg-kw kg-kw--blue">공제 실현율</span>
+              <span class="kg-kw kg-kw--blue">수혜 분포</span>
+              <span class="kg-kw kg-kw--blue">현장 한계</span>
+              <span class="kg-kw kg-kw--blue">환급 효과</span>
+            </div>
+            <div class="kg-right"></div>
+            <div class="keynode" style="flex:0 0 56px;"><span class="kg-kw kg-kw--navy">분석변수<br>확정</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Q3 : 시나리오 설계 (2 입력군 → 2 산출 → 1 key) ===== -->
+      <div class="kg-quad">
+        <div class="kg-quad__hd"><span class="kg-quad__n">3</span><span class="kg-quad__t">제약요인 대응 시나리오를 설계하여 단계별 개선안 구성</span></div>
+        <div class="kg-quad__bd">
+          <div class="flowrow">
+            <div class="col" style="flex:1;gap:8px;">
+              <div class="inrow"><span class="rl">단기</span><div class="g3"><span class="kg-kw">최저한세 배제</span><span class="kg-kw">농특세 비과세</span><span class="kg-kw">이월 확대</span></div></div>
+              <div class="inrow"><span class="rl">중기</span><div class="g3"><span class="kg-kw">환급형 도입</span><span class="kg-kw">범위·한도</span><span class="kg-kw">일몰·정산</span></div></div>
+            </div>
+            <div class="kg-right kg-right--navy"></div>
+            <div class="col" style="flex:0 0 88px;">
+              <span class="kg-kw kg-kw--blue">단기 보완안</span>
+              <span class="kg-kw kg-kw--blue">중기 전환안</span>
+            </div>
+            <div class="kg-right"></div>
+            <div class="keynode" style="flex:0 0 58px;"><span class="kg-kw kg-kw--navy">시산<br>모델</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Q4 : 전략과제 도출 (시나리오 → fan → 평가 → 과제) ===== -->
+      <div class="kg-quad">
+        <div class="kg-quad__hd"><span class="kg-quad__n">4</span><span class="kg-quad__t">시나리오 효과를 평가기준에 매핑하여 전략과제·우선순위 도출</span></div>
+        <div class="kg-quad__bd">
+          <div class="flowrow">
+            <div class="col" style="flex:0 0 76px;">
+              <span class="kg-kw kg-kw--blue">단기 보완</span>
+              <span class="kg-kw kg-kw--blue">중기 전환</span>
+              <span class="kg-kw kg-kw--blue">구조 정비</span>
+            </div>
+            <div class="fan"><svg viewBox="0 0 26 100" preserveAspectRatio="none"><g stroke="#95B3D7" stroke-width="0.7" fill="none">
+              <path d="M0,16 L26,12.5"/><path d="M0,16 L26,37.5"/><path d="M0,50 L26,37.5"/><path d="M0,50 L26,62.5"/><path d="M0,84 L26,62.5"/><path d="M0,84 L26,87.5"/></g></svg></div>
+            <div class="col" style="flex:1;">
+              <span class="kg-kw">실효성</span>
+              <span class="kg-kw">재정중립</span>
+              <span class="kg-kw">행정 정합</span>
+              <span class="kg-kw">수용성</span>
+            </div>
+            <div class="kg-right"></div>
+            <div class="col" style="flex:0 0 78px;">
+              <span class="kg-kw kg-kw--out">우선 추진</span>
+              <span class="kg-kw kg-kw--out">후속 추진</span>
+              <span class="kg-kw kg-kw--out">상시 관리</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 블록 화살표 (4분면 연결 흐름) -->
+      <div class="ba rt kg-blockarrow"></div>
+      <div class="ba dl kg-blockarrow down"></div>
+      <div class="ba dr kg-blockarrow down"></div>
+      <div class="ba rb kg-blockarrow"></div>
+    </div>
+  </div>
+  <footer class="kg-footer">
+    <span class="kg-footer__src">분석방법론: 당사 「e스포츠 조세혜택 경제효과」(2025) 수행실적 확장 적용</span>
+    <span class="kg-footer__page">7</span>
+    <span class="kg-footer__logo"><img src="../assets/keynes-group-logo.png" alt="Keynes Group"></span>
+  </footer>
+</section>
+<script src="kg-fit.js"></script>
+</body>
+</html>
