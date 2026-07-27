@@ -123,6 +123,53 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* 슬라이드 목록 — 순서가 곧 장표 번호다 */
+.ed-slidelist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ed-sp-1);
+}
+
+.ed-slide {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ed-sp-2);
+  padding: var(--ed-sp-2);
+  text-align: left;
+  background: transparent;
+  border: var(--ed-bw) solid transparent;
+  border-radius: var(--ed-r-sm);
+  color: var(--ed-fg);
+  font-size: var(--ed-fs-sm);
+  cursor: grab;
+}
+.ed-slide:hover { background: var(--ed-hover); }
+.ed-slide[aria-current='true'] {
+  background: var(--ed-accent-weak);
+  border-color: var(--ed-accent);
+}
+.ed-slide[data-over] { border-top-color: var(--ed-accent); border-top-width: var(--ed-bw-strong); }
+.ed-slide:active { cursor: grabbing; }
+
+.ed-slide__no {
+  flex: 0 0 auto;
+  min-width: 1.5rem;
+  text-align: right;
+  color: var(--ed-fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+.ed-slide__body { min-width: 0; }
+.ed-slide__title {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* 상태바 */
 .ed-statusbar {
   display: flex;

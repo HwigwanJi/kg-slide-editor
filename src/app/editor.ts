@@ -1,26 +1,29 @@
 /**
  * 편집기 컨트롤러 — 코어·어댑터·DOM을 잇는 배선층.
  *
- * React는 이 객체를 구독만 한다. 장표 DOM은 여기가 소유한다.
- * (React가 장표를 다시 그리려 들면 KG 마크업과 싸우게 되므로 경계를 여기서 자른다)
+ * 문서가 둘이다. 덱(프로젝트의 순서·목차)과 지금 열려 있는 장표.
+ * 둘 다 같은 스토어 구현을 쓰고 각자 실행취소 이력을 갖는다.
+ * 덱은 장표 내용을 절대 담지 않는다(docs/DECISIONS.md D1).
  *
- * 화면 조각(툴바·패널·메뉴)은 이 파일이 노출한 동작만 부른다. store.patches 를 직접 만지지 않는다.
- * 새 식별자·좌표·마크업처럼 바깥 세계가 필요한 값은 여기서 만들어 커맨드에 넣는다.
+ * React는 이 객체를 구독만 한다. 장표 DOM은 여기가 소유한다.
+ * 화면 조각은 이 파일이 노출한 동작만 부른다. 새 식별자·좌표·마크업은 여기서 만들어 커맨드에 넣는다.
  */
 import {
   KG_CANVAS, createSlideDoc, loadKgTokens, newGroupId, newNodeId,
-  type AddedNode, type Distribute, type KgToken, type NodeId, type ObjectAlign,
-  type Role, type RoleStyle, type SlideDoc, type SlideMeta, type StylePatch,
+  type AddedNode, type DeckDoc, type DeckEntry, type Distribute, type KgToken, type NodeId,
+  type ObjectAlign, type Role, type RoleStyle, type SlideDoc, type StylePatch,
 } from '@contract/index';
 import {
-  auditOverflow, byId, canvasRect, createStore, editable, expandSelection, fitFontSize,
-  groupOf, isRemoved, listNodes, readFormat, render, scopeFormat, themeCss, toStandaloneHtml,
-  type Command, type FormatScope, type OverflowIssue, type Store,
+  auditOverflow, byId, canvasRect, createDeckStore, createSlideStore, editable, expandSelection,
+  fitFontSize, groupOf, listNodes, isRemoved, readFormat, render, scopeFormat, slideNumber,
+  themeCss, toStandaloneHtml,
+  type Command, type DeckStore, type FormatScope, type OverflowIssue, type SlideStore,
 } from '@core/index';
 import {
   SNIPPETS, clipboard, cloneNodeSnapshot, createTransform, downloadDoc, downloadText,
-  editText, importKgHtml, importKgHtmlFrom, localAdapter, readDocFile, snippetNode,
-  type StorageAdapter, type TextSession, type TransformController,
+  editText, importKgHtml, importKgHtmlFrom, localProject, pickProjectFolder, readDocFile,
+  snippetNode,
+  type ProjectAdapter, type TextSession, type TransformController,
 } from '@adapters/index';
 
 /** KG 공통 CSS·자산이 서비스되는 위치. index.html 의 <link> 와 같아야 한다. */
@@ -32,16 +35,30 @@ export type Zoom = number | 'fit';
 export type Status = { message: string; error?: boolean };
 
 export interface EditorApi {
-  readonly store: Store;
+  readonly slides: SlideStore;
+  readonly deck: DeckStore;
   attachCanvas(stage: HTMLElement, paper: HTMLElement): () => void;
 
-  /* 문서 */
-  open(doc: SlideDoc): void;
-  importFromUrl(url: string): Promise<void>;
+  /* 프로젝트 */
+  projectName(): string;
+  openFolder(): Promise<void>;
+  reloadProject(): Promise<void>;
+  setProjectName(name: string): void;
+
+  /* 덱 */
+  currentSlideId(): string;
+  currentNumber(): number;
+  openSlide(id: string): Promise<void>;
+  newSlide(): Promise<void>;
+  addFromHtmlUrl(url: string): Promise<void>;
   importFile(file: File): Promise<void>;
+  duplicateSlide(id?: string): Promise<void>;
+  deleteSlides(ids: string[]): Promise<void>;
+  reorderSlides(ids: string[]): void;
+  moveSlide(id: string, to: number): void;
+
+  /* 저장·내보내기 */
   save(): Promise<void>;
-  list(): Promise<SlideMeta[]>;
-  loadSaved(id: string): Promise<void>;
   exportHtml(): void;
   exportJson(): void;
   setTitle(title: string): void;
@@ -104,22 +121,27 @@ export interface EditorApi {
 
   tokens(): KgToken[];
   onStatus(fn: (s: Status) => void): () => void;
-  onChange(fn: () => void): () => void;
 }
 
 const BLANK_HTML = '<section class="kg-slide kg-root"><div class="kg-body-area"></div></section>';
 
-export function blankDoc(): SlideDoc {
+export function blankDoc(title = ''): SlideDoc {
   return createSlideDoc({
     id: crypto.randomUUID(),
-    title: '',
+    title,
     now: new Date().toISOString(),
     source: { kind: 'kg-html', html: BLANK_HTML, css: '' },
   });
 }
 
-export function createEditor(storage: StorageAdapter = localAdapter): EditorApi {
-  const store = createStore(blankDoc());
+const entryOf = (doc: SlideDoc): DeckEntry => ({
+  id: doc.id, title: doc.title, updatedAt: doc.updatedAt,
+});
+
+export function createEditor(initial: ProjectAdapter = localProject): EditorApi {
+  let project = initial;
+  const slides = createSlideStore(blankDoc());
+  const deck = createDeckStore(emptyDeck());
 
   let paper: HTMLElement | null = null;
   let stageEl: HTMLElement | null = null;
@@ -142,7 +164,7 @@ export function createEditor(storage: StorageAdapter = localAdapter): EditorApi 
 
   function draw() {
     if (!paper) return;
-    const doc = store.get();
+    const doc = slides.get();
     ({ root } = render(paper, doc));
     styleTag('slide').textContent = doc.source.css;
     styleTag('theme').textContent = themeCss(doc.theme);
@@ -164,7 +186,7 @@ export function createEditor(storage: StorageAdapter = localAdapter): EditorApi 
     const stage = paper.parentElement;
     const wrap = stage?.parentElement;
     if (!stage || !wrap) return;
-    const { w, h } = store.get().canvas;
+    const { w, h } = slides.get().canvas;
     const gutter = 2 * parseFloat(getComputedStyle(wrap).paddingLeft || '0');
     const s = zoom === 'fit'
       ? Math.min((wrap.clientWidth - gutter) / w, (wrap.clientHeight - gutter) / h, 1)
@@ -183,26 +205,23 @@ export function createEditor(storage: StorageAdapter = localAdapter): EditorApi 
     session = editText(el, {
       onCommit: (html) => {
         session = null;
-        store.dispatch({ type: 'setText', id, html }, { coalesce: `text:${id}` });
+        slides.dispatch({ type: 'setText', id, html }, { coalesce: `text:${id}` });
       },
       onCancel: () => { session = null; },
     });
   }
 
   /** 선택 대상 — 항상 그룹 단위로 넓히고, 잠긴 것과 지워진 것을 걷어낸다. */
-  const targets = (): NodeId[] => editable(store.get(), api.selection());
+  const targets = (): NodeId[] => editable(slides.get(), api.selection());
 
-  function elementOf(id: NodeId): HTMLElement | null {
-    return root ? byId(root, id) : null;
-  }
+  const elementOf = (id: NodeId): HTMLElement | null => (root ? byId(root, id) : null);
 
-  /** 복제·삽입 위치. 선택이 있으면 그 옆, 없으면 캔버스 가운데. */
-  function placeRect(w: number, h: number): { x: number; y: number; w: number; h: number } {
-    const { w: cw, h: ch } = store.get().canvas;
+  function placeRect(w: number, h: number) {
+    const { w: cw, h: ch } = slides.get().canvas;
     return { x: Math.round((cw - w) / 2), y: Math.round((ch - h) / 2), w, h };
   }
 
-  function insertCommands(nodes: AddedNode[], rects: { x: number; y: number; w: number; h: number }[]): { cmds: Command[]; ids: NodeId[] } {
+  function insertCommands(nodes: AddedNode[], rects: { x: number; y: number; w: number; h: number }[]) {
     const cmds: Command[] = [];
     const ids: NodeId[] = [];
     nodes.forEach((node, i) => {
@@ -213,10 +232,39 @@ export function createEditor(storage: StorageAdapter = localAdapter): EditorApi 
     return { cmds, ids };
   }
 
+  /* ---------- 덱 ---------- */
+
+  /** 장표를 열기 전에 지금 것을 저장한다. 프로젝트 전환에서 작업분이 사라지지 않게. */
+  async function persistCurrent(): Promise<void> {
+    const doc = slides.get();
+    if (!deck.get().slides.some((s) => s.id === doc.id)) return;
+    await project.saveSlide(doc);
+    deck.dispatch({ type: 'touchSlide', id: doc.id, title: doc.title, updatedAt: doc.updatedAt });
+    await project.saveDeck(deck.get());
+  }
+
+  function showSlide(doc: SlideDoc) {
+    session?.cancel();
+    slides.replace(doc);
+    draw();
+    applyScale();
+    transform?.select([]);
+  }
+
+  /** 장표를 덱에 넣고 화면에 띄운다. */
+  async function adoptSlide(doc: SlideDoc, at?: number): Promise<void> {
+    await persistCurrent();
+    await project.saveSlide(doc);
+    deck.dispatch({ type: 'addSlide', entry: entryOf(doc), ...(at !== undefined ? { at } : {}) });
+    await project.saveDeck(deck.get());
+    showSlide(doc);
+  }
+
   /* ---------- 공개 API ---------- */
 
   const api: EditorApi = {
-    store,
+    slides,
+    deck,
 
     attachCanvas(stage, el) {
       paper = el;
@@ -225,7 +273,7 @@ export function createEditor(storage: StorageAdapter = localAdapter): EditorApi 
         stage,
         getRoot: () => root,
         getScale: scale,
-        store,
+        store: slides,
         onSelectionChange: (ids) => selectionListeners.forEach((f) => f(ids)),
         duplicate: (ids) => api.duplicate(ids),
       });
@@ -235,12 +283,13 @@ export function createEditor(storage: StorageAdapter = localAdapter): EditorApi 
       el.addEventListener('dblclick', onDouble);
 
       // 캔버스는 스토어 변경에 동기로 반응한다. React 렌더 주기를 타지 않는다.
-      const unsub = store.subscribe(() => { draw(); applyScale(); });
+      const unsub = slides.subscribe(() => { draw(); applyScale(); });
       const ro = new ResizeObserver(() => applyScale());
       if (stage.parentElement) ro.observe(stage.parentElement);
 
       draw();
       applyScale();
+      void api.reloadProject();
 
       return () => {
         unsub();
@@ -256,71 +305,158 @@ export function createEditor(storage: StorageAdapter = localAdapter): EditorApi 
       };
     },
 
-    open(doc) {
-      session?.cancel();
-      store.replace(doc);
-      draw();
-      applyScale();
-      transform?.select([]);
-      status(`불러옴 — ${doc.title || doc.id}`);
+    /* 프로젝트 */
+    projectName: () => deck.get().name || project.location,
+
+    async openFolder() {
+      try {
+        const picked = await pickProjectFolder();
+        if (!picked) return;
+        await persistCurrent();
+        project = picked;
+        await api.reloadProject();
+        status(`프로젝트 열기 — ${project.location}`);
+      } catch (e) { status(msg(e), true); }
     },
 
-    async importFromUrl(url) {
+    async reloadProject() {
       try {
-        api.open(await importKgHtmlFrom(url, { assetBase: `${KG_BASE}assets/` }));
+        const loaded = await project.loadDeck();
+        deck.replace(loaded);
+        const first = loaded.slides[0];
+        if (first) await api.openSlide(first.id);
+        else showSlide(blankDoc());
+      } catch (e) { status(msg(e), true); }
+    },
+
+    setProjectName: (name) => deck.dispatch({ type: 'setName', name }, { coalesce: 'deckName' }),
+
+    /* 덱 */
+    currentSlideId: () => slides.get().id,
+    currentNumber: () => slideNumber(deck.get(), slides.get().id),
+
+    async openSlide(id) {
+      if (id === slides.get().id) return;
+      try {
+        await persistCurrent();
+        showSlide(await project.loadSlide(id));
+      } catch (e) { status(msg(e), true); }
+    },
+
+    async newSlide() {
+      try {
+        await adoptSlide(blankDoc('새 장표'));
+        status('빈 장표 추가함');
+      } catch (e) { status(msg(e), true); }
+    },
+
+    async addFromHtmlUrl(url) {
+      try {
+        await adoptSlide(await importKgHtmlFrom(url, { assetBase: `${KG_BASE}assets/` }));
+        status('장표 불러옴');
       } catch (e) { status(msg(e), true); }
     },
 
     async importFile(file) {
       try {
-        if (file.name.endsWith('.json')) api.open(await readDocFile(file));
-        else api.open(importKgHtml(await file.text(), { origin: file.name, assetBase: `${KG_BASE}assets/` }));
+        const doc = file.name.endsWith('.json') || file.name.endsWith('.kgslide')
+          ? await readDocFile(file)
+          : importKgHtml(await file.text(), { origin: file.name, assetBase: `${KG_BASE}assets/` });
+        await adoptSlide(doc);
+        status(`${file.name} 추가함`);
       } catch (e) { status(msg(e), true); }
     },
 
+    async duplicateSlide(id) {
+      try {
+        const sourceId = id ?? slides.get().id;
+        const source = sourceId === slides.get().id ? slides.get() : await project.loadSlide(sourceId);
+        const now = new Date().toISOString();
+        const copy: SlideDoc = {
+          ...structuredClone(source),
+          id: crypto.randomUUID(),
+          title: `${source.title} (사본)`,
+          createdAt: now,
+          updatedAt: now,
+        };
+        await adoptSlide(copy, slideNumber(deck.get(), sourceId));
+        status('장표 복제함');
+      } catch (e) { status(msg(e), true); }
+    },
+
+    async deleteSlides(ids) {
+      if (ids.length === 0) return;
+      try {
+        const before = deck.get().slides;
+        deck.dispatch({ type: 'removeSlides', ids });
+        await project.saveDeck(deck.get());
+        // 파일은 목차에서 빠진 뒤에 지운다. 중간에 실패해도 유령 목차가 남지 않는다.
+        for (const id of ids) await project.deleteSlide(id);
+
+        if (ids.includes(slides.get().id)) {
+          const at = before.findIndex((s) => s.id === slides.get().id);
+          const next = deck.get().slides[Math.min(at, deck.get().slides.length - 1)];
+          if (next) showSlide(await project.loadSlide(next.id));
+          else showSlide(blankDoc());
+        }
+        status(`장표 ${ids.length}장 삭제함`);
+      } catch (e) { status(msg(e), true); }
+    },
+
+    reorderSlides(ids) {
+      deck.dispatch({ type: 'reorder', ids });
+      void project.saveDeck(deck.get());
+    },
+
+    moveSlide(id, to) {
+      deck.dispatch({ type: 'moveSlide', id, to });
+      void project.saveDeck(deck.get());
+    },
+
+    /* 저장·내보내기 */
     async save() {
       try {
-        await storage.save(store.get());
-        status('저장함');
+        const doc = slides.get();
+        if (!deck.get().slides.some((s) => s.id === doc.id)) {
+          await adoptSlide(doc);
+        } else {
+          await project.saveSlide(doc);
+          deck.dispatch({ type: 'touchSlide', id: doc.id, title: doc.title, updatedAt: doc.updatedAt });
+          await project.saveDeck(deck.get());
+        }
+        status(`저장함 — ${project.location}`);
       } catch (e) { status(msg(e), true); }
-    },
-
-    list: () => storage.list(),
-
-    async loadSaved(id) {
-      try { api.open(await storage.load(id)); } catch (e) { status(msg(e), true); }
     },
 
     exportHtml() {
-      const doc = store.get();
+      const doc = slides.get();
       downloadText(`${doc.title || 'slide'}.html`, toStandaloneHtml(doc, { cssBase: KG_BASE }));
       status('HTML 내보냄');
     },
 
     exportJson() {
-      downloadDoc(store.get());
-      status('JSON 내보냄');
+      downloadDoc(slides.get());
+      status('kgslide 내보냄');
     },
 
-    setTitle: (title) => store.dispatch({ type: 'setTitle', title }, { coalesce: 'title' }),
+    setTitle: (title) => slides.dispatch({ type: 'setTitle', title }, { coalesce: 'title' }),
 
-    run: (cmd) => store.dispatch(cmd),
-    runAll: (cmds) => store.batch(cmds),
-    undo: () => { session?.cancel(); store.undo(); },
-    redo: () => { session?.cancel(); store.redo(); },
+    run: (cmd) => slides.dispatch(cmd),
+    runAll: (cmds) => slides.batch(cmds),
+    undo: () => { session?.cancel(); slides.undo(); },
+    redo: () => { session?.cancel(); slides.redo(); },
 
     /* 선택 */
     selection: () => transform?.selection() ?? [],
     select: (ids) => transform?.select(ids),
     selectAll() {
       if (!root) return;
-      const doc = store.get();
+      const doc = slides.get();
       const body = byId(root, 'n')?.querySelector('.kg-body-area');
       const ids = listNodes(root)
         .filter((el) => body?.contains(el) || el.closest('.kg-detached-layer'))
         .map((el) => el.getAttribute('data-kg-id')!)
         .filter((id) => !isRemoved(doc, id));
-      // 최상위만 고른다 — 자손까지 넣으면 옮길 때 이중으로 움직인다.
       transform?.select(ids.filter((id) => !ids.some((o) => o !== id && id.startsWith(`${o}.`))));
     },
     clearSelection: () => transform?.select([]),
@@ -340,11 +476,11 @@ export function createEditor(storage: StorageAdapter = localAdapter): EditorApi 
     /* 서식 */
     styleSelected(style) {
       const ids = targets();
-      if (ids.length) store.dispatch({ type: 'setStyle', ids, style });
+      if (ids.length) slides.dispatch({ type: 'setStyle', ids, style });
     },
     clearStyleSelected() {
       const ids = targets();
-      if (ids.length) store.dispatch({ type: 'clearStyle', ids });
+      if (ids.length) slides.dispatch({ type: 'clearStyle', ids });
     },
     copyFormat() {
       const id = api.selection()[0];
@@ -357,7 +493,7 @@ export function createEditor(storage: StorageAdapter = localAdapter): EditorApi 
       const style = clipboard.takeFormat();
       const ids = targets();
       if (!style || ids.length === 0) return;
-      store.dispatch({ type: 'applyFormat', ids, style: scopeFormat(style, scope) });
+      slides.dispatch({ type: 'applyFormat', ids, style: scopeFormat(style, scope) });
       status('서식 붙여넣음');
     },
 
@@ -365,25 +501,26 @@ export function createEditor(storage: StorageAdapter = localAdapter): EditorApi 
     removeSelected() {
       const ids = targets();
       if (ids.length === 0) return;
-      store.dispatch({ type: 'remove', ids });
+      slides.dispatch({ type: 'remove', ids });
       transform?.select([]);
       status(`${ids.length}개 삭제함 — 되돌리기로 복구 가능`);
     },
     restore(ids) {
-      if (ids.length) store.dispatch({ type: 'restore', ids });
+      if (ids.length) slides.dispatch({ type: 'restore', ids });
     },
-    removedList: () => store.get().tree.removed,
+    removedList: () => slides.get().tree.removed,
 
     insert(kind) {
       const spec = SNIPPETS[kind];
       const { cmds, ids } = insertCommands([snippetNode(kind)], [placeRect(spec.size.w, spec.size.h)]);
-      store.batch(cmds);
+      slides.batch(cmds);
       transform?.select(ids);
       status(`${spec.label} 추가함`);
     },
 
     duplicate(explicit) {
-      const ids = explicit ? editable(store.get(), expandSelection(store.get(), explicit)) : targets();
+      const doc = slides.get();
+      const ids = explicit ? editable(doc, expandSelection(doc, explicit)) : targets();
       if (!root || ids.length === 0) return [];
       const nodes: AddedNode[] = [];
       const rects: { x: number; y: number; w: number; h: number }[] = [];
@@ -396,7 +533,7 @@ export function createEditor(storage: StorageAdapter = localAdapter): EditorApi 
       }
       if (nodes.length === 0) return [];
       const { cmds, ids: newIds } = insertCommands(nodes, rects);
-      store.batch(cmds);
+      slides.batch(cmds);
       transform?.select(newIds);
       return newIds;
     },
@@ -404,8 +541,10 @@ export function createEditor(storage: StorageAdapter = localAdapter): EditorApi 
     copySelected() {
       const ids = targets();
       if (!root || ids.length === 0) return;
-      const nodes = ids.map((id) => elementOf(id)).filter((el): el is HTMLElement => !!el)
-        .map((el, i) => cloneNodeSnapshot(el, ids[i]!));
+      const nodes = ids
+        .map((id) => ({ id, el: elementOf(id) }))
+        .filter((x): x is { id: NodeId; el: HTMLElement } => !!x.el)
+        .map(({ id, el }) => cloneNodeSnapshot(el, id));
       clipboard.putNodes(nodes);
       status(`${nodes.length}개 복사함`);
     },
@@ -423,7 +562,7 @@ export function createEditor(storage: StorageAdapter = localAdapter): EditorApi 
         return { ...base, x: base.x + i * PASTE_OFFSET, y: base.y + i * PASTE_OFFSET };
       });
       const { cmds, ids } = insertCommands(nodes, rects);
-      store.batch(cmds);
+      slides.batch(cmds);
       transform?.select(ids);
       status(`${nodes.length}개 붙여넣음`);
     },
@@ -431,19 +570,19 @@ export function createEditor(storage: StorageAdapter = localAdapter): EditorApi 
     groupSelected() {
       const ids = targets();
       if (ids.length < 2) return;
-      store.dispatch({ type: 'group', groupId: newGroupId(), ids });
+      slides.dispatch({ type: 'group', groupId: newGroupId(), ids });
       status(`${ids.length}개 그룹으로 묶음`);
     },
 
     ungroupSelected() {
-      const doc = store.get();
+      const doc = slides.get();
       const gids = [...new Set(api.selection().map((id) => groupOf(doc, id)).filter((g): g is string => !!g))];
-      if (gids.length) store.dispatch({ type: 'ungroup', groupIds: gids });
+      if (gids.length) slides.dispatch({ type: 'ungroup', groupIds: gids });
     },
 
     lockSelected(locked) {
       const ids = api.selection();
-      if (ids.length) store.dispatch({ type: 'setLocked', ids, locked });
+      if (ids.length) slides.dispatch({ type: 'setLocked', ids, locked });
     },
 
     /* 배치 */
@@ -452,37 +591,37 @@ export function createEditor(storage: StorageAdapter = localAdapter): EditorApi 
       const s = scale();
       const cmds: Command[] = [];
       for (const id of targets()) {
-        if (store.get().patches[id]?.layout?.mode === 'detached') continue;
+        if (slides.get().patches[id]?.layout?.mode === 'detached') continue;
         const el = elementOf(id);
         if (el) cmds.push({ type: 'detach', id, rect: canvasRect(root, el, s) });
       }
-      if (cmds.length) store.batch(cmds);
+      if (cmds.length) slides.batch(cmds);
     },
     reflowSelected() {
       const ids = targets();
-      if (ids.length) store.dispatch({ type: 'reflow', ids });
+      if (ids.length) slides.dispatch({ type: 'reflow', ids });
     },
     alignSelected(edge) {
       const ids = targets();
-      if (ids.length > 1) store.dispatch({ type: 'alignObjects', ids, edge });
+      if (ids.length > 1) slides.dispatch({ type: 'alignObjects', ids, edge });
     },
     distributeSelected(axis) {
       const ids = targets();
-      if (ids.length > 2) store.dispatch({ type: 'distribute', ids, axis });
+      if (ids.length > 2) slides.dispatch({ type: 'distribute', ids, axis });
     },
     orderSelected(op) {
       const ids = targets();
-      if (ids.length) store.dispatch({ type: 'order', ids, op });
+      if (ids.length) slides.dispatch({ type: 'order', ids, op });
     },
     nudgeSelected(dx, dy) {
       const ids = targets();
-      if (ids.length) store.dispatch({ type: 'nudge', ids, dx, dy }, { coalesce: `nudge:${ids.join()}` });
+      if (ids.length) slides.dispatch({ type: 'nudge', ids, dx, dy }, { coalesce: `nudge:${ids.join()}` });
     },
 
     /* 위계 */
-    setRoleStyle: (role, style) => store.dispatch({ type: 'setRoleStyle', role, style }),
-    setThemeScale: (s) => store.dispatch({ type: 'setThemeScale', scale: s }, { coalesce: 'scale' }),
-    resetTheme: () => store.dispatch({ type: 'resetTheme' }),
+    setRoleStyle: (role, style) => slides.dispatch({ type: 'setRoleStyle', role, style }),
+    setThemeScale: (s) => slides.dispatch({ type: 'setThemeScale', scale: s }, { coalesce: 'scale' }),
+    resetTheme: () => slides.dispatch({ type: 'resetTheme' }),
 
     /* 검사 */
     audit: () => (root ? auditOverflow(root) : []),
@@ -498,7 +637,7 @@ export function createEditor(storage: StorageAdapter = localAdapter): EditorApi 
         if (size) cmds.push({ type: 'setStyle', ids: [issue.id], style: { fontSize: size } });
         else unresolved.push(issue.id);
       }
-      if (cmds.length) store.batch(cmds);
+      if (cmds.length) slides.batch(cmds);
       status(
         unresolved.length
           ? `${cmds.length}개 보정, ${unresolved.length}개는 글자 축소로 해결 불가 — 박스 크기나 내용 조정 필요`
@@ -517,10 +656,14 @@ export function createEditor(storage: StorageAdapter = localAdapter): EditorApi 
       statusListeners.add(fn);
       return () => statusListeners.delete(fn);
     },
-    onChange: (fn) => store.subscribe(fn),
   };
 
   return api;
+}
+
+function emptyDeck(): DeckDoc {
+  const now = new Date().toISOString();
+  return { v: 1, id: crypto.randomUUID(), name: '', slides: [], createdAt: now, updatedAt: now };
 }
 
 export { KG_CANVAS };

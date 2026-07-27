@@ -15,7 +15,8 @@ import type { EditorApi } from './editor';
 export type Surface = 'toolbar' | 'context' | 'bubble' | 'palette';
 
 export type ActionGroup =
-  | '파일' | '편집' | '삽입' | '글자' | '서식' | '배치' | '정렬' | '순서' | '보기' | '검사' | '위계';
+  | '파일' | '슬라이드' | '편집' | '삽입' | '글자' | '서식' | '배치' | '정렬' | '순서'
+  | '보기' | '검사' | '위계';
 
 export interface ActionCtx {
   api: EditorApi;
@@ -30,6 +31,9 @@ export interface ActionCtx {
   hasClipboardNodes: boolean;
   hasClipboardFormat: boolean;
   removedCount: number;
+  /** 프로젝트의 장표 수와 지금 장표의 자리(1부터) */
+  slideCount: number;
+  slideNumber: number;
 }
 
 export interface ActionDef {
@@ -60,17 +64,44 @@ export const ACTIONS: ActionDef[] = [
     run: ({ api }) => api.exportJson() },
   { id: 'file.rename', label: '제목 바꾸기', group: '파일', surfaces: ['palette'], covers: ['setTitle'],
     run: ({ api }) => {
-      const next = window.prompt('장표 제목', api.store.get().title);
+      const next = window.prompt('장표 제목', api.slides.get().title);
       if (next !== null) api.setTitle(next);
     } },
 
+  /* ---------------- 슬라이드 (프로젝트 단위) ---------------- */
+  { id: 'deck.openFolder', label: '프로젝트 폴더 열기', group: '슬라이드', surfaces: ['palette'],
+    hint: 'Claude Code 가 만든 장표 폴더를 그대로 엽니다',
+    run: ({ api }) => void api.openFolder() },
+  { id: 'deck.new', label: '새 장표', group: '슬라이드', shortcut: 'Ctrl+M', surfaces: ['toolbar', 'palette'],
+    run: ({ api }) => void api.newSlide() },
+  { id: 'deck.duplicate', label: '장표 복제', group: '슬라이드', surfaces: ['toolbar', 'palette'],
+    run: ({ api }) => void api.duplicateSlide() },
+  { id: 'deck.delete', label: '이 장표 삭제', group: '슬라이드', danger: true, surfaces: ['palette'],
+    hint: '파일까지 지웁니다. 요소 삭제와 달리 되돌릴 수 없습니다',
+    enabled: (c) => c.slideCount > 1,
+    run: ({ api }) => {
+      if (window.confirm('이 장표를 프로젝트에서 지웁니다. 되돌릴 수 없습니다.')) {
+        void api.deleteSlides([api.currentSlideId()]);
+      }
+    } },
+  { id: 'deck.prev', label: '이전 장표', group: '슬라이드', shortcut: 'Ctrl+PageUp', surfaces: ['palette'],
+    enabled: (c) => c.slideNumber > 1, run: ({ api }) => void step(api, -1) },
+  { id: 'deck.next', label: '다음 장표', group: '슬라이드', shortcut: 'Ctrl+PageDown', surfaces: ['palette'],
+    enabled: (c) => c.slideNumber < c.slideCount, run: ({ api }) => void step(api, 1) },
+  { id: 'deck.moveUp', label: '장표 앞으로', group: '슬라이드', shortcut: 'Ctrl+Shift+PageUp',
+    surfaces: ['palette'], enabled: (c) => c.slideNumber > 1,
+    run: ({ api }) => api.moveSlide(api.currentSlideId(), api.currentNumber() - 2) },
+  { id: 'deck.moveDown', label: '장표 뒤로', group: '슬라이드', shortcut: 'Ctrl+Shift+PageDown',
+    surfaces: ['palette'], enabled: (c) => c.slideNumber < c.slideCount,
+    run: ({ api }) => api.moveSlide(api.currentSlideId(), api.currentNumber()) },
+
   /* ---------------- 편집 ---------------- */
   { id: 'edit.undo', label: '되돌리기', group: '편집', shortcut: 'Ctrl+Z', surfaces: ['toolbar', 'palette'],
-    enabled: ({ api }) => api.store.canUndo(), run: ({ api }) => api.undo() },
+    enabled: ({ api }) => api.slides.canUndo(), run: ({ api }) => api.undo() },
   { id: 'edit.redo', label: '다시 실행', group: '편집', shortcut: 'Ctrl+Y', surfaces: ['toolbar', 'palette'],
-    enabled: ({ api }) => api.store.canRedo(), run: ({ api }) => api.redo() },
+    enabled: ({ api }) => api.slides.canRedo(), run: ({ api }) => api.redo() },
   { id: 'edit.redoAlt', label: '다시 실행', group: '편집', shortcut: 'Ctrl+Shift+Z', surfaces: [],
-    enabled: ({ api }) => api.store.canRedo(), run: ({ api }) => api.redo() },
+    enabled: ({ api }) => api.slides.canRedo(), run: ({ api }) => api.redo() },
 
   { id: 'edit.cut', label: '잘라내기', group: '편집', shortcut: 'Ctrl+X', surfaces: ['context', 'palette'],
     enabled: hasSelection, run: ({ api }) => api.cutSelected() },
@@ -147,7 +178,7 @@ export const ACTIONS: ActionDef[] = [
   { id: 'layout.center', label: '캔버스 가운데로', group: '배치', surfaces: ['context', 'palette'],
     hint: '떼어낸 요소를 장표 한가운데에 놓습니다', enabled: (c) => c.hasDetached, covers: ['setRect'],
     run: ({ api }) => {
-      const doc = api.store.get();
+      const doc = api.slides.get();
       for (const id of api.selection()) {
         const l = doc.patches[id]?.layout;
         if (l?.mode !== 'detached' || l.w === undefined || l.h === undefined) continue;
@@ -233,9 +264,9 @@ export const ACTIONS: ActionDef[] = [
     hint: '오른쪽 위계 설정에서 위계별로도 되돌릴 수 있습니다', covers: ['setRoleStyle'],
     run: ({ api }) => api.setRoleStyle('body', null) },
   { id: 'theme.scaleUp', label: '전체 글자 키움', group: '위계', surfaces: ['palette'], covers: ['setThemeScale'],
-    run: ({ api }) => api.setThemeScale(round(Math.min(1.6, api.store.get().theme.scale + 0.05))) },
+    run: ({ api }) => api.setThemeScale(round(Math.min(1.6, api.slides.get().theme.scale + 0.05))) },
   { id: 'theme.scaleDown', label: '전체 글자 줄임', group: '위계', surfaces: ['palette'],
-    run: ({ api }) => api.setThemeScale(round(Math.max(0.6, api.store.get().theme.scale - 0.05))) },
+    run: ({ api }) => api.setThemeScale(round(Math.max(0.6, api.slides.get().theme.scale - 0.05))) },
 ];
 
 /** 커맨드 타입 중 어떤 액션에도 걸리지 않은 것. 세션 훅과 개발 중 점검이 쓴다. */
@@ -261,9 +292,15 @@ export function grouped(name: Surface): [ActionGroup, ActionDef[]][] {
   return [...map.entries()];
 }
 
+async function step(api: EditorApi, delta: number): Promise<void> {
+  const list = api.deck.get().slides;
+  const next = list[api.currentNumber() - 1 + delta];
+  if (next) await api.openSlide(next.id);
+}
+
 /** 현재 걸린 크기를 읽어 한 단계 올리고 내린다. 값이 없으면 화면에서 재서 시작한다. */
 function stepFontSize(api: EditorApi, direction: 1 | -1): void {
-  const doc = api.store.get();
+  const doc = api.slides.get();
   for (const id of api.selection()) {
     const current = doc.patches[id]?.style?.fontSize ?? measuredFontSize(id);
     if (!current) continue;

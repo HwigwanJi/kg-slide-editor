@@ -19,7 +19,7 @@
 import type { NodeId } from '@contract/index';
 import {
   byId, canvasRect, closestNode, editable, expandSelection, idOf, isLocked,
-  type Command, type Store,
+  type Command, type SlideStore,
 } from '@core/index';
 
 /** 격자 스냅 단위(px). KG 간격 토큰 --sp-1 과 같다. Alt 를 누르면 해제된다. */
@@ -34,7 +34,7 @@ export interface TransformOptions {
   stage: HTMLElement;
   getRoot(): HTMLElement | null;
   getScale(): number;
-  store: Store;
+  store: SlideStore;
   onSelectionChange?(ids: NodeId[]): void;
   /** Ctrl+드래그 복사. 복제된 새 노드 id 를 돌려준다. 액션 계층이 넣어 준다. */
   duplicate?(ids: NodeId[]): NodeId[];

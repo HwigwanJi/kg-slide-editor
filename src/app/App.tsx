@@ -6,7 +6,7 @@
  *   → core/commands.ts, adapters/transform.pointer.ts, app/editor.ts, styles/tokens/, app/actions.ts.
  */
 import { useCallback, useEffect, useState } from 'react';
-import { DocRail } from './DocRail';
+import { DeckRail } from './DeckRail';
 import { Inspector } from './Inspector';
 import { SlideCanvas } from './SlideCanvas';
 import { StatusBar } from './StatusBar';
@@ -14,19 +14,19 @@ import { Toolbar } from './Toolbar';
 import { BubbleToolbar, CommandPalette, ContextMenu, type MenuPoint } from './menus';
 import { installShortcuts } from './shortcuts';
 import {
-  useActionCtx, useAudit, useDoc, useEditorApi, useSavedList, useSelection, useStatus, useTokens,
+  useActionCtx, useAudit, useDeck, useDoc, useEditorApi, useSelection, useStatus, useTokens,
 } from './hooks';
 
 export default function App() {
   const api = useEditorApi();
   const doc = useDoc(api);
+  const deck = useDeck(api);
   const selection = useSelection(api);
   const status = useStatus(api);
-  const ctx = useActionCtx(api, doc, selection);
+  const ctx = useActionCtx(api, doc, deck, selection);
 
-  const revision = `${doc.updatedAt}|${status.message}`;
+  const revision = `${doc.id}|${doc.updatedAt}|${status.message}`;
   const tokens = useTokens(api, revision);
-  const saved = useSavedList(api, revision);
   const issues = useAudit(api, revision);
 
   const [menuAt, setMenuAt] = useState<MenuPoint | null>(null);
@@ -49,7 +49,7 @@ export default function App() {
   return (
     <div className="ed-app">
       <Toolbar api={api} title={doc.title} ctx={ctx} />
-      <DocRail api={api} saved={saved} currentId={doc.id} />
+      <DeckRail api={api} deck={deck} currentId={doc.id} />
       <SlideCanvas
         api={api}
         selection={selection}
@@ -57,7 +57,7 @@ export default function App() {
         onAnchor={useCallback((r: DOMRect | null) => setAnchor(r), [])}
       />
       <Inspector api={api} doc={doc} selection={selection} tokens={tokens} issues={issues} />
-      <StatusBar doc={doc} status={status} selected={selection.length} issues={issues.length} />
+      <StatusBar doc={doc} deck={deck} status={status} selected={selection.length} issues={issues.length} />
 
       <ContextMenu at={menuAt} ctx={ctx} onClose={useCallback(() => setMenuAt(null), [])} />
       <BubbleToolbar anchor={anchor} ctx={ctx} />

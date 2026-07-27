@@ -3,7 +3,7 @@
  * 문서를 React state 로 복제하지 않는다. 구독해서 읽기만 한다(진실은 스토어 하나).
  */
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
-import type { KgToken, NodeId, SlideDoc, SlideMeta } from '@contract/index';
+import type { DeckDoc, KgToken, NodeId, SlideDoc } from '@contract/index';
 import { groupOf, isLocked, type OverflowIssue } from '@core/index';
 import { clipboard } from '@adapters/index';
 import { createEditor, type EditorApi, type Status } from './editor';
@@ -16,7 +16,11 @@ export function useEditorApi(): EditorApi {
 }
 
 export function useDoc(api: EditorApi): SlideDoc {
-  return useSyncExternalStore(api.store.subscribe, api.store.get);
+  return useSyncExternalStore(api.slides.subscribe, api.slides.get);
+}
+
+export function useDeck(api: EditorApi): DeckDoc {
+  return useSyncExternalStore(api.deck.subscribe, api.deck.get);
 }
 
 export function useSelection(api: EditorApi): NodeId[] {
@@ -43,7 +47,12 @@ export function useClipboard(): { nodes: boolean; format: boolean } {
 }
 
 /** 액션이 판단에 쓰는 문맥. 툴바·메뉴·단축키가 같은 값을 본다. */
-export function useActionCtx(api: EditorApi, doc: SlideDoc, selection: NodeId[]): ActionCtx {
+export function useActionCtx(
+  api: EditorApi,
+  doc: SlideDoc,
+  deck: DeckDoc,
+  selection: NodeId[],
+): ActionCtx {
   const clip = useClipboard();
   return useMemo(() => ({
     api,
@@ -54,18 +63,9 @@ export function useActionCtx(api: EditorApi, doc: SlideDoc, selection: NodeId[])
     hasClipboardNodes: clip.nodes,
     hasClipboardFormat: clip.format,
     removedCount: doc.tree.removed.length,
-  }), [api, doc, selection, clip.nodes, clip.format]);
-}
-
-/** 저장 목록. 문서·상태가 바뀔 때마다 다시 읽는다. */
-export function useSavedList(api: EditorApi, revision: string): SlideMeta[] {
-  const [list, setList] = useState<SlideMeta[]>([]);
-  useEffect(() => {
-    let alive = true;
-    api.list().then((l) => alive && setList(l)).catch(() => undefined);
-    return () => { alive = false; };
-  }, [api, revision]);
-  return list;
+    slideCount: deck.slides.length,
+    slideNumber: deck.slides.findIndex((s) => s.id === doc.id) + 1,
+  }), [api, doc, deck, selection, clip.nodes, clip.format]);
 }
 
 /** 넘침 검사 결과. 문서가 바뀌면 다시 잰다(렌더가 끝난 뒤 한 프레임 미뤄서). */

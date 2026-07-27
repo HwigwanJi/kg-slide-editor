@@ -1,19 +1,22 @@
 /** 상태바 — 현재 상태와 문서 규모. */
-import type { SlideDoc } from '@contract/index';
+import type { DeckDoc, SlideDoc } from '@contract/index';
 import type { Status } from './editor';
 
 export function StatusBar({
-  doc, status, selected, issues,
+  doc, deck, status, selected, issues,
 }: {
   doc: SlideDoc;
+  deck: DeckDoc;
   status: Status;
   selected: number;
   issues: number;
 }) {
+  const at = deck.slides.findIndex((s) => s.id === doc.id) + 1;
   return (
     <div className="ed-statusbar" data-area="status">
       <span className={status.error ? 'ed-statusbar__error' : undefined}>{status.message}</span>
       <span className="ed-statusbar__spacer" />
+      <span>{at > 0 ? `${at} / ${deck.slides.length}` : '미저장'}</span>
       <span>Ctrl+K 명령 목록</span>
       <span>선택 {selected}</span>
       <span>패치 {Object.keys(doc.patches).length}</span>

@@ -4,6 +4,7 @@ export * from './sanitize';
 export * from './tree';
 export * from './theme';
 export * from './commands';
+export * from './deck';
 export * from './store';
 export * from './render';
 export * from './overflow';

@@ -1,58 +1,13 @@
 /**
- * 저장소 어댑터.
+ * 파일 왕복 — 내려받기와 읽어들이기.
  *
- * 저장계약(SlideDoc)과 저장 위치는 분리한다. 지금은 localStorage 하나뿐이지만,
- * 나중에 Supabase·파일서버로 바뀌어도 이 인터페이스만 다시 구현하면 되고
- * 코어·UI는 건드리지 않는다.
+ * 프로젝트 저장은 project.ts 의 ProjectAdapter 가 맡는다. 여기는 그 바깥으로 한 장씩
+ * 꺼내고 넣는 통로만 담당한다(백업·이관·남에게 넘기기).
  */
-import { assertSlideDoc, metaOf, parseSlideDoc, type SlideDoc, type SlideMeta } from '@contract/index';
-
-export interface StorageAdapter {
-  readonly name: string;
-  list(): Promise<SlideMeta[]>;
-  load(id: string): Promise<SlideDoc>;
-  save(doc: SlideDoc): Promise<void>;
-  remove(id: string): Promise<void>;
-}
-
-const PREFIX = 'kg-slide-editor/doc/';
-
-export const localAdapter: StorageAdapter = {
-  name: 'local',
-
-  async list() {
-    const out: SlideMeta[] = [];
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (!key?.startsWith(PREFIX)) continue;
-      try {
-        out.push(metaOf(parseSlideDoc(JSON.parse(localStorage.getItem(key)!))));
-      } catch {
-        // 깨진 항목은 목록에서 건너뛴다. 지우지는 않는다(복구 가능성).
-      }
-    }
-    return out.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
-  },
-
-  async load(id) {
-    const raw = localStorage.getItem(PREFIX + id);
-    if (!raw) throw new Error(`문서를 찾을 수 없음: ${id}`);
-    return parseSlideDoc(JSON.parse(raw));
-  },
-
-  async save(doc) {
-    localStorage.setItem(PREFIX + doc.id, JSON.stringify(assertSlideDoc(doc)));
-  },
-
-  async remove(id) {
-    localStorage.removeItem(PREFIX + id);
-  },
-};
-
-/* ---------- 파일 왕복 (백업·이관) ---------- */
+import { parseSlideDoc, type SlideDoc } from '@contract/index';
 
 export function downloadDoc(doc: SlideDoc): void {
-  download(`${slugify(doc.title || doc.id)}.kgslide.json`, JSON.stringify(assertSlideDoc(doc), null, 2), 'application/json');
+  download(`${slugify(doc.title || doc.id)}.kgslide`, JSON.stringify(doc, null, 2), 'application/json');
 }
 
 export function downloadText(filename: string, text: string, mime = 'text/html'): void {

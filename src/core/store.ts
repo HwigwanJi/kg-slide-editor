@@ -2,12 +2,12 @@
  * 문서 스토어 — 문서 한 부, 이력 한 줄.
  *
  * 상태 라이브러리를 쓰지 않는다. 필요한 것이 "문서 하나 + 구독 + 되돌리기"뿐이라
- * 여기 60줄이 라이브러리 한 개보다 유지보수가 싸다.
+ * 여기 90줄이 라이브러리 한 개보다 유지보수가 싸다.
  * React는 useSyncExternalStore 로 이 스토어를 구독만 한다. 문서를 복제해 들고 있지 않는다.
+ *
+ * 장표와 덱이 같은 구현을 쓴다. 문서 종류마다 스토어를 따로 만들면 이력·구독 규칙이
+ * 곧 갈라지므로, 바뀌는 부분(커맨드 적용, 시각 도장)만 주입받는다.
  */
-import type { SlideDoc } from '@contract/index';
-import { apply, type Command } from './commands';
-
 const HISTORY_LIMIT = 100;
 
 export interface DispatchOptions {
@@ -18,12 +18,12 @@ export interface DispatchOptions {
   coalesce?: string;
 }
 
-export interface Store {
-  get(): SlideDoc;
-  dispatch(cmd: Command, opts?: DispatchOptions): void;
+export interface Store<D, C> {
+  get(): D;
+  dispatch(cmd: C, opts?: DispatchOptions): void;
   /** 여러 커맨드를 한 번의 실행취소 단위로 묶는다. */
-  batch(cmds: Command[]): void;
-  replace(doc: SlideDoc): void;
+  batch(cmds: C[]): void;
+  replace(doc: D): void;
   undo(): void;
   redo(): void;
   canUndo(): boolean;
@@ -31,16 +31,21 @@ export interface Store {
   subscribe(listener: () => void): () => void;
 }
 
-export function createStore(initial: SlideDoc, now: () => string = () => new Date().toISOString()): Store {
+export function createStore<D, C>(
+  initial: D,
+  apply: (doc: D, cmd: C) => D,
+  /** 커밋될 때 문서에 찍는 도장(보통 updatedAt). 순수성을 커맨드 밖으로 밀어내기 위한 것. */
+  touch: (doc: D) => D,
+): Store<D, C> {
   let doc = initial;
-  let past: SlideDoc[] = [];
-  let future: SlideDoc[] = [];
+  let past: D[] = [];
+  let future: D[] = [];
   let lastKey: string | null = null;
   const listeners = new Set<() => void>();
 
   const emit = () => listeners.forEach((l) => l());
 
-  const commit = (next: SlideDoc, coalesce?: string) => {
+  const commit = (next: D, coalesce?: string) => {
     if (next === doc) return;
     const merge = coalesce !== undefined && coalesce === lastKey;
     if (!merge) {
@@ -49,7 +54,7 @@ export function createStore(initial: SlideDoc, now: () => string = () => new Dat
     }
     lastKey = coalesce ?? null;
     future = [];
-    doc = { ...next, updatedAt: now() };
+    doc = touch(next);
     emit();
   };
 
@@ -61,8 +66,7 @@ export function createStore(initial: SlideDoc, now: () => string = () => new Dat
     },
 
     batch(cmds) {
-      const next = cmds.reduce(apply, doc);
-      commit(next);
+      commit(cmds.reduce(apply, doc));
     },
 
     replace(next) {

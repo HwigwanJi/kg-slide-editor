@@ -92,27 +92,38 @@ UI/UX는 나중에 만든다. **지금 저장소가 지키는 것은 저장계�
 ```
 src/
   contract/          저장계약. 다른 모든 것이 여기에 의존한다. 여기는 아무것도 의존하지 않는다.
-    schema.ts        ★ SlideDoc 정의(zod) — 형식의 유일한 진실
-    validate.ts      경계 검증
-    migrate.ts       버전 이관
-    tokens.ts        KG 브랜드 토큰 레지스트리(실행 시점에 CSS에서 읽음)
+    identity.ts      식별자 규칙(원본 n.2.1 / 추가 a<8자> / 그룹 g<8자>)
+    style.ts         모양 오버레이 — StylePatch·LayoutPatch·NodePatch
+    tree.ts          ★ 존재·구조 오버레이 — 삭제 묘비·추가·그룹·잠금
+    typography.ts    위계(role)와 문서 전역 테마
+    schema.ts        ★ SlideDoc 합성 + 계약 버전
+    deck.ts          ★ DeckDoc — 순서·목차만. 장표 내용을 담지 않는다
+    validate.ts      경계 검증 / migrate.ts 버전 이관 / tokens.ts KG 토큰 레지스트리
   core/              순수 로직. DOM은 쓰되 React·tiptap은 모른다.
-    ids.ts           안정 노드 ID 스탬핑, 텍스트 런 판정
+    ids.ts           안정 노드 ID·위계 스탬핑, 텍스트 런 판정
     sanitize.ts      인라인 텍스트 정제(허용 태그 외 제거)
-    commands.ts      ★ 편집 커맨드 — 문서를 바꾸는 유일한 통로
-    store.ts         문서 + 이력 + 구독
-    render.ts        문서 → 캔버스 DOM (전체 재생성)
-    serialize.ts     문서 → 독립 HTML (render 재사용)
+    tree.ts          ★ 구조 불변식 강제(normalize) — 모든 커맨드가 여기를 통과
+    commands.ts      ★ 장표 커맨드 — 장표를 바꾸는 유일한 통로
+    deck.ts          ★ 덱 커맨드 — 순서를 바꾸는 유일한 통로
+    store.ts         문서 + 이력 + 구독 (장표·덱이 같은 구현을 쓴다)
+    theme.ts         위계 전역값 → CSS
+    render.ts        문서 → 캔버스 DOM (전체 재생성, 빈 자리 유지)
+    overflow.ts      넘침 감사 / format.ts 서식 읽기 / serialize.ts 독립 HTML
   adapters/          바깥 세계와 붙는 지점. 갈아끼울 수 있어야 한다.
     import.kghtml.ts KG 장표 HTML → 문서
-    storage.ts       StorageAdapter 인터페이스 + localStorage 구현 + 파일 왕복
-    text.tiptap.ts   인라인 텍스트 편집(tiptap, 인라인 전용 스키마)
+    project.ts       ★ ProjectAdapter 인터페이스 + 브라우저 저장소
+    project.folder.ts  실제 폴더(File System Access) — 실제 작업 방식
+    storage.ts       파일 내려받기·읽어들이기
+    clipboard.ts     개체·서식 클립보드 / snippets.kg.ts 삽입 마크업
+    text.tiptap.ts   인라인 텍스트 편집(인라인 전용 스키마)
     transform.pointer.ts  선택·이동·리사이즈(포인터 이벤트)
   app/               배선. 로직 없음.
     editor.ts        코어·어댑터·DOM 연결, 공개 동작 목록(EditorApi)
+    actions.ts       ★ 액션 레지스트리 — 모든 노출면이 여기서 파생
+    shortcuts.ts     레지스트리 → 키 처리
     App.tsx          ★ 조각 배치만
     hooks.ts         React ↔ 스토어 다리
-    SlideCanvas.tsx / Toolbar.tsx / Inspector.tsx / DocRail.tsx / StatusBar.tsx
+    SlideCanvas / Toolbar / Inspector / ThemePanel / DeckRail / StatusBar / menus
   styles/
     index.css        ★ @import 순서만
     tokens/          palette → color/type/space/shape/motion/layer
@@ -121,6 +132,16 @@ src/
 public/
   kg/                KG 공통 CSS·폰트·로고 (스킬에서 복사)
   fixtures/          개발용 샘플 장표
+```
+
+프로젝트 폴더 구조(사용자 쪽) — 계약이 정하고 `project.folder.ts` 가 따른다.
+
+```
+프로젝트/
+  deck.json          순서·제목·메타만
+  slides/*.kgslide   장표 한 장 = 파일 하나
+  preview/*.png      장표별 미리보기
+  library/*.svg      도형 라이브러리
 ```
 
 의존 방향은 한쪽이다: `app → adapters → core → contract`. 역방향 import 금지.

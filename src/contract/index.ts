@@ -4,6 +4,7 @@ export * from './style';
 export * from './tree';
 export * from './typography';
 export * from './schema';
+export * from './deck';
 export * from './validate';
 export * from './migrate';
 export * from './tokens';

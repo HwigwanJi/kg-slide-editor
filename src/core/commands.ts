@@ -14,8 +14,18 @@ import type {
 } from '@contract/index';
 import { isAdded } from '@contract/index';
 import { normalize } from './tree';
+import { createStore, type Store } from './store';
 
 export interface Rect { x: number; y: number; w: number; h: number }
+
+export type SlideStore = Store<SlideDoc, Command>;
+
+export function createSlideStore(
+  doc: SlideDoc,
+  now: () => string = () => new Date().toISOString(),
+): SlideStore {
+  return createStore(doc, apply, (d) => ({ ...d, updatedAt: now() }));
+}
 
 export type Command =
   /* 문서 */
