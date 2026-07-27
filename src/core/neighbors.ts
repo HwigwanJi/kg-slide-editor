@@ -30,7 +30,12 @@ const MAX_TOTAL = 60;
 /** 이 거리(px) 안에 있으면 "근처"로 본다. 연결선처럼 붙어 있는 도형을 잡기 위한 것. */
 const NEAR_RADIUS = 120;
 
+/**
+ * 그래픽 태그. SVG 요소의 tagName 은 소문자이므로 반드시 맞춰 비교한다.
+ * 대문자로만 비교하면 <svg> 가 영영 도형으로 잡히지 않는다.
+ */
 const GRAPHIC_TAGS = new Set(['SVG', 'IMG', 'CANVAS', 'VIDEO']);
+const isGraphic = (el: Element): boolean => GRAPHIC_TAGS.has(el.tagName.toUpperCase());
 
 /**
  * 도형인가.
@@ -38,7 +43,7 @@ const GRAPHIC_TAGS = new Set(['SVG', 'IMG', 'CANVAS', 'VIDEO']);
  * KG 장표의 연결선·사다리꼴·막대는 대부분 여기 걸린다.
  */
 function isShape(el: HTMLElement): boolean {
-  if (GRAPHIC_TAGS.has(el.tagName)) return true;
+  if (isGraphic(el)) return true;
   // 글자 덩어리를 품고 있으면 묶음이다. 도형은 글자를 담지 않는다.
   if (el.querySelector(`[${TEXT_ATTR}]`)) return false;
   if ((el.textContent ?? '').trim()) return false;
@@ -156,8 +161,8 @@ function labelOf(el: HTMLElement): string {
   const text = (el.textContent ?? '').trim().replace(/\s+/g, ' ');
   if (text) return text.slice(0, 28);
 
-  if (el.tagName === 'SVG' || el.querySelector('svg')) return '연결선·도형(SVG)';
-  if (el.tagName === 'IMG') return el.getAttribute('alt') || '이미지';
+  if (isGraphic(el) || el.querySelector('svg')) return '연결선·도형';
+  if (el.tagName.toUpperCase() === 'IMG') return el.getAttribute('alt') || '이미지';
 
   const cls = [...el.classList].find((c) => c !== SLOT_CLASS);
   return cls ? `.${cls}` : el.tagName.toLowerCase();
