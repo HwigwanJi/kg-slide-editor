@@ -9,7 +9,7 @@
  *   node tools/ingest.mjs <프로젝트폴더> <장표.html>...
  *   node tools/ingest.mjs <프로젝트폴더>            # source/ 안의 html 전부
  *
- * 하는 일: slides/<id>.kgslide 를 쓰고 deck.json 목차에 순서대로 등록한다.
+ * 하는 일: slides/<id>.kgslide 를 쓰고 프로젝트 파일(project.kgproj) 목차에 순서대로 등록한다.
  * 이미 같은 origin 으로 넣은 장표가 있으면 id·순서·미리보기 경로를 그대로 물려받는다.
  *
  * 원본만 갈아끼운다. 사람이 쌓아 둔 편집분(patches·묘비·테마)은 그대로 이어 붙인다.
@@ -23,6 +23,9 @@ import { pathToFileURL, fileURLToPath } from 'node:url';
 import { ensureBundle } from './bundle.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+
+/** 프로젝트 파일. 예전 이름도 읽는다. */
+const pickDeckFile = (dir) => (existsSync(join(dir, 'project.kgproj')) ? 'project.kgproj' : 'deck.json');
 const KG_DIR = join(ROOT, 'public', 'kg');
 
 // public/kg 는 skills/keynes-group-design 에서 만들어 낸다(npm run setup).
@@ -55,7 +58,7 @@ if (files.length === 0) {
 }
 
 const bundle = await readFile(BUNDLE, 'utf8');
-const deckPath = join(project, 'deck.json');
+const deckPath = join(project, pickDeckFile(project));
 const deck = existsSync(deckPath)
   ? JSON.parse(await readFile(deckPath, 'utf8'))
   : {

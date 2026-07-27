@@ -53,8 +53,8 @@ export function DeckRail({
         onChange={(e) => api.setProjectName(e.target.value)}
       />
       <div className="ed-group">
-        <button className="ed-btn" onClick={() => void api.openFolder()} title="Claude Code 가 만든 장표 폴더를 엽니다">
-          폴더 열기
+        <button className="ed-btn" onClick={() => void api.openFolder()} title=".kgproj 가 들어 있는 프로젝트 폴더를 엽니다">
+          프로젝트 열기
         </button>
         <button className="ed-btn" onClick={() => void api.newSlide()}>새 장표</button>
       </div>

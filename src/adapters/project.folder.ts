@@ -7,7 +7,7 @@
  * Chromium 계열에서만 동작한다. 지원하지 않는 브라우저에서는 브라우저 저장소로 물러난다.
  */
 import {
-  DECK_FILE, DEFAULT_SETTINGS, PREVIEW_DIR, SETTINGS_FILE, SLIDES_DIR, SLIDE_EXT, assertSlideDoc,
+  DECK_FILE, DECK_FILE_LEGACY, DEFAULT_SETTINGS, PREVIEW_DIR, SETTINGS_FILE, SLIDES_DIR, SLIDE_EXT, assertSlideDoc,
   createDeck, parseDeck, parseSettings, parseSlideDoc, previewFileName, slideFileName,
   type DeckEntry, type SlideDoc,
 } from '@contract/index';
@@ -282,7 +282,8 @@ export function folderProject(root: FileSystemDirectoryHandle): ProjectAdapter {
      *   목차에만 있다             파일이 없으므로 뺀다
      */
     async loadDeck() {
-      const raw = await readText(root, DECK_FILE);
+      // 예전 프로젝트는 deck.json 을 갖고 있다. 그대로 열리게 하고, 저장할 때 새 이름으로 옮겨진다.
+      const raw = await readText(root, DECK_FILE) ?? await readText(root, DECK_FILE_LEGACY);
       const base = raw
         ? parseDeck(JSON.parse(raw))
         : createDeck({ id: crypto.randomUUID(), name: projectNameFrom(root.name), now: new Date().toISOString() });
@@ -377,7 +378,7 @@ export function folderProject(root: FileSystemDirectoryHandle): ProjectAdapter {
       };
       const slides = await dirRead(SLIDES_DIR);
       return {
-        deck: await when(root, DECK_FILE),
+        deck: Math.max(await when(root, DECK_FILE), await when(root, DECK_FILE_LEGACY)),
         slide: await when(slides, slideFileName(slideId)),
       };
     },

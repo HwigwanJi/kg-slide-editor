@@ -6,6 +6,9 @@
  * 전부 무효가 된다. 30분 다듬은 결과가 한 번의 재작도로 사라진다.
  * 그래서 AI 는 원본을 다시 그리지 않고 커맨드만 발행한다. (docs/DECISIONS.md D2)
  *
+ * 고치기 전에 `npm run render` 로 **지금 모습**을 읽는다. source/*.html 은 작도한 그대로라
+ * 사람이 무엇을 바꿔 놨는지 보이지 않는다. 그것만 보고 고치면 남의 수정을 뭉갠다.
+ *
  * 사용법
  *   node tools/apply.mjs <slide.kgslide> --cmds <commands.json>
  *   node tools/apply.mjs <slide.kgslide> --cmds -            # 표준입력

@@ -16,7 +16,8 @@
     "build:apply": "vite build --config vite.config.apply.ts",
     "apply": "node tools/apply.mjs",
     "ingest": "node tools/ingest.mjs",
-    "pptx:text": "node tools/pptx-text.mjs"
+    "pptx:text": "node tools/pptx-text.mjs",
+    "render": "node tools/render.mjs"
   },
   "dependencies": {
     "@tiptap/core": "^3.29.0",

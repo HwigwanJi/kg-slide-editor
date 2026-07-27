@@ -102,6 +102,17 @@
 `CONTRACT_VERSION` 5 → 6, `src/contract/migrate.ts` 에 `rev` 기본값 0 부여
 (`docs/SAVE_CONTRACT.md` 의 "버전 올리기" 절차).
 
+## 아직 남은 것 — 프로젝트 자산이 갈 곳이 없다
+
+장표가 쓰는 그림(pptx 에서 뽑은 산출물 캡처 등)을 둘 자리가 계약에 없다.
+지금은 `public/kg/assets/` 밖에 없는데 그 폴더는 keynes-group-design 스킬 소유라,
+스킬에서 다시 복사하는 순간 **프로젝트 그림이 통째로 사라진다**(2026-07-27 실제 발생).
+
+임시로 프로젝트 폴더에 `assets/` 를 두고 `public/kg/assets/` 로 복사해 쓰고 있다.
+프로젝트 폴더 구조(D1)에 `assets/` 를 정식으로 넣고,
+`importKgHtml` 의 `assetBase` 와 `tools/lint.mjs`·`tools/preview.mjs` 의 경로 치환이
+프로젝트 폴더를 먼저 보게 해야 한다.
+
 ## 곁들여 고칠 것 — 폴더 핸들이 새로고침에 풀린다
 
 `pickProjectFolder` 가 돌려준 핸들을 어디에도 보관하지 않는다.

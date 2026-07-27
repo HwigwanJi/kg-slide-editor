@@ -26,6 +26,9 @@ import { pathToFileURL, fileURLToPath } from 'node:url';
 // fileURLToPath 를 쓴다. URL 의 pathname 은 한글과 공백이 퍼센트로 인코딩된 채라
 // 손으로 자르면 경로가 어긋난다 — 폴더 이름이 ASCII 일 때만 우연히 맞는다.
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+
+/** 프로젝트 파일. 예전 이름도 읽는다. */
+const pickDeckFile = (dir) => (existsSync(join(dir, 'project.kgproj')) ? 'project.kgproj' : 'deck.json');
 const KG_DIR = join(ROOT, 'public', 'kg');
 
 // public/kg 는 skills/keynes-group-design 에서 만들어 낸다(npm run setup).
@@ -67,7 +70,7 @@ try {
 
 /** 프로젝트 폴더 전체. deck.json 순서대로 찍고 미리보기 경로를 되써 준다. */
 async function shootProject(page, dir) {
-  const deckPath = join(dir, 'deck.json');
+  const deckPath = join(dir, pickDeckFile(dir));
   if (!existsSync(deckPath)) {
     // deck.json 이 없으면 그냥 안에 있는 장표 파일을 모두 찍는다.
     const files = (await readdir(dir)).filter((f) => /\.(html|kgslide|json)$/i.test(f));

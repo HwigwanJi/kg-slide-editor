@@ -82,7 +82,13 @@ export function slideFileName(id: string): string {
 export function previewFileName(id: string): string {
   return `${id}.png`;
 }
-export const DECK_FILE = 'deck.json';
+/**
+ * 프로젝트 파일. 이 파일이 있는 폴더가 곧 프로젝트다.
+ * 사람이 파일탐색기에서 보고 "이게 프로젝트구나" 알 수 있도록 확장자를 따로 둔다.
+ */
+export const DECK_FILE = 'project.kgproj';
+/** 예전 이름. 이미 만든 프로젝트를 열려면 이것도 읽어야 한다. */
+export const DECK_FILE_LEGACY = 'deck.json';
 export const SLIDES_DIR = 'slides';
 export const PREVIEW_DIR = 'preview';
 export const LIBRARY_DIR = 'library';

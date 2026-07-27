@@ -5,12 +5,13 @@
  * 검사 규칙을 도구 쪽에 다시 구현하면 편집기 화면과 검사 결과가 곧 갈라진다.
  * 그래서 규칙은 코어 하나만 두고, 도구는 그것을 실행만 한다.
  */
-import { parseSettings, type ProjectSettings } from '@contract/index';
+import { parseSettings, parseSlideDoc, type ProjectSettings } from '@contract/index';
 import { ID_ATTR, ROLE_ATTR_PUBLIC, SLOT_ATTR, TEXT_ATTR, stampIds } from './ids';
 import { placeByOrigin, reconcileSlides } from './deck';
 import { carryOverlay, formatCarry } from './merge';
 import { kindOf } from './neighbors';
 import { auditOverflow, type OverflowIssue } from './overflow';
+import { toStandaloneHtml } from './serialize';
 import { auditWording, type WordingIssue } from './wording';
 import { importKgHtml } from '@adapters/import.kghtml';
 
@@ -82,4 +83,15 @@ export function mergeIngest(next: unknown, prev: unknown): { doc: unknown; note:
   if (!prev) return { doc: next, note: '새 장표' };
   const { doc, report } = carryOverlay(prev as never, next as never);
   return { doc, note: formatCarry(report) };
+}
+
+/**
+ * 지금 모습을 HTML 로 굽는다.
+ *
+ * 원본(source)은 작도한 그대로고, 사람이 고친 것은 덧씌움으로 따로 쌓인다.
+ * 그래서 원본 파일만 읽으면 사람이 무엇을 바꿔 놨는지 보이지 않는다.
+ * AI 가 이어서 고치려면 원본이 아니라 지금 모습을 읽어야 한다.
+ */
+export function currentHtml(raw: unknown, cssBase?: string): string {
+  return toStandaloneHtml(parseSlideDoc(raw), cssBase ? { cssBase } : {});
 }
