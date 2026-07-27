@@ -101,12 +101,17 @@ export function DeckRail({
       </ol>
       {deck.slides.length === 0 && <p className="ed-empty">장표가 없습니다. 폴더를 열거나 샘플로 시작하세요.</p>}
 
-      <span className="ed-label">샘플 장표</span>
-      {FIXTURES.map(([url, label]) => (
-        <button key={url} className="ed-rail__item" onClick={() => void api.addFromHtmlUrl(url)}>
-          {label}
-        </button>
-      ))}
+      {/* 샘플은 빈 프로젝트에서 시작할 때만 쓴다. 장표가 있는데 남아 있으면 이 프로젝트의 일부처럼 보인다. */}
+      {deck.slides.length === 0 && (
+        <>
+          <span className="ed-label">샘플 장표</span>
+          {FIXTURES.map(([url, label]) => (
+            <button key={url} className="ed-rail__item" onClick={() => void api.addFromHtmlUrl(url)}>
+              {label}
+            </button>
+          ))}
+        </>
+      )}
     </nav>
   );
 }

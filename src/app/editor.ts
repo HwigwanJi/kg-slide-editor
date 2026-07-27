@@ -26,7 +26,7 @@ import {
 } from '@core/index';
 import {
   SNIPPETS, clipboard, cloneNodeSnapshot, createTransform, downloadDoc, downloadText,
-  editText, formatProbe, importKgHtml, importKgHtmlFrom, localProject, pickProjectFolder,
+  DEFAULT_PROJECT_NAME, editText, formatProbe, importKgHtml, importKgHtmlFrom, localProject, pickProjectFolder,
   probeFolderAccess, readDocFile,
   snippetNode,
   type MarqueeMode, type ProjectAdapter, type TextSession, type TransformController,
@@ -512,6 +512,12 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       await withBusy('폴더로 저장하는 중', '', async () => {
         await persistCurrent();
         const source = project;
+        // 브라우저 저장소의 기본 이름을 그대로 들고 가면, 폴더를 열 때마다
+        // 남의 프로젝트를 보는 것 같은 이름이 붙는다. 고른 폴더가 곧 이 프로젝트다.
+        const named = deck.get();
+        if (!named.name || named.name === DEFAULT_PROJECT_NAME) {
+          deck.dispatch({ type: 'setName', name: picked.location });
+        }
         const d = deck.get();
         for (const entry of d.slides) {
           const doc = entry.id === slides.get().id ? slides.get() : await source.loadSlide(entry.id);

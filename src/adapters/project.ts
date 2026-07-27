@@ -15,6 +15,9 @@ import {
   type DeckDoc, type ProjectSettings, type SlideDoc,
 } from '@contract/index';
 
+/** 브라우저 저장소로 시작할 때의 이름. 폴더로 옮기면 폴더 이름으로 바뀐다. */
+export const DEFAULT_PROJECT_NAME = '기본 프로젝트';
+
 export interface ProjectAdapter {
   readonly name: string;
   /** 사람이 파일탐색기에서 볼 수 있는 실제 폴더인가 */
@@ -51,7 +54,7 @@ export const localProject: ProjectAdapter = {
 
   async loadDeck() {
     const raw = localStorage.getItem(DECK_KEY);
-    if (!raw) return createDeck({ id: crypto.randomUUID(), name: '기본 프로젝트', now: new Date().toISOString() });
+    if (!raw) return createDeck({ id: crypto.randomUUID(), name: DEFAULT_PROJECT_NAME, now: new Date().toISOString() });
     return parseDeck(JSON.parse(raw));
   },
 
