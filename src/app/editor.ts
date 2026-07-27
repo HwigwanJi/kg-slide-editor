@@ -26,7 +26,8 @@ import {
 } from '@core/index';
 import {
   SNIPPETS, clipboard, cloneNodeSnapshot, createTransform, downloadDoc, downloadText,
-  editText, importKgHtml, importKgHtmlFrom, localProject, pickProjectFolder, readDocFile,
+  editText, formatProbe, importKgHtml, importKgHtmlFrom, localProject, pickProjectFolder,
+  probeFolderAccess, readDocFile,
   snippetNode,
   type MarqueeMode, type ProjectAdapter, type TextSession, type TransformController,
 } from '@adapters/index';
@@ -62,6 +63,11 @@ export interface EditorApi {
    * 기본 프로젝트(브라우저 저장소)는 명령줄에서 볼 수 없다. 이 통로로 파일이 된다.
    */
   saveToFolder(): Promise<void>;
+  /**
+   * 폴더에 쓸 수 있는지 실제 저장과 같은 순서로 밟아 본다.
+   * 결과를 클립보드에 담는다 — 그대로 붙여 넣으면 어디서 막혔는지 알 수 있다.
+   */
+  diagnoseFolder(): Promise<void>;
   /**
    * 디스크의 프로젝트를 다시 읽는다. 명령줄 도구가 폴더에 쓴 결과를 화면으로 가져오는 통로다.
    * announce 는 사람이 눌렀을 때만 켠다 — 화면이 붙을 때마다 알림이 뜨면 안 된다.
@@ -517,6 +523,15 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
         await api.reloadProject();
         toast('ok', `폴더로 저장 — 장표 ${d.slides.length}장 · ${project.location}`);
       });
+    },
+
+    async diagnoseFolder() {
+      const report = formatProbe(await probeFolderAccess());
+      console.log(report);
+      await navigator.clipboard.writeText(report).catch(() => {});
+      const failed = report.includes('막힌 자리');
+      toast(failed ? 'error' : 'ok', `${failed ? '막힌 자리를 찾았습니다' : '쓰기 가능'} — 진단 결과를 복사했습니다`);
+      status(report.split('\n').at(-1) ?? '', failed);
     },
 
     async reloadProject(announce = false) {

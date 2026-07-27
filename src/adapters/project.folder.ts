@@ -64,10 +64,124 @@ export async function pickProjectFolder(): Promise<ProjectAdapter | null> {
   }
 }
 
+/* ------------------------------------------------------------------ *
+ * 폴더 쓰기 진단
+ *
+ * "not allowed by the user agent or the platform" 은 원인을 여러 개 뭉뚱그린 예외다.
+ * 브라우저가 막는 위치인지, 권한을 못 받은 것인지, 조작 맥락이 끝난 것인지 구분되지 않는다.
+ * 그래서 실제 저장이 하는 일을 같은 순서로 하나씩 밟아 보고, 어디서 멈추는지 남긴다.
+ * 마지막에 만든 것은 지운다 — 진단이 흔적을 남기면 안 된다.
+ * ------------------------------------------------------------------ */
+
+export interface ProbeStep { step: string; ok: boolean; detail: string }
+
+const PROBE_DIR = '.kg-probe';
+
+const why = (e: unknown): string =>
+  e instanceof DOMException ? `${e.name} — ${e.message}` : String((e as Error)?.message ?? e);
+
+export async function probeFolderAccess(): Promise<ProbeStep[]> {
+  const out: ProbeStep[] = [];
+  const add = (step: string, ok: boolean, detail = '') => { out.push({ step, ok, detail }); return ok; };
+
+  const picker = (window as unknown as DirectoryPickerWindow).showDirectoryPicker;
+  if (!add('브라우저 지원', typeof picker === 'function', typeof picker)) return out;
+  if (!add('보안 맥락', window.isSecureContext, location.origin)) return out;
+
+  let root: FileSystemDirectoryHandle;
+  try {
+    root = await picker!({ mode: 'readwrite' });
+    add('폴더 고르기', true, root.name);
+  } catch (e) {
+    add('폴더 고르기', false, why(e));
+    return out;
+  }
+
+  const h = root as unknown as PermissionedHandle;
+  try {
+    const state = await h.queryPermission?.({ mode: 'readwrite' });
+    add('권한 조회', state === 'granted', String(state ?? '메서드 없음'));
+    if (state !== 'granted') {
+      const asked = await h.requestPermission?.({ mode: 'readwrite' });
+      add('권한 요청', asked === 'granted', String(asked ?? '메서드 없음'));
+    }
+  } catch (e) { add('권한 조회', false, why(e)); }
+
+  // 실제 저장이 밟는 순서 그대로. 하나라도 막히면 거기가 원인이다.
+  let probe: FileSystemDirectoryHandle;
+  try {
+    probe = await root.getDirectoryHandle(PROBE_DIR, { create: true });
+    add('하위 폴더 만들기', true, PROBE_DIR);
+  } catch (e) {
+    add('하위 폴더 만들기', false, why(e));
+    return out;
+  }
+
+  try {
+    const file = await probe.getFileHandle('probe.txt', { create: true });
+    add('파일 만들기', true, 'probe.txt');
+    const stream = await file.createWritable();
+    await stream.write('진단');
+    await stream.close();
+    add('쓰기', true, '6바이트');
+  } catch (e) { add('쓰기', false, why(e)); }
+
+  try {
+    await root.removeEntry(PROBE_DIR, { recursive: true });
+    add('치우기', true, PROBE_DIR);
+  } catch (e) { add('치우기', false, why(e)); }
+
+  return out;
+}
+
+/** 진단 결과를 사람이 읽고 그대로 붙여 넣을 수 있는 글로 만든다. */
+export function formatProbe(steps: ProbeStep[]): string {
+  const lines = steps.map((s) => `${s.ok ? '○' : '✕'} ${s.step}${s.detail ? ` — ${s.detail}` : ''}`);
+  const bad = steps.find((s) => !s.ok);
+  return [
+    '폴더 쓰기 진단',
+    ...lines,
+    '',
+    bad ? `막힌 자리: ${bad.step}` : '모든 단계 통과 — 이 폴더에는 쓸 수 있습니다',
+  ].join('\n');
+}
+
 export function folderProject(root: FileSystemDirectoryHandle): ProjectAdapter {
   const previewUrls = new Map<string, string>();
 
-  const dir = (name: string) => root.getDirectoryHandle(name, { create: true });
+  /**
+   * 쓰기 직전에 권한을 확인한다.
+   *
+   * 폴더를 고를 때 받은 권한은 계속 남아 있지 않는다. 브라우저가 되돌리면 그 뒤의 쓰기가
+   * 전부 NotAllowedError 로 떨어지는데, 예외 문구만으로는 권한 문제인 줄 알 수 없다.
+   * 여기서 먼저 확인하고, 아직 사용자가 누른 힘이 남아 있으면 다시 받아 낸다.
+   */
+  async function writable(): Promise<void> {
+    const h = root as unknown as PermissionedHandle;
+    if (!h.queryPermission) return;
+    if (await h.queryPermission({ mode: 'readwrite' }) === 'granted') return;
+    if (await h.requestPermission?.({ mode: 'readwrite' }) === 'granted') return;
+    throw new Error(
+      `"${root.name}" 폴더에 쓸 권한이 풀렸습니다. `
+      + '슬라이드 탭에서 "프로젝트 폴더 열기"로 같은 폴더를 다시 고르고 "편집 허용"을 눌러 주세요.',
+    );
+  }
+
+  const dir = async (name: string) => {
+    await writable();
+    try {
+      return await root.getDirectoryHandle(name, { create: true });
+    } catch (e) {
+      if (e instanceof DOMException && e.name === 'NotAllowedError') {
+        throw new Error(
+          `"${root.name}" 폴더의 ${name} 폴더를 만들 수 없습니다. `
+          + '브라우저가 쓰기를 막는 위치이거나 편집 허용이 풀린 경우입니다. '
+          + '"폴더 쓰기 진단"(검사 탭)을 돌리면 어디서 막혔는지 알 수 있습니다.',
+        );
+      }
+      throw e;
+    }
+  };
 
   async function readText(handle: FileSystemDirectoryHandle, name: string): Promise<string | null> {
     try {
@@ -79,10 +193,21 @@ export function folderProject(root: FileSystemDirectoryHandle): ProjectAdapter {
   }
 
   async function writeFile(handle: FileSystemDirectoryHandle, name: string, data: string | Blob): Promise<void> {
-    const file = await handle.getFileHandle(name, { create: true });
-    const stream = await file.createWritable();
-    await stream.write(data);
-    await stream.close();
+    await writable();
+    try {
+      const file = await handle.getFileHandle(name, { create: true });
+      const stream = await file.createWritable();
+      await stream.write(data);
+      await stream.close();
+    } catch (e) {
+      if (e instanceof DOMException && e.name === 'NotAllowedError') {
+        throw new Error(
+          `${name} 을(를) 쓸 수 없습니다. 편집 허용이 풀렸거나 브라우저가 막는 위치입니다. `
+          + '"폴더 쓰기 진단"(검사 탭)을 돌리면 어디서 막혔는지 알 수 있습니다.',
+        );
+      }
+      throw e;
+    }
   }
 
   return {
