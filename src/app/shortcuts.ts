@@ -49,7 +49,19 @@ export function installShortcuts(getCtx: () => ActionCtx): () => void {
     if (typing && !ALWAYS.has(action.id)) return;
 
     const ctx = getCtx();
-    if (action.enabled && !action.enabled(ctx)) return;
+    if (action.enabled && !action.enabled(ctx)) {
+      /*
+       * 조건이 안 맞으면 아무 일도 일어나지 않는다 — 사람에게는 단축키가 고장 난 것으로 보인다.
+       * 실제로 "Ctrl+G 가 안 먹는다" 는 말을 들었는데, 눌러 보면 동작은 멀쩡했고
+       * 고른 것이 하나로 합쳐져 조건에 걸리지 않았을 뿐이었다.
+       *
+       * 막은 이유를 말해 준다. 기본 동작은 그대로 막는다 — 브라우저 찾기 창이 뜨면
+       * 그것대로 놀란다.
+       */
+      e.preventDefault();
+      ctx.api.notify(`${action.label} — ${action.hint ?? '지금은 쓸 수 없는 상태입니다'}`);
+      return;
+    }
 
     e.preventDefault();
     action.run(ctx);

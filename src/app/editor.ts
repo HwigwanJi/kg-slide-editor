@@ -204,6 +204,11 @@ export interface EditorApi {
   setZoom(z: Zoom): void;
 
   tokens(): KgToken[];
+  /**
+   * 상태줄에 한 줄 남긴다.
+   * 화면 조각이 "왜 아무 일도 안 일어났는지" 를 사람에게 말해 줘야 할 때 쓴다.
+   */
+  notify(message: string): void;
   onStatus(fn: (s: Status) => void): () => void;
   /** 진행 중 표시. 켜져 있는 동안 화면을 막는다. */
   onBusy(fn: (b: Busy) => void): () => void;
@@ -1424,6 +1429,8 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
     setZoom(z) { zoom = z; applyScale(); transform?.refresh(); },
 
     tokens: () => tokenCache,
+
+    notify: (message) => status(message),
 
     onStatus(fn) {
       statusListeners.add(fn);
