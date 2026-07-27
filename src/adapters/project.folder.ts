@@ -17,8 +17,30 @@ interface DirectoryPickerWindow {
   showDirectoryPicker?(options?: { mode?: 'read' | 'readwrite' }): Promise<FileSystemDirectoryHandle>;
 }
 
+type PermissionArgs = { mode?: 'read' | 'readwrite' };
+interface PermissionedHandle {
+  queryPermission?(opts?: PermissionArgs): Promise<PermissionState>;
+  requestPermission?(opts?: PermissionArgs): Promise<PermissionState>;
+}
+
 export function isFolderSupported(): boolean {
   return typeof (window as unknown as DirectoryPickerWindow).showDirectoryPicker === 'function';
+}
+
+/**
+ * 쓰기 권한을 받아 둔다.
+ *
+ * 폴더를 고른 것과 거기에 쓸 수 있는 것은 다르다. 고르기만 하면 권한이 "물어봄" 상태로 남고,
+ * 실제로 쓸 때 브라우저가 사용자에게 물으려 한다. 그런데 그때는 클릭한 지 한참 지나
+ * 사용자 조작 맥락이 끝나 있어 물어보지도 못하고 거절된다.
+ * 그래서 고른 직후, 아직 클릭의 힘이 남아 있을 때 받아 둔다.
+ */
+async function ensureWritable(handle: FileSystemDirectoryHandle): Promise<void> {
+  const h = handle as unknown as PermissionedHandle;
+  if (!h.queryPermission || !h.requestPermission) return;
+  if (await h.queryPermission({ mode: 'readwrite' }) === 'granted') return;
+  if (await h.requestPermission({ mode: 'readwrite' }) === 'granted') return;
+  throw new Error('폴더에 쓸 권한을 받지 못했습니다. 다시 고르고 "편집 허용"을 눌러 주세요.');
 }
 
 /** 사용자가 폴더를 고르게 한다. 취소하면 null. */
@@ -26,9 +48,18 @@ export async function pickProjectFolder(): Promise<ProjectAdapter | null> {
   const picker = (window as unknown as DirectoryPickerWindow).showDirectoryPicker;
   if (!picker) throw new Error('이 브라우저는 폴더 열기를 지원하지 않습니다. Chrome 또는 Edge 를 쓰세요.');
   try {
-    return folderProject(await picker({ mode: 'readwrite' }));
+    const root = await picker({ mode: 'readwrite' });
+    await ensureWritable(root);
+    return folderProject(root);
   } catch (e) {
     if (e instanceof DOMException && e.name === 'AbortError') return null;
+    // 브라우저가 막는 자리가 따로 있다. 원문만 보여 주면 무엇을 해야 할지 알 수 없다.
+    if (e instanceof DOMException && e.name === 'NotAllowedError') {
+      throw new Error(
+        '이 폴더에는 쓸 수 없습니다. 브라우저가 막는 위치(바탕화면·다운로드 상위, 시스템 폴더)이거나 '
+        + '편집 허용을 받지 못한 경우입니다. 문서 폴더 아래에 만든 폴더를 고르고 "편집 허용"을 눌러 주세요.',
+      );
+    }
     throw e;
   }
 }
