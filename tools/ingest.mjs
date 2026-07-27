@@ -20,6 +20,7 @@ import { existsSync } from 'node:fs';
 import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { basename, dirname, join, resolve } from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
+import { ensureBundle } from './bundle.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const KG_DIR = join(ROOT, 'public', 'kg');
@@ -30,15 +31,11 @@ if (!existsSync(KG_DIR)) {
   console.error('KG 자산이 없습니다. 먼저 npm run setup 을 돌리세요.');
   process.exit(2);
 }
-const BUNDLE = join(ROOT, 'tools', 'gen', 'audit.iife.js');
+const BUNDLE = ensureBundle('audit');
 
 const [projectArg, ...fileArgs] = process.argv.slice(2);
 if (!projectArg) {
   console.error('프로젝트 폴더가 없습니다.\n  node tools/ingest.mjs <프로젝트폴더> [장표.html...]');
-  process.exit(2);
-}
-if (!existsSync(BUNDLE)) {
-  console.error('번들이 없습니다. 먼저 만드세요: npm run build:audit');
   process.exit(2);
 }
 

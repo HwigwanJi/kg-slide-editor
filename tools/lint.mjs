@@ -18,6 +18,7 @@ import { existsSync } from 'node:fs';
 import { readFile, readdir, rm, stat, writeFile } from 'node:fs/promises';
 import { basename, dirname, extname, join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { ensureBundle } from './bundle.mjs';
 
 const ROOT = resolve(dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')), '..');
 const KG_DIR = join(ROOT, 'public', 'kg');
@@ -28,7 +29,7 @@ if (!existsSync(KG_DIR)) {
   console.error('KG 자산이 없습니다. 먼저 npm run setup 을 돌리세요.');
   process.exit(2);
 }
-const BUNDLE = join(ROOT, 'tools', 'gen', 'audit.iife.js');
+const BUNDLE = ensureBundle('audit');
 const SETTINGS_FILE = 'kg.config.json';
 
 const KIND_LABEL = {
@@ -44,7 +45,6 @@ if (args.inputs.length === 0) {
   process.exit(2);
 }
 
-ensureBundle();
 const bundle = await readFile(BUNDLE, 'utf8');
 
 const browser = await chromium.launch();
@@ -72,13 +72,6 @@ report(reports);
 
 /* ------------------------------------------------------------------ */
 
-function ensureBundle() {
-  if (existsSync(BUNDLE)) return;
-  console.error('검사 번들이 없어 먼저 만듭니다 (npm run build:audit)');
-  execFileSync(process.platform === 'win32' ? 'npm.cmd' : 'npm', ['run', 'build:audit'], {
-    cwd: ROOT, stdio: 'inherit',
-  });
-}
 
 /** 입력 옆이나 프로젝트 폴더의 설정을 찾는다. 없으면 빈 객체 → 코어가 기본값을 쓴다. */
 async function settingsNear(file) {

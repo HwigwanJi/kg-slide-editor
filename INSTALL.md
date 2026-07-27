@@ -25,7 +25,10 @@ gh repo clone HwigwanJi/kg-slide-editor
 
    `npm run setup` 이 하는 일: `skills/` 를 `~/.claude/skills/` 로, `hooks/` 를 `~/.claude/hooks/` 로
    복사하고, `~/.claude/settings.json` 에 워크플로우 훅을 등록하고, `skills/keynes-group-design` 에서
-   편집기 자산을 `public/kg/` 로 만들어 낸다. 몇 번을 돌려도 결과가 같다.
+   편집기 자산을 `public/kg/` 로 만들고, 도구가 쓰는 번들을 만든다. 몇 번을 돌려도 결과가 같다.
+
+   `~/.claude/skills` 를 직접 고쳐 둔 것이 있으면 설치가 멈추고 어느 파일인지 알린다.
+   고칠 곳은 저장소의 `skills/` 다 — 그쪽이 원본이고 `~/.claude/skills` 는 거기서 만들어 낸다.
 
 2. 설치가 됐는지 확인한다. 둘 다 통과해야 한다.
 
@@ -41,7 +44,20 @@ gh repo clone HwigwanJi/kg-slide-editor
 
 ---
 
-## 3. 여러 대에서 나눠 그리고 합치기
+## 3. 최신으로 맞추기
+
+저장소가 갱신되면 두 명령을 다시 돌린다. 스킬·자산·번들이 함께 따라온다.
+
+```
+git pull
+npm install
+npm run setup
+```
+
+`npm run setup` 을 잊어도 검사·미리보기·적재는 편집기 코어가 번들보다 새로우면 알아서 다시 만든다.
+다만 스킬과 편집기 자산은 `npm run setup` 을 돌려야 갱신된다.
+
+## 4. 여러 대에서 나눠 그리고 합치기
 
 **나누기** — 쪽 번호 범위로 가른다. 파일 이름 앞의 번호가 곧 덱 순서이므로 범위가 겹치지 않으면 충돌하지 않는다.
 

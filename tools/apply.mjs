@@ -21,9 +21,10 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
+import { ensureBundle } from './bundle.mjs';
 
 const ROOT = resolve(dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')), '..');
-const BUNDLE = join(ROOT, 'tools', 'gen', 'apply-bundle.js');
+const BUNDLE = ensureBundle('apply');
 
 const args = parseArgs(process.argv.slice(2));
 
@@ -34,10 +35,6 @@ if (args.vocab) {
 
 if (!args.file) {
   console.error('장표 파일이 없습니다.\n  node tools/apply.mjs <slide.kgslide> --cmds <commands.json>');
-  process.exit(2);
-}
-if (!existsSync(BUNDLE)) {
-  console.error('적용 번들이 없습니다. 먼저 만드세요: npm run build:apply');
   process.exit(2);
 }
 

@@ -152,12 +152,26 @@ for (const [from, to] of ASSETS) {
 }
 log('•', `편집기 자산 ${ASSETS.length}건 (public/kg)`);
 
+/* ---------- 5. 도구 번들 ---------- */
+
+// 검사·미리보기·적재·적용은 편집기 코어를 번들해 돌린다. 여기서 미리 만들어 두면
+// 받은 사람이 첫 명령부터 최신 규칙으로 작업하게 된다. 빌드가 깨졌다면 그 사실도 지금 드러난다.
+try {
+  const { ensureBundle } = await import('./bundle.mjs');
+  ensureBundle('audit');
+  ensureBundle('apply');
+  log('•', '도구 번들');
+} catch (e) {
+  console.error(`! 번들을 만들지 못했습니다 — ${e.message}`);
+  console.error('  npm install 을 먼저 돌렸는지 확인하세요.');
+}
+
 console.log(`
 설치를 마쳤습니다. 이어서 할 일
 
-  npm install
   npx playwright install chromium
-  npm run build            빌드가 통과하는지
-  npm run lint:slides -- public/fixtures    검사가 도는지
+  npm run build                              빌드가 통과하는지
+  npm run lint:slides -- public/fixtures     검사가 도는지
 
-편집기는 npm run dev 로 띄웁니다.`);
+편집기는 npm run dev 로 띄웁니다.
+저장소를 새로 받았을 때(git pull)도 npm install 과 npm run setup 을 다시 돌립니다.`);
