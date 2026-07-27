@@ -47,7 +47,38 @@ export function isTextRun(el: Element): boolean {
   for (const child of el.children) {
     if (!FORMAT_TAGS.has(child.tagName)) return false;
   }
-  return true;
+  return !isMixedFormat(el);
+}
+
+/**
+ * 한 상자 안에 서식이 다른 덩어리가 나란히 있는가.
+ *
+ * 예: `<div class="cell"><b>핵심사업</b><em>수혜가치</em></div>`
+ * 둘 다 서식 태그라 겉보기에는 글자 한 덩어리지만, 크기와 색이 서로 다르다.
+ * 이것을 한 덩어리로 다루면 위계가 하나만 붙고 각각을 따로 고칠 수 없다.
+ *
+ * 판정 기준은 "덩어리로 나뉘어 있는가"다.
+ *  - 글자가 서식 태그 안에만 있고(느슨한 글자 없음)
+ *  - 그중 서로 크기나 색이 다른 것이 있으면
+ * 나뉜 것으로 보고 각각을 따로 다룬다.
+ *
+ * 문장 속 강조(`제작비 <b>세액공제</b> 적용`)는 느슨한 글자가 함께 있으므로 여기 걸리지 않는다.
+ * 그건 한 문장이 맞고, 나누면 오히려 편집이 불편해진다.
+ */
+export function isMixedFormat(el: Element): boolean {
+  const marked = [...el.children].filter((c) => c.tagName !== 'BR');
+  if (marked.length < 2) return false;
+
+  // 서식 태그 밖에 느슨한 글자가 있으면 한 문장이다.
+  for (const node of el.childNodes) {
+    if (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()) return false;
+  }
+
+  const seen = marked.map((c) => {
+    const cs = getComputedStyle(c);
+    return `${cs.fontSize}|${cs.color}|${cs.fontWeight}`;
+  });
+  return new Set(seen).size > 1;
 }
 
 /** KG 클래스에서 위계를 찾는다. 맞는 것이 없으면 null. */

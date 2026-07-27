@@ -13,7 +13,8 @@
     "lint:slides": "node tools/lint.mjs",
     "preview:slides": "node tools/preview.mjs",
     "build:apply": "vite build --config vite.config.apply.ts",
-    "apply": "node tools/apply.mjs"
+    "apply": "node tools/apply.mjs",
+    "ingest": "node tools/ingest.mjs"
   },
   "dependencies": {
     "@tiptap/core": "^3.29.0",

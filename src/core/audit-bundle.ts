@@ -8,6 +8,7 @@
 import { parseSettings, type ProjectSettings } from '@contract/index';
 import { ID_ATTR, ROLE_ATTR_PUBLIC, TEXT_ATTR, stampIds } from './ids';
 import { auditOverflow, type OverflowIssue } from './overflow';
+import { importKgHtml } from '@adapters/import.kghtml';
 
 export interface SlideReport {
   issues: OverflowIssue[];
@@ -34,4 +35,13 @@ export function auditPage(rawSettings: unknown): SlideReport {
     textRuns: runs.length,
     nodes: root.querySelectorAll(`[${ID_ATTR}]`).length,
   };
+}
+
+/**
+ * KG 장표 HTML → 저장 문서.
+ * 3단계 적재(tools/ingest.mjs)가 브라우저 안에서 부른다.
+ * 임포트 규칙을 도구에 다시 쓰지 않기 위해 편집기 어댑터를 그대로 쓴다.
+ */
+export function ingestHtml(html: string, origin: string, id: string, now: string) {
+  return importKgHtml(html, { origin, id, now });
 }

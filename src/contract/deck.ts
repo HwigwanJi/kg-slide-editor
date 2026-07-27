@@ -19,6 +19,11 @@ export const zDeckEntry = z.object({
   title: z.string().default(''),
   /** 미리보기 PNG 경로. 아직 찍지 않았으면 없다. */
   preview: z.string().optional(),
+  /**
+   * 이 장표를 만들어 낸 원본 파일 이름(source/*.html).
+   * 같은 원본을 다시 넣을 때 새로 만들지 않고 그 자리를 갱신하기 위한 표식이다.
+   */
+  origin: z.string().optional(),
   updatedAt: z.string(),
 }).strict();
 export type DeckEntry = z.infer<typeof zDeckEntry>;
