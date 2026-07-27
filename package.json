@@ -14,7 +14,8 @@
     "preview:slides": "node tools/preview.mjs",
     "build:apply": "vite build --config vite.config.apply.ts",
     "apply": "node tools/apply.mjs",
-    "ingest": "node tools/ingest.mjs"
+    "ingest": "node tools/ingest.mjs",
+    "pptx:text": "node tools/pptx-text.mjs"
   },
   "dependencies": {
     "@tiptap/core": "^3.29.0",
