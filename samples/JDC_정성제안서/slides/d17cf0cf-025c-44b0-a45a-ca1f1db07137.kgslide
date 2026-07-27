@@ -53,6 +53,11 @@
           18
         ]
       }
+    },
+    "n.2.1.1": {
+      "style": {
+        "fontSize": 18
+      }
     }
   },
   "tree": {
@@ -70,14 +75,25 @@
     "scale": 1,
     "roles": {
       "h2": {
-        "fontSize": 17
+        "fontSize": 18
       },
       "label": {
         "fontSize": 15
+      },
+      "body3": {
+        "fontSize": 16,
+        "marker": "·"
+      },
+      "body2": {
+        "fontSize": 16,
+        "marker": "–"
+      },
+      "body1": {
+        "fontSize": 17
       }
     }
   },
   "stack": [],
   "createdAt": "2026-07-27T08:57:00.825Z",
-  "updatedAt": "2026-07-27T15:00:24.531Z"
+  "updatedAt": "2026-07-27T16:18:53.762Z"
 }

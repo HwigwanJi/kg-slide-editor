@@ -118,7 +118,7 @@
         "fontSize": 17
       },
       "body2": {
-        "fontSize": 17
+        "fontSize": 16
       },
       "body3": {
         "fontSize": 17
@@ -127,5 +127,5 @@
   },
   "stack": [],
   "createdAt": "2026-07-27T08:22:21.634Z",
-  "updatedAt": "2026-07-27T15:30:20.072Z"
+  "updatedAt": "2026-07-27T16:16:01.937Z"
 }
