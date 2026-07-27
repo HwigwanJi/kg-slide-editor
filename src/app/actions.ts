@@ -85,9 +85,13 @@ export const ACTIONS: ActionDef[] = [
     } },
 
   /* ---------------- 슬라이드 (프로젝트 단위) ---------------- */
-  { id: 'deck.openFolder', label: '프로젝트 폴더 열기', group: '슬라이드', surfaces: ['palette'],
+  { id: 'deck.openFolder', label: '프로젝트 폴더 열기', group: '슬라이드', surfaces: ['toolbar', 'palette'],
     hint: 'Claude Code 가 만든 장표 폴더를 그대로 엽니다',
     run: ({ api }) => void api.openFolder() },
+  // 기본 프로젝트는 브라우저 안에만 있어 명령줄에서 보이지 않는다. 파일로 만드는 통로.
+  { id: 'deck.saveToFolder', label: '폴더로 저장', group: '슬라이드', surfaces: ['toolbar', 'palette'],
+    hint: '지금 장표를 전부 폴더에 옮겨 담습니다. 그때부터 Claude Code 도 같은 파일을 봅니다',
+    run: ({ api }) => void api.saveToFolder() },
   { id: 'deck.new', label: '새 장표', group: '슬라이드', shortcut: 'Ctrl+M', surfaces: ['toolbar', 'palette'],
     run: ({ api }) => void api.newSlide() },
   { id: 'deck.duplicate', label: '장표 복제', group: '슬라이드', surfaces: ['toolbar', 'palette'],

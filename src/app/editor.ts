@@ -58,6 +58,11 @@ export interface EditorApi {
   projectName(): string;
   openFolder(): Promise<void>;
   /**
+   * 지금 프로젝트를 폴더에 옮겨 담고 그 폴더로 전환한다.
+   * 기본 프로젝트(브라우저 저장소)는 명령줄에서 볼 수 없다. 이 통로로 파일이 된다.
+   */
+  saveToFolder(): Promise<void>;
+  /**
    * 디스크의 프로젝트를 다시 읽는다. 명령줄 도구가 폴더에 쓴 결과를 화면으로 가져오는 통로다.
    * announce 는 사람이 눌렀을 때만 켠다 — 화면이 붙을 때마다 알림이 뜨면 안 된다.
    */
@@ -485,6 +490,35 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
      * 보던 장표를 그대로 둔다. 첫 장으로 튀면 50장짜리 덱에서 자리를 잃는다.
      * 읽기 전에 지금 장표를 저장한다 — 다시 읽는 김에 편집분이 사라지면 안 된다.
      */
+    /**
+     * 지금 프로젝트를 통째로 폴더에 옮겨 담는다.
+     *
+     * 기본 프로젝트는 브라우저 localStorage 에 있다. 파일이 아니므로 Claude Code 도,
+     * 다른 브라우저도, 다른 컴퓨터도 그것을 볼 수 없다. 브라우저에서 만든 장표가
+     * 명령줄에서 보이지 않는 이유가 이것이다.
+     *
+     * 폴더로 옮기면 그때부터 양쪽이 같은 파일을 본다. "폴더 열기" 는 폴더를 갈아 끼울 뿐
+     * 갖고 있던 장표를 데려가지 않으므로, 옮기는 통로가 따로 있어야 한다.
+     */
+    async saveToFolder() {
+      const picked = await pickProjectFolder().catch((e) => { status(msg(e), true); return null; });
+      if (!picked) return;
+      await withBusy('폴더로 저장하는 중', '', async () => {
+        await persistCurrent();
+        const source = project;
+        const d = deck.get();
+        for (const entry of d.slides) {
+          const doc = entry.id === slides.get().id ? slides.get() : await source.loadSlide(entry.id);
+          await picked.saveSlide(doc);
+        }
+        await picked.saveDeck(d);
+        await picked.saveSettings(settings);
+        project = picked;
+        await api.reloadProject();
+        toast('ok', `폴더로 저장 — 장표 ${d.slides.length}장 · ${project.location}`);
+      });
+    },
+
     async reloadProject(announce = false) {
       const read = async () => {
         const before = slides.get().id;
