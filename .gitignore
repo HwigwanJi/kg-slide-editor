@@ -6,3 +6,5 @@ dist/
 Thumbs.db
 .claude/settings.local.json
 tools/gen/
+
+tools/gen/

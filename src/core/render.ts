@@ -141,23 +141,58 @@ function applyFlowOffset(el: HTMLElement, l: LayoutPatch): void {
 /* 3. 배치 — 떼어낸 요소                                                */
 /* ------------------------------------------------------------------ */
 
+/**
+ * 떼어낸 요소 배치.
+ *
+ * 원본 노드는 DOM에서 **옮기지 않는다**. 제자리에 둔 채 절대 배치로 띄운다.
+ *
+ * 옮기면 안 되는 이유: KG 장표 CSS는 후손 선택자를 많이 쓴다.
+ * 예를 들어 `.concl__2step .kgx-flow .n{font-size:13.5px}` 는 조상 `.concl__2step` 이
+ * 있어야 걸린다. 요소를 다른 층으로 옮기면 그 조상이 사라져 규칙이 통째로 빠지고,
+ * 안쪽 글자가 기본값으로 떨어진다(실측: 13.5px → 10px).
+ *
+ * 대신 좌표를 담는 그릇(offsetParent)이 슬라이드 루트가 아닐 수 있으므로,
+ * 캔버스 좌표를 그 그릇 기준으로 바꿔 넣는다.
+ *
+ * 추가 노드(삽입·복제)만 전용 층에 둔다. 원래 자리가 없어 잃을 문맥도 없다.
+ */
 function placeDetached(root: HTMLElement, doc: SlideDoc, layerHint: HTMLElement | null): void {
   const detached = doc.stack.filter((id) => doc.patches[id]?.layout?.mode === 'detached');
   if (detached.length === 0) return;
-  const layer = layerHint ?? ensureLayer(root);
+
+  const rootRect = root.getBoundingClientRect();
+  const scale = rootRect.width / doc.canvas.w || 1;
 
   detached.forEach((id, index) => {
     const el = byId(root, id);
     const layout = doc.patches[id]?.layout;
     if (!el || !layout) return;
 
-    // 원본 노드를 떼어낼 때는 원래 자리에 같은 크기의 빈 자리를 남긴다.
+    if (isAdded(id)) {
+      const layer = layerHint ?? ensureLayer(root);
+      applyDetachedBox(el, layout, index, 0, 0);
+      layer.appendChild(el);
+      return;
+    }
+
+    // 원래 자리에 같은 크기의 빈 자리를 남긴다.
     // 이것이 없으면 형제들이 즉시 위로 밀려 올라가 장표가 통째로 흔들린다.
-    if (!isAdded(id) && layout.keepSlot !== false && el.parentElement !== layer) {
+    if (layout.keepSlot !== false && !el.previousElementSibling?.classList.contains(SLOT_CLASS)) {
       el.insertAdjacentElement('beforebegin', makeSlot(el));
     }
-    applyDetachedBox(el, layout, index);
-    layer.appendChild(el);
+
+    // 좌표계를 맞춘다. 절대 배치의 기준 상자는 offsetParent 의 안쪽(패딩 상자)이다.
+    el.style.position = 'absolute';
+    const parent = el.offsetParent as HTMLElement | null;
+    let ox = 0;
+    let oy = 0;
+    if (parent && parent !== root) {
+      const pr = parent.getBoundingClientRect();
+      const cs = getComputedStyle(parent);
+      ox = (pr.left - rootRect.left) / scale + (parseFloat(cs.borderLeftWidth) || 0);
+      oy = (pr.top - rootRect.top) / scale + (parseFloat(cs.borderTopWidth) || 0);
+    }
+    applyDetachedBox(el, layout, index, ox, oy);
   });
 }
 
@@ -172,12 +207,17 @@ function makeSlot(el: HTMLElement): HTMLElement {
   return slot;
 }
 
-/** 캔버스 절대좌표 고정. 좌표계는 .kg-slide 기준(1280×905)이다. */
-function applyDetachedBox(el: HTMLElement, l: LayoutPatch, stackIndex: number): void {
+/**
+ * 캔버스 절대좌표 고정. 좌표계는 .kg-slide 기준(1280×905)이다.
+ * ox·oy 는 좌표를 담는 그릇이 루트가 아닐 때의 보정값이다.
+ */
+function applyDetachedBox(
+  el: HTMLElement, l: LayoutPatch, stackIndex: number, ox: number, oy: number,
+): void {
   el.style.position = 'absolute';
   el.style.margin = '0';
-  el.style.left = `${l.x ?? 0}px`;
-  el.style.top = `${l.y ?? 0}px`;
+  el.style.left = `${(l.x ?? 0) - ox}px`;
+  el.style.top = `${(l.y ?? 0) - oy}px`;
   if (l.w !== undefined) el.style.width = `${l.w}px`;
   if (l.h !== undefined) el.style.height = `${l.h}px`;
   el.style.zIndex = String(100 + stackIndex);

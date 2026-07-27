@@ -11,7 +11,9 @@
     "typecheck": "tsc --noEmit",
     "build:audit": "vite build --config vite.config.audit.ts",
     "lint:slides": "node tools/lint.mjs",
-    "preview:slides": "node tools/preview.mjs"
+    "preview:slides": "node tools/preview.mjs",
+    "build:apply": "vite build --config vite.config.apply.ts",
+    "apply": "node tools/apply.mjs"
   },
   "dependencies": {
     "@tiptap/core": "^3.29.0",
