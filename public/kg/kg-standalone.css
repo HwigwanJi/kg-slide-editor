@@ -1,6 +1,0 @@
-/* kg-standalone.css — wrapper for viewing one template slide on its own.
-   The .kg-slide keeps its native A4 가로 1280×905; kg-fit.js scales it. */
-html,body{margin:0;height:100%;background:#0E1C30;
-  display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.kg-slide{transform-origin:center center;box-shadow:0 10px 40px rgba(0,0,0,.45);
-  flex:0 0 auto;}
