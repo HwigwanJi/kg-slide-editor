@@ -15,7 +15,7 @@
 ## 설치
 
 ```bash
-gh repo clone HwigwanJi/kg-slide-editor && cd kg-slide-editor && node tools/setup.mjs --all
+git clone https://github.com/HwigwanJi/kg-slide-editor.git && cd kg-slide-editor && node tools/setup.mjs --all
 ```
 
 의존성 · 미리보기 브라우저 · 스킬 · 훅 · 편집기 자산 · 도구 번들 · 시작 프로젝트를 한 번에 맞춘다.

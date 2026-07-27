@@ -5,18 +5,6 @@
 
 ---
 
-## 보내기 전에 (보내는 사람이 한 번만)
-
-저장소가 비공개다. 받는 사람의 GitHub 계정을 먼저 초대한다.
-
-```bash
-gh repo add-collaborator HwigwanJi/kg-slide-editor <상대_깃허브_아이디>
-```
-
-이걸 안 하면 상대는 "저장소를 찾을 수 없다"만 보게 된다. **프롬프트로는 해결되지 않는다.**
-
----
-
 ## 붙여 넣을 프롬프트
 
 ```
@@ -25,20 +13,17 @@ gh repo add-collaborator HwigwanJi/kg-slide-editor <상대_깃허브_아이디>
 
 순서:
 
-1. 준비물부터 확인해. node --version, git --version, gh --version 을 각각 실행해서
+1. 준비물부터 확인해. node --version 과 git --version 을 실행해서
    없는 것이 있으면 거기서 멈추고, 무엇을 어디서 받아야 하는지 링크와 함께 알려 줘.
-   (Node.js 는 https://nodejs.org 에서 LTS, GitHub CLI 는 https://cli.github.com)
+   (Node.js 는 https://nodejs.org 에서 LTS. gh 는 없어도 된다 — 저장소가 공개다)
 
-2. gh auth status 로 로그인 상태를 확인해. 로그인이 안 되어 있으면 멈추고
-   "터미널에서 gh auth login 을 직접 실행하세요" 라고 알려 줘 — 이건 대화형이라 네가 못 한다.
+2. 저장소는 공개라 로그인이 필요 없다. gh 가 없어도 git 만 있으면 된다.
 
 3. 설치할 폴더를 정해. 내 문서 폴더 아래가 좋겠다. 이미 kg-slide-editor 폴더가 있으면
    덮지 말고 나한테 물어봐.
 
 4. 저장소를 받아.
-   gh repo clone HwigwanJi/kg-slide-editor
-   "Could not resolve to a Repository" 가 나오면 접근 권한이 없다는 뜻이니,
-   저장소 주인에게 초대를 요청하라고 알려 주고 멈춰.
+   git clone https://github.com/HwigwanJi/kg-slide-editor.git
 
 5. 그 폴더에서 설치를 돌려. 몇 분 걸리고 중간에 큰 파일을 받는다.
    node tools/setup.mjs --all
@@ -66,17 +51,15 @@ gh repo add-collaborator HwigwanJi/kg-slide-editor <상대_깃허브_아이디>
 
 ---
 
-## 프롬프트가 못 하는 것 세 가지
+## 프롬프트가 못 하는 것 하나
 
-자동화의 한계를 미리 알아 두면 막혔을 때 헤매지 않는다.
+저장소가 공개라 로그인도 초대도 필요 없다. 남는 것은 하나뿐이다.
 
 | 무엇 | 왜 | 사람이 할 일 |
 |---|---|---|
 | Node.js 설치 | 설치 관리자가 창을 띄운다 | https://nodejs.org 에서 LTS 받아 설치 |
-| `gh auth login` | 브라우저 인증이 대화형이다 | 터미널에서 한 번 실행 |
-| 저장소 접근 권한 | 비공개 저장소다 | **보내는 사람**이 초대 |
 
-이 셋만 넘기면 나머지는 프롬프트 하나로 끝난다.
+Node.js 만 깔려 있으면 나머지는 프롬프트 하나로 끝난다.
 
 ## 두 번째 컴퓨터부터
 

@@ -6,7 +6,7 @@
 ## 한 줄
 
 ```bash
-gh repo clone HwigwanJi/kg-slide-editor && cd kg-slide-editor && node tools/setup.mjs --all
+git clone https://github.com/HwigwanJi/kg-slide-editor.git && cd kg-slide-editor && node tools/setup.mjs --all
 ```
 
 이것으로 끝난다. `--all` 이 하는 일은 아래 전부다.
