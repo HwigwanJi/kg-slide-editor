@@ -17,12 +17,15 @@
   /* 리본은 2단이다 — 탭 줄 + 도구 줄 */
   --ed-ribbon-h: calc(var(--ed-toolbar-h) * 2);
   --ed-statusbar-h: 26px;
-  --ed-panel-w: 268px;
+  /* 오른쪽 패널 — 숫자 칸과 증감 단추가 손에 잡히려면 이만큼은 있어야 한다.
+     268px 에서는 입력칸이 6ch 로 눌려 숫자를 읽기도 누르기도 어려웠다. */
+  --ed-panel-w: 340px;
   --ed-rail-w: 176px;
 
   /* 컨트롤 치수 */
-  --ed-control-h: 28px;
-  --ed-control-h-sm: 22px;
+  /* 28px 은 증감 화살표가 위아래로 갈리면 하나가 11px 밖에 안 된다. 손가락이 닿을 크기로 올린다. */
+  --ed-control-h: 34px;
+  --ed-control-h-sm: 26px;
   --ed-swatch: 18px;
   --ed-handle-size: 9px;
 

@@ -117,7 +117,7 @@
   align-items: center;
   gap: var(--ed-sp-2);
 }
-@container panel (max-width: 250px) {
+@container panel (max-width: 300px) {
   .ed-field { grid-template-columns: 1fr; gap: var(--ed-sp-1); }
 }
 .ed-field__label { font-size: var(--ed-fs-sm); color: var(--ed-fg-muted); }
@@ -340,8 +340,8 @@
   align-items: center;
   gap: var(--ed-sp-1);
 }
-.ed-role__ctrls .ed-input--num { width: 4.5ch; }
-.ed-role__ctrls .ed-select { max-width: 9ch; }
+.ed-role__ctrls .ed-input--num { width: 7ch; }
+.ed-role__ctrls .ed-select { max-width: 12ch; }
 
 /* ---------------- 검사 ---------------- */
 .ed-stepper {

@@ -638,10 +638,17 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       const read = async () => {
         const before = slides.get().id;
         const had = deck.get().slides.length;
-        // 사람이 누른 다시 읽기일 때만 지금 것을 먼저 저장한다.
-        // 프로젝트를 바꾸는 길에서 저장하면 브라우저 저장소의 덱이 폴더를 덮어쓴다
-        // — 이름이 "기본 프로젝트" 가 되고 방금 적재한 장표가 목록에서 사라진다.
-        if (announce) await persistCurrent();
+        /*
+         * 읽기 전에 저장할지 정한다. 여기가 가장 위험한 갈림길이다.
+         *
+         * 디스크가 더 새로울 때(stale) 먼저 저장하면, 가져오려던 그 새 내용을 내 것으로 덮는다.
+         * 명령줄이 방금 고쳐 놓은 것을 "다시 읽기" 가 지우는 셈이다.
+         * 그래서 그때는 저장하지 않는다 — 대신 잃을 것이 있으면 먼저 묻는다.
+         *
+         * 디스크가 그대로면(단순히 목록을 새로 고치는 경우) 먼저 저장하는 편이 안전하다.
+         */
+        if (announce && !stale) await persistCurrent();
+        // 프로젝트를 바꾸는 길에서는 저장하지 않는다. 브라우저 저장소의 덱이 폴더를 덮어쓴다.
         settings = await project.loadSettings();
         const loaded = await project.loadDeck();
         deck.replace(loaded);
@@ -659,6 +666,15 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       if (!announce) {
         try { await read(); } catch (e) { status(msg(e), true); }
         return;
+      }
+
+      // 잃을 것이 있으면 먼저 묻는다. 조용히 버리지 않는다.
+      if (stale && api.isDirty()) {
+        const ok = confirm(
+          '디스크가 더 새롭습니다. 디스크 것으로 바꿉니다.\n\n'
+          + '저장하지 않은 편집은 사라집니다. 남기려면 취소하고 Ctrl+S 로 먼저 저장하세요.',
+        );
+        if (!ok) return;
       }
 
       await withBusy('프로젝트를 다시 읽는 중', '', async () => {

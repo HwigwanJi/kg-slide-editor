@@ -128,7 +128,24 @@
   font-size: var(--ed-fs-sm);
   min-width: 0;
 }
-.ed-input--num { width: 6ch; text-align: right; font-variant-numeric: tabular-nums; }
+/* 숫자 칸. 세 자리와 소수점이 잘리지 않아야 하고, 증감 화살표가 손톱만 하면 안 된다. */
+.ed-input--num {
+  width: 9ch;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-size: var(--ed-fs-md);
+}
+
+/* 브라우저 기본 증감 화살표는 너무 작다. 늘 보이게 하고 폭을 준다. */
+.ed-input--num[type='number'] { -moz-appearance: textfield; }
+.ed-input--num[type='number']::-webkit-outer-spin-button,
+.ed-input--num[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: inner-spin-button;
+  opacity: 1;
+  height: var(--ed-control-h);
+  width: 1.4rem;
+  cursor: pointer;
+}
 
 /* 좌측 레일 — 문서 목록 */
 .ed-rail {
