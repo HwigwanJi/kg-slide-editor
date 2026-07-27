@@ -7,6 +7,7 @@
  */
 import { parseSettings, type ProjectSettings } from '@contract/index';
 import { ID_ATTR, ROLE_ATTR_PUBLIC, SLOT_ATTR, TEXT_ATTR, stampIds } from './ids';
+import { kindOf } from './neighbors';
 import { auditOverflow, type OverflowIssue } from './overflow';
 import { auditWording, type WordingIssue } from './wording';
 import { importKgHtml } from '@adapters/import.kghtml';
@@ -19,6 +20,22 @@ export interface SlideReport {
   missingRole: string[];
   textRuns: number;
   nodes: number;
+  /** 사람이 집을 수 있는 개체 수. 묶음 껍데기는 배경이라 세지 않는다. */
+  pickable: number;
+}
+
+/**
+ * 집히는 개체 수.
+ *
+ * 포인터는 글자와 도형만 집고 묶음 껍데기는 배경으로 흘린다. 이 판정이 무너지면
+ * 개체가 통째로 안 집히는데 화면만 봐서는 알아채기 어렵다. 그래서 세어 두고 검사 결과에 싣는다.
+ */
+function countPickable(root: HTMLElement): number {
+  let n = 0;
+  for (const el of root.querySelectorAll<HTMLElement>(`[${ID_ATTR}]`)) {
+    if (kindOf(el) !== 'group') n++;
+  }
+  return n;
 }
 
 /** 지금 열려 있는 장표를 검사한다. 설정은 kg.config.json 내용을 그대로 넘긴다. */
@@ -38,6 +55,7 @@ export function auditPage(rawSettings: unknown): SlideReport {
       .filter((el) => !el.hasAttribute(SLOT_ATTR) && !el.getAttribute(ROLE_ATTR_PUBLIC))
       .map((el) => el.getAttribute(ID_ATTR) ?? '?'),
     textRuns: runs.length,
+    pickable: countPickable(root),
     nodes: root.querySelectorAll(`[${ID_ATTR}]`).length,
   };
 }

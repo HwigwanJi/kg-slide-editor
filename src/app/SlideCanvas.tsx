@@ -16,12 +16,13 @@ export function SlideCanvas({
   onContextMenu(at: MenuPoint): void;
   onAnchor(rect: DOMRect | null): void;
 }) {
+  const canvas = useRef<HTMLDivElement>(null);
   const stage = useRef<HTMLDivElement>(null);
   const paper = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!stage.current || !paper.current) return;
-    return api.attachCanvas(stage.current, paper.current);
+    if (!canvas.current || !stage.current || !paper.current) return;
+    return api.attachCanvas(canvas.current, stage.current, paper.current);
   }, [api]);
 
   // 선택이 바뀌면 버블 툴바가 붙을 자리를 알려 준다.
@@ -39,6 +40,7 @@ export function SlideCanvas({
     <div
       className="ed-canvas"
       data-area="canvas"
+      ref={canvas}
       onContextMenu={(e) => {
         e.preventDefault();
         onContextMenu({ x: e.clientX, y: e.clientY });

@@ -13,14 +13,17 @@
  *   Alt                 격자 스냅 해제
  *   빈 곳 드래그        영역 선택 (포함/교차 두 방식, Shift 뒤집기·Ctrl 더하기·Alt 빼기)
  *
+ * "빈 곳" 은 아무것도 없는 자리가 아니라 묶음 껍데기까지 포함한다. 자세한 것은 pickable().
+ * 영역 드래그는 장표 바깥 여백에서 시작하고 끝낼 수 있다 — 가장자리 개체를 고르려면 필요하다.
+ *
  * 끄는 동안에는 커맨드를 보내지 않는다. 미리보기는 인라인 스타일로 그리고,
  * 손을 뗄 때 한 번만 보낸다. 이력이 드래그 한 번당 한 칸으로 남는다.
  *
  * 키보드는 여기서 다루지 않는다. 단축키의 진실은 app/actions.ts 한 곳이다.
  */
-import { ANCHOR_ORIGIN, type NodeId } from '@contract/index';
+import { ANCHOR_ORIGIN, type NodeId, type SlideDoc } from '@contract/index';
 import {
-  byId, canvasRect, closestNode, editable, expandSelection, idOf, isLocked,
+  byId, canvasRect, closestNode, editable, expandSelection, idOf, isLocked, kindOf,
   type Command, type SlideStore,
 } from '@core/index';
 
@@ -47,6 +50,12 @@ const OPPOSITE: Record<Handle, keyof typeof ANCHOR_ORIGIN> = {
 interface Rect { x: number; y: number; w: number; h: number }
 
 export interface TransformOptions {
+  /**
+   * 포인터를 받는 바깥 영역. 장표 둘레의 여백까지 포함한다.
+   * 이벤트를 장표에만 걸면 여백에서 영역 드래그를 시작할 수 없다 —
+   * 가장자리 개체를 고르려면 바깥에서 안으로 훑어 들어와야 하므로 여백이 곧 작업 공간이다.
+   */
+  host: HTMLElement;
   /** 배율이 걸리지 않은 기준 컨테이너. 선택 오버레이가 여기 붙는다. */
   stage: HTMLElement;
   getRoot(): HTMLElement | null;
@@ -95,11 +104,19 @@ interface DragState {
 }
 
 export function createTransform(opts: TransformOptions): TransformController {
-  const { stage, store } = opts;
+  const { host, stage, store } = opts;
 
   const layer = document.createElement('div');
   layer.className = 'ed-overlay';
   stage.appendChild(layer);
+
+  /**
+   * 영역 상자는 장표 밖까지 나가므로 오버레이가 아니라 따로 둔다.
+   * 오버레이 안에 두면 장표 상자를 넘겨 그리게 되어 캔버스에 없던 스크롤이 생긴다.
+   */
+  const marqueeLayer = document.createElement('div');
+  marqueeLayer.className = 'ed-marquee-layer';
+  host.appendChild(marqueeLayer);
 
   let selection: NodeId[] = [];
   let drag: DragState | null = null;
@@ -113,6 +130,22 @@ export function createTransform(opts: TransformOptions): TransformController {
   };
 
   /* ---------- 선택 ---------- */
+
+  /**
+   * 사람이 집는 개체인가.
+   *
+   * 묶음 — 칸을 나누기만 하고 제 모습은 없는 껍데기 — 은 배경으로 본다.
+   * 고밀도 장표에서는 이런 껍데기가 화면을 거의 다 덮고 있어서, 집히게 두면
+   * 빈 곳이 남지 않아 영역 드래그를 시작할 자리가 사라진다. 껍데기 자체는 편집할 일도 없다.
+   *
+   * 다만 떼어냈거나 새로 넣은 것은 껍데기라도 집힌다.
+   * 그러지 않으면 한 번 놓은 뒤로는 다시 만질 방법이 없다.
+   */
+  function pickable(doc: SlideDoc, el: HTMLElement, id: NodeId): boolean {
+    if (doc.patches[id]?.layout?.mode === 'detached') return true;
+    if (doc.tree.added[id]) return true;
+    return kindOf(el) !== 'group';
+  }
 
   const onPointerDown = (e: PointerEvent) => {
     // 텍스트 편집이 열려 있는 요소 안에서는 선택·드래그가 개입하지 않는다.
@@ -132,7 +165,7 @@ export function createTransform(opts: TransformOptions): TransformController {
 
     const node = closestNode(e.target);
     const id = idOf(node);
-    if (!id || !node || node === root) {
+    if (!id || !node || node === root || !pickable(store.get(), node, id)) {
       beginMarquee(e);
       return;
     }
@@ -209,8 +242,8 @@ export function createTransform(opts: TransformOptions): TransformController {
   /** 포인터가 이미 사라진 뒤 호출되면 던진다. 드래그를 중단시킬 만한 일이 아니므로 삼킨다. */
   function capture(pointerId: number, on: boolean): void {
     try {
-      if (on) stage.setPointerCapture(pointerId);
-      else stage.releasePointerCapture(pointerId);
+      if (on) host.setPointerCapture(pointerId);
+      else host.releasePointerCapture(pointerId);
     } catch {
       /* noop */
     }
@@ -369,10 +402,17 @@ export function createTransform(opts: TransformOptions): TransformController {
    *   Alt    뺀다
    */
   function beginMarquee(e: PointerEvent) {
+    // 상자를 담을 층을 지금의 캔버스 자리에 맞춘다. 드래그 한 번 동안만 쓰므로 시작 때 한 번이면 된다.
+    const h = host.getBoundingClientRect();
+    marqueeLayer.style.left = `${h.left}px`;
+    marqueeLayer.style.top = `${h.top}px`;
+    marqueeLayer.style.width = `${h.width}px`;
+    marqueeLayer.style.height = `${h.height}px`;
+
     const box = document.createElement('div');
     box.className = 'ed-marquee';
     box.dataset['mode'] = marqueeMode;
-    layer.appendChild(box);
+    marqueeLayer.appendChild(box);
 
     marquee = {
       originX: e.clientX, originY: e.clientY, x: e.clientX, y: e.clientY,
@@ -391,7 +431,7 @@ export function createTransform(opts: TransformOptions): TransformController {
 
   function paintMarquee() {
     if (!marquee) return;
-    const base = stage.getBoundingClientRect();
+    const base = marqueeLayer.getBoundingClientRect();
     const r = marqueeRect(marquee);
     marquee.box.style.left = `${r.left - base.left}px`;
     marquee.box.style.top = `${r.top - base.top}px`;
@@ -402,9 +442,8 @@ export function createTransform(opts: TransformOptions): TransformController {
   /**
    * 영역에 걸린 개체들.
    *
-   * 묶음(그리드 칸·열)까지 잡으면 끌 때마다 장표 절반이 선택된다.
-   * 그래서 사람이 개체로 여기는 것만 후보로 둔다 — 글자 덩어리, 떼어낸 것, 넣은 것,
-   * 그리고 더 안쪽이 없는 말단 요소.
+   * 후보 판정은 클릭과 같은 pickable() 을 쓴다. 둘이 어긋나면
+   * 영역으로는 잡히는데 눌러서는 안 잡히는 개체가 생긴다.
    */
   function hitsIn(m: MarqueeState): NodeId[] {
     const root = opts.getRoot();
@@ -418,10 +457,7 @@ export function createTransform(opts: TransformOptions): TransformController {
       if (!id || id === 'n' || el.closest('.kg-slot')) continue;
       if (isLocked(doc, id)) continue;
 
-      const isObject = el.hasAttribute('data-kg-text')
-        || doc.patches[id]?.layout?.mode === 'detached'
-        || el.children.length === 0;
-      if (!isObject) continue;
+      if (!pickable(doc, el, id)) continue;
 
       const r = el.getBoundingClientRect();
       if (r.width === 0 || r.height === 0) continue;
@@ -505,10 +541,10 @@ export function createTransform(opts: TransformOptions): TransformController {
     }
   }
 
-  stage.addEventListener('pointerdown', onPointerDown);
-  stage.addEventListener('pointermove', onPointerMove);
-  stage.addEventListener('pointerup', onPointerUp);
-  stage.addEventListener('pointercancel', onPointerUp);
+  host.addEventListener('pointerdown', onPointerDown);
+  host.addEventListener('pointermove', onPointerMove);
+  host.addEventListener('pointerup', onPointerUp);
+  host.addEventListener('pointercancel', onPointerUp);
 
   return {
     select: setSelection,
@@ -517,11 +553,12 @@ export function createTransform(opts: TransformOptions): TransformController {
     setMarqueeMode: (mode) => { marqueeMode = mode; },
     marqueeMode: () => marqueeMode,
     destroy() {
-      stage.removeEventListener('pointerdown', onPointerDown);
-      stage.removeEventListener('pointermove', onPointerMove);
-      stage.removeEventListener('pointerup', onPointerUp);
-      stage.removeEventListener('pointercancel', onPointerUp);
+      host.removeEventListener('pointerdown', onPointerDown);
+      host.removeEventListener('pointermove', onPointerMove);
+      host.removeEventListener('pointerup', onPointerUp);
+      host.removeEventListener('pointercancel', onPointerUp);
       layer.remove();
+      marqueeLayer.remove();
     },
   };
 }

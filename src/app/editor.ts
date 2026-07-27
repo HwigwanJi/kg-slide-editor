@@ -51,7 +51,8 @@ export interface Toast { id: number; kind: 'ok' | 'error' | 'info'; message: str
 export interface EditorApi {
   readonly slides: SlideStore;
   readonly deck: DeckStore;
-  attachCanvas(stage: HTMLElement, paper: HTMLElement): () => void;
+  /** host 는 여백까지 포함한 캔버스 영역, stage 는 장표 크기의 기준 상자다. */
+  attachCanvas(host: HTMLElement, stage: HTMLElement, paper: HTMLElement): () => void;
 
   /* 프로젝트 */
   projectName(): string;
@@ -363,10 +364,11 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
     slides,
     deck,
 
-    attachCanvas(stage, el) {
+    attachCanvas(host, stage, el) {
       paper = el;
       stageEl = stage;
       transform = createTransform({
+        host,
         stage,
         getRoot: () => root,
         getScale: scale,

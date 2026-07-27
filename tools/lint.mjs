@@ -227,12 +227,17 @@ function report(reports) {
       console.log(`✕ ${r.title} — ${r.error}`);
       continue;
     }
+    // 라이브러리 도형은 장표가 아니라 세어 둔 값이 없다.
+    const counts = r.nodes === undefined
+      ? ''
+      : ` (요소 ${r.nodes}, 글자 ${r.textRuns}, 집힘 ${r.pickable})`;
+
     if (problems === 0) {
-      if (!args.quiet) console.log(`○ ${r.title} — 이상 없음 (요소 ${r.nodes}, 글자 ${r.textRuns})`);
+      if (!args.quiet) console.log(`○ ${r.title} — 이상 없음${counts}`);
       continue;
     }
 
-    console.log(`● ${r.title} — 지적 ${problems}건 (요소 ${r.nodes}, 글자 ${r.textRuns})`);
+    console.log(`● ${r.title} — 지적 ${problems}건${counts}`);
     if (r.missingRole?.length) {
       console.log(`   위계 미지정 ${r.missingRole.length}건 — ${r.missingRole.slice(0, 5).join(', ')}`);
     }

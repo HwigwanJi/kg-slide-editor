@@ -67,7 +67,14 @@ function isShape(el: HTMLElement): boolean {
   return (r.width > 0 && r.width < 8) || (r.height > 0 && r.height < 8);
 }
 
-function kindOf(el: HTMLElement): NeighborKind {
+/**
+ * 이 요소가 글자인가 도형인가 묶음인가.
+ *
+ * 주변 목록의 분류이면서, 포인터가 무엇을 집을지 정하는 기준이기도 하다.
+ * 두 곳이 서로 다르게 판단하면 목록에는 보이는데 캔버스에서는 안 잡히는 일이 생기므로
+ * 판정은 여기 한 곳에만 둔다.
+ */
+export function kindOf(el: HTMLElement): NeighborKind {
   if (el.hasAttribute(TEXT_ATTR)) return 'text';
   if (isShape(el)) return 'shape';
   return 'group';

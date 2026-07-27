@@ -41,6 +41,16 @@
   background: color-mix(in srgb, var(--ed-accent) 6%, transparent);
 }
 
+/* 영역 상자를 담는 층. 장표 밖 여백까지 그려야 하므로 선택 오버레이와 따로 둔다.
+   자리와 크기는 JS가 캔버스 자리에 맞춰 넣는다. 넘치는 부분은 여기서 잘라
+   캔버스에 없던 스크롤이 생기지 않게 한다. */
+.ed-marquee-layer {
+  position: fixed;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: var(--ed-z-overlay);
+}
+
 /* 영역 드래그 — 판정 방식이 선 모양으로 보인다.
    실선은 통째로 들어와야 하고, 점선은 스치기만 해도 잡힌다. */
 .ed-marquee {
