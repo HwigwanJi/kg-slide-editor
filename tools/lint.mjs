@@ -167,7 +167,8 @@ function report(reports) {
 
   let total = 0;
   for (const r of reports) {
-    const problems = (r.error ? 1 : 0) + (r.issues?.length ?? 0) + (r.missingRole?.length ?? 0);
+    const problems = (r.error ? 1 : 0) + (r.issues?.length ?? 0)
+      + (r.missingRole?.length ?? 0) + (r.wording?.length ?? 0);
     total += problems;
 
     if (r.error) {
@@ -183,6 +184,13 @@ function report(reports) {
     if (r.missingRole?.length) {
       console.log(`   위계 미지정 ${r.missingRole.length}건 — ${r.missingRole.slice(0, 5).join(', ')}`);
     }
+    for (const [rule, list] of groupBy(r.wording ?? [], (i) => i.rule)) {
+      console.log(`   문구 · ${rule} ${list.length}건 — ${list[0].detail}`);
+      for (const i of list.slice(0, 4)) {
+        console.log(`     · "${i.hit}"  ←  ${i.preview}`);
+      }
+      if (list.length > 4) console.log(`     · 그 외 ${list.length - 4}건`);
+    }
     for (const [kind, list] of groupBy(r.issues ?? [], (i) => i.kind)) {
       console.log(`   ${KIND_LABEL[kind] ?? kind} ${list.length}건`);
       for (const i of list.slice(0, 4)) {
@@ -197,7 +205,8 @@ function report(reports) {
 }
 
 function totalProblems(reports) {
-  return reports.reduce((n, r) => n + (r.error ? 1 : 0) + (r.issues?.length ?? 0) + (r.missingRole?.length ?? 0), 0);
+  return reports.reduce((n, r) => n + (r.error ? 1 : 0) + (r.issues?.length ?? 0)
+    + (r.missingRole?.length ?? 0) + (r.wording?.length ?? 0), 0);
 }
 
 function groupBy(list, key) {

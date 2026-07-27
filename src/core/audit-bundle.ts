@@ -8,10 +8,13 @@
 import { parseSettings, type ProjectSettings } from '@contract/index';
 import { ID_ATTR, ROLE_ATTR_PUBLIC, TEXT_ATTR, stampIds } from './ids';
 import { auditOverflow, type OverflowIssue } from './overflow';
+import { auditWording, type WordingIssue } from './wording';
 import { importKgHtml } from '@adapters/import.kghtml';
 
 export interface SlideReport {
   issues: OverflowIssue[];
+  /** 문구에 남은 AI 티 — AI-Polish 규칙 중 기계가 잡을 수 있는 것 */
+  wording: WordingIssue[];
   /** 글자가 있는데 위계가 붙지 않은 요소 — 있으면 안 된다 */
   missingRole: string[];
   textRuns: number;
@@ -29,6 +32,7 @@ export function auditPage(rawSettings: unknown): SlideReport {
   const runs = [...root.querySelectorAll<HTMLElement>(`[${TEXT_ATTR}]`)];
   return {
     issues: auditOverflow(root, undefined, settings as ProjectSettings),
+    wording: auditWording(root),
     missingRole: runs
       .filter((el) => !el.getAttribute(ROLE_ATTR_PUBLIC))
       .map((el) => el.getAttribute(ID_ATTR) ?? '?'),
