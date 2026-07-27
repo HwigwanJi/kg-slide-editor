@@ -23,7 +23,7 @@
  */
 import { ANCHOR_ORIGIN, BACKGROUND_SELECTORS, type NodeId, type SlideDoc } from '@contract/index';
 import {
-  byId, canvasRect, closestNode, editable, expandSelection, idOf, isLocked, kindOf,
+  byId, canvasRect, closestNode, editable, expandSelection, idOf, isLocked, isRemoved, kindOf,
   type Command, type SlideStore,
 } from '@core/index';
 
@@ -72,8 +72,32 @@ export interface TransformController {
   refresh(): void;
   setMarqueeMode(mode: MarqueeMode): void;
   marqueeMode(): MarqueeMode;
+  /** 형광펜을 들고 있는가. 들고 있으면 드래그가 선택이 아니라 칠하기가 된다. */
+  blindPaint(): boolean;
+  setBlindPaint(on: boolean): void;
   destroy(): void;
 }
+
+/**
+ * 형광펜 한 획.
+ *
+ * 지나간 자리를 모아 두었다가 손을 뗄 때 한 번만 커맨드로 보낸다. 지나갈 때마다 보내면
+ * 되돌리기가 획 하나에 수십 칸으로 쌓여 한 번 눌러서는 원래대로 돌아가지 않는다.
+ *
+ * 칠할지 지울지는 **획을 시작할 때 한 번** 정한다. 지나가면서 매번 뒤집으면 같은 자리를
+ * 두 번 스치는 순간 도로 원래대로 돌아가, 손이 떨릴 때마다 결과가 달라진다.
+ */
+interface PaintState {
+  erasing: boolean;
+  /** 이 획이 지나온 자리 */
+  touched: Set<NodeId>;
+  lastX: number;
+  lastY: number;
+  moved: boolean;
+}
+
+/** 붓 굵기(화면 px). 지나간 선 둘레 이만큼을 훑는다. */
+const BRUSH = 8;
 
 interface MarqueeState {
   originX: number;
@@ -122,6 +146,8 @@ export function createTransform(opts: TransformOptions): TransformController {
   let drag: DragState | null = null;
   let marquee: MarqueeState | null = null;
   let marqueeMode: MarqueeMode = 'cross';
+  let paintOn = false;
+  let paintStroke: PaintState | null = null;
 
   const setSelection = (ids: NodeId[]) => {
     selection = expandSelection(store.get(), [...new Set(ids)]);
@@ -175,6 +201,12 @@ export function createTransform(opts: TransformOptions): TransformController {
 
     const root = opts.getRoot();
     if (!root) return;
+
+    // 형광펜을 들고 있으면 다른 것은 아무것도 하지 않는다. 고르지도, 끌지도 않는다.
+    if (paintOn) {
+      beginPaint(e);
+      return;
+    }
 
     const handleEl = (e.target as Element | null)?.closest<HTMLElement>('.ed-handle');
     if (handleEl) {
@@ -272,6 +304,10 @@ export function createTransform(opts: TransformOptions): TransformController {
   }
 
   const onPointerMove = (e: PointerEvent) => {
+    if (paintStroke) {
+      strokeTo(e.clientX, e.clientY);
+      return;
+    }
     if (marquee) {
       marquee.x = e.clientX;
       marquee.y = e.clientY;
@@ -298,6 +334,15 @@ export function createTransform(opts: TransformOptions): TransformController {
   };
 
   const onPointerUp = (e: PointerEvent) => {
+    if (paintStroke) {
+      const s = paintStroke;
+      paintStroke = null;
+      capture(e.pointerId, false);
+      if (s.touched.size > 0) {
+        store.dispatch({ type: 'setBlind', ids: [...s.touched], on: !s.erasing });
+      }
+      return;
+    }
     if (marquee) {
       const m = marquee;
       marquee = null;
@@ -445,6 +490,92 @@ export function createTransform(opts: TransformOptions): TransformController {
     e.preventDefault();
   }
 
+  /* ---------- 형광펜 ---------- */
+
+  /**
+   * 획을 시작한다.
+   *
+   * 시작한 자리가 이미 칠해져 있으면 이 획은 **지우는 획**이다. PPT 형광펜과 달리
+   * 색 고르기가 따로 없으므로, 같은 동작으로 칠하고 지울 수 있어야 한다.
+   * 무엇을 할지는 첫 자리 하나로 정하고 획이 끝날 때까지 바꾸지 않는다.
+   */
+  function beginPaint(e: PointerEvent) {
+    const first = brushHits(e.clientX, e.clientY, e.clientX, e.clientY)[0];
+    const doc = store.get();
+    paintStroke = {
+      erasing: !!first && isBlinded(doc, first),
+      touched: new Set<NodeId>(),
+      lastX: e.clientX,
+      lastY: e.clientY,
+      moved: false,
+    };
+    capture(e.pointerId, true);
+    e.preventDefault();
+    strokeTo(e.clientX, e.clientY);
+  }
+
+  /** 이 노드가 지금 가려지는가 — 자기가 칠해졌거나 위쪽이 칠해졌으면 가려진다. */
+  function isBlinded(doc: SlideDoc, id: NodeId): boolean {
+    const marks = doc.blind?.marks ?? {};
+    return id in marks || Object.keys(marks).some((up) => id.startsWith(`${up}.`));
+  }
+
+  /**
+   * 붓이 지나간 자리를 훑는다.
+   *
+   * 점이 아니라 **지난번 점에서 지금 점까지의 띠** 로 본다. 포인터 이벤트는 빨리 그으면
+   * 듬성듬성 오므로 점으로만 재면 사이가 통째로 빠진다 — 그은 줄 알았는데 안 칠해진다.
+   */
+  function strokeTo(x: number, y: number) {
+    const s = paintStroke;
+    if (!s) return;
+    if (Math.hypot(x - s.lastX, y - s.lastY) >= DRAG_THRESHOLD) s.moved = true;
+
+    for (const id of brushHits(s.lastX, s.lastY, x, y)) {
+      if (s.touched.has(id)) continue;
+      s.touched.add(id);
+      // 손을 떼기 전에도 결과가 보여야 한다. 커맨드는 뗄 때 한 번만 보내므로 여기서 미리 그린다.
+      const el = byId(opts.getRoot()!, id);
+      if (!el) continue;
+      if (s.erasing) el.removeAttribute('data-kg-blind');
+      else el.setAttribute('data-kg-blind', '');
+    }
+    s.lastX = x;
+    s.lastY = y;
+  }
+
+  /**
+   * 붓 아래에 걸린 글자 덩어리.
+   *
+   * 선택과 달리 **글자 덩어리만** 고른다. 가리는 것은 글자이지 상자가 아니다.
+   * 상자를 칠하면 그 안이 통째로 별표가 되어, 표 한 칸만 가리려던 것이 표 전체를 덮는다.
+   * 글자 없는 그림·도형은 따로 집을 수 있게 남겨 둔다(집힌 상태에서 목록으로 칠한다).
+   */
+  function brushHits(x0: number, y0: number, x1: number, y1: number): NodeId[] {
+    const root = opts.getRoot();
+    if (!root) return [];
+    const doc = store.get();
+    const area = new DOMRect(
+      Math.min(x0, x1) - BRUSH, Math.min(y0, y1) - BRUSH,
+      Math.abs(x1 - x0) + BRUSH * 2, Math.abs(y1 - y0) + BRUSH * 2,
+    );
+
+    const found: NodeId[] = [];
+    for (const el of root.querySelectorAll<HTMLElement>('[data-kg-text]')) {
+      const id = el.getAttribute('data-kg-id');
+      if (!id || el.closest('.kg-slot')) continue;
+      // 잠긴 것도 칠할 수 있다. 머리말·꼬리말에도 가려야 할 것이 있다(사명·발주처).
+      if (isRemoved(doc, id)) continue;
+
+      const r = el.getBoundingClientRect();
+      if (r.width === 0 || r.height === 0) continue;
+      if (r.left < area.right && area.left < r.right && r.top < area.bottom && area.top < r.bottom) {
+        found.push(id);
+      }
+    }
+    return found;
+  }
+
   function marqueeRect(m: MarqueeState): DOMRect {
     const left = Math.min(m.originX, m.x);
     const top = Math.min(m.originY, m.y);
@@ -574,6 +705,13 @@ export function createTransform(opts: TransformOptions): TransformController {
     refresh: paint,
     setMarqueeMode: (mode) => { marqueeMode = mode; },
     marqueeMode: () => marqueeMode,
+    blindPaint: () => paintOn,
+    setBlindPaint(on) {
+      paintOn = on;
+      // 커서로 지금 무엇을 들고 있는지 알린다. 모드가 화면에 안 보이면
+      // 고르려다 칠하고, 칠하려다 고른다.
+      host.dataset['paint'] = on ? 'blind' : '';
+    },
     destroy() {
       host.removeEventListener('pointerdown', onPointerDown);
       host.removeEventListener('pointermove', onPointerMove);

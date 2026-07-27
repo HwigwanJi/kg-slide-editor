@@ -3,6 +3,7 @@
  * 새 버전을 낼 때 schema.ts 의 CONTRACT_VERSION 을 올리고 여기에 규칙 하나를 추가한다.
  * 규칙은 "버전 n 문서를 n+1 문서로 바꾸는 순수 함수"다.
  */
+import { EMPTY_BLIND } from './blind';
 import { CONTRACT_VERSION } from './schema';
 import { EMPTY_TREE } from './tree';
 import { DEFAULT_THEME } from './typography';
@@ -43,6 +44,15 @@ const MIGRATIONS: Record<number, (doc: RawDoc) => RawDoc> = {
    *  인라인으로 박혀 있어 재작도 없이는 못 고쳤다.)
    */
   5: (d) => ({ ...d, v: 6 }),
+
+  /**
+   * v6 → v7 : 사본에서 가릴 자리(blind) 도입.
+   *
+   * 기존 문서는 아무것도 칠해져 있지 않다. 빈 값이 곧 "원본과 사본이 같다" 는 뜻이라
+   * 채워 넣을 것이 없다. 사명·로고 가리기는 문서가 아니라 규칙(계약 IDENTITY_PATTERNS)이라
+   * 여기 옮겨 담지 않는다.
+   */
+  6: (d) => ({ ...d, v: 7, blind: { ...EMPTY_BLIND } }),
 };
 
 export class ContractVersionError extends Error {

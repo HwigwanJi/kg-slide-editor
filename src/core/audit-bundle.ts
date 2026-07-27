@@ -6,7 +6,12 @@
  * 그래서 규칙은 코어 하나만 두고, 도구는 그것을 실행만 한다.
  */
 import { parseSettings, parseSlideDoc, type ProjectSettings } from '@contract/index';
+import {
+  blindTargets, listBlind, scanBlindCandidates,
+  type BlindCandidate, type BlindItem,
+} from './blind';
 import { ID_ATTR, ROLE_ATTR_PUBLIC, SLOT_ATTR, TEXT_ATTR, stampIds } from './ids';
+import { render } from './render';
 import { placeByOrigin, reconcileSlides } from './deck';
 import { carryOverlay, formatCarry } from './merge';
 import { kindOf } from './neighbors';
@@ -92,6 +97,40 @@ export function mergeIngest(next: unknown, prev: unknown): { doc: unknown; note:
  * 그래서 원본 파일만 읽으면 사람이 무엇을 바꿔 놨는지 보이지 않는다.
  * AI 가 이어서 고치려면 원본이 아니라 지금 모습을 읽어야 한다.
  */
-export function currentHtml(raw: unknown, cssBase?: string): string {
-  return toStandaloneHtml(parseSlideDoc(raw), cssBase ? { cssBase } : {});
+export function currentHtml(raw: unknown, cssBase?: string, opts: { mask?: boolean } = {}): string {
+  return toStandaloneHtml(parseSlideDoc(raw), {
+    ...(cssBase ? { cssBase } : {}),
+    ...(opts.mask ? { mask: true } : {}),
+  });
+}
+
+/**
+ * 이 장표에서 가려질 자리. 내보내기 전에 몇 곳인지 세어 보려고 둔다.
+ *
+ * 사본을 내기 전에 "정말 가려졌는가" 를 확인할 방법이 없으면 파일을 열어 눈으로 세는 수밖에 없다.
+ * 53장을 그렇게 볼 수는 없다.
+ */
+export function blindReport(raw: unknown): { count: number; items: BlindItem[] } {
+  const doc = parseSlideDoc(raw);
+  const root = document.querySelector<HTMLElement>('.kg-slide');
+  if (!root) return { count: blindTargets(doc).length, items: [] };
+  const items = listBlind(root, doc);
+  return { count: items.length, items };
+}
+
+/**
+ * 블라인드 후보 훑기 — AI 가 사람에게 판단을 받으려고 목록을 만들 때 쓴다.
+ * 그려서 본다. 원본만 읽으면 사람이 나중에 적어 넣은 이름이 빠진다.
+ */
+export function blindScan(raw: unknown): BlindCandidate[] {
+  const doc = parseSlideDoc(raw);
+  const scratch = document.createElement('div');
+  scratch.style.cssText = 'position:fixed;left:-99999px;top:0;width:1280px;';
+  document.body.appendChild(scratch);
+  try {
+    const { root } = render(scratch, doc);
+    return scanBlindCandidates(root, doc);
+  } finally {
+    scratch.remove();
+  }
 }

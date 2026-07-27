@@ -348,6 +348,29 @@ export const ACTIONS: ActionDef[] = [
       })));
     } },
 
+  /* ---------------- 블라인드 ----------------
+   * 검사에 둔다. "잘 보이는가" 가 아니라 "내보내도 되는가" 를 확인하는 일이고,
+   * 넘침 검사와 마찬가지로 내기 전에 한 번 훑는 성격이기 때문이다.
+   */
+  { id: 'blind.paint', label: '형광펜', group: '검사', shortcut: 'Ctrl+Shift+H',
+    surfaces: ['toolbar', 'palette'],
+    hint: '끌어서 가릴 자리를 칠합니다. 칠해진 자리에서 끌면 지웁니다',
+    run: ({ api }) => api.setBlindPaint(!api.blindPaint()) },
+  { id: 'blind.mark', label: '고른 것 가리기', group: '검사', surfaces: ['context', 'palette'],
+    hint: '사본으로 낼 때 *****로 덮입니다', covers: ['setBlind'],
+    // 잠긴 것도 가릴 수 있다. 머리말·꼬리말의 사명과 발주처 이름이 거기 있다.
+    enabled: (c) => c.count > 0,
+    run: ({ api }) => api.blindSelected(true) },
+  { id: 'blind.unmark', label: '고른 것 가리기 풀기', group: '검사', surfaces: ['context', 'palette'],
+    enabled: (c) => c.count > 0,
+    run: ({ api }) => api.blindSelected(false) },
+  { id: 'blind.clear', label: '이 장표 가리기 전체 풀기', group: '검사', surfaces: ['palette'],
+    danger: true, covers: ['clearBlind'],
+    run: ({ api }) => api.clearBlind() },
+  { id: 'blind.copyMode', label: '사본 모드 켜고 끄기', group: '검사', surfaces: ['toolbar', 'palette'],
+    hint: '사본으로 내보내면 칠한 자리·사명·로고가 *****로 덮입니다',
+    run: ({ api }) => api.setCopyMode(!api.copyMode()) },
+
   /* ---------------- 위계 ---------------- */
   { id: 'theme.reset', label: '위계 전역값 초기화', group: '위계', surfaces: ['palette'],
     hint: '개별 오버라이드는 그대로 두고 전역 조정만 되돌립니다', covers: ['resetTheme'],

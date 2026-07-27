@@ -18,10 +18,10 @@ import {
 } from '@contract/index';
 import {
   auditOverflow, byId, canvasRect, createDeckStore, createSlideStore, editable, expandSelection,
-  buildReference, fitFontSize, fixOptions, groupOf, listNodes, isLocked, isRemoved, neighborsOf,
-  carryOverlay, readFormat, render, roleOf,
+  buildReference, fitFontSize, fixOptions, groupOf, listBlind, listNodes, isLocked, isRemoved,
+  neighborsOf, carryOverlay, readFormat, render, roleOf,
   scopeFormat, placeByOrigin, slideNumber, themeCss, toStandaloneHtml,
-  type Command, type DeckStore, type FixOption, type FormatScope, type Neighbor,
+  type BlindItem, type Command, type DeckStore, type FixOption, type FormatScope, type Neighbor,
   type OverflowIssue, type SlideStore,
 } from '@core/index';
 import {
@@ -109,6 +109,23 @@ export interface EditorApi {
    */
   exportDeck(what: { png?: boolean; pdf?: boolean; pptx?: boolean }): Promise<void>;
   setTitle(title: string): void;
+
+  /* 블라인드 — 사본으로 낼 때 가릴 자리 */
+  /** 형광펜을 들고 있는가. 켜져 있으면 캔버스 드래그가 선택이 아니라 칠하기가 된다. */
+  blindPaint(): boolean;
+  setBlindPaint(on: boolean): void;
+  /** 이 장표에서 칠해진 자리 */
+  blindList(): BlindItem[];
+  /** 고른 것을 칠하거나 지운다. 캔버스를 쓰지 않고 목록에서 다룰 때. */
+  blindSelected(on: boolean, reason?: string): void;
+  clearBlind(): void;
+  /**
+   * 내보내기 모드. true 면 사본 — 칠한 자리·사명·로고가 별표로 덮인다.
+   * 화면은 이 값과 무관하다. 화면에서는 늘 원문을 본다.
+   */
+  copyMode(): boolean;
+  setCopyMode(on: boolean): void;
+  onCopyMode(fn: (on: boolean) => void): () => void;
 
   /* 원시 통로 — 패널의 수치 입력처럼 커맨드를 그대로 보내야 할 때만 쓴다 */
   run(cmd: Command): void;
@@ -306,6 +323,16 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
   const stateListeners = new Set<() => void>();
   const notifyState = () => stateListeners.forEach((f) => f());
 
+  /**
+   * 사본으로 내보낼까.
+   *
+   * 문서가 아니라 편집기가 들고 있는 값이다. "이번에 어떻게 낼까" 는 덱의 성질이 아니라
+   * 지금 하려는 일이고, 문서에 적어 두면 다음에 열었을 때 사본 모드인 줄 모른 채
+   * 원본을 낸다고 생각하며 사본을 내게 된다. 켤 때마다 사람이 켜는 편이 안전하다.
+   */
+  let copyMode = false;
+  const copyModeListeners = new Set<(on: boolean) => void>();
+
   const selectionListeners = new Set<(ids: NodeId[]) => void>();
   const statusListeners = new Set<(s: Status) => void>();
   const busyListeners = new Set<(b: Busy) => void>();
@@ -354,7 +381,12 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
     const theme = styleTag('theme');
     theme.disabled = true;
     try {
-      ({ root } = render(paper, doc, { page: slideNumber(deck.get(), doc.id) || undefined, total: deck.get().slides.length || undefined }));
+      ({ root } = render(paper, doc, {
+        page: slideNumber(deck.get(), doc.id) || undefined,
+        total: deck.get().slides.length || undefined,
+        // 화면에서는 늘 형광펜 자국이 보인다. 가릴 자리를 안 보면서 칠할 수는 없다.
+        blind: 'edit',
+      }));
     } finally {
       theme.textContent = themeCss(doc.theme);
       theme.disabled = false;
@@ -1018,11 +1050,16 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
         toast('error', why);
         return;
       }
-      await withBusy('내보내는 중', '장표를 한 장씩 찍습니다 — 장수에 따라 시간이 걸립니다', async () => {
+      const mode = copyMode ? '사본' : '원본';
+      await withBusy(`${mode}으로 내보내는 중`, '장표를 한 장씩 찍습니다 — 장수에 따라 시간이 걸립니다', async () => {
         await persistCurrent();
-        const r = await exportDeckTo(root, what);
-        status(`내보냄 — ${r.count}장`);
-        toast('ok', `내보냈습니다 — ${r.made.join(' · ')}`);
+        const r = await exportDeckTo(root, { ...what, mask: copyMode });
+        /*
+         * 어느 모드로 냈는지 반드시 말한다.
+         * 사본인 줄 알고 원본을 내보내는 실수는 파일을 보내고 나서야 드러난다.
+         */
+        status(`${mode} 내보냄 — ${r.count}장`);
+        toast('ok', `${mode}으로 내보냈습니다 — ${r.made.join(' · ')}`);
         if (r.missing.length) {
           // 조용히 빠뜨리지 않는다. 목차에 있는데 파일이 없으면 그 수를 그대로 알린다.
           toast('info', `목차에 있으나 파일이 없어 뺀 장표 ${r.missing.length}건`);
@@ -1031,6 +1068,50 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
     },
 
     setTitle: (title) => slides.dispatch({ type: 'setTitle', title }, { coalesce: 'title' }),
+
+    /* ---------- 블라인드 ---------- */
+
+    blindPaint: () => transform?.blindPaint() ?? false,
+    setBlindPaint(on) {
+      transform?.setBlindPaint(on);
+      // 형광펜을 들면 고른 것을 놓는다. 칠하는 동안 선택 테두리가 남아 있으면
+      // 지금 무엇이 대상인지가 두 겹으로 보인다.
+      if (on) transform?.select([]);
+      status(on ? '형광펜 — 끌어서 칠하고, 칠해진 곳에서 끌면 지웁니다' : '형광펜을 놓았습니다');
+      notifyState();
+    },
+
+    blindList: () => (root ? listBlind(root, slides.get()) : []),
+
+    blindSelected(on, reason) {
+      const ids = api.selection();
+      if (ids.length === 0) {
+        status('먼저 가릴 것을 고르세요', true);
+        return;
+      }
+      slides.dispatch({ type: 'setBlind', ids, on, ...(reason ? { reason } : {}) });
+    },
+
+    clearBlind() {
+      const n = Object.keys(slides.get().blind.marks).length;
+      if (n === 0) return;
+      slides.dispatch({ type: 'clearBlind' });
+      status(`가리기 ${n}곳을 모두 풀었습니다`);
+    },
+
+    copyMode: () => copyMode,
+    setCopyMode(on) {
+      copyMode = on;
+      copyModeListeners.forEach((f) => f(on));
+      status(on
+        ? '사본 모드 — 내보낼 때 칠한 자리·사명·로고가 별표로 덮입니다'
+        : '원본 모드 — 내보낼 때 전부 그대로 나갑니다');
+      notifyState();
+    },
+    onCopyMode(fn) {
+      copyModeListeners.add(fn);
+      return () => copyModeListeners.delete(fn);
+    },
 
     run: (cmd) => slides.dispatch(cmd),
     runAll: (cmds) => slides.batch(cmds),

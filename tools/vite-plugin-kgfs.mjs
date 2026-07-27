@@ -171,10 +171,11 @@ export function kgfs() {
            * 화면에서 내보낸 것과 명령줄에서 내보낸 것이 갈리면 안 된다.
            */
           if (op === 'export') {
-            const { root, png, pdf, pptx } = JSON.parse(body.toString('utf8'));
+            const { root, png, pdf, pptx, mask } = JSON.parse(body.toString('utf8'));
             if (!root) return fail(res, 400, 'root 가 없습니다.');
             const { exportDeck } = await import('./export.mjs');
-            const r = await exportDeck(resolve(root), { png, pdf, pptx });
+            // mask 를 빠뜨리면 화면에서 사본을 골라도 원본이 나간다. 조용히 틀리는 종류라 적어 둔다.
+            const r = await exportDeck(resolve(root), { png, pdf, pptx, mask });
             return ok(res, r);
           }
 

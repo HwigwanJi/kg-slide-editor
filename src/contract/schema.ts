@@ -13,6 +13,7 @@
  *  - 문서는 네 개의 진실만 담는다: 원본 · 모양 · 구조 · 순서.
  */
 import { z } from 'zod';
+import { EMPTY_BLIND, zBlindOverlay } from './blind';
 import { zNodeId } from './identity';
 import { zNodePatch } from './style';
 import { EMPTY_TREE, zTreeOverlay } from './tree';
@@ -24,8 +25,10 @@ import { DEFAULT_THEME, zTheme } from './typography';
  *  v3 — 본문 위계를 body1~body4 로 분할, 말머리표와 노드별 위계 지정 도입
  *  v4 — 태그 위계를 label / label2 / num 으로 분할
  *  v5 — 도형(SVG) 지원: 슬롯 노드와 CSS 변수 재지정
+ *  v6 — 서식에 크기·여백·테두리 세부·그림자 추가
+ *  v7 — blind(사본에서 가릴 자리) 도입
  */
-export const CONTRACT_VERSION = 6;
+export const CONTRACT_VERSION = 7;
 
 /** KG 장표 캔버스 규격 (A4 가로). kg-slide.css 의 .kg-slide 와 일치해야 한다. */
 export const KG_CANVAS = { w: 1280, h: 905 } as const;
@@ -57,6 +60,8 @@ export const zSlideDoc = z.object({
   theme: zTheme.default(DEFAULT_THEME),
   /** 쌓임 순서. 떼어낸 노드와 추가 노드가 들어간다. 뒤로 갈수록 위. */
   stack: z.array(zNodeId).default([]),
+  /** 사본으로 낼 때 가릴 자리. 화면과 원본 내보내기에는 영향이 없다. */
+  blind: zBlindOverlay.default(EMPTY_BLIND),
 
   createdAt: z.string(),
   updatedAt: z.string(),
@@ -93,6 +98,7 @@ export function createSlideDoc(init: {
     tree: { ...EMPTY_TREE, locked: init.locked ?? [] },
     theme: { ...DEFAULT_THEME, roles: {} },
     stack: [],
+    blind: { marks: {} },
     createdAt: init.now,
     updatedAt: init.now,
   };

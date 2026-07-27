@@ -51,7 +51,14 @@
 | 필드 | 주인 | 쓰는 쪽 |
 |---|---|---|
 | `source` · `canvas` · `title` | 작도 | `tools/ingest.mjs` |
-| `patches` · `tree` · `theme` · `stack` | 사람 | 편집기 |
+| `patches` · `tree` · `theme` · `stack` · `blind` | 사람 | 편집기 |
+
+`blind`(사본에서 가릴 자리)도 사람 것이다. AI 가 후보를 찾아 칠하기는 하지만
+문서를 다시 쓰는 것이 아니라 `setBlind` 커맨드로 **더하기만** 한다(`tools/apply.mjs`).
+읽고 → 자기 것만 더하고 → 쓴다는 규칙이 그대로 적용된다.
+
+옮기지 못한 블라인드 자국은 다른 편집분과 **따로 센다**(`CarryReport.blindDropped`).
+서식 하나를 놓친 것과 무게가 다르기 때문이다 — 모르고 사본을 내면 그대로 나간다.
 
 양쪽 모두 **읽고 → 자기 필드만 바꾸고 → 쓴다.**
 

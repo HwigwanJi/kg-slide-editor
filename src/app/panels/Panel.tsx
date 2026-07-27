@@ -92,7 +92,8 @@ export function Panel(props: {
         )}
         {tab === 'audit' && (
           <AuditTab
-            api={api} issues={props.issues} onRescan={props.onRescan}
+            api={api} doc={doc} selection={selection}
+            issues={props.issues} onRescan={props.onRescan}
             scanning={props.scanning} scope={props.scope} onScope={props.onScope}
           />
         )}

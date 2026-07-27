@@ -75,7 +75,10 @@ export interface ExportResult { out: string; made: string[]; count: number; miss
  * 브라우저 안에서는 KG 의 그라데이션·clip-path·웹폰트를 그대로 찍을 방법이 없다.
  * 명령줄 도구와 같은 것을 부르므로 화면에서 내보낸 것과 명령줄에서 내보낸 것이 같다.
  */
-export async function exportDeck(root: string, what: { png?: boolean; pdf?: boolean; pptx?: boolean }): Promise<ExportResult> {
+export async function exportDeck(
+  root: string,
+  what: { png?: boolean; pdf?: boolean; pptx?: boolean; mask?: boolean },
+): Promise<ExportResult> {
   const res = await fetch(`${PREFIX}export`, {
     method: 'POST',
     headers: { ...MARK, 'content-type': 'application/json' },

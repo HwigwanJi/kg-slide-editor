@@ -13,6 +13,11 @@ import { themeCss } from './theme';
 export interface ExportOptions {
   /** KG 공통 CSS가 놓인 경로. 내보낸 파일 기준 상대경로다. */
   cssBase?: string;
+  /**
+   * 사본으로 낼까. 칠한 자리·사명·로고가 별표로 덮인다.
+   * 기본값은 원본이다 — 실수로 안 가려진 것보다 실수로 가려진 것이 알아채기 쉽다.
+   */
+  mask?: boolean;
 }
 
 /**
@@ -20,13 +25,14 @@ export interface ExportOptions {
  *
  * 화면 밖이지만 문서에 붙여서 그린다. 위계 추론이 계산된 서식을 읽는데,
  * 문서에 붙지 않은 요소는 계산된 서식이 없어 화면과 다른 위계가 나오기 때문이다.
+ * 마스킹도 잰 크기를 쓰므로 붙여 놓아야 로고 자리가 제 크기로 남는다.
  */
-export function toSlideHtml(doc: SlideDoc): string {
+export function toSlideHtml(doc: SlideDoc, opts: ExportOptions = {}): string {
   const scratch = document.createElement('div');
   scratch.style.cssText = 'position:fixed;left:-99999px;top:0;width:1280px;';
   document.body.appendChild(scratch);
   try {
-    const { root } = render(scratch, doc);
+    const { root } = render(scratch, doc, { blind: opts.mask ? 'mask' : 'off' });
     stripEditorAttrs(root);
     return root.outerHTML;
   } finally {
@@ -54,7 +60,7 @@ ${themeCss(doc.theme)}
 </style>
 </head>
 <body>
-${toSlideHtml(doc)}
+${toSlideHtml(doc, opts)}
 </body>
 </html>`;
 }

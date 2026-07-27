@@ -1,7 +1,11 @@
 /**
  * 덱 내보내기 — 덱 순서대로 한 폴더에.
  *
- *   node tools/export.mjs <프로젝트폴더> [--png] [--pdf] [--pptx] [-o 출력폴더]
+ *   node tools/export.mjs <프로젝트폴더> [--png] [--pdf] [--pptx] [--사본] [-o 출력폴더]
+ *
+ * `--사본` 을 주면 형광펜으로 칠한 자리와 사명·로고가 `*****` 로 덮여 나간다.
+ * 주지 않으면 원본이다 — 가려야 할 것이 안 가려진 사고는 파일을 보낸 뒤에야 드러나므로,
+ * 사본은 언제나 사람이 명시해야 한다.
  *
  * **지금 모습을 굽는다.** 원본(source)만 읽으면 사람이 편집기에서 고친 것이 보이지 않으므로,
  * 검사·미리보기와 같은 번들(KGAudit.currentHtml)을 지나 덧씌움까지 얹은 HTML 을 만든다.
@@ -50,9 +54,12 @@ async function readDeck(dir) {
  *
  * 자산은 프로젝트 것을 먼저 본다(tools/assets.mjs) — 로고는 스킬, 사업 그림은 프로젝트.
  */
-async function pageHtml(page, slide, root) {
+async function pageHtml(page, slide, root, mask) {
   const raw = JSON.parse(await readFile(slide.file, 'utf8'));
-  const html = await page.evaluate((d) => window.KGAudit.currentHtml(d), raw);
+  const html = await page.evaluate(
+    ([d, m]) => window.KGAudit.currentHtml(d, undefined, { mask: m }),
+    [raw, !!mask],
+  );
   const body = /<body[^>]*>([\s\S]*)<\/body>/i.exec(html);
   const css = [...html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map((m) => m[1]).join('\n');
   return { body: linkAssets(body ? body[1] : html, root), css };
@@ -156,7 +163,7 @@ export function scopeCss(css, scope) {
 /**
  * 덱을 내보낸다.
  * @param dir     프로젝트 폴더
- * @param opts    { png, pdf, out }
+ * @param opts    { png, pdf, pptx, mask, out }
  * @param say     진행 알림(선택)
  */
 export async function exportDeck(dir, opts = {}, say = () => {}) {
@@ -165,7 +172,13 @@ export async function exportDeck(dir, opts = {}, say = () => {}) {
   if (slides.length === 0) throw new Error('내보낼 장표가 없습니다.');
 
   // 계약이 정한 자리(EXPORT_DIR). preview/ 와 섞지 않는다 — 거기는 편집기가 id 로 찾는 자리다.
-  const out = resolve(opts.out ?? join(project, 'export'));
+  /*
+   * 사본은 자리를 따로 쓴다.
+   *
+   * 같은 폴더에 같은 이름으로 떨어지면 어느 것이 사본인지 파일만 보고 알 수 없다.
+   * 원본을 사본인 줄 알고 보내는 사고가 여기서 난다.
+   */
+  const out = resolve(opts.out ?? join(project, opts.mask ? 'export-사본' : 'export'));
   await mkdir(out, { recursive: true });
 
   const bundle = await readFile(ensureBundle('audit'), 'utf8');
@@ -176,8 +189,10 @@ export async function exportDeck(dir, opts = {}, say = () => {}) {
     await bakingPage(page, bundle);
 
     // 굽는 것은 한 번만 한다. PNG 과 PDF 가 같은 HTML 을 쓴다 — 둘이 갈리면 안 된다.
+    // 사본 여부도 여기서 한 번 정해진다. 형식마다 따로 정하면 PNG 은 사본인데 PDF 는
+    // 원본으로 나가는 일이 생긴다.
     const pages = [];
-    for (const s of slides) pages.push(await pageHtml(page, s, projectRootOf(project)));
+    for (const s of slides) pages.push(await pageHtml(page, s, projectRootOf(project), opts.mask));
 
     if (opts.png) {
       const dst = join(out, 'png');
@@ -264,13 +279,16 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
   const png = args.includes('--png');
   const pptx = args.includes('--pptx');
   const pdf = args.includes('--pdf');
+  const mask = args.includes('--사본') || args.includes('--copy');
   const r = await exportDeck(dir, {
     png: png || (!pdf && !pptx),   // 아무것도 안 고르면 PNG
     pdf,
     pptx,
+    mask,
     ...(oi >= 0 && args[oi + 1] ? { out: args[oi + 1] } : {}),
   }, (m) => process.stderr.write(`\r${m}   `));
   process.stderr.write('\r');
+  console.log(mask ? '사본 — 칠한 자리·사명·로고를 *****로 덮었습니다' : '원본 — 전부 그대로 냈습니다');
   for (const m of r.made) console.log(m);
   if (r.missing.length) console.error(`목차에 있으나 파일이 없어 뺀 장표 ${r.missing.length}건: ${r.missing.join(', ')}`);
 }

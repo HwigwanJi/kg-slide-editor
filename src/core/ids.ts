@@ -314,6 +314,9 @@ export function stripEditorAttrs(root: HTMLElement): void {
     el.removeAttribute(ID_ATTR);
     el.removeAttribute(STYLE0_ATTR);
     el.removeAttribute(TEXT_ATTR);
+    // 형광펜 자국은 편집기 안에서만 뜻이 있다. 파일에 딸려 나가면
+    // 어디를 가리려 했는지가 그대로 적힌 채 나간다 — 사본이 아니라 지도가 된다.
+    el.removeAttribute('data-kg-blind');
   };
   for (const el of root.querySelectorAll(`[${ID_ATTR}]`)) clear(el);
   clear(root);

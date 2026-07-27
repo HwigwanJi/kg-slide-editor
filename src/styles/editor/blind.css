@@ -1,0 +1,40 @@
+/* ============================================================================
+   블라인드 — 사본에서 가릴 자리의 형광펜 자국.
+
+   **편집기 안에서만 존재한다.** 이 규칙은 편집기 스타일시트에만 있고 KG 장표 CSS 에는
+   없다. 그래서 내보낸 파일을 어디서 열든 자국이 따라 나오지 않는다. 표시 속성 자체도
+   stripEditorAttrs 가 걷어 내므로 두 겹으로 막혀 있다 — 가릴 자리가 적힌 지도가
+   딸려 나가는 것이 사본에서 가장 나쁜 사고다.
+   ============================================================================ */
+
+:root {
+  /* 종이 형광펜 색. 글자를 덮지 않고 비쳐야 하므로 곱하기로 얹는다. */
+  --ed-blind-ink: #ffd84d;
+}
+
+/* 자국. 요소 상자를 바꾸지 않으려고 그림자가 아니라 배경으로 칠한다 —
+   테두리를 주면 1px 씩 밀려 장표 격자가 흔들린다. */
+[data-kg-blind] {
+  background-image: linear-gradient(
+    var(--ed-blind-ink) 0 100%
+  ) !important;
+  background-blend-mode: multiply;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ed-blind-ink) 70%, #8a6d00);
+  border-radius: 2px;
+}
+
+/* 형광펜을 들었을 때. 커서로 지금 무엇을 하는 중인지 알린다. */
+.ed-canvas[data-paint='blind'] {
+  cursor: crosshair;
+}
+
+/* 칠하는 동안 글자 선택이 따라붙으면 획이 끊긴 것처럼 보인다. */
+.ed-canvas[data-paint='blind'] .ed-paper {
+  user-select: none;
+}
+
+/* 사본 모드일 때의 알림 — 지금 어떤 모드인지 놓치면 원본을 사본인 줄 알고 보낸다. */
+.ed-note[data-tone='warn'] {
+  color: var(--ed-warn);
+  font-weight: 600;
+}

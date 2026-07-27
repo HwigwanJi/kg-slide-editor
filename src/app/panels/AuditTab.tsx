@@ -8,13 +8,17 @@
  * 후보로 올리고, 원본을 덜 건드리는 순으로 늘어놓는다.
  */
 import { useEffect, useState } from 'react';
+import type { SlideDoc } from '@contract/index';
 import type { FixOption, OverflowIssue } from '@core/index';
 import type { EditorApi } from '../editor';
+import { BlindSection } from './BlindSection';
 
 export function AuditTab({
-  api, issues, onRescan, scanning, scope, onScope,
+  api, doc, selection, issues, onRescan, scanning, scope, onScope,
 }: {
   api: EditorApi;
+  doc: SlideDoc;
+  selection: string[];
   issues: OverflowIssue[];
   onRescan(): void;
   scanning: boolean;
@@ -118,6 +122,8 @@ export function AuditTab({
           </div>
         </section>
       )}
+
+      <BlindSection api={api} doc={doc} selection={selection} />
     </>
   );
 }

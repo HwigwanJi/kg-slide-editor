@@ -5,7 +5,7 @@
  * 통째로 덮으면 나중에 쓴 쪽이 이겨 상대의 작업이 사라진다. 그래서 각자 자기 필드만 바꾼다.
  *
  *   source · canvas   작도
- *   patches · tree · theme · stack   사람
+ *   patches · tree · theme · stack · blind   사람
  *
  * 다만 오버레이는 원본의 구조 경로(`n.0.1`)로 노드를 가리킨다. 원본이 바뀌면 같은 경로가
  * 다른 요소를 가리킬 수 있으므로 그대로 옮기면 엉뚱한 곳에 서식이 붙는다.
@@ -19,6 +19,8 @@ export interface CarryReport {
   carried: number;
   /** 옮기지 못한 노드와 까닭 */
   dropped: { id: NodeId; why: '경로 사라짐' | '다른 요소' }[];
+  /** 옮기지 못한 블라인드 자국. 조용히 사라지면 사본에 그대로 나간다. */
+  blindDropped: NodeId[];
 }
 
 /** 같은 자리인지 — 태그와 클래스가 같아야 같은 요소로 본다. */
@@ -45,7 +47,7 @@ function stamped(html: string): HTMLElement {
 export function carryOverlay(prev: SlideDoc, next: SlideDoc): { doc: SlideDoc; report: CarryReport } {
   const before = stamped(prev.source.html);
   const after = stamped(next.source.html);
-  const report: CarryReport = { carried: 0, dropped: [] };
+  const report: CarryReport = { carried: 0, dropped: [], blindDropped: [] };
 
   const at = (root: HTMLElement, id: NodeId): Element | null =>
     id === 'n' ? root : root.querySelector(`[${ID_ATTR}="${CSS.escape(id)}"]`);
@@ -69,6 +71,20 @@ export function carryOverlay(prev: SlideDoc, next: SlideDoc): { doc: SlideDoc; r
     if (survives(id)) patches[id] = patch;
   }
 
+  /*
+   * 블라인드는 따로 센다.
+   *
+   * survives() 는 옮긴 것·못 옮긴 것을 보고문에 세는데, 서식과 같은 통에 넣으면
+   * "편집분 12건" 안에 블라인드가 묻힌다. 가리기로 한 자리를 옮기지 못했다는 말은
+   * 서식 하나를 놓쳤다는 말과 무게가 다르다 — 모르고 사본을 내면 그대로 나간다.
+   * 그래서 판정만 같은 규칙을 쓰고 보고는 갈라 놓는다.
+   */
+  const blindMarks: SlideDoc['blind']['marks'] = {};
+  for (const [id, mark] of Object.entries(prev.blind?.marks ?? {})) {
+    if (!id.startsWith('n') || at(after, id)) blindMarks[id] = mark;
+    else report.blindDropped.push(id);
+  }
+
   const removed = prev.tree.removed.filter((id) => survives(id));
   const locked = prev.tree.locked.filter((id) => !id.startsWith('n') || at(after, id));
   const kept = new Set([...Object.keys(patches), ...removed, ...Object.keys(prev.tree.added)]);
@@ -87,6 +103,7 @@ export function carryOverlay(prev: SlideDoc, next: SlideDoc): { doc: SlideDoc; r
       // 위계 전역값은 role 기준이라 원본 구조와 무관하다. 언제나 옮긴다.
       theme: prev.theme,
       stack: prev.stack.filter((id) => kept.has(id) || !id.startsWith('n')),
+      blind: { marks: blindMarks },
       createdAt: prev.createdAt,
     },
     report,
@@ -117,11 +134,16 @@ export function mergeForSave(
 
 /** 보고문. 조용히 버리지 않기 위한 것이다. */
 export function formatCarry(report: CarryReport): string {
-  if (report.dropped.length === 0) return `편집분 ${report.carried}건을 그대로 이었습니다`;
+  // 블라인드는 앞세운다. 못 옮긴 것이 있으면 사본에 그대로 나가므로 먼저 봐야 한다.
+  const blind = report.blindDropped.length
+    ? ` ⚠ 가리기로 한 자리 ${report.blindDropped.length}곳을 옮기지 못했습니다 — 사본을 내기 전에 다시 칠하세요`
+    : '';
+
+  if (report.dropped.length === 0) return `편집분 ${report.carried}건을 그대로 이었습니다${blind}`;
   const by = report.dropped.reduce<Record<string, number>>((acc, d) => {
     acc[d.why] = (acc[d.why] ?? 0) + 1;
     return acc;
   }, {});
   const detail = Object.entries(by).map(([k, n]) => `${k} ${n}건`).join(' · ');
-  return `편집분 ${report.carried}건을 이었고 ${report.dropped.length}건은 옮기지 못했습니다 (${detail})`;
+  return `편집분 ${report.carried}건을 이었고 ${report.dropped.length}건은 옮기지 못했습니다 (${detail})${blind}`;
 }

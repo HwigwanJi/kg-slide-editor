@@ -11,6 +11,7 @@
  */
 import type { LayoutPatch, Length, SlideDoc, StylePatch } from '@contract/index';
 import { ROLE_ATTR, isAdded, toCssColor } from '@contract/index';
+import { markBlind, maskForCopy } from './blind';
 import { AUTO_ATTR, ID_ATTR, MARKER_ATTR, MARKER_OFF_ATTR, SLOT_CLASS, byId, stampIds } from './ids';
 import { sanitizeInline } from './sanitize';
 import { isRemoved } from './tree';
@@ -29,6 +30,17 @@ export interface RenderResult {
 export interface RenderContext {
   page?: number;
   total?: number;
+  /**
+   * 블라인드를 어떻게 다룰까.
+   *   edit  형광펜 자국을 보인다 — 편집기 화면
+   *   off   없는 것처럼 — 원본 내보내기
+   *   mask  칠한 자리·사명·로고를 별표로 덮는다 — 사본 내보내기
+   *
+   * 기본값이 off 인 이유: 내보내기 쪽이 기본값을 그냥 쓰다가 실수로 형광펜이 파일에
+   * 딸려 나가면 그건 눈에 띄지만, 반대로 사본이어야 할 것이 원본으로 나가는 실수는
+   * 파일을 보내고 나서야 안다. 위험한 쪽을 기본값으로 두지 않는다.
+   */
+  blind?: 'edit' | 'off' | 'mask';
 }
 
 export function render(mount: HTMLElement, doc: SlideDoc, ctx: RenderContext = {}): RenderResult {
@@ -42,6 +54,12 @@ export function render(mount: HTMLElement, doc: SlideDoc, ctx: RenderContext = {
   const layer = materializeAdded(root, doc);
   applyAppearance(root, doc);
   placeDetached(root, doc, layer);
+
+  // 맨 끝에 한다. 마스킹은 잰 크기를 쓰므로 배치가 끝난 뒤여야 하고,
+  // 사람이 고친 글자(patches.text)까지 덮으려면 서식을 얹은 뒤여야 한다.
+  if (ctx.blind === 'edit') markBlind(root, doc);
+  else if (ctx.blind === 'mask') maskForCopy(root, doc);
+
   return { root };
 }
 

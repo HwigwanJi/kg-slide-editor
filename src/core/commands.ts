@@ -9,7 +9,7 @@
  * (등록하지 않으면 UI에 노출되지 않는 기능이 생긴다. 세션 훅이 이를 점검한다)
  */
 import type {
-  AddedNode, Anchor, Distribute, GroupId, NodeId, ObjectAlign, Role, RoleStyle,
+  AddedNode, Anchor, BlindMark, Distribute, GroupId, NodeId, ObjectAlign, Role, RoleStyle,
   SlideDoc, StylePatch,
 } from '@contract/index';
 import { ANCHOR_ORIGIN, isAdded, isDescendant } from '@contract/index';
@@ -55,6 +55,9 @@ export type Command =
   | { type: 'group'; groupId: GroupId; ids: NodeId[]; label?: string }
   | { type: 'ungroup'; groupIds: GroupId[] }
   | { type: 'setLocked'; ids: NodeId[]; locked: boolean }
+  /* 사본에서 가릴 자리 */
+  | { type: 'setBlind'; ids: NodeId[]; on: boolean; reason?: string; by?: BlindMark['by'] }
+  | { type: 'clearBlind' }
   /* 위계 전역값 */
   | { type: 'setRoleStyle'; role: Role; style: RoleStyle | null }
   | { type: 'setThemeScale'; scale: number }
@@ -201,6 +204,46 @@ function reduce(doc: SlideDoc, cmd: Command): SlideDoc {
         : doc.tree.locked.filter((l) => !cmd.ids.includes(l));
       return { ...doc, tree: { ...doc.tree, locked } };
     }
+
+    /**
+     * 형광펜 한 번.
+     *
+     * 자식까지 함께 칠하지 않는다. 부모 하나만 칠해도 렌더가 그 아래 글자를 전부 덮으므로
+     * 자국을 자식마다 남기면 같은 뜻이 여러 벌 쌓이고, 하나만 지웠을 때 어정쩡하게 남는다.
+     *
+     * 다만 이미 칠해진 것의 **자식** 을 또 칠하면 그것도 쌓이지 않게 걸러 낸다 —
+     * 위가 이미 덮고 있으니 아래에 자국을 남길 이유가 없다.
+     */
+    case 'setBlind': {
+      const marks = { ...doc.blind.marks };
+      if (cmd.on) {
+        const covered = (id: NodeId) =>
+          Object.keys(marks).some((up) => up !== id && isDescendant(id, up));
+        for (const id of topmost(cmd.ids)) {
+          if (covered(id)) continue;
+          // 아래에 이미 있던 자국은 위가 덮으므로 걷어 낸다.
+          for (const down of Object.keys(marks)) {
+            if (down !== id && isDescendant(down, id)) delete marks[down];
+          }
+          marks[id] = { reason: cmd.reason ?? '', by: cmd.by ?? 'human' };
+        }
+      } else {
+        /*
+         * 지울 때는 자기 자신뿐 아니라 **자기를 덮고 있는 위쪽 자국** 도 지운다.
+         * 부모가 칠해진 상태에서 자식 위를 문지르면, 사람 눈에는 그 자리를 지운 것인데
+         * 자기 id 만 지우면 아무 일도 일어나지 않는다 — 고장으로 보인다.
+         */
+        for (const id of cmd.ids) {
+          for (const mark of Object.keys(marks)) {
+            if (mark === id || isDescendant(id, mark) || isDescendant(mark, id)) delete marks[mark];
+          }
+        }
+      }
+      return { ...doc, blind: { marks } };
+    }
+
+    case 'clearBlind':
+      return { ...doc, blind: { marks: {} } };
 
     case 'setRoleStyle': {
       const roles = { ...doc.theme.roles };
