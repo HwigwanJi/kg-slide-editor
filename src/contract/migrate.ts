@@ -13,6 +13,18 @@ type RawDoc = Record<string, unknown>;
 const MIGRATIONS: Record<number, (doc: RawDoc) => RawDoc> = {
   /** v1 → v2 : 구조 오버레이(tree)와 위계 전역값(theme) 도입. 기존 문서는 둘 다 비어 있다. */
   1: (d) => ({ ...d, v: 2, tree: { ...EMPTY_TREE }, theme: { ...DEFAULT_THEME, roles: {} } }),
+
+  /**
+   * v2 → v3 : 본문 위계 분할.
+   * 예전의 body 는 본문 1단, small 은 본문 2단에 해당한다.
+   */
+  2: (d) => {
+    const theme = (d['theme'] ?? {}) as { scale?: number; roles?: Record<string, unknown> };
+    const roles = { ...(theme.roles ?? {}) };
+    if ('body' in roles) { roles['body1'] = roles['body']; delete roles['body']; }
+    if ('small' in roles) { roles['body2'] = roles['small']; delete roles['small']; }
+    return { ...d, v: 3, theme: { scale: theme.scale ?? 1, roles } };
+  },
 };
 
 export class ContractVersionError extends Error {

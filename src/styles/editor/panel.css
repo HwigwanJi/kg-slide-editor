@@ -73,3 +73,36 @@
 }
 
 .ed-range { flex: 1 1 auto; min-width: 0; accent-color: var(--ed-accent); }
+
+/* 위계 표 — 위계마다 크기·굵기·말머리표를 한 줄에서 다룬다 */
+.ed-roles {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--ed-fs-xs);
+}
+.ed-roles th,
+.ed-roles td {
+  padding: var(--ed-sp-1) var(--ed-sp-1);
+  text-align: left;
+  vertical-align: middle;
+}
+.ed-roles thead th {
+  color: var(--ed-fg-muted);
+  font-weight: var(--ed-fw-medium);
+  border-bottom: var(--ed-bw) solid var(--ed-border);
+}
+.ed-roles tbody th {
+  font-weight: var(--ed-fw-medium);
+  color: var(--ed-fg);
+  white-space: nowrap;
+}
+/* 이 장표에 없는 위계는 눈에 덜 띄게 — 다만 숨기지는 않는다 */
+.ed-roles tr[data-empty] { opacity: 0.45; }
+.ed-roles__count {
+  color: var(--ed-fg-muted);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.ed-roles .ed-input--num { width: 4.5ch; }
+.ed-roles .ed-select { max-width: 8ch; }
+.ed-roles .ed-btn { padding-inline: var(--ed-sp-1); }

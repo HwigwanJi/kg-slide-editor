@@ -15,12 +15,23 @@ export interface ExportOptions {
   cssBase?: string;
 }
 
-/** 패치가 반영된 <section class="kg-slide"> 조각만 돌려준다. */
+/**
+ * 패치가 반영된 <section class="kg-slide"> 조각만 돌려준다.
+ *
+ * 화면 밖이지만 문서에 붙여서 그린다. 위계 추론이 계산된 서식을 읽는데,
+ * 문서에 붙지 않은 요소는 계산된 서식이 없어 화면과 다른 위계가 나오기 때문이다.
+ */
 export function toSlideHtml(doc: SlideDoc): string {
   const scratch = document.createElement('div');
-  const { root } = render(scratch, doc);
-  stripEditorAttrs(root);
-  return root.outerHTML;
+  scratch.style.cssText = 'position:fixed;left:-99999px;top:0;width:1280px;';
+  document.body.appendChild(scratch);
+  try {
+    const { root } = render(scratch, doc);
+    stripEditorAttrs(root);
+    return root.outerHTML;
+  } finally {
+    scratch.remove();
+  }
 }
 
 /** 브라우저에서 바로 열리는 독립 HTML 한 장. */

@@ -2,16 +2,18 @@
  * 위계(role) — 글자 구조를 클래스가 아니라 역할로 다룬다. SSOT.
  *
  * 왜 필요한가
- *  장표의 글자는 "이 요소만 18px" 이 아니라 "본문은 17px, 소주제는 22px" 이라는 위계로 관리해야
- *  한 장 안에서, 그리고 덱 전체에서 일관성이 유지된다. 노드마다 크기를 손으로 맞추면 곧 무너진다.
+ *  장표의 글자는 "이 요소만 18px" 이 아니라 "본문 1단은 17px, 소주제는 22px" 이라는 위계로
+ *  관리해야 한 장 안에서, 그리고 덱 전체에서 일관성이 유지된다.
  *
  * 값의 진실은 어디 있나 — 세 층으로 나눈다. 아래로 갈수록 강하다.
  *  1) KG 기본값   public/kg/colors_and_type.css 의 --fs-* / 색 토큰. 우리 코드에 숫자를 복사하지 않는다.
- *  2) 문서 전역   SlideDoc.theme. 사용자가 프로젝트 세팅에서 조정한 값만 CSS 로 생성된다.
+ *  2) 문서 전역   SlideDoc.theme. 사용자가 조정한 값만 CSS 로 생성된다.
  *  3) 노드 개별   patches[id].style. 인라인 스타일이라 항상 이긴다 = 오버라이드.
  *
- *  그래서 "전역을 조정하면 오버라이드하지 않은 것만 따라 바뀐다"가 CSS 캐스케이드로 저절로 성립한다.
- *  "시스템 초기값으로 복구"는 3층을 지우는 것(clearStyle), "전역 초기화"는 2층을 비우는 것이다.
+ * 위계를 어떻게 정하는가
+ *  글자가 있는 요소는 예외 없이 위계 하나를 갖는다. "지정 없음"은 존재하지 않는다.
+ *  우선순위는 (1) 장표가 직접 붙인 data-kg-role → (2) KG 클래스 매칭 → (3) 구조 추론 → (4) body1.
+ *  추론이 틀리면 사람이 속성 패널에서 바꾼다(patches[id].role).
  */
 import { z } from 'zod';
 import { zColorRef, zFontWeight, zTextAlign } from './style';
@@ -22,15 +24,27 @@ export const zRole = z.enum([
   'message',   // 헤더 메시지 띠 — 장표의 핵심 주장
   'h1',        // 소주제 (본문 영역 제목)
   'h2',        // 박스 제목바
-  'h3',        // 유목화 키워드
-  'body',      // 본문
-  'small',     // 보조 설명
+  'h3',        // 유목화 키워드 / 박스 안 소제목
+  'body1',     // 본문 1단 — 주 설명
+  'body2',     // 본문 2단 — 하위 항목
+  'body3',     // 본문 3단 — 하위의 하위
+  'body4',     // 본문 4단 — 최말단 부연
   'caption',   // 각주·출처·단위
   'label',     // 태그·칩·번호 라벨
 ]);
 export type Role = z.infer<typeof zRole>;
 
-/** 위계별로 조정할 수 있는 값. 지정하지 않은 항목은 KG 기본값이 그대로 쓰인다. */
+export const ROLES = zRole.options;
+/** 본문 계열만. 단계 조정 UI가 이 순서를 쓴다. */
+export const BODY_ROLES: Role[] = ['body1', 'body2', 'body3', 'body4'];
+
+/**
+ * 말머리표.
+ * 빈 문자열이면 붙이지 않는다. `null` 은 "상위 층 값을 쓰지 않고 끈다"는 뜻이다.
+ * 값은 기호 한두 글자를 기대한다(– · ▪ ‧ ※ 등). 뒤 여백은 렌더가 붙인다.
+ */
+export const zMarker = z.string().max(4);
+
 export const zRoleStyle = z.object({
   fontSize: z.number().min(8).max(96).optional(),
   fontWeight: zFontWeight.optional(),
@@ -38,6 +52,9 @@ export const zRoleStyle = z.object({
   letterSpacing: z.number().min(-0.1).max(0.5).optional(),
   color: zColorRef.optional(),
   textAlign: zTextAlign.optional(),
+  /** 이 위계의 말머리표. 빈 문자열이면 없음. */
+  marker: zMarker.optional(),
+  markerColor: zColorRef.optional(),
 }).strict();
 export type RoleStyle = z.infer<typeof zRoleStyle>;
 
@@ -52,6 +69,30 @@ export type Theme = z.infer<typeof zTheme>;
 export const DEFAULT_THEME: Theme = { scale: 1, roles: {} };
 
 /**
+ * 시스템 기본 말머리표 — 프로젝트가 아무것도 정하지 않았을 때의 값.
+ *
+ * 전부 비워 둔 이유: KG 템플릿은 필요한 자리에 이미 자기 말머리표를 그려 두었고,
+ * 여기서 기본값을 켜면 기존 장표에 없던 기호가 갑자기 붙는다.
+ * 프로젝트에서 위계별로 켜는 것이 맞다(위계 설정 패널).
+ */
+export const DEFAULT_MARKERS: Record<Role, string> = {
+  title: '', subtitle: '', message: '', h1: '', h2: '', h3: '',
+  body1: '', body2: '', body3: '', body4: '',
+  caption: '', label: '',
+};
+
+/** 말머리표 고르기 UI 가 제시하는 후보. 공공기관 보고서에서 쓰는 기호로 한정한다. */
+export const MARKER_PRESETS: [string, string][] = [
+  ['', '없음'],
+  ['·', '가운뎃점'],
+  ['–', '짧은 줄표'],
+  ['▪', '채운 사각'],
+  ['□', '빈 사각'],
+  ['○', '빈 원'],
+  ['※', '참고표'],
+];
+
+/**
  * 위계 ↔ KG 토큰 대응.
  * 값이 아니라 토큰 이름만 적는다. 실제 숫자는 KG CSS 가 계속 소유한다.
  * 전역 배율은 calc(var(--fs-*) * scale) 로 걸리므로 크기를 따로 정하지 않아도 동작한다.
@@ -62,20 +103,23 @@ export const ROLE_TOKENS: Record<Role, { size: string; color: string; label: str
   message:  { size: '--fs-msg',           color: '--navy-800', label: '헤더 메시지' },
   h1:       { size: '--fs-subtopic',      color: '--ink-navy', label: '소주제' },
   h2:       { size: '--fs-box-title',     color: '--ink-navy', label: '박스 제목' },
-  h3:       { size: '--fs-body',          color: '--ink-navy', label: '유목화 키워드' },
-  body:     { size: '--fs-body',          color: '--ink-900',  label: '본문' },
-  small:    { size: '--fs-small',         color: '--ink-700',  label: '보조 설명' },
+  h3:       { size: '--fs-body',          color: '--ink-navy', label: '키워드·소제목' },
+  body1:    { size: '--fs-body',          color: '--ink-900',  label: '본문 1단' },
+  body2:    { size: '--fs-small',         color: '--ink-700',  label: '본문 2단' },
+  body3:    { size: '--fs-caption',       color: '--ink-700',  label: '본문 3단' },
+  body4:    { size: '--fs-caption',       color: '--ink-500',  label: '본문 4단' },
   caption:  { size: '--fs-caption',       color: '--ink-500',  label: '각주·출처' },
   label:    { size: '--fs-tag',           color: '--ink-navy', label: '태그·라벨' },
 };
 
 /**
- * KG 클래스 → 위계. 임포트할 때 이 표로 각 요소에 data-kg-role 을 찍는다.
- * 위에서부터 먼저 맞는 것을 쓴다(구체적인 것이 위).
+ * KG 클래스 → 위계. 위에서부터 먼저 맞는 것을 쓴다(구체적인 것이 위).
+ * 여기에 없는 요소는 core/ids.ts 의 구조 추론이 맡는다.
  */
 export const ROLE_SELECTORS: [string, Role][] = [
   ['.kg-section-title', 'title'],
   ['.kg-section-sub', 'subtitle'],
+  ['.kg-section-num', 'label'],
   ['.kg-message', 'message'],
   ['.kg-area-title .kg-body-title', 'h1'],
   ['.kg-subtopic', 'h1'],
@@ -85,14 +129,23 @@ export const ROLE_SELECTORS: [string, Role][] = [
   ['.kg-box-h', 'h2'],
   ['.kg-grp__k', 'h3'],
   ['.kg-colhead', 'h3'],
-  ['.kg-body', 'body'],
-  ['.kg-grp__c li', 'small'],
-  ['.kg-small', 'small'],
+  ['.kg-body', 'body1'],
+  ['.kg-interp', 'body2'],
+  ['.kg-grp__c li', 'body2'],
+  ['.kg-small', 'body2'],
   ['.kg-caption', 'caption'],
   ['.kg-footer__src', 'caption'],
+  ['.kg-footer__page', 'caption'],
   ['.kg-chapter-tag', 'label'],
+  ['.kg-chapter-tab__roman', 'label'],
   ['.kg-num-label', 'label'],
   ['.kg-numdot', 'label'],
+  ['.kg-cornern', 'label'],
 ];
 
 export const ROLE_ATTR = 'data-kg-role';
+
+/** 본문 단계를 자른다. 추론이 범위를 넘어도 항상 유효한 위계가 나온다. */
+export function bodyRole(level: number): Role {
+  return BODY_ROLES[Math.min(BODY_ROLES.length, Math.max(1, level)) - 1]!;
+}

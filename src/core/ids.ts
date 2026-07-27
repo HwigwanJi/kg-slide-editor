@@ -4,15 +4,20 @@
  * ID는 DOM 구조 경로다(`n.2.0.1`). 원본이 바뀌지 않는 한 같은 요소는 항상 같은 ID를 얻는다.
  * 저장 문서는 이 ID로만 요소를 가리키므로, 원본 HTML을 다시 파싱해도 패치가 그대로 붙는다.
  *
- * 위계(data-kg-role)는 KG 클래스에서 추론한다. 글자 크기·색을 위계 단위로 다루기 위한 표시다.
+ * 위계는 글자가 있는 요소 전부에 반드시 붙는다. "지정 없음"은 만들지 않는다.
+ * 붙는 순서는 (1) 장표가 직접 붙인 값 → (2) KG 클래스 매칭 → (3) 구조 추론 → (4) 본문 1단.
+ * 추론은 완벽하지 않다. 그래서 속성 패널에서 사람이 바꿀 수 있고, 그 값이 이긴다.
  */
-import { ROLE_ATTR, ROLE_SELECTORS, type Role } from '@contract/index';
+import { ROLE_ATTR, ROLE_SELECTORS, bodyRole, type Role } from '@contract/index';
 
 export const ID_ATTR = 'data-kg-id';
 /** 원본 style 속성 백업. 재렌더를 원본 기준에서 다시 시작하기 위한 것. */
 export const STYLE0_ATTR = 'data-kg-style0';
 /** 텍스트 편집 가능 표시 */
 export const TEXT_ATTR = 'data-kg-text';
+/** 말머리표 — 값이 있으면 그 기호를, 'off' 면 위계 전역값까지 끈다. */
+export const MARKER_ATTR = 'data-kg-marker';
+export const MARKER_OFF_ATTR = 'data-kg-marker-off';
 /** 떼어낸 자리에 남는 빈 자리 표시 */
 export const SLOT_CLASS = 'kg-slot';
 
@@ -43,13 +48,105 @@ export function isTextRun(el: Element): boolean {
   return true;
 }
 
-/** KG 클래스에서 위계를 추론한다. 맞는 것이 없으면 null. */
-export function roleOf(el: Element): Role | null {
+/** KG 클래스에서 위계를 찾는다. 맞는 것이 없으면 null. */
+export function matchRole(el: Element): Role | null {
   for (const [selector, role] of ROLE_SELECTORS) {
     if (el.matches(selector)) return role;
   }
   return null;
 }
+
+/* ------------------------------------------------------------------ */
+/* 위계 추론                                                            */
+/* ------------------------------------------------------------------ */
+
+type Area = 'header' | 'message' | 'body' | 'footer';
+
+interface WalkCtx {
+  area: Area;
+  /** 중첩된 목록의 깊이. 목록 항목은 이 깊이로 본문 단계를 정한다. */
+  listDepth: number;
+  /** 형제 텍스트 런 가운데 몇 번째인가. 위계가 이미 정해진 형제는 세지 않는다. */
+  runIndex: number;
+  /** 위계가 정해지지 않은 형제 텍스트 런의 수 */
+  runCount: number;
+  /** 부모가 이미 본문 계열이면 한 단 아래로 내려간다. */
+  bodyLevel: number;
+}
+
+const AREAS: [string, Area][] = [
+  ['.kg-header', 'header'],
+  ['.kg-msgband', 'message'],
+  ['.kg-footer', 'footer'],
+  ['.kg-body-area', 'body'],
+];
+
+function areaOf(el: Element, inherited: Area): Area {
+  for (const [selector, area] of AREAS) if (el.matches(selector)) return area;
+  return inherited;
+}
+
+/**
+ * 위계 판정 — 장표 전체를 한 번 재고 나서 상대적으로 정한다.
+ *
+ * 절대 크기로 자르면 장표마다 기준이 달라 맞지 않는다(어떤 장표는 본문이 17px, 어떤 장표는 14px).
+ * 그래서 이 장표 안의 본문 크기 분포를 먼저 구하고, 그것을 기준으로 삼는다.
+ *
+ *  - 굵고 본문보다 크거나 같음 → 소제목(h3)
+ *  - 굵지만 본문보다 작음      → 칩·태그(label). 셰브론·배지가 여기 들어온다.
+ *  - 굵지 않음                 → 본문. 서로 다른 크기를 큰 것부터 줄 세워 1~4단으로 나눈다.
+ *
+ * 계산된 서식을 읽으므로 호출 쪽(editor.draw)에서 전역 위계 CSS를 잠시 꺼 둔다.
+ * 그러지 않으면 "굵게 바꿨더니 위계가 바뀌고 다시 굵어지는" 순환이 생긴다.
+ */
+interface Measured {
+  el: Element;
+  ctx: WalkCtx;
+  size: number;
+  weight: number;
+}
+
+function assignRoles(runs: { el: Element; ctx: WalkCtx }[]): void {
+  const measured: Measured[] = runs.map(({ el, ctx }) => {
+    const cs = getComputedStyle(el);
+    return { el, ctx, size: round(parseFloat(cs.fontSize)), weight: Number(cs.fontWeight) || 400 };
+  });
+
+  const body = measured.filter((m) => m.ctx.area === 'body');
+  const plain = body.filter((m) => m.weight < 600).map((m) => m.size);
+  const baseline = median(plain.length ? plain : body.map((m) => m.size)) ?? 16;
+  const ladder = [...new Set(plain)].sort((a, b) => b - a);
+
+  for (const m of measured) {
+    m.el.setAttribute(ROLE_ATTR, roleFor(m, baseline, ladder));
+  }
+}
+
+function roleFor(m: Measured, baseline: number, ladder: number[]): Role {
+  if (m.ctx.area === 'header') return 'label';
+  if (m.ctx.area === 'message') return 'message';
+  if (m.ctx.area === 'footer') return 'caption';
+
+  // 목록 항목은 중첩 깊이가 곧 단계다.
+  if (m.ctx.listDepth > 0) return bodyRole(m.ctx.listDepth + 1);
+
+  if (m.weight >= 600) return m.size >= baseline ? 'h3' : 'label';
+
+  const level = ladder.indexOf(m.size);
+  return bodyRole(level < 0 ? 1 : level + 1);
+}
+
+function median(values: number[]): number | null {
+  if (values.length === 0) return null;
+  const sorted = [...values].sort((a, b) => a - b);
+  return sorted[Math.floor(sorted.length / 2)]!;
+}
+
+function round(n: number): number {
+  return Number.isNaN(n) ? 0 : Math.round(n * 2) / 2;
+}
+
+/* ------------------------------------------------------------------ */
 
 /**
  * 루트 이하 전체에 ID와 위계를 찍는다.
@@ -58,23 +155,51 @@ export function roleOf(el: Element): Role | null {
  * @param base 시작 경로. 원본은 'n', 추가 노드는 그 노드의 id.
  */
 export function stampIds(root: HTMLElement, base = 'n'): void {
-  const walk = (el: Element, path: string): void => {
+  /** 위계가 명시되지 않은 글자 덩어리. 전부 모은 뒤 한꺼번에 판정한다. */
+  const unassigned: { el: Element; ctx: WalkCtx }[] = [];
+
+  const walk = (el: Element, path: string, ctx: WalkCtx): void => {
     el.setAttribute(ID_ATTR, path);
     if (el instanceof HTMLElement && el.getAttribute('style')) {
       el.setAttribute(STYLE0_ATTR, el.getAttribute('style')!);
     }
-    const role = roleOf(el);
-    if (role) el.setAttribute(ROLE_ATTR, role);
+
+    const area = areaOf(el, ctx.area);
+    const explicit = el.getAttribute(ROLE_ATTR) as Role | null;
+    const matched = explicit ?? matchRole(el);
 
     if (OPAQUE_TAGS.has(el.tagName)) return;
+
     if (isTextRun(el)) {
       el.setAttribute(TEXT_ATTR, '');
+      if (matched) el.setAttribute(ROLE_ATTR, matched);
+      else unassigned.push({ el, ctx: { ...ctx, area } });
       return;
     }
-    let i = 0;
-    for (const child of el.children) walk(child, `${path}.${i++}`);
+
+    // 글자 없는 묶음에도 매칭된 위계는 남긴다(박스 제목바처럼 자식을 가진 경우).
+    if (matched) el.setAttribute(ROLE_ATTR, matched);
+
+    const children = [...el.children];
+    const freeRuns = children.filter((c) => isTextRun(c) && !c.getAttribute(ROLE_ATTR) && !matchRole(c));
+    const listDepth = ctx.listDepth + (el.tagName === 'UL' || el.tagName === 'OL' ? 1 : 0);
+    const bodyLevel = matched && matched.startsWith('body')
+      ? Number(matched.slice(4)) + 1
+      : ctx.bodyLevel;
+
+    children.forEach((child, i) => {
+      walk(child, `${path}.${i}`, {
+        area,
+        listDepth,
+        runIndex: freeRuns.indexOf(child),
+        runCount: freeRuns.length,
+        bodyLevel,
+      });
+    });
   };
-  walk(root, base);
+
+  walk(root, base, { area: 'body', listDepth: 0, runIndex: 0, runCount: 0, bodyLevel: 1 });
+  assignRoles(unassigned);
 }
 
 /** ID로 요소 찾기. 없으면 null. */
@@ -87,6 +212,11 @@ export function idOf(el: Element | null): string | null {
   return el?.getAttribute(ID_ATTR) ?? null;
 }
 
+/** 요소의 위계. 스탬핑을 거쳤다면 반드시 값이 있다. */
+export function roleOf(el: Element | null): Role | null {
+  return (el?.getAttribute(ROLE_ATTR) as Role | null) ?? null;
+}
+
 /** 클릭 지점에서 가장 가까운, ID가 찍힌 요소. 빈 자리(placeholder)는 건너뛴다. */
 export function closestNode(target: EventTarget | null): HTMLElement | null {
   if (!(target instanceof Element)) return null;
@@ -96,8 +226,8 @@ export function closestNode(target: EventTarget | null): HTMLElement | null {
 
 /**
  * 내보내기 직전 편집용 흔적을 지운다.
- * data-kg-role 은 남긴다 — 위계 전역값 CSS가 그것을 보고 걸리므로, 내보낸 파일에서도
- * 같은 위계 규칙이 그대로 유지된다.
+ * data-kg-role 과 말머리표 표시는 남긴다 — 위계 CSS 가 그것을 보고 걸리므로,
+ * 내보낸 파일에서도 같은 위계 규칙이 그대로 유지된다.
  */
 export function stripEditorAttrs(root: HTMLElement): void {
   for (const slot of root.querySelectorAll(`.${SLOT_CLASS}`)) slot.remove();

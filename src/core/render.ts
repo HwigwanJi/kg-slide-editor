@@ -10,8 +10,8 @@
  *  3. 선택 표시는 DOM 바깥 오버레이가 그린다 → 장표 안 박스 크기에 영향이 없다.
  */
 import type { LayoutPatch, SlideDoc, StylePatch } from '@contract/index';
-import { isAdded, toCssColor } from '@contract/index';
-import { ID_ATTR, SLOT_CLASS, byId, stampIds } from './ids';
+import { ROLE_ATTR, isAdded, toCssColor } from '@contract/index';
+import { ID_ATTR, MARKER_ATTR, MARKER_OFF_ATTR, SLOT_CLASS, byId, stampIds } from './ids';
 import { sanitizeInline } from './sanitize';
 import { isRemoved } from './tree';
 
@@ -83,8 +83,10 @@ function applyAppearance(root: HTMLElement, doc: SlideDoc): void {
       el.style.visibility = 'hidden';
       continue;
     }
+    if (patch.role) el.setAttribute(ROLE_ATTR, patch.role);
     if (patch.text) el.innerHTML = sanitizeInline(patch.text.html);
     if (patch.style) applyStyle(el, patch.style);
+    if (patch.style?.marker !== undefined) applyMarker(el, patch.style.marker);
     if (patch.layout?.mode === 'flow') applyFlowOffset(el, patch.layout);
   }
 }
@@ -113,6 +115,18 @@ function applyStyle(el: HTMLElement, s: StylePatch): void {
   if (s.textAlign) el.style.textAlign = s.textAlign;
   if (s.padding) el.style.padding = s.padding.map((v) => `${v}px`).join(' ');
   if (s.opacity !== undefined) el.style.opacity = String(s.opacity);
+}
+
+/**
+ * 노드 말머리표.
+ * 빈 문자열은 "이 요소만 끈다"는 뜻이라 위계 전역값까지 눌러야 한다.
+ * 그래서 값이 있을 때와 없을 때 서로 다른 속성을 쓴다(core/theme.ts 의 규칙과 짝).
+ */
+function applyMarker(el: HTMLElement, marker: string): void {
+  el.removeAttribute(MARKER_ATTR);
+  el.removeAttribute(MARKER_OFF_ATTR);
+  if (marker === '') el.setAttribute(MARKER_OFF_ATTR, '');
+  else el.setAttribute(MARKER_ATTR, marker);
 }
 
 /** 흐름 유지 상태의 미세 이동. 주변 요소를 밀지 않도록 transform 으로만 옮긴다. */

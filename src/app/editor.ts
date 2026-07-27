@@ -9,14 +9,14 @@
  * 화면 조각은 이 파일이 노출한 동작만 부른다. 새 식별자·좌표·마크업은 여기서 만들어 커맨드에 넣는다.
  */
 import {
-  KG_CANVAS, createSlideDoc, loadKgTokens, newGroupId, newNodeId,
+  KG_CANVAS, ROLE_ATTR, createSlideDoc, loadKgTokens, newGroupId, newNodeId,
   type AddedNode, type DeckDoc, type DeckEntry, type Distribute, type KgToken, type NodeId,
   type ObjectAlign, type Role, type RoleStyle, type SlideDoc, type StylePatch,
 } from '@contract/index';
 import {
   auditOverflow, byId, canvasRect, createDeckStore, createSlideStore, editable, expandSelection,
-  fitFontSize, groupOf, listNodes, isRemoved, readFormat, render, scopeFormat, slideNumber,
-  themeCss, toStandaloneHtml,
+  fitFontSize, groupOf, listNodes, isRemoved, readFormat, render, roleOf, scopeFormat,
+  slideNumber, themeCss, toStandaloneHtml,
   type Command, type DeckStore, type FormatScope, type OverflowIssue, type SlideStore,
 } from '@core/index';
 import {
@@ -111,6 +111,11 @@ export interface EditorApi {
   setThemeScale(scale: number): void;
   resetTheme(): void;
 
+  /** 화면에 실제로 걸린 위계(자동 추론 결과 포함) */
+  roleOfNode(id: NodeId): Role | null;
+  /** 위계별 요소 수 — 조정이 어디에 닿는지 보여 준다 */
+  roleCounts(): Record<string, number>;
+
   /* 검사 */
   audit(): OverflowIssue[];
   fixOverflow(ids?: NodeId[]): void;
@@ -165,9 +170,18 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
   function draw() {
     if (!paper) return;
     const doc = slides.get();
-    ({ root } = render(paper, doc));
     styleTag('slide').textContent = doc.source.css;
-    styleTag('theme').textContent = themeCss(doc.theme);
+
+    // 위계 추론이 KG 원본 서식만 보도록 전역 위계 규칙을 잠시 끈다.
+    // 켜 둔 채로 재면 "굵게 바꿨더니 위계가 바뀌고 다시 굵어지는" 순환이 생긴다.
+    const theme = styleTag('theme');
+    theme.disabled = true;
+    try {
+      ({ root } = render(paper, doc));
+    } finally {
+      theme.textContent = themeCss(doc.theme);
+      theme.disabled = false;
+    }
     transform?.refresh();
   }
 
@@ -622,6 +636,19 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
     setRoleStyle: (role, style) => slides.dispatch({ type: 'setRoleStyle', role, style }),
     setThemeScale: (s) => slides.dispatch({ type: 'setThemeScale', scale: s }, { coalesce: 'scale' }),
     resetTheme: () => slides.dispatch({ type: 'resetTheme' }),
+
+    roleOfNode: (id) => roleOf(elementOf(id)),
+
+    roleCounts() {
+      const counts: Record<string, number> = {};
+      if (!root) return counts;
+      for (const el of root.querySelectorAll(`[${ROLE_ATTR}]`)) {
+        if (el.closest('.kg-slot')) continue;
+        const r = el.getAttribute(ROLE_ATTR)!;
+        counts[r] = (counts[r] ?? 0) + 1;
+      }
+      return counts;
+    },
 
     /* 검사 */
     audit: () => (root ? auditOverflow(root) : []),

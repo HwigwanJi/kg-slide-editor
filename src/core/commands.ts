@@ -36,6 +36,8 @@ export type Command =
   | { type: 'applyFormat'; ids: NodeId[]; style: StylePatch }
   | { type: 'clearStyle'; ids: NodeId[]; keys?: (keyof StylePatch)[] }
   | { type: 'setHidden'; ids: NodeId[]; hidden: boolean }
+  /** 위계 수동 지정. null 이면 자동 추론으로 되돌린다. */
+  | { type: 'setRole'; ids: NodeId[]; role: Role | null }
   /* 배치 */
   | { type: 'detach'; id: NodeId; rect: Rect }
   | { type: 'reflow'; ids: NodeId[] }
@@ -85,6 +87,9 @@ function reduce(doc: SlideDoc, cmd: Command): SlideDoc {
 
     case 'setHidden':
       return patchMany(doc, cmd.ids, (p) => (cmd.hidden ? { ...p, hidden: true } : omit(p, 'hidden')));
+
+    case 'setRole':
+      return patchMany(doc, cmd.ids, (p) => (cmd.role ? { ...p, role: cmd.role } : omit(p, 'role')));
 
     case 'detach': {
       const next = patch(doc, cmd.id, (p) => ({

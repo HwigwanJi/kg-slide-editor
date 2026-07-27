@@ -9,6 +9,7 @@
  *
  * 단축키는 한국에서 쓰는 오피스 도구의 관습을 그대로 따른다. 새로 배우게 하지 않는다.
  */
+import { BODY_ROLES } from '@contract/index';
 import type { Command } from '@core/index';
 import type { EditorApi } from './editor';
 
@@ -156,6 +157,9 @@ export const ACTIONS: ActionDef[] = [
   { id: 'format.clear', label: '서식 초기화', group: '서식', surfaces: ['context', 'bubble', 'palette'],
     hint: '이 요소를 시스템 초기값으로 되돌립니다', enabled: hasSelection, covers: ['clearStyle'],
     run: ({ api }) => api.clearStyleSelected() },
+  { id: 'format.roleAuto', label: '위계 자동 판정으로 되돌리기', group: '서식', surfaces: ['context', 'palette'],
+    hint: '속성 패널에서 위계를 직접 고를 수도 있습니다', enabled: hasSelection, covers: ['setRole'],
+    run: ({ api }) => api.run({ type: 'setRole', ids: api.selection(), role: null }) },
   { id: 'format.hide', label: '숨기기', group: '서식', surfaces: ['context', 'palette'],
     enabled: hasSelection, covers: ['setHidden'],
     run: ({ api }) => api.run({ type: 'setHidden', ids: api.selection(), hidden: true }) },
@@ -260,9 +264,9 @@ export const ACTIONS: ActionDef[] = [
   { id: 'theme.reset', label: '위계 전역값 초기화', group: '위계', surfaces: ['palette'],
     hint: '개별 오버라이드는 그대로 두고 전역 조정만 되돌립니다', covers: ['resetTheme'],
     run: ({ api }) => api.resetTheme() },
-  { id: 'theme.resetBody', label: '본문 위계 초기화', group: '위계', surfaces: ['palette'],
-    hint: '오른쪽 위계 설정에서 위계별로도 되돌릴 수 있습니다', covers: ['setRoleStyle'],
-    run: ({ api }) => api.setRoleStyle('body', null) },
+  { id: 'theme.resetBody', label: '본문 위계 전체 초기화', group: '위계', surfaces: ['palette'],
+    hint: '본문 1~4단의 전역 조정만 되돌립니다', covers: ['setRoleStyle'],
+    run: ({ api }) => BODY_ROLES.forEach((r) => api.setRoleStyle(r, null)) },
   { id: 'theme.scaleUp', label: '전체 글자 키움', group: '위계', surfaces: ['palette'], covers: ['setThemeScale'],
     run: ({ api }) => api.setThemeScale(round(Math.min(1.6, api.slides.get().theme.scale + 0.05))) },
   { id: 'theme.scaleDown', label: '전체 글자 줄임', group: '위계', surfaces: ['palette'],

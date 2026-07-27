@@ -5,7 +5,7 @@
  * 여기에 들어가면 안 되는 것: 편집 규칙, 좌표 계산, DOM 조작, 스타일 값, 액션 목록.
  *   → core/commands.ts, adapters/transform.pointer.ts, app/editor.ts, styles/tokens/, app/actions.ts.
  */
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { DeckRail } from './DeckRail';
 import { Inspector } from './Inspector';
 import { SlideCanvas } from './SlideCanvas';
@@ -28,6 +28,7 @@ export default function App() {
   const revision = `${doc.id}|${doc.updatedAt}|${status.message}`;
   const tokens = useTokens(api, revision);
   const issues = useAudit(api, revision);
+  const roleCounts = useMemo(() => api.roleCounts(), [api, revision]);
 
   const [menuAt, setMenuAt] = useState<MenuPoint | null>(null);
   const [anchor, setAnchor] = useState<DOMRect | null>(null);
@@ -56,7 +57,10 @@ export default function App() {
         onContextMenu={setMenuAt}
         onAnchor={useCallback((r: DOMRect | null) => setAnchor(r), [])}
       />
-      <Inspector api={api} doc={doc} selection={selection} tokens={tokens} issues={issues} />
+      <Inspector
+        api={api} doc={doc} selection={selection} tokens={tokens} issues={issues}
+        roleOfNode={api.roleOfNode} roleCounts={roleCounts}
+      />
       <StatusBar doc={doc} deck={deck} status={status} selected={selection.length} issues={issues.length} />
 
       <ContextMenu at={menuAt} ctx={ctx} onClose={useCallback(() => setMenuAt(null), [])} />

@@ -1,9 +1,12 @@
 /**
- * 속성 패널 — 선택 요소의 서식·배치, 위계 전역값, 검사 결과, 삭제 항목.
+ * 속성 패널 — 선택 요소의 위계·서식·배치, 위계 전역값, 검사 결과, 삭제 항목.
  * 색상 후보는 KG 브랜드 토큰 목록에서만 온다. 임의 hex 입력은 두지 않는다.
  */
-import { ROLE_ATTR, type ColorRef, type KgToken, type NodeId, type SlideDoc, type TextAlign } from '@contract/index';
-import { isLocked, type OverflowIssue } from '@core/index';
+import {
+  MARKER_PRESETS, ROLES, ROLE_TOKENS,
+  type ColorRef, type KgToken, type NodeId, type Role, type SlideDoc, type TextAlign,
+} from '@contract/index';
+import { isLocked, markerOf, type OverflowIssue } from '@core/index';
 import type { EditorApi } from './editor';
 import { ThemePanel } from './ThemePanel';
 
@@ -13,19 +16,23 @@ const TEXT_ALIGNS: [TextAlign, string][] = [
 const WEIGHTS = [300, 400, 500, 600, 700, 800, 900] as const;
 
 export function Inspector({
-  api, doc, selection, tokens, issues,
+  api, doc, selection, tokens, issues, roleOfNode, roleCounts,
 }: {
   api: EditorApi;
   doc: SlideDoc;
   selection: NodeId[];
   tokens: KgToken[];
   issues: OverflowIssue[];
+  /** 화면에 실제로 걸린 위계(자동 추론 결과 포함) */
+  roleOfNode(id: NodeId): Role | null;
+  roleCounts: Record<string, number>;
 }) {
   const id = selection[0];
   const patch = id ? doc.patches[id] : undefined;
   const layout = patch?.layout;
   const detached = layout?.mode === 'detached';
   const locked = id ? isLocked(doc, id) : false;
+  const role = id ? roleOfNode(id) : null;
 
   return (
     <aside className="ed-panel" data-area="panel">
@@ -37,7 +44,39 @@ export function Inspector({
             <h2 className="ed-section__title">선택 {selection.length > 1 ? `(${selection.length}개)` : ''}</h2>
             <div className="ed-field">
               <span className="ed-field__label">위계</span>
-              <span className="ed-field__control">{roleLabel(id)}</span>
+              <span className="ed-field__control">
+                <select
+                  className="ed-select"
+                  value={role ?? ''}
+                  onChange={(e) => api.run({
+                    type: 'setRole', ids: selection, role: (e.target.value || null) as Role | null,
+                  })}
+                >
+                  {ROLES.map((r) => <option key={r} value={r}>{ROLE_TOKENS[r].label}</option>)}
+                </select>
+                {patch?.role && (
+                  <button
+                    className="ed-btn"
+                    title="자동 판정으로 되돌립니다"
+                    onClick={() => api.run({ type: 'setRole', ids: selection, role: null })}
+                  >자동</button>
+                )}
+              </span>
+            </div>
+            <div className="ed-field">
+              <span className="ed-field__label">말머리표</span>
+              <span className="ed-field__control">
+                <select
+                  className="ed-select"
+                  value={patch?.style?.marker ?? (role ? markerOf(doc.theme, role) : '')}
+                  onChange={(e) => api.styleSelected({ marker: e.target.value })}
+                >
+                  {MARKER_PRESETS.map(([value, label]) => (
+                    <option key={label} value={value}>{value ? `${value}  ${label}` : label}</option>
+                  ))}
+                </select>
+                <span className="ed-label">{patch?.style?.marker !== undefined ? '개별' : '위계 기본'}</span>
+              </span>
             </div>
             <div className="ed-field">
               <span className="ed-field__label">배치</span>
@@ -116,7 +155,7 @@ export function Inspector({
         </>
       )}
 
-      <ThemePanel api={api} doc={doc} />
+      <ThemePanel api={api} doc={doc} counts={roleCounts} />
 
       <section className="ed-section">
         <h2 className="ed-section__title">넘침 검사 ({issues.length})</h2>
@@ -148,11 +187,6 @@ export function Inspector({
       )}
     </aside>
   );
-}
-
-function roleLabel(id: NodeId): string {
-  const el = document.querySelector(`.ed-paper [data-kg-id="${CSS.escape(id)}"]`);
-  return el?.getAttribute(ROLE_ATTR) ?? '지정 없음';
 }
 
 function ColorField({

@@ -65,6 +65,11 @@ export const zStylePatch = z.object({
   textAlign: zTextAlign.optional(),
   padding: zBox4.optional(),
   opacity: z.number().min(0).max(1).optional(),
+  /**
+   * 이 요소만의 말머리표. 위계 전역값을 덮는다.
+   * 빈 문자열이면 "이 요소는 말머리표 없음"이라는 뜻이며, 전역값이 켜져 있어도 끈다.
+   */
+  marker: z.string().max(4).optional(),
 }).strict();
 export type StylePatch = z.infer<typeof zStylePatch>;
 
@@ -102,5 +107,11 @@ export const zNodePatch = z.object({
   style: zStylePatch.optional(),
   layout: zLayoutPatch.optional(),
   hidden: z.boolean().optional(),
+  /**
+   * 위계 수동 지정. 자동 추론이 틀렸을 때 사람이 바로잡는다.
+   * 서식(style)이 아니라 의미이므로 서식 복사에 딸려 가지 않는다.
+   * 값은 typography.ts 의 Role 이지만, 순환 참조를 피해 여기서는 문자열로만 다룬다.
+   */
+  role: z.string().optional(),
 }).strict();
 export type NodePatch = z.infer<typeof zNodePatch>;
