@@ -69,10 +69,6 @@ export interface EditorApi {
   needsReload(): boolean;
   /** 위 두 값이 바뀌면 알린다. */
   onProjectState(fn: () => void): () => void;
-  /** 지난번 폴더가 남아 있는가. 권한만 받으면 바로 이을 수 있다. */
-  hasPendingFolder(): boolean;
-  /** 그 폴더의 권한을 받아 잇는다. 사람이 누른 직후에만 통한다. */
-  resumeFolder(): Promise<void>;
   /**
    * 폴더에 쓸 수 있는지 실제 저장과 같은 순서로 밟아 본다.
    * 결과를 클립보드에 담는다 — 그대로 붙여 넣으면 어디서 막혔는지 알 수 있다.
@@ -563,14 +559,32 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
     /* 프로젝트 */
     projectName: () => deck.get().name || project.location,
 
+    /**
+     * 프로젝트를 연다. 여는 길은 이것 하나다.
+     *
+     * 지난번 폴더가 남아 있으면 먼저 그것을 잇는다 — 권한만 다시 받으면 되므로
+     * 사람이 폴더를 찾아 들어갈 이유가 없다. 남은 것이 없을 때만 고르게 한다.
+     * 단추를 "폴더 다시 열기" 와 "프로젝트 열기" 로 갈라 두면 어느 것을 눌러야 할지 알 수 없다.
+     */
     async openFolder() {
-      const picked = await pickProjectFolder().catch((e) => { status(msg(e), true); return null; });
-      if (!picked) return;
+      // 실패는 크게 알린다. 상태줄 한 줄로는 눌러도 아무 일 없는 것처럼 보인다.
+      const fail = (e: unknown) => { status(msg(e), true); toast('error', msg(e)); return null; };
+
+      let picked: ProjectAdapter | null = null;
+      if (pendingFolder) picked = await grantRecalledFolder().catch(fail);
+      if (!picked) picked = await pickProjectFolder().catch(fail);
+      if (!picked) {
+        // 취소는 잘못이 아니다. 다만 아무 일도 안 일어난 까닭은 남긴다.
+        status('프로젝트를 열지 않았습니다');
+        return;
+      }
+
       await withBusy('프로젝트를 여는 중', '', async () => {
         await persistCurrent();
         project = picked;
+        pendingFolder = false;
         await api.reloadProject();
-        status(`프로젝트 열기 — ${project.location}`);
+        status(`프로젝트 — ${project.location}`);
         toast('ok', `프로젝트 열기 — ${project.location}`);
       });
     },
@@ -597,23 +611,6 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
     isDirty: () => savedAt === '' || slides.get().updatedAt !== savedAt,
     needsReload: () => stale,
     onProjectState(fn) { stateListeners.add(fn); return () => stateListeners.delete(fn); },
-
-    hasPendingFolder: () => pendingFolder,
-
-    /**
-     * 지난번 폴더의 권한만 다시 받는다. 폴더를 찾아 들어가지 않아도 된다.
-     * 사람이 누른 직후에만 통하므로 반드시 단추에서 부른다.
-     */
-    async resumeFolder() {
-      const back = await grantRecalledFolder().catch((e) => { status(msg(e), true); return null; });
-      if (!back) return;
-      await withBusy('프로젝트를 여는 중', '', async () => {
-        project = back;
-        pendingFolder = false;
-        await api.reloadProject();
-        toast('ok', `프로젝트 — ${project.location}`);
-      });
-    },
 
     async saveToFolder() {
       const picked = await pickProjectFolder().catch((e) => { status(msg(e), true); return null; });

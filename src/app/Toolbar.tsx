@@ -10,11 +10,12 @@ import { useRef } from 'react';
 import { surface, type ActionCtx, type ActionDef, type ActionGroup } from './actions';
 import type { EditorApi } from './editor';
 
-export type RibbonTab = '홈' | '슬라이드' | '삽입' | '배치' | '서식' | '검사';
+export type RibbonTab = '홈' | '프로젝트' | '슬라이드' | '삽입' | '배치' | '서식' | '검사';
 
 /** 리본 탭 ↔ 액션 그룹. 한 탭이 여러 그룹을 담을 수 있다. */
 const TAB_GROUPS: Record<RibbonTab, ActionGroup[]> = {
   홈: ['파일', '편집'],
+  프로젝트: ['프로젝트'],
   슬라이드: ['슬라이드'],
   삽입: ['삽입', '글자'],
   배치: ['배치', '정렬', '순서'],

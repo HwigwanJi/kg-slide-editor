@@ -16,7 +16,7 @@ import type { EditorApi } from './editor';
 export type Surface = 'toolbar' | 'context' | 'bubble' | 'palette';
 
 export type ActionGroup =
-  | '파일' | '슬라이드' | '편집' | '삽입' | '글자' | '서식' | '배치' | '정렬' | '순서'
+  | '프로젝트' | '파일' | '슬라이드' | '편집' | '삽입' | '글자' | '서식' | '배치' | '정렬' | '순서'
   | '보기' | '선택' | '검사' | '위계';
 
 export interface ActionCtx {
@@ -67,6 +67,16 @@ const slideAt = (c: ActionCtx) =>
   c.api.deck.get().slides.findIndex((s) => s.id === targetSlide(c)) + 1;
 
 export const ACTIONS: ActionDef[] = [
+  /* ---------------- 프로젝트 (여는 길은 하나) ---------------- */
+  // 지난번 폴더가 남아 있으면 그것을 잇고, 없을 때만 고르게 한다.
+  // 여는 단추를 둘로 갈라 두면 어느 것을 눌러야 할지 알 수 없다.
+  { id: 'deck.openFolder', label: '프로젝트 열기', group: '프로젝트', surfaces: ['toolbar', 'palette'],
+    hint: '.kgproj 가 들어 있는 폴더를 엽니다. 지난번 폴더가 있으면 그것부터 잇습니다',
+    run: ({ api }) => void api.openFolder() },
+  { id: 'deck.diagnoseFolder', label: '폴더 쓰기 진단', group: '프로젝트', surfaces: ['toolbar', 'palette'],
+    hint: '폴더에 못 쓸 때 어디서 막혔는지 밟아 보고 결과를 복사합니다',
+    run: ({ api }) => void api.diagnoseFolder() },
+
   /* ---------------- 파일 ---------------- */
   { id: 'file.save', label: '저장', group: '파일', shortcut: 'Ctrl+S', surfaces: ['toolbar', 'palette'],
     hint: '아직 폴더를 정하지 않았으면 이번에 고릅니다',
@@ -86,18 +96,6 @@ export const ACTIONS: ActionDef[] = [
     } },
 
   /* ---------------- 슬라이드 (프로젝트 단위) ---------------- */
-  // 새로고침하면 폴더 권한이 풀린다. 폴더를 다시 찾아 들어가지 않고 허용만 받는 길.
-  { id: 'deck.resumeFolder', label: '폴더 다시 열기', group: '슬라이드', surfaces: ['toolbar', 'palette'],
-    hint: '새로고침 전에 열어 두었던 폴더를 그대로 잇습니다',
-    enabled: ({ api }) => api.hasPendingFolder(),
-    run: ({ api }) => void api.resumeFolder() },
-  { id: 'deck.openFolder', label: '프로젝트 열기', group: '슬라이드', surfaces: ['toolbar', 'palette'],
-    hint: '.kgproj 가 들어 있는 프로젝트 폴더를 엽니다',
-    run: ({ api }) => void api.openFolder() },
-  // 폴더에 못 쓸 때 어디서 막혔는지 짚는다. 예외 원문만으로는 원인이 구분되지 않는다.
-  { id: 'deck.diagnoseFolder', label: '폴더 쓰기 진단', group: '검사', surfaces: ['toolbar', 'palette'],
-    hint: '실제 저장과 같은 순서로 밟아 보고 결과를 복사합니다',
-    run: ({ api }) => void api.diagnoseFolder() },
   { id: 'deck.new', label: '새 장표', group: '슬라이드', shortcut: 'Ctrl+M', surfaces: ['toolbar', 'palette'],
     run: ({ api }) => void api.newSlide() },
   { id: 'deck.duplicate', label: '장표 복제', group: '슬라이드', surfaces: ['toolbar', 'palette'],
