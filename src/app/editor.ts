@@ -453,7 +453,15 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       el.addEventListener('dblclick', onDouble);
 
       // 캔버스는 스토어 변경에 동기로 반응한다. React 렌더 주기를 타지 않는다.
-      const unsub = slides.subscribe(() => { draw(); applyScale(); notifyState(); });
+      const unsub = slides.subscribe(() => {
+        // 글자를 고치는 중이면 다시 그리지 않는다. 다시 그리면 그 자리의 DOM 이 갈려
+        // 편집 세션이 죽고, 쓰던 도중에 손이 멈춘다(AGENTS R4).
+        // 세션이 끝날 때 commit 이 다시 dispatch 하므로 그때 그려진다.
+        if (session) { notifyState(); return; }
+        draw();
+        applyScale();
+        notifyState();
+      });
 
       /**
        * 저장하지 않은 편집이 있으면 창을 닫기 전에 묻는다.

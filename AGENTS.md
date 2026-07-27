@@ -177,13 +177,40 @@ public/
 
 ## 5. 작업 절차
 
+### 저장소를 새로 받았거나 git pull 한 직후
+
+```bash
+npm install
+npm run setup      # 스킬·훅·자산·번들을 한 번에 맞춘다
+```
+
+`npm run setup` 을 건너뛰면 스킬과 편집기 자산이 옛것으로 남는다.
+검사·적재는 코어가 번들보다 새로우면 알아서 다시 만들지만, 스킬은 그렇지 않다.
+
+### 장표를 고칠 때 — 반드시 이 순서
+
+```bash
+npm run render -- <slide.kgslide>          # 1. 지금 모습을 읽는다
+npm run apply  -- <slide.kgslide> --cmds - # 2. 커맨드를 보낸다
+```
+
+**`source/*.html` 만 읽고 고치면 안 된다.** 그 파일은 작도한 그대로라
+사람이 편집기에서 바꿔 놓은 것이 보이지 않는다. 그것만 보고 고치면 남의 수정을 뭉갠다.
+HTML 을 다시 그리는 것도 안 된다(§1, §4).
+
+### 명령줄
+
 ```bash
 npm run dev        # 개발 서버 (http://localhost:5180)
 npm run typecheck  # 타입 검사
 npm run build      # 타입 검사 + 번들
+npm run lint:slides -- <프로젝트폴더>   # 넘침·문구·위계
+npm run ingest -- <프로젝트폴더>        # source/*.html 적재
+npm run render -- <장표|프로젝트폴더>    # 지금 모습을 HTML 로
 ```
 
 바꾼 뒤 최소 확인:
+0. `npm run setup` 이후인지 (스킬을 고쳤다면 반드시)
 1. `npm run typecheck` 통과
 2. 샘플 장표를 불러와 **글자 더블클릭 편집 → 드래그 → 떼어내기 → 저장 → 다시 불러오기** 가 왕복되는지
 3. 내보낸 HTML에 `data-kg-*` 속성이 남지 않는지

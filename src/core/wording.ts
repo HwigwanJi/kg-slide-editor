@@ -93,9 +93,31 @@ const RULES: Rule[] = [
   },
 ];
 
+/**
+ * 헤더 메시지띠는 한 줄로 읽혀야 한다.
+ *
+ * 장표에서 가장 먼저 읽히는 한 문장이다. 두 줄로 넘어가면 띠가 두꺼워져
+ * 아래 본문이 눌리고, 한눈에 들어오는 문장이라는 성격도 잃는다.
+ * 공백 포함 70자를 넘기면 대개 두 줄이 된다.
+ */
+const MSGBAND_MAX = 70;
+
 /** 장표 안 글자를 훑어 규칙에 걸리는 대목을 찾는다. */
 export function auditWording(root: HTMLElement, slideId?: string): WordingIssue[] {
   const issues: WordingIssue[] = [];
+
+  const band = root.querySelector('.kg-msgband');
+  const message = (band?.textContent ?? '').trim().replace(/\s+/g, ' ');
+  if (message.length > MSGBAND_MAX) {
+    issues.push({
+      id: band?.getAttribute(ID_ATTR) ?? 'n',
+      rule: '메시지띠 길이',
+      hit: `${message.length}자`,
+      preview: `${message.slice(0, 40)}…`,
+      detail: `헤더 메시지는 공백 포함 ${MSGBAND_MAX}자 안에서 한 줄로 끝낸다. ${message.length - MSGBAND_MAX}자 줄여야 한다.`,
+      ...(slideId ? { slideId } : {}),
+    });
+  }
 
   for (const el of root.querySelectorAll<HTMLElement>(`[${TEXT_ATTR}]`)) {
     if (el.closest(`.${SLOT_CLASS}`)) continue;
