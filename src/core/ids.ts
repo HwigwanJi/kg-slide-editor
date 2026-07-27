@@ -26,8 +26,15 @@ export const SLOT_CLASS = 'kg-slot';
 /** 이 태그들만 텍스트 내부 서식으로 인정한다. tiptap 인라인 스키마와 같은 집합이어야 한다. */
 export const FORMAT_TAGS = new Set(['B', 'STRONG', 'I', 'EM', 'U', 'S', 'STRIKE', 'BR']);
 
-/** 내부로 내려가지 않는 태그. 도형·그래픽은 통째로 하나의 요소로 다룬다. */
+/**
+ * 내부로 내려가지 않는 태그. 도형·그래픽은 통째로 하나의 요소로 다룬다.
+ *
+ * SVG 요소의 tagName 은 소문자다(HTML 요소만 대문자). 대문자로만 비교하면
+ * svg 안으로 내려가 <text> 하나하나가 편집 단위가 되고, 검사도 그것들을 글자로 잡는다.
+ * 그래서 반드시 대소문자를 맞춰 비교한다.
+ */
 const OPAQUE_TAGS = new Set(['SVG', 'CANVAS', 'IMG', 'VIDEO', 'IFRAME']);
+const isOpaque = (el: Element): boolean => OPAQUE_TAGS.has(el.tagName.toUpperCase());
 
 /** 인라인으로 흐르는 태그. 편집을 열 때 줄바꿈이 바뀌지 않게 하려면 알아야 한다. */
 const INLINE_HOSTS = new Set(['SPAN', 'B', 'STRONG', 'I', 'EM', 'U', 'S', 'A', 'SMALL', 'LABEL']);
@@ -42,7 +49,7 @@ export function isInlineHost(el: Element): boolean {
  * SPAN·DIV 자식이 있으면 합성 요소이므로 제외한다(셰브론·칩 묶음 등이 뭉개지는 것을 막는다).
  */
 export function isTextRun(el: Element): boolean {
-  if (OPAQUE_TAGS.has(el.tagName)) return false;
+  if (isOpaque(el)) return false;
   if (!el.textContent?.trim()) return false;
   for (const child of el.children) {
     if (!FORMAT_TAGS.has(child.tagName)) return false;
@@ -211,7 +218,7 @@ export function stampIds(root: HTMLElement, base = 'n'): void {
     const explicit = el.getAttribute(ROLE_ATTR) as Role | null;
     const matched = explicit ?? matchRole(el);
 
-    if (OPAQUE_TAGS.has(el.tagName)) return;
+    if (isOpaque(el)) return;
 
     if (isTextRun(el)) {
       el.setAttribute(TEXT_ATTR, '');
