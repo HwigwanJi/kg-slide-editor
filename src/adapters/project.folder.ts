@@ -7,14 +7,20 @@
  * Chromium 계열에서만 동작한다. 지원하지 않는 브라우저에서는 브라우저 저장소로 물러난다.
  */
 import {
-  DECK_FILE, DEFAULT_SETTINGS, PREVIEW_DIR, SETTINGS_FILE, SLIDES_DIR, assertSlideDoc, createDeck,
-  parseDeck, parseSettings, parseSlideDoc, previewFileName, slideFileName,
+  DECK_FILE, DEFAULT_SETTINGS, PREVIEW_DIR, SETTINGS_FILE, SLIDES_DIR, SLIDE_EXT, assertSlideDoc,
+  createDeck, parseDeck, parseSettings, parseSlideDoc, previewFileName, slideFileName,
+  type DeckEntry,
 } from '@contract/index';
 import { projectNameFrom, type ProjectAdapter } from './project';
 
 /** lib.dom 에 아직 없는 부분만 좁게 선언한다. */
 interface DirectoryPickerWindow {
   showDirectoryPicker?(options?: { mode?: 'read' | 'readwrite' }): Promise<FileSystemDirectoryHandle>;
+}
+
+/** 폴더 안을 훑는 메서드. lib.dom 에 아직 없다. */
+interface IterableDirectory {
+  values(): AsyncIterableIterator<{ kind: string; name: string }>;
 }
 
 type PermissionArgs = { mode?: 'read' | 'readwrite' };
@@ -231,13 +237,57 @@ export function folderProject(root: FileSystemDirectoryHandle): ProjectAdapter {
     isFolder: true,
     location: projectNameFrom(root.name),
 
+    /**
+     * 폴더를 읽어 덱을 만든다.
+     *
+     * 진실이 둘로 나뉘어 있다. **무엇이 있는가는 slides/ 안의 파일**이 정하고,
+     * **어떤 순서인가는 deck.json** 이 정한다. deck.json 이 존재까지 정하게 두면
+     * 폴더에 파일을 넣어도 화면에 뜨지 않는다 — 여러 대에서 그려 모으는 방식과 정면으로 어긋난다.
+     *
+     * 그래서 열 때마다 둘을 맞춘다.
+     *   목차에 있고 파일도 있다   그대로, 목차 순서를 지킨다
+     *   파일만 있다               만든 시각 순으로 뒤에 붙인다
+     *   목차에만 있다             파일이 없으므로 뺀다
+     */
     async loadDeck() {
       const raw = await readText(root, DECK_FILE);
-      if (!raw) {
-        // 빈 폴더를 열면 새 프로젝트로 시작한다. 파일은 첫 저장 때 만들어진다.
-        return createDeck({ id: crypto.randomUUID(), name: projectNameFrom(root.name), now: new Date().toISOString() });
+      const base = raw
+        ? parseDeck(JSON.parse(raw))
+        : createDeck({ id: crypto.randomUUID(), name: projectNameFrom(root.name), now: new Date().toISOString() });
+
+      const slides = await dirRead(SLIDES_DIR);
+      if (!slides) return { ...base, slides: [] };
+
+      const onDisk = new Map<string, DeckEntry>();
+      for await (const handle of (slides as unknown as IterableDirectory).values()) {
+        if (handle.kind !== 'file' || !handle.name.endsWith(SLIDE_EXT)) continue;
+        const text = await readText(slides, handle.name);
+        if (!text) continue;
+        try {
+          const doc = parseSlideDoc(JSON.parse(text));
+          onDisk.set(doc.id, {
+            id: doc.id,
+            title: doc.title,
+            updatedAt: doc.updatedAt,
+            ...(doc.source.origin ? { origin: doc.source.origin } : {}),
+          });
+        } catch {
+          // 읽을 수 없는 파일은 없는 것으로 둔다. 목록이 통째로 죽는 편이 더 나쁘다.
+        }
       }
-      return parseDeck(JSON.parse(raw));
+
+      const listed = base.slides.filter((s) => onDisk.has(s.id));
+      const known = new Set(listed.map((s) => s.id));
+      // 목차에 없던 파일. 만든 순서대로 붙여야 넣은 사람의 의도와 맞는다.
+      const extra = [...onDisk.values()]
+        .filter((s) => !known.has(s.id))
+        .sort((a, b) => a.updatedAt.localeCompare(b.updatedAt));
+
+      return {
+        ...base,
+        // 목차의 제목은 낡을 수 있다. 파일이 방금 읽은 값으로 맞춘다.
+        slides: [...listed.map((s) => ({ ...s, ...onDisk.get(s.id)! })), ...extra],
+      };
     },
 
     async saveDeck(deck) {

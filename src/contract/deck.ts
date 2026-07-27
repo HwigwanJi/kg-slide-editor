@@ -73,8 +73,11 @@ export function parseDeck(raw: unknown): DeckDoc {
 }
 
 /** 파일 이름 규칙. 어댑터가 폴더에 쓸 때도 이 이름을 쓴다. */
+/** 장표 파일 확장자. 폴더를 훑어 장표를 찾을 때도 이 값을 쓴다. */
+export const SLIDE_EXT = '.kgslide';
+
 export function slideFileName(id: string): string {
-  return `${id}.kgslide`;
+  return `${id}${SLIDE_EXT}`;
 }
 export function previewFileName(id: string): string {
   return `${id}.png`;
