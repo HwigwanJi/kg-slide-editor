@@ -12,8 +12,8 @@
  * 하는 일: slides/<id>.kgslide 를 쓰고 deck.json 목차에 순서대로 등록한다.
  * 이미 같은 origin 으로 넣은 장표가 있으면 id·순서·미리보기 경로를 그대로 물려받는다.
  *
- * 주의: .kgslide 는 통째로 다시 쓴다. 사람이 쌓아 둔 편집분(patches·묘비·테마)은 사라진다.
- * 아직 손대지 않은 장표에만 쓴다. 편집한 장표를 고칠 때는 tools/apply.mjs 커맨드 경로를 쓴다.
+ * 원본만 갈아끼운다. 사람이 쌓아 둔 편집분(patches·묘비·테마)은 그대로 이어 붙인다.
+ * 원본이 바뀌어 같은 자리를 가리키지 못하게 된 것은 옮기지 않고 몇 건인지 알린다.
  */
 import { chromium } from 'playwright';
 import { existsSync } from 'node:fs';
@@ -75,9 +75,14 @@ try {
     const origin = basename(file);
 
     // 기존 항목이 있으면 id 를 유지한다. 덱의 자리와 미리보기 파일 이름이 이어진다.
-    // 편집분까지 이어지지는 않는다 — 아래에서 문서를 통째로 덮어쓴다.
     const existing = deck.slides.find((s) => s.origin === origin);
     const id = existing?.id ?? crypto.randomUUID();
+
+    // 사람이 쌓아 둔 편집분. 원본만 갈아끼우고 이것은 그대로 들고 간다(docs/CONCURRENCY.md).
+    const slideFile = join(project, 'slides', `${id}.kgslide`);
+    const prev = existsSync(slideFile)
+      ? JSON.parse(await readFile(slideFile, 'utf8'))
+      : null;
 
     // 자산과 폰트가 붙은 상태로 열어야 임포트가 실제 화면과 같은 결과를 낸다.
     await writeFile(tmp, shell(html), 'utf8');
@@ -85,12 +90,17 @@ try {
     await page.evaluate(() => document.fonts.ready);
     await page.addScriptTag({ content: bundle });
 
-    const doc = await page.evaluate(
-      ([h, o, i, n]) => window.KGAudit.ingestHtml(h, o, i, n),
-      [html, origin, id, new Date().toISOString()],
+    const { doc, note } = await page.evaluate(
+      ([h, o, i, n, p]) => {
+        const fresh = window.KGAudit.ingestHtml(h, o, i, n);
+        // 제목은 사람이 바꿔 두었을 수 있다. 이미 있는 장표면 그 이름을 지킨다.
+        if (p?.title) fresh.title = p.title;
+        return window.KGAudit.mergeIngest(fresh, p);
+      },
+      [html, origin, id, new Date().toISOString(), prev],
     );
 
-    await writeFile(join(project, 'slides', `${id}.kgslide`), `${JSON.stringify(doc, null, 2)}\n`, 'utf8');
+    await writeFile(slideFile, `${JSON.stringify(doc, null, 2)}\n`, 'utf8');
     const entry = { id, title: doc.title, origin, updatedAt: doc.updatedAt };
     if (existing) {
       Object.assign(existing, entry);
@@ -103,6 +113,8 @@ try {
       else deck.slides.splice(at, 0, entry);
     }
     console.log(`${existing ? '갱신' : '추가'} — ${doc.title}  (slides/${id}.kgslide)`);
+    if (prev) console.log(`         ${note}`);
+    if (prev) console.log(`         ${note}`);
   }
 
   await rm(tmp, { force: true });

@@ -243,9 +243,6 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
   /** 지난번 폴더가 남아 있는데 권한만 못 받은 상태. 단추 하나로 이을 수 있다. */
   let pendingFolder = false;
 
-  /** 마지막으로 읽은 디스크 덱의 시각. 창으로 돌아왔을 때 그 사이 바뀌었는지 가린다. */
-  let diskStamp = '';
-
   const selectionListeners = new Set<(ids: NodeId[]) => void>();
   const statusListeners = new Set<(s: Status) => void>();
   const busyListeners = new Set<(b: Busy) => void>();
@@ -400,10 +397,18 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
   /** 장표를 덱에 넣고 화면에 띄운다. */
   async function adoptSlide(doc: SlideDoc, at?: number): Promise<void> {
     await persistCurrent();
-    await project.saveSlide(doc);
-    deck.dispatch({ type: 'addSlide', entry: entryOf(doc), ...(at !== undefined ? { at } : {}) });
+
+    // 같은 원본에서 온 장표가 이미 있으면 그 자리를 갱신한다. 사본을 만들지 않는다(D5).
+    // 이 규칙이 여기 없어서 "발주기관 이해 (사본)" 이 생겼다.
+    const origin = doc.source.origin;
+    const twin = origin ? deck.get().slides.find((s) => s.origin === origin) : undefined;
+    const target = twin ? { ...doc, id: twin.id } : doc;
+    const where = twin ? deck.get().slides.findIndex((s) => s.id === twin.id) : at;
+
+    await project.saveSlide(target);
+    deck.dispatch({ type: 'addSlide', entry: entryOf(target), ...(where !== undefined && where >= 0 ? { at: where } : {}) });
     await project.saveDeck(deck.get());
-    showSlide(doc);
+    showSlide(target);
   }
 
   /* ---------- 공개 API ---------- */
@@ -443,21 +448,43 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       if (stage.parentElement) ro.observe(stage.parentElement);
 
       /**
-       * 창으로 돌아왔을 때 디스크가 그 사이 바뀌었는지만 본다.
+       * 디스크가 바뀌었는지 지켜본다.
        *
-       * 알리기만 하고 저절로 다시 읽지는 않는다. 편집하던 중에 캔버스가 갈아 끼워지면
-       * 무엇이 사라졌는지 알 수 없다. 무엇을 버릴지는 사람이 정한다.
+       * 파일 감시자는 아직 쓸 수 없어 바뀐 시각만 확인한다. 내용을 읽지 않으므로 싸다.
+       *
+       * 열려 있는 장표의 원본이 바뀌었으면 **원본만** 갈아 끼우고 다시 그린다.
+       * 오버레이는 메모리 것을 그대로 둔다 — 사람이 쌓은 편집분은 사람 것이다.
+       * 목차가 바뀌었으면 알리기만 한다. 목록이 통째로 갈리면 무엇이 사라졌는지 알 수 없다.
+       *
+       * 글자를 편집하는 동안에는 손대지 않는다(AGENTS R4).
        */
-      const onFocus = () => {
-        void (async () => {
-          if (!diskStamp) return;
-          const disk = await project.loadDeck().catch(() => null);
-          if (!disk || disk.updatedAt === diskStamp) return;
-          diskStamp = disk.updatedAt;
-          toast('info', '디스크의 프로젝트가 바뀌었습니다 — 다시 읽기를 누르세요');
-        })();
+      const check = async () => {
+        if (!project.stamps || session) return;
+        const now = await project.stamps(slides.get().id).catch(() => null);
+        if (!now) return;
+        if (!seen) { seen = now; return; }
+
+        if (now.slide !== seen.slide) {
+          seen = { ...seen, slide: now.slide };
+          const disk = await project.loadSlide(slides.get().id).catch(() => null);
+          if (disk && disk.source.html !== slides.get().source.html) {
+            slides.replace({ ...slides.get(), source: disk.source, canvas: disk.canvas });
+            draw();
+            applyScale();
+            toast('info', '원본이 새로 그려져 화면을 맞췄습니다');
+          }
+        }
+
+        if (now.deck !== seen.deck) {
+          seen = { ...seen, deck: now.deck };
+          toast('info', '프로젝트가 바뀌었습니다 — 다시 읽기를 누르세요');
+        }
       };
+
+      let seen: { deck: number; slide: number } | null = null;
+      const onFocus = () => { void check(); };
       window.addEventListener('focus', onFocus);
+      const timer = window.setInterval(() => { void check(); }, 2000);
 
       draw();
       applyScale();
@@ -481,6 +508,7 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
         unsub();
         unsubDeck();
         window.removeEventListener('focus', onFocus);
+        window.clearInterval(timer);
         ro.disconnect();
         el.removeEventListener('dblclick', onDouble);
         transform?.destroy();
@@ -582,14 +610,16 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       const read = async () => {
         const before = slides.get().id;
         const had = deck.get().slides.length;
-        await persistCurrent();
+        // 사람이 누른 다시 읽기일 때만 지금 것을 먼저 저장한다.
+        // 프로젝트를 바꾸는 길에서 저장하면 브라우저 저장소의 덱이 폴더를 덮어쓴다
+        // — 이름이 "기본 프로젝트" 가 되고 방금 적재한 장표가 목록에서 사라진다.
+        if (announce) await persistCurrent();
         settings = await project.loadSettings();
         const loaded = await project.loadDeck();
         deck.replace(loaded);
         const keep = loaded.slides.find((s) => s.id === before) ?? loaded.slides[0];
         if (keep) await api.openSlide(keep.id);
         else showSlide(blankDoc());
-        diskStamp = loaded.updatedAt;
         return { had, now: loaded.slides.length };
       };
 

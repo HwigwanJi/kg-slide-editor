@@ -38,6 +38,12 @@ export interface ProjectAdapter {
   /** 미리보기 PNG. 지원하지 않는 저장소는 생략한다. */
   savePreview?(id: string, png: Blob): Promise<string>;
   previewUrl?(id: string): Promise<string | null>;
+
+  /**
+   * 목차와 이 장표 파일이 마지막으로 바뀐 시각(ms). 내용을 읽지 않는다.
+   * 편집기가 주기적으로 물어 디스크가 바뀌었는지만 가린다. 폴더 저장소만 답한다.
+   */
+  stamps?(slideId: string): Promise<{ deck: number; slide: number }>;
 }
 
 /* ------------------------------------------------------------------ */

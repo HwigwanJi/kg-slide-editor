@@ -8,6 +8,7 @@
 import { parseSettings, type ProjectSettings } from '@contract/index';
 import { ID_ATTR, ROLE_ATTR_PUBLIC, SLOT_ATTR, TEXT_ATTR, stampIds } from './ids';
 import { placeByOrigin, reconcileSlides } from './deck';
+import { carryOverlay, formatCarry } from './merge';
 import { kindOf } from './neighbors';
 import { auditOverflow, type OverflowIssue } from './overflow';
 import { auditWording, type WordingIssue } from './wording';
@@ -72,3 +73,13 @@ export function ingestHtml(html: string, origin: string, id: string, now: string
 
 /** 적재 순서 규칙. 도구가 다시 구현하면 편집기와 갈라진다. */
 export { placeByOrigin, reconcileSlides };
+
+/**
+ * 새로 그린 원본을 기존 문서 위에 얹는다.
+ * prev 가 없으면 새 문서다. 있으면 사람이 쌓은 편집분을 이어 붙이고 무엇을 잇지 못했는지 알린다.
+ */
+export function mergeIngest(next: unknown, prev: unknown): { doc: unknown; note: string } {
+  if (!prev) return { doc: next, note: '새 장표' };
+  const { doc, report } = carryOverlay(prev as never, next as never);
+  return { doc, note: formatCarry(report) };
+}

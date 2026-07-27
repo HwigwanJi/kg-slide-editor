@@ -321,9 +321,28 @@ export function folderProject(root: FileSystemDirectoryHandle): ProjectAdapter {
       return parseSlideDoc(JSON.parse(raw));
     },
 
+    /**
+     * 오버레이만 우리 것으로 쓴다.
+     *
+     * 원본(source·canvas)의 주인은 작도다. 메모리의 원본은 폴더를 연 시점의 것이라,
+     * 그 사이 명령줄이 새로 그렸다면 그것을 덮어 버린다. 그래서 디스크에서 다시 읽어 붙인다.
+     * (docs/CONCURRENCY.md — 필드마다 주인이 하나여야 교차 손실이 생기지 않는다)
+     */
     async saveSlide(doc) {
       const slides = await dirWrite(SLIDES_DIR);
-      await writeFile(slides, slideFileName(doc.id), JSON.stringify(assertSlideDoc(doc), null, 2));
+      const raw = await readText(slides, slideFileName(doc.id));
+      let merged = doc;
+      if (raw) {
+        try {
+          const disk = parseSlideDoc(JSON.parse(raw));
+          if (disk.source.html !== doc.source.html) {
+            merged = { ...doc, source: disk.source, canvas: disk.canvas };
+          }
+        } catch {
+          // 읽을 수 없으면 우리 것을 쓴다. 저장을 막는 편이 더 나쁘다.
+        }
+      }
+      await writeFile(slides, slideFileName(doc.id), JSON.stringify(assertSlideDoc(merged), null, 2));
     },
 
     async deleteSlide(id) {
@@ -351,6 +370,22 @@ export function folderProject(root: FileSystemDirectoryHandle): ProjectAdapter {
 
     async saveSettings(settings) {
       await writeFile(root, SETTINGS_FILE, `${JSON.stringify(settings, null, 2)}\n`);
+    },
+
+    async stamps(slideId) {
+      const when = async (handle: FileSystemDirectoryHandle | null, name: string): Promise<number> => {
+        if (!handle) return 0;
+        try {
+          return (await (await handle.getFileHandle(name)).getFile()).lastModified;
+        } catch {
+          return 0;
+        }
+      };
+      const slides = await dirRead(SLIDES_DIR);
+      return {
+        deck: await when(root, DECK_FILE),
+        slide: await when(slides, slideFileName(slideId)),
+      };
     },
 
     async previewUrl(id) {

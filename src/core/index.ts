@@ -9,6 +9,7 @@ export * from './store';
 export * from './render';
 export * from './overflow';
 export * from './wording';
+export * from './merge';
 export * from './neighbors';
 export * from './reference';
 export * from './format';
