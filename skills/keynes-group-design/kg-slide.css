@@ -39,11 +39,12 @@
 /* =====================================================================
    2. 헤더 메시지 띠 (장표의 핵심 주장 한 문장)
    ===================================================================== */
-.kg-msgband{flex:0 0 auto;background:#fff;padding:5px 48px;position:relative;z-index:3;
+.kg-msgband{flex:0 0 auto;background:#fff;padding:9px 48px;position:relative;z-index:3;
   box-shadow:0 4px 7px rgba(23,55,94,.09);
   display:flex;align-items:center;justify-content:center;gap:12px;}
-/* 메시지는 <p> 라 브라우저 기본 마진(1em = 24px)이 위아래로 붙는다. 띠 자체 여백은 5px 인데
-   그 마진 때문에 한 줄짜리 띠가 90px 을 차지했다 — 본문에서 48px 을 빼앗는다. */
+/* 메시지는 <p> 라 브라우저 기본 마진(1em = 24px)이 위아래로 붙는다. 리셋한 적이 없어
+   한 줄짜리 띠가 90px 을 차지했다 — 본문에서 48px 을 빼앗는다.
+   마진을 걷고 띠 여백으로 높이를 정한다(9px × 2 + 글자 32px = 50px). */
 .kg-message{margin:0;}
 .kg-msgband--tint{background:var(--blue-050);}
 .kg-msgband--tint .kg-message{color:var(--navy-800);}
@@ -54,6 +55,7 @@
    ===================================================================== */
 .kg-body-area{position:relative;flex:1 1 auto;padding:18px var(--slide-pad) 16px;
   display:flex;flex-direction:column;min-height:0;background:#F8F9FB;}
+
 
 /* 본문 영역 제목 = 단일 소주제 (가운데정렬 + 얇은 밑줄) */
 .kg-area-title{position:relative;display:block;text-align:center;
