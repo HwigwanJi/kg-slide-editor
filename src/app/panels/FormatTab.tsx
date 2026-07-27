@@ -1,9 +1,10 @@
 /**
  * 서식 탭 — 세부 편집.
  * 선택 탭에서 무엇을 고칠지 정한 뒤, 값을 만지는 곳이다.
- * 여기서 바꾼 값은 위계 전역값을 따르지 않게 되므로 그 사실을 항상 함께 보여 준다.
+ * 개별 지정은 항목 단위다. 크기를 바꿔도 색·굵기·정렬은 계속 위계를 따른다.
+ * 그래서 어느 항목이 개별값인지 표시하고, 되돌리기도 항목 단위로 둔다.
  */
-import type { ColorRef, KgToken, NodeId, SlideDoc, TextAlign } from '@contract/index';
+import type { ColorRef, KgToken, NodeId, SlideDoc, StylePatch, TextAlign } from '@contract/index';
 import type { EditorApi } from '../editor';
 
 const TEXT_ALIGNS: [TextAlign, string][] = [
@@ -24,16 +25,33 @@ export function FormatTab({
   if (!id) return <p className="ed-empty">요소를 고르면 서식을 만질 수 있습니다.</p>;
 
   const style = doc.patches[id]?.style;
-  const overridden = style && Object.keys(style).length > 0;
+  const overridden = Object.keys(style ?? {}).length;
+
+  /**
+   * 항목 하나만 되돌린다.
+   * 개별 지정은 항목 단위다 — 크기를 바꿔도 색·굵기·정렬은 계속 위계를 따른다.
+   * 그래서 되돌리기도 항목 단위여야 한다.
+   */
+  const reset = (key: keyof StylePatch) => api.run({ type: 'clearStyle', ids: selection, keys: [key] });
+  const mark = (key: keyof StylePatch) => (style?.[key] === undefined ? null : (
+    <button
+      className="ed-revert"
+      title={`이 항목만 위계 기본값으로 되돌립니다 (다른 항목은 그대로)`}
+      onClick={() => reset(key)}
+    >되돌리기</button>
+  ));
 
   return (
     <>
       <section className="ed-section">
         <h2 className="ed-section__title">
           글자
-          {overridden && <span className="ed-badge">개별 지정</span>}
+          {overridden > 0 && <span className="ed-badge">개별 지정 {overridden}항목</span>}
         </h2>
-        <p className="ed-note">여기서 바꾸면 위계 전역값을 따르지 않습니다.</p>
+        <p className="ed-note">
+          바꾼 <b>그 항목만</b> 개별값이 됩니다. 나머지는 계속 위계를 따릅니다.
+          항목별로 하나씩 되돌릴 수 있습니다.
+        </p>
 
         <div className="ed-field">
           <span className="ed-field__label">크기</span>
@@ -46,6 +64,7 @@ export function FormatTab({
               onChange={(e) => api.styleSelected({ fontSize: e.target.value ? Number(e.target.value) : undefined })}
             />
             <span className="ed-label">px · 최소 {minFontSize}</span>
+            {mark('fontSize')}
           </span>
         </div>
 
@@ -62,6 +81,7 @@ export function FormatTab({
               <option value="">위계 기본</option>
               {WEIGHTS.map((w) => <option key={w} value={w}>{w}</option>)}
             </select>
+            {mark('fontWeight')}
           </span>
         </div>
 
@@ -75,6 +95,7 @@ export function FormatTab({
               onChange={(e) => api.styleSelected({ letterSpacing: e.target.value ? Number(e.target.value) : undefined })}
             />
             <span className="ed-label">em</span>
+            {mark('letterSpacing')}
           </span>
         </div>
 
@@ -87,6 +108,7 @@ export function FormatTab({
               placeholder="기본"
               onChange={(e) => api.styleSelected({ lineHeight: e.target.value ? Number(e.target.value) : undefined })}
             />
+            {mark('lineHeight')}
           </span>
         </div>
 
@@ -97,18 +119,24 @@ export function FormatTab({
               <button key={a} className="ed-btn" aria-pressed={style?.textAlign === a}
                 onClick={() => api.styleSelected({ textAlign: a })}>{label}</button>
             ))}
+            {mark('textAlign')}
           </span>
         </div>
 
-        <button className="ed-btn" onClick={() => api.clearStyleSelected()}>서식 초기화</button>
+        <button
+          className="ed-btn"
+          disabled={overridden === 0}
+          title="이 요소의 개별 지정을 전부 지웁니다"
+          onClick={() => api.clearStyleSelected()}
+        >개별 지정 모두 지우기</button>
       </section>
 
       <ColorField label="글자색" tokens={tokens} value={style?.color}
-        onPick={(color) => api.styleSelected({ color })} />
+        onPick={(color) => api.styleSelected({ color })} onReset={() => reset('color')} />
       <ColorField label="배경" tokens={tokens} value={style?.background}
-        onPick={(background) => api.styleSelected({ background })} />
+        onPick={(background) => api.styleSelected({ background })} onReset={() => reset('background')} />
       <ColorField label="테두리" tokens={tokens} value={style?.borderColor}
-        onPick={(borderColor) => api.styleSelected({ borderColor })} />
+        onPick={(borderColor) => api.styleSelected({ borderColor })} onReset={() => reset('borderColor')} />
 
       <section className="ed-section">
         <h2 className="ed-section__title">서식 복사</h2>
@@ -127,16 +155,22 @@ export function FormatTab({
 }
 
 function ColorField({
-  label, tokens, value, onPick,
+  label, tokens, value, onPick, onReset,
 }: {
   label: string;
   tokens: KgToken[];
   value?: ColorRef;
   onPick(ref: ColorRef): void;
+  onReset(): void;
 }) {
   return (
     <section className="ed-section">
-      <h2 className="ed-section__title">{label}</h2>
+      <h2 className="ed-section__title">
+        {label}
+        {value !== undefined && (
+          <button className="ed-revert" title="이 항목만 되돌립니다" onClick={onReset}>되돌리기</button>
+        )}
+      </h2>
       <div className="ed-swatches">
         {tokens.map((t) => (
           <button

@@ -168,6 +168,21 @@
   flex-wrap: wrap;
 }
 
+/* 항목 단위 되돌리기 — 이 항목만 위계 기본값으로 */
+.ed-revert {
+  flex: 0 0 auto;
+  padding: 0 var(--ed-sp-1);
+  border: var(--ed-bw) solid var(--ed-accent);
+  border-radius: var(--ed-r-xs);
+  background: var(--ed-accent-weak);
+  color: var(--ed-fg);
+  font-size: var(--ed-fs-xs);
+  text-transform: none;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+.ed-revert:hover { background: var(--ed-hover); }
+
 .ed-range { flex: 1 1 auto; min-width: 0; accent-color: var(--ed-accent); }
 
 /* ---------------- 선택 미리보기 ---------------- */

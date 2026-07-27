@@ -97,7 +97,7 @@ export function SelectionTab({
                 <option key={label} value={value}>{value ? `${value}  ${label}` : label}</option>
               ))}
             </select>
-            <span className="ed-label">{patch?.style?.marker !== undefined ? '개별' : '위계 기본'}</span>
+            <span className="ed-label">{patch?.style?.marker !== undefined ? '이 항목만 개별' : '위계 기본'}</span>
           </span>
         </div>
 
