@@ -28,36 +28,6 @@
         "fontSize": 16
       }
     },
-    "n.2.4.2": {
-      "layout": {
-        "mode": "detached",
-        "x": 882,
-        "y": 807,
-        "w": 370,
-        "h": 48,
-        "keepSlot": true
-      }
-    },
-    "n.2.4.1.0": {
-      "layout": {
-        "mode": "detached",
-        "x": 856,
-        "y": 812,
-        "w": 26,
-        "h": 38,
-        "keepSlot": true
-      }
-    },
-    "n.2.4.0": {
-      "layout": {
-        "mode": "detached",
-        "x": 28,
-        "y": 807,
-        "w": 832,
-        "h": 48,
-        "keepSlot": true
-      }
-    },
     "n.0.1": {
       "text": {
         "html": "01"
@@ -151,11 +121,7 @@
       }
     }
   },
-  "stack": [
-    "n.2.4.2",
-    "n.2.4.1.0",
-    "n.2.4.0"
-  ],
+  "stack": [],
   "createdAt": "2026-07-27T03:12:45.137Z",
-  "updatedAt": "2026-07-27T14:19:23.452Z"
+  "updatedAt": "2026-07-27T15:30:18.932Z"
 }

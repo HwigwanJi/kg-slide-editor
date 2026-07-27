@@ -58,6 +58,32 @@ async function pageHtml(page, slide, root) {
   return { body: linkAssets(body ? body[1] : html, root), css };
 }
 
+/**
+ * 굽는 페이지 — **KG CSS 를 반드시 함께 올린다.**
+ *
+ * 떼어낸 요소의 좌표는 캔버스(1280×905) 기준인데, 절대 배치의 기준 상자는 가장 가까운
+ * 위치 지정 조상이다. 그 조상이 `.kg-body-area`(position:relative)이므로 render 가
+ * 그만큼 빼서 넣는다 — 그런데 CSS 가 없으면 position:relative 가 없어 보정값이 0 이 된다.
+ * 그 상태로 구운 HTML 을 진짜 페이지에서 열면 요소가 머리말 높이만큼(146px) 아래로 밀린다.
+ *
+ * 화면에서는 CSS 가 늘 있으니 멀쩡하고 내보내기만 어긋났다. 원인을 찾기 어려운 종류라 적어 둔다.
+ */
+async function bakingPage(page, bundle) {
+  // KG 폴더 안의 파일로 연다. 상대경로 CSS 가 그 폴더 기준으로 잡힌다.
+  const tmp = join(KG_DIR, `.bake-${process.pid}.html`);
+  await writeFile(tmp, `<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="colors_and_type.css">
+<link rel="stylesheet" href="kg-slide.css">
+</head><body></body></html>`, 'utf8');
+  try {
+    await page.goto(pathToFileURL(tmp).href, { waitUntil: 'load' });
+    await page.addScriptTag({ content: bundle });
+    await page.evaluate(() => document.fonts.ready);
+  } finally {
+    await rm(tmp, { force: true });
+  }
+}
+
 /** KG CSS 폴더 안에 임시 파일로 연다. about:blank 로 넣으면 크로미움이 하위 리소스를 막는다. */
 async function openIn(page, html, tag) {
   const tmp = join(KG_DIR, `.export-${process.pid}-${tag}.tmp.html`);
@@ -147,8 +173,7 @@ export async function exportDeck(dir, opts = {}, say = () => {}) {
   const made = [];
   try {
     const page = await browser.newPage({ viewport: CANVAS, deviceScaleFactor: 2 });
-    await page.setContent('<!DOCTYPE html><html><body></body></html>');
-    await page.addScriptTag({ content: bundle });
+    await bakingPage(page, bundle);
 
     // 굽는 것은 한 번만 한다. PNG 과 PDF 가 같은 HTML 을 쓴다 — 둘이 갈리면 안 된다.
     const pages = [];
