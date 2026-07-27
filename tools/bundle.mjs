@@ -8,13 +8,12 @@
  * 그래서 존재만 보지 않고 `src/` 보다 오래됐는지까지 본다. 낡았으면 말하고 다시 만든다.
  * 저장소를 새로 받은 사람도, git pull 한 사람도 같은 명령 하나로 최신 번들을 갖게 된다.
  */
-import { execFileSync } from 'node:child_process';
+import { execSync } from 'node:child_process';
 import { existsSync, readdirSync, statSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const NPM = process.platform === 'win32' ? 'npm.cmd' : 'npm';
 
 /** 가장 최근에 손댄 파일의 시각. 폴더 하나를 통째로 훑는다. */
 function newest(dir) {
@@ -43,8 +42,9 @@ export function ensureBundle(kind) {
 
   if (why) {
     console.error(`${why} 다시 만듭니다 (npm run build:${kind})`);
-    // Windows 의 npm 은 배치 파일이라 셸을 거치지 않으면 실행되지 않는다.
-    execFileSync(NPM, ['run', `build:${kind}`], { cwd: ROOT, stdio: 'inherit', shell: true });
+    // Windows 의 npm 은 배치 파일이라 셸을 거쳐야 한다. kind 는 이 파일 안에서만 정해지므로
+    // 문자열로 붙여도 바깥에서 끼어들 여지가 없다.
+    execSync(`npm run build:${kind}`, { cwd: ROOT, stdio: 'inherit' });
   }
   return file;
 }
