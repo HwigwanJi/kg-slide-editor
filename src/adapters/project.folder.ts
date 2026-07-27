@@ -167,7 +167,23 @@ export function folderProject(root: FileSystemDirectoryHandle): ProjectAdapter {
     );
   }
 
-  const dir = async (name: string) => {
+  /**
+   * 읽을 때 쓰는 하위 폴더. 만들지 않는다.
+   *
+   * 장표를 읽는 데 폴더를 만들 권한이 필요할 이유가 없다. create 를 켜 두면
+   * 읽기만 하는 길에도 쓰기 권한이 걸려, 권한이 풀린 순간 장표 열기까지 함께 죽는다.
+   * 없으면 null 이고, 부르는 쪽이 "파일 없음" 으로 다룬다.
+   */
+  const dirRead = async (name: string): Promise<FileSystemDirectoryHandle | null> => {
+    try {
+      return await root.getDirectoryHandle(name);
+    } catch {
+      return null;
+    }
+  };
+
+  /** 쓸 때 쓰는 하위 폴더. 없으면 만든다. 권한을 먼저 확인한다. */
+  const dirWrite = async (name: string): Promise<FileSystemDirectoryHandle> => {
     await writable();
     try {
       return await root.getDirectoryHandle(name, { create: true });
@@ -229,27 +245,27 @@ export function folderProject(root: FileSystemDirectoryHandle): ProjectAdapter {
     },
 
     async loadSlide(id) {
-      const slides = await dir(SLIDES_DIR);
-      const raw = await readText(slides, slideFileName(id));
+      const slides = await dirRead(SLIDES_DIR);
+      const raw = slides && await readText(slides, slideFileName(id));
       if (!raw) throw new Error(`장표 파일이 없음: ${SLIDES_DIR}/${slideFileName(id)}`);
       return parseSlideDoc(JSON.parse(raw));
     },
 
     async saveSlide(doc) {
-      const slides = await dir(SLIDES_DIR);
+      const slides = await dirWrite(SLIDES_DIR);
       await writeFile(slides, slideFileName(doc.id), JSON.stringify(assertSlideDoc(doc), null, 2));
     },
 
     async deleteSlide(id) {
-      const slides = await dir(SLIDES_DIR);
+      const slides = await dirWrite(SLIDES_DIR);
       await slides.removeEntry(slideFileName(id)).catch(() => undefined);
-      const previews = await dir(PREVIEW_DIR);
-      await previews.removeEntry(previewFileName(id)).catch(() => undefined);
+      const previews = await dirRead(PREVIEW_DIR);
+      await previews?.removeEntry(previewFileName(id)).catch(() => undefined);
       revoke(id);
     },
 
     async savePreview(id, png) {
-      const previews = await dir(PREVIEW_DIR);
+      const previews = await dirWrite(PREVIEW_DIR);
       await writeFile(previews, previewFileName(id), png);
       revoke(id);
       return `${PREVIEW_DIR}/${previewFileName(id)}`;
@@ -271,7 +287,8 @@ export function folderProject(root: FileSystemDirectoryHandle): ProjectAdapter {
       const cached = previewUrls.get(id);
       if (cached) return cached;
       try {
-        const previews = await dir(PREVIEW_DIR);
+        const previews = await dirRead(PREVIEW_DIR);
+        if (!previews) return null;
         const handle = await previews.getFileHandle(previewFileName(id));
         const url = URL.createObjectURL(await handle.getFile());
         previewUrls.set(id, url);
