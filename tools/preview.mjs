@@ -77,7 +77,10 @@ async function shootProject(page, dir) {
       continue;
     }
     const out = join(outDir, `${entry.id}.png`);
-    await shoot(page, await htmlOf(slidePath), out);
+    const at = (deck.slides ?? []).indexOf(entry) + 1;
+    await shoot(page, await htmlOf(slidePath), out, {
+      page: at, total: (deck.slides ?? []).length, 'page/total': `${at} / ${(deck.slides ?? []).length}`,
+    });
     entry.preview = `preview/${entry.id}.png`;
   }
 
@@ -144,11 +147,19 @@ ${slideCss}</style></head><body>${html}</body></html>`;
  * setContent 로 넣으면 문서 출처가 about:blank 이 되고, 크로미움은 그 상태에서
  * file:// 하위 리소스를 막는다. 스타일이 통째로 빠진 채 찍히므로 반드시 파일로 연다.
  */
-async function shoot(page, html, out) {
+async function shoot(page, html, out, auto = {}) {
   const tmp = join(KG_DIR, `.preview-${process.pid}.tmp.html`);
   await writeFile(tmp, html, 'utf8');
   try {
     await page.goto(pathToFileURL(tmp).href, { waitUntil: 'load' });
+    // 쪽번호처럼 장표 혼자서는 알 수 없는 값을 덱 순서에서 채운다.
+    await page.evaluate((fields) => {
+      for (const [field, value] of Object.entries(fields)) {
+        for (const el of document.querySelectorAll(`[data-kg-auto="${field}"]`)) {
+          el.textContent = String(value);
+        }
+      }
+    }, auto);
     await screenshot(page, out);
   } finally {
     await rm(tmp, { force: true });

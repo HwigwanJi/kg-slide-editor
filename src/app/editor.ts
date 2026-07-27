@@ -258,7 +258,7 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
     const theme = styleTag('theme');
     theme.disabled = true;
     try {
-      ({ root } = render(paper, doc));
+      ({ root } = render(paper, doc, { page: slideNumber(deck.get(), doc.id) || undefined, total: deck.get().slides.length || undefined }));
     } finally {
       theme.textContent = themeCss(doc.theme);
       theme.disabled = false;

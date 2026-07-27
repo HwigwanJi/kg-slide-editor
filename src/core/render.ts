@@ -11,7 +11,7 @@
  */
 import type { LayoutPatch, SlideDoc, StylePatch } from '@contract/index';
 import { ROLE_ATTR, isAdded, toCssColor } from '@contract/index';
-import { ID_ATTR, MARKER_ATTR, MARKER_OFF_ATTR, SLOT_CLASS, byId, stampIds } from './ids';
+import { AUTO_ATTR, ID_ATTR, MARKER_ATTR, MARKER_OFF_ATTR, SLOT_CLASS, byId, stampIds } from './ids';
 import { sanitizeInline } from './sanitize';
 import { isRemoved } from './tree';
 
@@ -22,12 +22,22 @@ export interface RenderResult {
   root: HTMLElement;
 }
 
-export function render(mount: HTMLElement, doc: SlideDoc): RenderResult {
+/**
+ * 장표 혼자서는 알 수 없는 값. 덱이 쥐고 있다가 그릴 때 넘겨 준다.
+ * 쪽번호를 장표에 박아 두면 순서를 바꿀 때마다 전부 손으로 고쳐야 한다.
+ */
+export interface RenderContext {
+  page?: number;
+  total?: number;
+}
+
+export function render(mount: HTMLElement, doc: SlideDoc, ctx: RenderContext = {}): RenderResult {
   mount.innerHTML = doc.source.html;
   const root = mount.querySelector<HTMLElement>('.kg-slide');
   if (!root) throw new Error('원본 HTML에 .kg-slide 요소가 없음');
 
   stampIds(root);
+  fillAuto(root, ctx);
   removeTombstoned(root, doc);
   const layer = materializeAdded(root, doc);
   applyAppearance(root, doc);
@@ -38,6 +48,19 @@ export function render(mount: HTMLElement, doc: SlideDoc): RenderResult {
 /* ------------------------------------------------------------------ */
 /* 1. 존재 — 지워진 것과 추가된 것                                       */
 /* ------------------------------------------------------------------ */
+
+/** 자동 자리를 채운다. 값을 모르면 손대지 않는다 — 원본 표기가 그대로 남는다. */
+function fillAuto(root: HTMLElement, ctx: RenderContext): void {
+  for (const el of root.querySelectorAll<HTMLElement>(`[${AUTO_ATTR}]`)) {
+    const field = el.getAttribute(AUTO_ATTR);
+    const value =
+      field === 'page' ? ctx.page
+      : field === 'total' ? ctx.total
+      : field === 'page/total' && ctx.page && ctx.total ? `${ctx.page} / ${ctx.total}`
+      : undefined;
+    if (value !== undefined) el.textContent = String(value);
+  }
+}
 
 function removeTombstoned(root: HTMLElement, doc: SlideDoc): void {
   for (const id of doc.tree.removed) byId(root, id)?.remove();

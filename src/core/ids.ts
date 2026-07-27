@@ -22,6 +22,11 @@ export const MARKER_ATTR = 'data-kg-marker';
 export const MARKER_OFF_ATTR = 'data-kg-marker-off';
 /** 떼어낸 자리에 남는 빈 자리 표시 */
 export const SLOT_CLASS = 'kg-slot';
+/**
+ * 자동으로 채워지는 자리. 값은 장표가 아니라 덱이 안다(쪽번호 등).
+ * 사람이 손으로 고칠 값이 아니므로 글자 편집 단위로 열지 않는다.
+ */
+export const AUTO_ATTR = 'data-kg-auto';
 
 /** 이 태그들만 텍스트 내부 서식으로 인정한다. tiptap 인라인 스키마와 같은 집합이어야 한다. */
 export const FORMAT_TAGS = new Set(['B', 'STRONG', 'I', 'EM', 'U', 'S', 'STRIKE', 'BR']);
@@ -50,6 +55,8 @@ export function isInlineHost(el: Element): boolean {
  */
 export function isTextRun(el: Element): boolean {
   if (isOpaque(el)) return false;
+  // 자동으로 채워지는 자리는 고칠 대상이 아니다.
+  if (el.hasAttribute(AUTO_ATTR)) return false;
   if (!el.textContent?.trim()) return false;
   for (const child of el.children) {
     if (!FORMAT_TAGS.has(child.tagName)) return false;
