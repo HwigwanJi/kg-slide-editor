@@ -21,9 +21,12 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { ensureBundle } from './bundle.mjs';
 
-const ROOT = resolve(dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')), '..');
+// fileURLToPath 를 쓴다. URL 의 pathname 은 한글과 공백이 퍼센트로 인코딩된 채라
+// 손으로 자르면 경로가 어긋난다 — 폴더 이름이 ASCII 일 때만 우연히 맞는다.
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const BUNDLE = ensureBundle('apply');
 
 const args = parseArgs(process.argv.slice(2));
