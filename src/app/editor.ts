@@ -57,7 +57,11 @@ export interface EditorApi {
   /* 프로젝트 */
   projectName(): string;
   openFolder(): Promise<void>;
-  reloadProject(): Promise<void>;
+  /**
+   * 디스크의 프로젝트를 다시 읽는다. 명령줄 도구가 폴더에 쓴 결과를 화면으로 가져오는 통로다.
+   * announce 는 사람이 눌렀을 때만 켠다 — 화면이 붙을 때마다 알림이 뜨면 안 된다.
+   */
+  reloadProject(announce?: boolean): Promise<void>;
   setProjectName(name: string): void;
   /** kg.config.json 에서 읽은 값. 최소 글자 크기 같은 판단 기준이 여기서 온다. */
   settings(): ProjectSettings;
@@ -220,6 +224,9 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
   let zoom: Zoom = 'fit';
   let tokenCache: KgToken[] = [];
   let settings: ProjectSettings = DEFAULT_SETTINGS;
+
+  /** 마지막으로 읽은 디스크 덱의 시각. 창으로 돌아왔을 때 그 사이 바뀌었는지 가린다. */
+  let diskStamp = '';
 
   const selectionListeners = new Set<(ids: NodeId[]) => void>();
   const statusListeners = new Set<(s: Status) => void>();
@@ -417,6 +424,23 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       const ro = new ResizeObserver(() => applyScale());
       if (stage.parentElement) ro.observe(stage.parentElement);
 
+      /**
+       * 창으로 돌아왔을 때 디스크가 그 사이 바뀌었는지만 본다.
+       *
+       * 알리기만 하고 저절로 다시 읽지는 않는다. 편집하던 중에 캔버스가 갈아 끼워지면
+       * 무엇이 사라졌는지 알 수 없다. 무엇을 버릴지는 사람이 정한다.
+       */
+      const onFocus = () => {
+        void (async () => {
+          if (!diskStamp) return;
+          const disk = await project.loadDeck().catch(() => null);
+          if (!disk || disk.updatedAt === diskStamp) return;
+          diskStamp = disk.updatedAt;
+          toast('info', '디스크의 프로젝트가 바뀌었습니다 — 다시 읽기를 누르세요');
+        })();
+      };
+      window.addEventListener('focus', onFocus);
+
       draw();
       applyScale();
       void api.reloadProject();
@@ -424,6 +448,7 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       return () => {
         unsub();
         unsubDeck();
+        window.removeEventListener('focus', onFocus);
         ro.disconnect();
         el.removeEventListener('dblclick', onDouble);
         transform?.destroy();
@@ -451,15 +476,43 @@ export function createEditor(initial: ProjectAdapter = localProject): EditorApi 
       });
     },
 
-    async reloadProject() {
-      try {
+    /**
+     * 디스크의 프로젝트를 다시 읽는다.
+     *
+     * 명령줄 도구(적재·적용·미리보기)가 폴더에 쓴 결과는 편집기가 알아서 알지 못한다.
+     * 감시자를 두지 않았으므로 이 통로가 유일하게 화면을 디스크에 맞추는 길이다.
+     *
+     * 보던 장표를 그대로 둔다. 첫 장으로 튀면 50장짜리 덱에서 자리를 잃는다.
+     * 읽기 전에 지금 장표를 저장한다 — 다시 읽는 김에 편집분이 사라지면 안 된다.
+     */
+    async reloadProject(announce = false) {
+      const read = async () => {
+        const before = slides.get().id;
+        const had = deck.get().slides.length;
+        await persistCurrent();
         settings = await project.loadSettings();
         const loaded = await project.loadDeck();
         deck.replace(loaded);
-        const first = loaded.slides[0];
-        if (first) await api.openSlide(first.id);
+        const keep = loaded.slides.find((s) => s.id === before) ?? loaded.slides[0];
+        if (keep) await api.openSlide(keep.id);
         else showSlide(blankDoc());
-      } catch (e) { status(msg(e), true); }
+        diskStamp = loaded.updatedAt;
+        return { had, now: loaded.slides.length };
+      };
+
+      // 화면이 붙을 때도 이 길로 온다. 그때까지 알림을 띄우면 열 때마다 토스트가 뜬다.
+      if (!announce) {
+        try { await read(); } catch (e) { status(msg(e), true); }
+        return;
+      }
+
+      await withBusy('프로젝트를 다시 읽는 중', '', async () => {
+        const { had, now } = await read();
+        const delta = now - had;
+        toast('ok', delta === 0
+          ? `다시 읽음 — 장표 ${now}장`
+          : `다시 읽음 — 장표 ${now}장 (${delta > 0 ? `+${delta}` : delta})`);
+      });
     },
 
     setProjectName: (name) => deck.dispatch({ type: 'setName', name }, { coalesce: 'deckName' }),

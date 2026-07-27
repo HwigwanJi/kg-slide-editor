@@ -70,6 +70,10 @@ export const ACTIONS: ActionDef[] = [
   /* ---------------- 파일 ---------------- */
   { id: 'file.save', label: '저장', group: '파일', shortcut: 'Ctrl+S', surfaces: ['toolbar', 'palette'],
     run: ({ api }) => void api.save() },
+  // 명령줄 도구가 폴더에 쓴 결과(적재·적용·미리보기)를 화면으로 가져오는 유일한 통로다.
+  // 편집기는 폴더를 감시하지 않으므로 이 단추가 없으면 새로고침하고 폴더를 다시 여는 수밖에 없다.
+  { id: 'file.reload', label: '다시 읽기', group: '파일', surfaces: ['toolbar', 'palette'],
+    run: ({ api }) => void api.reloadProject(true) },
   { id: 'file.exportHtml', label: 'HTML 내보내기', group: '파일', surfaces: ['toolbar', 'palette'],
     run: ({ api }) => api.exportHtml() },
   { id: 'file.exportJson', label: 'JSON 내보내기', group: '파일', surfaces: ['toolbar', 'palette'],
