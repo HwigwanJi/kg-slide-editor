@@ -307,9 +307,27 @@ export function closestNode(target: EventTarget | null): HTMLElement | null {
  * 내보내기 직전 편집용 흔적을 지운다.
  * data-kg-role 과 말머리표 표시는 남긴다 — 위계 CSS 가 그것을 보고 걸리므로,
  * 내보낸 파일에서도 같은 위계 규칙이 그대로 유지된다.
+ *
+ * **빈 자리(.kg-slot)는 지우지 않는다.** 편집기 흔적처럼 보이지만 배치의 일부다.
+ * 요소를 흐름에서 떼어낼 때 그 자리에 같은 크기의 투명한 사본을 남기는데(render.placeDetached),
+ * 그것이 없으면 뒤따르는 형제가 즉시 위로 밀려 올라간다.
+ *
+ * 예전에는 여기서 지웠다. 그래서 화면에서는 멀쩡한 장표가 내보내면 오른쪽 아래가
+ * 통째로 겹쳐 나왔다 — 떼어낸 것은 절대좌표에 그대로 있는데 흐름만 무너졌기 때문이다.
+ * 화면과 파일이 갈리는 종류라 눈으로 보기 전에는 알 수 없었다.
  */
 export function stripEditorAttrs(root: HTMLElement): void {
-  for (const slot of root.querySelectorAll(`.${SLOT_CLASS}`)) slot.remove();
+  /*
+   * 빈 자리는 남기되 안쪽 표시는 걷는다. 글자 표시가 남으면 내보낸 파일에서
+   * 같은 글자가 두 벌로 잡힌다 — 보이지는 않지만 검색·추출에 걸린다.
+   */
+  for (const slot of root.querySelectorAll<HTMLElement>(`.${SLOT_CLASS}`)) {
+    slot.setAttribute('aria-hidden', 'true');
+    for (const el of slot.querySelectorAll('[data-kg-text], [data-kg-style0]')) {
+      el.removeAttribute(TEXT_ATTR);
+      el.removeAttribute(STYLE0_ATTR);
+    }
+  }
   const clear = (el: Element) => {
     el.removeAttribute(ID_ATTR);
     el.removeAttribute(STYLE0_ATTR);
