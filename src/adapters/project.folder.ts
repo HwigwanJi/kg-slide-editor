@@ -32,10 +32,6 @@ interface PermissionedHandle {
   requestPermission?(opts?: PermissionArgs): Promise<PermissionState>;
 }
 
-export function isFolderSupported(): boolean {
-  return typeof (window as unknown as DirectoryPickerWindow).showDirectoryPicker === 'function';
-}
-
 /**
  * 쓰기 권한을 받아 둔다.
  *

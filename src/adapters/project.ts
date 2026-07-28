@@ -10,7 +10,7 @@
  *   deck.json / slides/*.kgslide / preview/*.png / library/*.svg
  */
 import {
-  DECK_FILE, DEFAULT_SETTINGS, SETTINGS_FILE, assertSlideDoc, createDeck, parseDeck,
+  DEFAULT_SETTINGS, SETTINGS_FILE, assertSlideDoc, createDeck, parseDeck,
   parseSettings, parseSlideDoc,
   type DeckDoc, type ProjectSettings, type SlideDoc,
 } from '@contract/index';
@@ -115,12 +115,6 @@ export const localProject: ProjectAdapter = {
 const SETTINGS_KEY = `kg-slide-editor/${SETTINGS_FILE}`;
 
 /* ------------------------------------------------------------------ */
-
-/** 목차와 실제 저장분이 어긋났을 때 사람이 볼 설명. */
-export function describeMismatch(missing: string[]): string {
-  if (missing.length === 0) return '';
-  return `목차에 있으나 파일이 없는 장표 ${missing.length}건 — ${DECK_FILE} 를 정리해야 합니다.`;
-}
 
 /** 폴더 이름에서 프로젝트 이름을 만든다. */
 export function projectNameFrom(path: string): string {

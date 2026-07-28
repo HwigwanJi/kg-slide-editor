@@ -43,6 +43,10 @@
   --ed-danger: var(--ed-c-red-500);
   --ed-warn: var(--ed-c-amber-500);
   --ed-ok: var(--ed-c-green-500);
+
+  /* 사본에서 가릴 자리에 칠하는 형광펜 */
+  --ed-blind-ink: var(--ed-c-marker-500);
+  --ed-blind-edge: var(--ed-c-marker-700);
 }
 
 /* 밝은 껍데기가 필요하면 <html data-ed-theme="light"> 만 붙인다. */

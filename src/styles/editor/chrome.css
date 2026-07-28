@@ -282,6 +282,6 @@
 
 /* 저장 상태 — 잃을 수 있는 것은 이것뿐이라 다른 수치보다 눈에 띄어야 한다. */
 .ed-statusbar__warn {
-  color: var(--ed-warn, #B45309);
+  color: var(--ed-warn);
   font-weight: 600;
 }

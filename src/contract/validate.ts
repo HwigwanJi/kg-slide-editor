@@ -25,18 +25,6 @@ export function parseSlideDoc(raw: unknown): SlideDoc {
   return result.data;
 }
 
-/** 던지지 않는 형태. UI에서 오류를 나열할 때 쓴다. */
-export function safeParseSlideDoc(raw: unknown):
-  | { ok: true; doc: SlideDoc }
-  | { ok: false; issues: string[] } {
-  try {
-    return { ok: true, doc: parseSlideDoc(raw) };
-  } catch (e) {
-    if (e instanceof ContractError) return { ok: false, issues: e.issues };
-    return { ok: false, issues: [e instanceof Error ? e.message : String(e)] };
-  }
-}
-
 /** 쓰기 직전 검증. 잘못된 문서를 저장소에 넣지 않는다. */
 export function assertSlideDoc(doc: SlideDoc): SlideDoc {
   return parseSlideDoc(doc);

@@ -6,10 +6,7 @@
  * 그래서 규칙은 코어 하나만 두고, 도구는 그것을 실행만 한다.
  */
 import { parseSettings, parseSlideDoc, type ProjectSettings } from '@contract/index';
-import {
-  blindTargets, listBlind, scanBlindCandidates,
-  type BlindCandidate, type BlindItem,
-} from './blind';
+import { scanBlindCandidates, type BlindCandidate } from './blind';
 import { ID_ATTR, ROLE_ATTR_PUBLIC, SLOT_ATTR, TEXT_ATTR, stampIds } from './ids';
 import { render } from './render';
 import { placeByOrigin, reconcileSlides } from './deck';
@@ -102,20 +99,6 @@ export function currentHtml(raw: unknown, cssBase?: string, opts: { mask?: boole
     ...(cssBase ? { cssBase } : {}),
     ...(opts.mask ? { mask: true } : {}),
   });
-}
-
-/**
- * 이 장표에서 가려질 자리. 내보내기 전에 몇 곳인지 세어 보려고 둔다.
- *
- * 사본을 내기 전에 "정말 가려졌는가" 를 확인할 방법이 없으면 파일을 열어 눈으로 세는 수밖에 없다.
- * 53장을 그렇게 볼 수는 없다.
- */
-export function blindReport(raw: unknown): { count: number; items: BlindItem[] } {
-  const doc = parseSlideDoc(raw);
-  const root = document.querySelector<HTMLElement>('.kg-slide');
-  if (!root) return { count: blindTargets(doc).length, items: [] };
-  const items = listBlind(root, doc);
-  return { count: items.length, items };
 }
 
 /**

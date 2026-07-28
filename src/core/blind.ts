@@ -10,11 +10,8 @@
  */
 import type { SlideDoc } from '@contract/index';
 import { IDENTITY_PATTERNS, LOGO_SELECTORS, MASK_TEXT } from '@contract/index';
-import { ID_ATTR, SLOT_CLASS, TEXT_ATTR, byId } from './ids';
+import { BLIND_ATTR, ID_ATTR, SLOT_CLASS, TEXT_ATTR, byId } from './ids';
 import { isRemoved } from './tree';
-
-/** 편집뷰에서 형광펜 자국을 나타내는 표시. CSS 는 편집기 것만 가지고 있다. */
-export const BLIND_ATTR = 'data-kg-blind';
 
 /**
  * 지금 문서에서 실제로 가려질 노드.
@@ -86,7 +83,7 @@ function coverBox(el: HTMLElement): void {
  * innerHTML 을 문자열로 바꾸면 클래스 이름이나 속성값에 든 같은 글자까지 갈려
  * CSS 선택자가 끊긴다. 그래서 DOM 의 텍스트 노드만 지나간다.
  */
-export function maskIdentity(root: HTMLElement): void {
+function maskIdentity(root: HTMLElement): void {
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
   const hits: Text[] = [];
   for (let n = walker.nextNode(); n; n = walker.nextNode()) {
@@ -105,7 +102,7 @@ export function maskIdentity(root: HTMLElement): void {
 }
 
 /** 로고 자리. 그림을 지우되 자리는 남긴다 — 빼 버리면 꼬리말 정렬이 틀어진다. */
-export function maskLogos(root: HTMLElement): void {
+function maskLogos(root: HTMLElement): void {
   const seen = new Set<Element>();
   for (const sel of LOGO_SELECTORS) {
     for (const el of root.querySelectorAll<HTMLElement>(sel)) {

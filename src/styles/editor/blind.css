@@ -7,19 +7,15 @@
    딸려 나가는 것이 사본에서 가장 나쁜 사고다.
    ============================================================================ */
 
-:root {
-  /* 종이 형광펜 색. 글자를 덮지 않고 비쳐야 하므로 곱하기로 얹는다. */
-  --ed-blind-ink: #ffd84d;
-}
-
 /* 자국. 요소 상자를 바꾸지 않으려고 그림자가 아니라 배경으로 칠한다 —
-   테두리를 주면 1px 씩 밀려 장표 격자가 흔들린다. */
+   테두리를 주면 1px 씩 밀려 장표 격자가 흔들린다.
+   색은 tokens/color.css 가 가진다(R5). 여기에 값을 적지 않는다. */
 [data-kg-blind] {
   background-image: linear-gradient(
     var(--ed-blind-ink) 0 100%
   ) !important;
   background-blend-mode: multiply;
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ed-blind-ink) 70%, #8a6d00);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ed-blind-ink) 70%, var(--ed-blind-edge));
   border-radius: 2px;
 }
 

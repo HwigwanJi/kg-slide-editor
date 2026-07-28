@@ -41,6 +41,3 @@ export async function recallFolder(): Promise<FileSystemDirectoryHandle | null> 
   return handle ?? null;
 }
 
-export async function forgetFolder(): Promise<void> {
-  await tx('readwrite', (s) => s.delete(KEY)).catch(() => undefined);
-}

@@ -39,8 +39,6 @@ export type Role = z.infer<typeof zRole>;
 export const ROLES = zRole.options;
 /** 본문 계열만. 단계 조정 UI가 이 순서를 쓴다. */
 export const BODY_ROLES: Role[] = ['body1', 'body2', 'body3', 'body4'];
-/** 태그 계열. 강조·보조·번호로 나눠 쓴다. */
-export const LABEL_ROLES: Role[] = ['label', 'label2', 'num'];
 
 /**
  * 말머리표.

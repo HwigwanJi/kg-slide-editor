@@ -7,6 +7,7 @@
  * PPT 의 선택 창(Selection Pane)과 같은 역할이다.
  */
 import type { NodeId, Role } from '@contract/index';
+import { ROOT_ID } from '@contract/index';
 import { ID_ATTR, SLOT_CLASS, TEXT_ATTR, roleOf } from './ids';
 
 export type Relation = '부모' | '자식' | '형제' | '겹침' | '근처' | '도형';
@@ -88,7 +89,7 @@ export function neighborsOf(root: HTMLElement, el: HTMLElement, scale: number): 
     if (out.length >= MAX_TOTAL) return false;
     if (!(node instanceof HTMLElement)) return false;
     const id = node.getAttribute(ID_ATTR);
-    if (!id || id === 'n' || seen.has(id) || node === el) return false;
+    if (!id || id === ROOT_ID || seen.has(id) || node === el) return false;
     if (node.closest(`.${SLOT_CLASS}`)) return false;
     const rect = rectOf(root, node, scale);
     if (rect.w < 2 && rect.h < 2) return false;

@@ -12,6 +12,7 @@
  * 지워지는 것보다 알아채기 어렵다. 그래서 노드마다 확인하고, 옮기지 못한 것은 반드시 보고한다.
  */
 import type { NodeId, SlideDoc } from '@contract/index';
+import { ROOT_ID } from '@contract/index';
 import { ID_ATTR, stampIds } from './ids';
 
 export interface CarryReport {
@@ -50,7 +51,7 @@ export function carryOverlay(prev: SlideDoc, next: SlideDoc): { doc: SlideDoc; r
   const report: CarryReport = { carried: 0, dropped: [], blindDropped: [] };
 
   const at = (root: HTMLElement, id: NodeId): Element | null =>
-    id === 'n' ? root : root.querySelector(`[${ID_ATTR}="${CSS.escape(id)}"]`);
+    id === ROOT_ID ? root : root.querySelector(`[${ID_ATTR}="${CSS.escape(id)}"]`);
 
   /**
    * 이 노드가 새 원본에서도 같은 것인가.

@@ -68,18 +68,6 @@ export const zSlideDoc = z.object({
 }).strict();
 export type SlideDoc = z.infer<typeof zSlideDoc>;
 
-/** 목록 화면용 요약. 문서 전체를 읽지 않고 나열할 때 쓴다. */
-export const zSlideMeta = z.object({
-  id: z.string(),
-  title: z.string(),
-  updatedAt: z.string(),
-}).strict();
-export type SlideMeta = z.infer<typeof zSlideMeta>;
-
-export function metaOf(doc: SlideDoc): SlideMeta {
-  return { id: doc.id, title: doc.title, updatedAt: doc.updatedAt };
-}
-
 /** 빈 문서 생성. 임포트 어댑터가 source 를 채워 넣는다. */
 export function createSlideDoc(init: {
   id: string;

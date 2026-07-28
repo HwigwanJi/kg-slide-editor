@@ -91,6 +91,14 @@ export const DECK_FILE = 'project.kgproj';
 export const DECK_FILE_LEGACY = 'deck.json';
 export const SLIDES_DIR = 'slides';
 export const PREVIEW_DIR = 'preview';
+/**
+ * 도형 라이브러리 폴더.
+ *
+ * `npm run dead` 가 "아무도 안 부른다" 고 짚는데, 지우지 않는다. 이 상수 묶음은
+ * 프로젝트 폴더가 어떻게 생겼는지를 계약이 선언한 것이고, `library/` 는 실제로 있다.
+ * 지금 이 이름을 읽는 것이 `tools/lint.mjs` 뿐인데 도구는 .mjs 라 계약을 가져오지 못해
+ * 글자로 적어 두고 있을 뿐이다. 여기서 빼면 계약이 폴더 구조를 반만 말하게 된다.
+ */
 export const LIBRARY_DIR = 'library';
 /**
  * 프로젝트가 쓰는 그림. pptx 에서 뽑은 캡처처럼 사람이 가져온 것이 여기 온다.

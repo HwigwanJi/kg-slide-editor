@@ -384,10 +384,14 @@ export const ACTIONS: ActionDef[] = [
     run: ({ api }) => api.setThemeScale(round(Math.max(0.6, api.slides.get().theme.scale - 0.05))) },
 ];
 
-/** 커맨드 타입 중 어떤 액션에도 걸리지 않은 것. 세션 훅과 개발 중 점검이 쓴다. */
-export const COVERED_COMMANDS: ReadonlySet<Command['type']> = new Set(
-  ACTIONS.flatMap((a) => a.covers ?? []),
-);
+/*
+ * 커맨드가 전부 화면에 걸려 있는지(R8)는 `.claude/hooks/load-context.mjs` 가 확인한다.
+ *
+ * 예전에는 여기에도 같은 집합을 만들어 두었는데, 훅은 그것을 쓰지 않았다 — 훅은 빌드 밖에서
+ * 도는 .mjs 라 TS 를 가져올 수 없어 commands.ts 와 이 파일을 글자로 훑는다.
+ * 같은 판정이 두 곳에 있고 한쪽은 아무도 안 부르는 상태였으므로 그쪽을 걷었다.
+ * 판정을 바꿀 일이 있으면 훅을 고친다.
+ */
 
 export function byId(id: string): ActionDef | undefined {
   return ACTIONS.find((a) => a.id === id);

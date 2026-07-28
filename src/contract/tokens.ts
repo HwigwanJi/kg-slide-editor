@@ -25,11 +25,6 @@ export function toCssColor(ref: ColorRef): string {
   return ref.startsWith('token:') ? `var(--${ref.slice(6)})` : ref;
 }
 
-/** `--navy-800` → `token:navy-800` */
-export function toTokenRef(cssVarName: string): ColorRef {
-  return `token:${cssVarName.replace(/^--/, '')}` as ColorRef;
-}
-
 /** CSS 원문의 :root 블록에서 색상 토큰만 뽑는다. */
 export function parseKgTokens(cssText: string): KgToken[] {
   const root = /:root\s*\{([\s\S]*?)\}/.exec(cssText);
@@ -56,13 +51,3 @@ export async function loadKgTokens(href: string): Promise<KgToken[]> {
   return cache;
 }
 
-/** 묶음별로 정리한 형태. 스와치 그리드가 그대로 쓴다. */
-export function groupTokens(tokens: KgToken[]): Map<string, KgToken[]> {
-  const map = new Map<string, KgToken[]>();
-  for (const t of tokens) {
-    const list = map.get(t.group);
-    if (list) list.push(t);
-    else map.set(t.group, [t]);
-  }
-  return map;
-}

@@ -21,9 +21,12 @@
  *
  * 키보드는 여기서 다루지 않는다. 단축키의 진실은 app/actions.ts 한 곳이다.
  */
-import { ANCHOR_ORIGIN, BACKGROUND_SELECTORS, type NodeId, type SlideDoc } from '@contract/index';
 import {
-  byId, canvasRect, closestNode, editable, expandSelection, idOf, isLocked, isRemoved, kindOf,
+  ANCHOR_ORIGIN, BACKGROUND_SELECTORS, ROOT_ID, type NodeId, type SlideDoc,
+} from '@contract/index';
+import {
+  BLIND_ATTR, byId, canvasRect, closestNode, editable, expandSelection, idOf, isLocked, isRemoved,
+  kindOf,
   type Command, type SlideStore,
 } from '@core/index';
 
@@ -537,8 +540,8 @@ export function createTransform(opts: TransformOptions): TransformController {
       // 손을 떼기 전에도 결과가 보여야 한다. 커맨드는 뗄 때 한 번만 보내므로 여기서 미리 그린다.
       const el = byId(opts.getRoot()!, id);
       if (!el) continue;
-      if (s.erasing) el.removeAttribute('data-kg-blind');
-      else el.setAttribute('data-kg-blind', '');
+      if (s.erasing) el.removeAttribute(BLIND_ATTR);
+      else el.setAttribute(BLIND_ATTR, '');
     }
     s.lastX = x;
     s.lastY = y;
@@ -607,7 +610,7 @@ export function createTransform(opts: TransformOptions): TransformController {
 
     for (const el of root.querySelectorAll<HTMLElement>(`[${'data-kg-id'}]`)) {
       const id = el.getAttribute('data-kg-id');
-      if (!id || id === 'n' || el.closest('.kg-slot')) continue;
+      if (!id || id === ROOT_ID || el.closest('.kg-slot')) continue;
       if (isLocked(doc, id)) continue;
 
       if (!pickable(doc, el, id)) continue;

@@ -19,7 +19,8 @@
     "pptx:text": "node tools/pptx-text.mjs",
     "render": "node tools/render.mjs",
     "blind": "node tools/blind.mjs",
-    "shoot": "node tools/shoot.mjs"
+    "shoot": "node tools/shoot.mjs",
+    "dead": "node tools/dead.mjs"
   },
   "dependencies": {
     "@tiptap/core": "^3.29.0",

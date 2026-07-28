@@ -8,7 +8,7 @@
  * 붙는 순서는 (1) 장표가 직접 붙인 값 → (2) KG 클래스 매칭 → (3) 구조 추론 → (4) 본문 1단.
  * 추론은 완벽하지 않다. 그래서 속성 패널에서 사람이 바꿀 수 있고, 그 값이 이긴다.
  */
-import { NUMERIC_LABEL, ROLE_ATTR, ROLE_SELECTORS, bodyRole, type Role } from '@contract/index';
+import { NUMERIC_LABEL, ROLE_ATTR, ROLE_SELECTORS, ROOT_ID, bodyRole, type Role } from '@contract/index';
 
 export const ID_ATTR = 'data-kg-id';
 /** 계약이 정한 위계 속성 이름. 코어 밖(검사 도구 등)에서도 같은 이름을 봐야 한다. */
@@ -22,6 +22,14 @@ export const MARKER_ATTR = 'data-kg-marker';
 export const MARKER_OFF_ATTR = 'data-kg-marker-off';
 /** 떼어낸 자리에 남는 빈 자리 표시 */
 export const SLOT_CLASS = 'kg-slot';
+/**
+ * 사본에서 가릴 자리에 붙는 형광펜 자국. 편집기 화면에서만 뜻이 있다.
+ *
+ * 이름을 여기 두는 까닭 — 이 파일이 `data-kg-*` 속성 이름의 주인이다.
+ * 처음에는 core/blind.ts 에 두었는데, 그 파일이 ids.ts 를 가져오는 탓에 여기서 되가져올 수 없어
+ * 결국 쓰는 쪽마다 글자를 다시 적었다. 자리를 잘못 잡으면 상수는 쓰이지 못한다.
+ */
+export const BLIND_ATTR = 'data-kg-blind';
 /**
  * 자동으로 채워지는 자리. 값은 장표가 아니라 덱이 안다(쪽번호 등).
  * 사람이 손으로 고칠 값이 아니므로 글자 편집 단위로 열지 않는다.
@@ -46,13 +54,6 @@ export const FORMAT_TAGS = new Set(['B', 'STRONG', 'I', 'EM', 'U', 'S', 'STRIKE'
  */
 const OPAQUE_TAGS = new Set(['SVG', 'CANVAS', 'IMG', 'VIDEO', 'IFRAME']);
 const isOpaque = (el: Element): boolean => OPAQUE_TAGS.has(el.tagName.toUpperCase());
-
-/** 인라인으로 흐르는 태그. 편집을 열 때 줄바꿈이 바뀌지 않게 하려면 알아야 한다. */
-const INLINE_HOSTS = new Set(['SPAN', 'B', 'STRONG', 'I', 'EM', 'U', 'S', 'A', 'SMALL', 'LABEL']);
-
-export function isInlineHost(el: Element): boolean {
-  return INLINE_HOSTS.has(el.tagName);
-}
 
 /**
  * 텍스트 편집 대상인가.
@@ -217,7 +218,7 @@ function round(n: number): number {
  *
  * @param base 시작 경로. 원본은 'n', 추가 노드는 그 노드의 id.
  */
-export function stampIds(root: HTMLElement, base = 'n'): void {
+export function stampIds(root: HTMLElement, base: string = ROOT_ID): void {
   /** 위계가 명시되지 않은 글자 덩어리. 전부 모은 뒤 한꺼번에 판정한다. */
   const unassigned: { el: Element; ctx: WalkCtx }[] = [];
 
@@ -334,7 +335,8 @@ export function stripEditorAttrs(root: HTMLElement): void {
     el.removeAttribute(TEXT_ATTR);
     // 형광펜 자국은 편집기 안에서만 뜻이 있다. 파일에 딸려 나가면
     // 어디를 가리려 했는지가 그대로 적힌 채 나간다 — 사본이 아니라 지도가 된다.
-    el.removeAttribute('data-kg-blind');
+    // 이름은 core/blind.ts 의 BLIND_ATTR 하나다. 여기서 글자로 다시 쓰면 진실이 둘이 된다.
+    el.removeAttribute(BLIND_ATTR);
   };
   for (const el of root.querySelectorAll(`[${ID_ATTR}]`)) clear(el);
   clear(root);
